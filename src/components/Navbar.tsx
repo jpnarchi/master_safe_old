@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/">
               <img 
-                src={isScrolled ? "/lovable-uploads/b2b2805b-dab6-48ae-869c-0f8a9b51cda0.png" : "/lovable-uploads/5371a554-12b5-4e78-88b1-03348546c0e5.png"} 
+                src={isScrolled ? "/lovable-uploads/b2b2805b-dab6-48ae-869c-0f8a9b51cda0.png" : "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png"} 
                 alt="PG Products Logo" 
                 className="h-10 md:h-12 transition-all duration-300" 
               />

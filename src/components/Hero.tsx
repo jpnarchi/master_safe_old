@@ -1,3 +1,4 @@
+
 import { Shield, ChevronDown } from 'lucide-react';
 
 const Hero = () => {
@@ -17,24 +18,15 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-white max-w-2xl">
-              {/* Logo at top - keep this */}
-              <div className="mb-8 animate-fade-in">
-                <img 
-                  src="/lovable-uploads/5371a554-12b5-4e78-88b1-03348546c0e5.png" 
-                  alt="PG Products Logo" 
-                  className="h-16 md:h-20"
-                />
-              </div>
-              
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 animate-fade-in">
                 <Shield size={16} className="text-pglight" />
                 <span className="text-sm font-medium">Tecnología Europea de Vanguardia</span>
               </div>
               
-              {/* Replace text with larger white logo */}
+              {/* Large white logo */}
               <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
                 <img 
-                  src="/lovable-uploads/5371a554-12b5-4e78-88b1-03348546c0e5.png" 
+                  src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" 
                   alt="PG Products White Logo" 
                   className="h-28 md:h-40"
                 />
