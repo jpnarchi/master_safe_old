@@ -28,7 +28,7 @@ const Hero = () => {
                 <img 
                   src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" 
                   alt="PG Products White Logo" 
-                  className="h-28 md:h-40"
+                  className="h-auto max-w-full w-auto max-h-40 object-contain"
                 />
               </div>
               
