@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -9,6 +8,7 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
 import useScrollObserver from "../utils/ScrollObserver";
+import BallisticGlassSlider from "../components/BallisticGlassSlider";
 
 const Index = () => {
   useScrollObserver();
