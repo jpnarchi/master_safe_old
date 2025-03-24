@@ -1,6 +1,6 @@
-
 import { Shield, Zap, Target, Baseline } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
+import CTASection from '../components/CTASection';
 
 const UltraPage = () => {
   return (
@@ -10,7 +10,6 @@ const UltraPage = () => {
       bgImage="/lovable-uploads/ultra-bg.jpg"
       darkMode={true}
     >
-      {/* Introduction Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -40,7 +39,6 @@ const UltraPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 bg-pgnavy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
@@ -86,7 +84,6 @@ const UltraPage = () => {
         </div>
       </section>
 
-      {/* Specifications Section */}
       <section id="especificaciones" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
@@ -168,7 +165,6 @@ const UltraPage = () => {
         </div>
       </section>
 
-      {/* Test Results */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -214,25 +210,14 @@ const UltraPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-3xl mx-auto scroll-reveal">
-            <h2 className="heading-lg mb-6">Protección extraordinaria en dimensiones ordinarias</h2>
-            <p className="text-lg text-white/80 mb-8">
-              Descubra por qué ULTRA representa el futuro del vidrio blindado. Contacte con nuestros especialistas para una demostración personalizada.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/contacto" className="bg-white text-pgnavy hover:bg-white/90 px-8 py-3 rounded-md font-medium transition-colors">
-                Solicitar certificaciones
-              </a>
-              <a href="/#productos" className="border border-white text-white hover:bg-white/10 px-8 py-3 rounded-md font-medium transition-colors">
-                Ver otros productos
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Protección extraordinaria en dimensiones ordinarias"
+        description="Descubra por qué ULTRA representa el futuro del vidrio blindado. Contacte con nuestros especialistas para una demostración personalizada."
+        primaryButtonText="Solicitar certificaciones"
+        primaryButtonLink="/contacto"
+        secondaryButtonText="Ver otros productos"
+        secondaryButtonLink="/#productos"
+      />
     </PageLayout>
   );
 };

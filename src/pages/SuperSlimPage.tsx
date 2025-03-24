@@ -1,6 +1,6 @@
-
 import { Scale, TrendingDown, Gauge, Battery, BarChart } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
+import CTASection from '../components/CTASection';
 
 const SuperSlimPage = () => {
   return (
@@ -209,25 +209,15 @@ const SuperSlimPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-3xl mx-auto scroll-reveal">
-            <h2 className="heading-lg mb-6">La misma protección, menos peso</h2>
-            <p className="text-lg text-white/80 mb-8">
-              Optimice el rendimiento de su vehículo sin comprometer la seguridad. Contacte con nuestros especialistas para conocer más sobre SuperSlim.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/contacto" className="bg-white text-pgnavy hover:bg-white/90 px-8 py-3 rounded-md font-medium transition-colors">
-                Solicitar demostración
-              </a>
-              <a href="/#productos" className="border border-white text-white hover:bg-white/10 px-8 py-3 rounded-md font-medium transition-colors">
-                Ver otros productos
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section - Updated to use common component */}
+      <CTASection 
+        title="La misma protección, menos peso"
+        description="Optimice el rendimiento de su vehículo sin comprometer la seguridad. Contacte con nuestros especialistas para conocer más sobre SuperSlim."
+        primaryButtonText="Solicitar demostración"
+        primaryButtonLink="/contacto"
+        secondaryButtonText="Ver otros productos"
+        secondaryButtonLink="/#productos"
+      />
     </PageLayout>
   );
 };
