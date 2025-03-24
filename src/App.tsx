@@ -14,28 +14,31 @@ import SuperSlimPage from "./pages/SuperSlimPage";
 import UltraPage from "./pages/UltraPage";
 import ContactPage from "./pages/ContactPage";
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/neu" element={<NeuPage />} />
-          <Route path="/glassguard" element={<GlassGuardPage />} />
-          <Route path="/steelglass" element={<SteelGlassPage />} />
-          <Route path="/superslim" element={<SuperSlimPage />} />
-          <Route path="/ultra" element={<UltraPage />} />
-          <Route path="/contacto" element={<ContactPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Initialize QueryClient inside the component
+  const queryClient = new QueryClient();
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/neu" element={<NeuPage />} />
+            <Route path="/glassguard" element={<GlassGuardPage />} />
+            <Route path="/steelglass" element={<SteelGlassPage />} />
+            <Route path="/superslim" element={<SuperSlimPage />} />
+            <Route path="/ultra" element={<UltraPage />} />
+            <Route path="/contacto" element={<ContactPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
