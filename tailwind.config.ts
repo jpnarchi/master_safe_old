@@ -57,8 +57,8 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				pgnavy: '#001A41',
-				pgblue: '#0055B8',
+				pgnavy: '#08244c',
+				pgblue: '#08244c',
 				pglight: '#E6F0FF',
 			},
 			borderRadius: {
