@@ -10,9 +10,19 @@ interface PageLayoutProps {
   subtitle?: string;
   bgImage?: string;
   darkMode?: boolean;
+  fullWidthBg?: boolean;
+  overlayOpacity?: string;
 }
 
-const PageLayout = ({ children, title, subtitle, bgImage, darkMode = false }: PageLayoutProps) => {
+const PageLayout = ({ 
+  children, 
+  title, 
+  subtitle, 
+  bgImage, 
+  darkMode = false, 
+  fullWidthBg = false,
+  overlayOpacity = darkMode ? 'bg-pgnavy/70' : 'bg-white/70' 
+}: PageLayoutProps) => {
   useScrollObserver();
 
   useEffect(() => {
@@ -49,10 +59,10 @@ const PageLayout = ({ children, title, subtitle, bgImage, darkMode = false }: Pa
         <div className="absolute inset-0">
           {bgImage ? (
             <div 
-              className="absolute inset-0 bg-cover bg-center" 
+              className={`absolute inset-0 bg-cover bg-center ${fullWidthBg ? 'object-cover' : ''}`}
               style={{ backgroundImage: `url(${bgImage})` }}
             >
-              <div className={`absolute inset-0 ${darkMode ? 'bg-pgnavy/70' : 'bg-white/70'}`}></div>
+              <div className={`absolute inset-0 ${overlayOpacity}`}></div>
             </div>
           ) : (
             <div className="absolute inset-0">

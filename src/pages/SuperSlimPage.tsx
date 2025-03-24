@@ -1,3 +1,4 @@
+
 import { Scale, TrendingDown, Gauge, Battery, BarChart } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import CTASection from '../components/CTASection';
@@ -7,7 +8,9 @@ const SuperSlimPage = () => {
     <PageLayout 
       title="SuperSlim" 
       subtitle="Más Liviano, más delgado, igual de resistente"
-      bgImage="/lovable-uploads/superslim-bg.jpg"
+      bgImage="/lovable-uploads/6db9e596-a8cd-4f5a-97d0-7ff088c4c748.png"
+      fullWidthBg={true}
+      overlayOpacity="bg-black/30"
     >
       {/* Introduction Section */}
       <section className="py-20 bg-white">

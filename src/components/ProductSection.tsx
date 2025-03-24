@@ -51,9 +51,13 @@ const ProductSection: React.FC<ProductSectionProps> = ({
               <div className="backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
                 <ul className="space-y-4">
                   {features.map((feature, i) => (
-                    <li key={i} className={`flex items-center p-4 rounded-lg ${featureItemClass}`}>
+                    <li key={i} className={`flex items-center p-4 rounded-lg ${featureItemClass} group`}>
                       <div className="flex-shrink-0">
-                        <span className={`inline-flex justify-center items-center w-10 h-10 rounded-full ${darkBackground ? 'bg-white/20 text-white' : 'bg-pgblue/10 text-pgblue'} font-bold mr-4 shadow-inner`}>
+                        <span className={`inline-flex justify-center items-center w-12 h-12 rounded-full ${
+                          darkBackground 
+                            ? 'bg-white/20 text-white group-hover:bg-white/30' 
+                            : 'bg-pgblue/10 text-pgblue group-hover:bg-pgblue/20'
+                        } font-bold mr-4 shadow-inner transition-all duration-300`}>
                           {i + 1}
                         </span>
                       </div>
