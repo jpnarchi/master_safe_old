@@ -55,9 +55,19 @@ const ProductSection = ({
     <section 
       id={id} 
       ref={sectionRef}
-      className={`py-24 ${darkBackground ? 'bg-pgnavy text-white' : 'bg-white text-pgnavy'}`}
+      className={`py-24 ${darkBackground ? 'bg-pgnavy text-white' : 'bg-white text-pgnavy'} relative overflow-hidden`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background pattern */}
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+          alt="Background pattern"
+          className={`w-full h-full object-cover ${darkBackground ? 'opacity-25' : 'opacity-8'}`}
+        />
+        <div className={`absolute inset-0 ${darkBackground ? 'bg-pgnavy/90' : 'bg-white/95'}`}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className={`grid md:grid-cols-2 gap-12 items-center ${reversed ? 'md:grid-flow-col-reverse md:grid-cols-2' : ''}`}>
           {/* Image/Visual Section */}
           <div className={`${reversed ? 'md:order-last' : ''}`}>

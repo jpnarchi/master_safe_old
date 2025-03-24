@@ -11,8 +11,18 @@ const NeuPage = () => {
       darkMode={true}
     >
       {/* Introduction Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            alt="Background pattern"
+            className="w-full h-full object-cover opacity-5"
+          />
+          <div className="absolute inset-0 bg-white/95"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 slide-left">
               <h2 className="heading-lg text-pgnavy">Diseño Alemán, Calidad Europea</h2>
@@ -39,8 +49,18 @@ const NeuPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="caracteristicas" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="caracteristicas" className="py-20 bg-gray-50 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            alt="Background pattern"
+            className="w-full h-full object-cover opacity-5"
+          />
+          <div className="absolute inset-0 bg-gray-50/95"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="heading-lg text-pgnavy mb-4">Características Destacadas</h2>
             <p className="text-lg text-pgnavy/70 max-w-3xl mx-auto">
@@ -77,8 +97,18 @@ const NeuPage = () => {
       </section>
 
       {/* Technical Specifications */}
-      <section id="especificaciones" className="py-20 bg-pgnavy text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="especificaciones" className="py-20 bg-pgnavy text-white relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            alt="Background pattern"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-pgnavy/90"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="heading-lg mb-4">Especificaciones Técnicas</h2>
             <p className="text-lg text-white/70 max-w-3xl mx-auto">
@@ -116,8 +146,17 @@ const NeuPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white relative overflow-hidden">
+        {/* Background pattern overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            alt="Background pattern"
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-3xl mx-auto scroll-reveal">
             <h2 className="heading-lg mb-6">Descubra la excelencia en protección balística</h2>
             <p className="text-lg text-white/80 mb-8">
