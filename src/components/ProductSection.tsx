@@ -1,3 +1,4 @@
+
 import React from 'react';
 import BallisticGlassSlider from './BallisticGlassSlider';
 
@@ -23,13 +24,14 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   useSlider = false
 }) => {
   const bgClass = darkBackground ? 'bg-pgnavy text-white' : 'bg-white';
+  const titleClass = darkBackground ? 'text-white' : 'text-pgblue';
 
   return (
     <section id={id} className={`py-16 md:py-24 ${bgClass}`}>
       <div className="section-container">
         <div className={`grid md:grid-cols-2 gap-8 lg:gap-16 items-center ${reversed ? 'md:grid-flow-col md:grid-cols-2 md:grid-rows-1 md:grid-flow-dense' : ''}`}>
           <div className={`scroll-reveal ${reversed ? 'md:col-start-2' : ''}`}>
-            <h2 className="heading-lg mb-2 text-pgblue">{title}</h2>
+            <h2 className={`heading-lg mb-2 ${titleClass}`}>{title}</h2>
             <p className="text-xl font-semibold mb-6">{subtitle}</p>
             
             {description.map((paragraph, i) => (

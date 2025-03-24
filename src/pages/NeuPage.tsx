@@ -1,4 +1,3 @@
-
 import { Shield, Award, Sparkles, Maximize, PenTool } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 
@@ -64,7 +63,7 @@ const NeuPage = () => {
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="heading-lg text-pgnavy mb-4">Características Destacadas</h2>
             <p className="text-lg text-pgnavy/70 max-w-3xl mx-auto">
-              NEU combina tecnología de punta, materiales premium y procesos innovadores para ofrecer la máxima protección.
+              NEU combina tecnología de punta, materiales premium y procesos innovadores para ofrecer la máxima seguridad.
             </p>
           </div>
 
