@@ -38,23 +38,79 @@ const Index = () => {
       
       <Hero />
       
-      <ProductSection 
-        id="neu"
-        title="NEU Premium Ballistic Glass"
-        subtitle="Ingeniería Alemana"
-        description={[
-          "Un cristal blindado automotriz diseñado y desarrollado con ingeniería Alemana, producido con las mejores materias primas disponibles bajo estándares de diseño Europeo.",
-          "Esta combinación proporciona al producto: mayor resistencia balística comprobada, calidad superior en geometría, acabados únicos y óptica destacable."
-        ]}
-        features={[
-          "Resistencia Balística NIJ III-A",
-          "4 impactos Munición: 7,62x39mm FMJ",
-          "Serigrafía Tipo Europeo",
-          "Flat painting, más visibilidad y discreción",
-          "Acabado único de acero inoxidable"
-        ]}
-        useSlider={true}
-      />
+      <section id="neu" className="py-16 md:py-24 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            alt="Background pattern"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-white/90"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="section-container relative z-10">
+          <div className="text-center mb-12 scroll-reveal">
+            <h2 className="heading-lg text-pgnavy mb-3">NEU Premium Ballistic Glass</h2>
+            <p className="text-xl font-semibold text-pgnavy/80 max-w-2xl mx-auto">
+              Ingeniería Alemana, Estándares Europeos, Protección Superior
+            </p>
+            <div className="w-24 h-1 bg-pgblue/70 mx-auto mt-5"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 slide-left">
+              <div className="flex items-center mb-2">
+                <div className="w-1.5 h-8 bg-pgblue mr-3"></div>
+                <h3 className="text-2xl font-bold text-pgnavy">Diseño y Tecnología Superior</h3>
+              </div>
+              
+              <p className="text-lg text-pgnavy/70">
+                Un cristal blindado automotriz diseñado y desarrollado con ingeniería Alemana, producido con las mejores materias primas disponibles bajo estándares de diseño Europeo.
+              </p>
+              
+              <p className="text-lg text-pgnavy/70">
+                Esta combinación proporciona al producto: mayor resistencia balística comprobada, calidad superior en geometría, acabados únicos y óptica destacable.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 mt-8">
+                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                  <h4 className="font-bold text-pgnavy mb-1">Resistencia Balística</h4>
+                  <p className="text-sm text-pgnavy/70">NIJ III-A + 4 impactos 7,62x39mm</p>
+                </div>
+                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                  <h4 className="font-bold text-pgnavy mb-1">Serigrafía Europea</h4>
+                  <p className="text-sm text-pgnavy/70">Flat painting, mayor visibilidad</p>
+                </div>
+                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                  <h4 className="font-bold text-pgnavy mb-1">Acabado Premium</h4>
+                  <p className="text-sm text-pgnavy/70">Acero inoxidable balístico</p>
+                </div>
+                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                  <h4 className="font-bold text-pgnavy mb-1">Óptica Superior</h4>
+                  <p className="text-sm text-pgnavy/70">Máxima claridad visual</p>
+                </div>
+              </div>
+              
+              <div className="pt-4">
+                <a href="/neu" className="btn-primary inline-flex items-center">
+                  Descubrir más
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <div className="slide-right">
+              <div className="bg-white/30 backdrop-blur-sm p-3 rounded-2xl shadow-xl">
+                <BallisticGlassSlider />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
       <FeatureGrid />
       
