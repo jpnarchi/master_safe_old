@@ -43,10 +43,30 @@ const PageLayout = ({ children, title, subtitle, bgImage, darkMode = false }: Pa
       
       {/* Hero Section */}
       <section 
-        style={bgImage ? { backgroundImage: `linear-gradient(rgba(0, 26, 65, 0.7), rgba(0, 26, 65, 0.7)), url(${bgImage})` } : {}}
-        className={`min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat ${darkMode ? 'bg-pgnavy' : 'bg-white'}`}
+        className={`min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative ${darkMode ? 'bg-pgnavy' : 'bg-white'}`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        {/* Background with triangles pattern and overlay */}
+        <div className="absolute inset-0">
+          {bgImage ? (
+            <div 
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ backgroundImage: `url(${bgImage})` }}
+            >
+              <div className={`absolute inset-0 ${darkMode ? 'bg-pgnavy/70' : 'bg-white/70'}`}></div>
+            </div>
+          ) : (
+            <div className="absolute inset-0">
+              <img 
+                src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+                alt="Background pattern"
+                className={`w-full h-full object-cover ${darkMode ? 'opacity-30' : 'opacity-10'}`}
+              />
+              <div className={`absolute inset-0 ${darkMode ? 'bg-pgnavy/70' : 'bg-white/70'}`}></div>
+            </div>
+          )}
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center relative z-10">
           <h1 className={`heading-xl mb-6 ${darkMode ? 'text-white' : 'text-pgnavy'} slide-up active`}>
             {title}
           </h1>
