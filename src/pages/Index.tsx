@@ -53,6 +53,7 @@ const Index = () => {
           "Flat painting, más visibilidad y discreción",
           "Acabado único de acero inoxidable"
         ]}
+        useSlider={true}
       />
       
       <FeatureGrid />
