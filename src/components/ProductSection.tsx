@@ -25,6 +25,11 @@ const ProductSection: React.FC<ProductSectionProps> = ({
 }) => {
   const bgClass = darkBackground ? 'bg-pgnavy text-white' : 'bg-white';
   const titleClass = darkBackground ? 'text-white' : 'text-pgblue';
+  const featureItemClass = darkBackground 
+    ? 'bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/15 transition-all duration-300' 
+    : 'bg-pgnavy/5 backdrop-blur-sm border border-pgnavy/10 shadow-lg hover:shadow-xl hover:bg-pgnavy/10 transition-all duration-300';
+  
+  const featureTextClass = darkBackground ? 'text-white' : 'text-pgnavy';
 
   return (
     <section id={id} className={`py-16 md:py-24 ${bgClass}`}>
@@ -43,14 +48,16 @@ const ProductSection: React.FC<ProductSectionProps> = ({
             {useSlider ? (
               <BallisticGlassSlider />
             ) : (
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-xl">
+              <div className="backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
                 <ul className="space-y-4">
                   {features.map((feature, i) => (
-                    <li key={i} className="flex items-center">
-                      <span className="inline-flex justify-center items-center w-8 h-8 rounded-full bg-pgblue/20 text-pgblue font-bold mr-3">
-                        {i + 1}
-                      </span>
-                      <span>{feature}</span>
+                    <li key={i} className={`flex items-center p-4 rounded-lg ${featureItemClass}`}>
+                      <div className="flex-shrink-0">
+                        <span className={`inline-flex justify-center items-center w-10 h-10 rounded-full ${darkBackground ? 'bg-white/20 text-white' : 'bg-pgblue/10 text-pgblue'} font-bold mr-4 shadow-inner`}>
+                          {i + 1}
+                        </span>
+                      </div>
+                      <span className={`${featureTextClass} font-medium`}>{feature}</span>
                     </li>
                   ))}
                 </ul>

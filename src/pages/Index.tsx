@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -39,14 +40,38 @@ const Index = () => {
       <Hero />
       
       <section id="neu" className="py-16 md:py-24 relative overflow-hidden">
-        {/* Background Pattern */}
+        {/* Triangular Background Pattern */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
-            alt="Background pattern"
-            className="w-full h-full object-cover opacity-10"
-          />
-          <div className="absolute inset-0 bg-white/90"></div>
+          <div className="absolute inset-0 bg-blue-50/50" aria-hidden="true"></div>
+          <svg
+            className="absolute inset-0 h-full w-full opacity-20"
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            height="100%"
+          >
+            <defs>
+              <pattern
+                id="triangles"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+                patternTransform="rotate(45)"
+              >
+                <polygon 
+                  points="0,0 20,20 0,40" 
+                  fill="#08244c" 
+                  fillOpacity="0.4"
+                />
+                <polygon 
+                  points="40,0 20,20 40,40" 
+                  fill="#08244c" 
+                  fillOpacity="0.2"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#triangles)" />
+          </svg>
+          <div className="absolute inset-0 bg-gradient-to-b from-pglight/80 to-white/95"></div>
         </div>
         
         {/* Content */}
@@ -75,19 +100,19 @@ const Index = () => {
               </p>
               
               <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-pgnavy/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-pgnavy/5">
                   <h4 className="font-bold text-pgnavy mb-1">Resistencia Balística</h4>
                   <p className="text-sm text-pgnavy/70">NIJ III-A + 4 impactos 7,62x39mm</p>
                 </div>
-                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-pgnavy/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-pgnavy/5">
                   <h4 className="font-bold text-pgnavy mb-1">Serigrafía Europea</h4>
                   <p className="text-sm text-pgnavy/70">Flat painting, mayor visibilidad</p>
                 </div>
-                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-pgnavy/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-pgnavy/5">
                   <h4 className="font-bold text-pgnavy mb-1">Acabado Premium</h4>
                   <p className="text-sm text-pgnavy/70">Acero inoxidable balístico</p>
                 </div>
-                <div className="bg-pgnavy/5 p-4 rounded-lg border border-pgnavy/10 hover:bg-pgnavy/10 transition duration-300">
+                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-pgnavy/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-pgnavy/5">
                   <h4 className="font-bold text-pgnavy mb-1">Óptica Superior</h4>
                   <p className="text-sm text-pgnavy/70">Máxima claridad visual</p>
                 </div>
@@ -104,7 +129,7 @@ const Index = () => {
             </div>
             
             <div className="slide-right">
-              <div className="bg-white/30 backdrop-blur-sm p-3 rounded-2xl shadow-xl">
+              <div className="bg-white/50 backdrop-blur-sm p-3 rounded-2xl shadow-xl">
                 <BallisticGlassSlider />
               </div>
             </div>
