@@ -12,20 +12,20 @@ const Hero = () => {
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-white">
+      <div className="absolute inset-0 bg-pgnavy">
         <img 
           src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
           alt="Background pattern"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-30"
         />
       </div>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDU1QjgiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE4YzEuMTUzIDAgMi4xLS45NDcgMi4xLTIuMXMtLjk0Ny0yLjEtMi4xLTIuMS0yLjEuOTQ3LTIuMSAyLjEuOTQ3IDIuMSAyLjEgMi4xem0wIDQyYzEuMTUzIDAgMi4xLS45NDcgMi4xLTIuMXMtLjk0Ny0yLjEtMi4xLTIuMS0yLjEuOTQ3LTIuMSAyLjEuOTQ3IDIuMSAyLjEgMi4xem0yMi04NGMxLjE1MyAwIDIuMS0uOTQ3IDIuMS0yLjFzLS45NDctMi4xLTIuMS0yLjEtMi4xLjk0Ny0yLjEgMi4xLjk0NyAyLjEgMi4xIDIuMXptMCA0MmMxLjE1MyAwIDIuMS0uOTQ3IDIuMS0yLjFzLS45NDctMi4xLTIuMS0yLjEtMi4xLjk0Ny0yLjEgMi4xLjk0NyAyLjEgMi4xIDIuMXptMCA0MmMxLjE1MyAwIDIuMS0uOTQ3IDIuMS0yLjFzLS45NDctMi4xLTIuMS0yLjEtMi4xLjk0Ny0yLjEgMi4xLjk0NyAyLjEgMi4xIDIuMXoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDU1QjgiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE4YzEuMTUzIDAgMi4xLS45NDcgMi4xLTIuMXMtLjk0Ny0yLjEtMi4xLTIuMS0yLjEuOTQ3LTIuMSAyLjEuOTQ3IDIuMSAyLjEgMi4xem0wIDQyYzEuMTUzIDAgMi4xLS45NDcgMi4xLTIuMXMtLjk0Ny0yLjEtMi4xLTIuMS0yLjEuOTQ3LTIuMSAyLjEuOTQ3IDIuMSAyLjEgMi4xem0yMi04NGMxLjE1MyAwIDIuMS0uOTQ3IDIuMS0yLjFzLS45NDctMi4xLTIuMS0yLjEtMi4xLjk0Ny0yLjEgMi4xLjk0NyAyLjEgMi4xIDIuMXptMCA0MmMxLjE1MyAwIDIuMS0uOTQ3IDIuMS0yLjFzLS45NDctMi4xLTIuMS0yLjEtMi4xLjk0Ny0yLjEgMi4xLjk0NyAyLjEgMi4xIDIuMXptMCA0MmMxLjE1MyAwIDIuMS0uOTQ3IDIuMS0yLjFzLS45NDctMi4xLTIuMS0yLjEtMi4xLjk0Ny0yLjEgMi4xLjk0NyAyLjEgMi4xIDIuMXoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
 
       <div className="relative h-full flex flex-col justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-pgnavy max-w-2xl">
-              <div className="inline-flex items-center space-x-2 bg-pgnavy/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 animate-fade-in">
+            <div className="text-white max-w-2xl">
+              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 animate-fade-in">
                 <Shield size={16} className="text-pgblue" />
                 <span className="text-sm font-medium">Tecnología Europea de Vanguardia</span>
               </div>
@@ -39,15 +39,15 @@ const Hero = () => {
                 />
               </div>
               
-              <p className="text-lg md:text-xl text-pgnavy/80 mb-8 max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 PG Products, líder en la producción de vidrio blindado premium presenta soluciones innovadoras con ingeniería Alemana y estándares Europeos.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <a href="#neu" className="btn-primary bg-pgnavy text-white hover:bg-pgblue">
+                <a href="#neu" className="btn-primary bg-pgblue text-white hover:bg-white hover:text-pgnavy">
                   Descubrir Productos
                 </a>
-                <a href="#contact" className="btn-secondary border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white">
+                <a href="#contact" className="btn-secondary border-white text-white hover:bg-white hover:text-pgnavy">
                   Contactar
                 </a>
               </div>
@@ -79,7 +79,7 @@ const Hero = () => {
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button 
             onClick={scrollToNextSection}
-            className="text-pgnavy bg-pgnavy/10 rounded-full p-3 hover:bg-pgnavy/20 transition-colors"
+            className="text-white bg-white/10 rounded-full p-3 hover:bg-white/20 transition-colors"
             aria-label="Scroll down"
           >
             <ChevronDown size={24} />
