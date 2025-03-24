@@ -59,12 +59,20 @@ const Hero = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-pgblue/20 to-transparent"></div>
                   <div className="absolute inset-0 shine-effect"></div>
                   <div className="p-8 flex flex-col h-full justify-center">
-                    <h3 className="text-2xl font-bold text-pgnavy mb-4">Resistencia Balística Superior</h3>
-                    <div className="space-y-2 text-pgnavy/80">
-                      <p>• Certificación NIJ III-A</p>
-                      <p>• Resistencia a 7,62x39mm FMJ</p>
-                      <p>• Tecnología de punta alemana</p>
-                      <p>• Claridad óptica excepcional</p>
+                    <h3 className="text-2xl font-bold text-white bg-pgnavy/80 px-4 py-2 rounded-lg inline-block mb-4 shadow-lg border border-pgblue/30">Resistencia Balística Superior</h3>
+                    <div className="space-y-4 text-white">
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                        <span className="ml-2 font-medium">• Certificación NIJ III-A</span>
+                      </div>
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                        <span className="ml-2 font-medium">• Resistencia a 7,62x39mm FMJ</span>
+                      </div>
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                        <span className="ml-2 font-medium">• Tecnología de punta alemana</span>
+                      </div>
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                        <span className="ml-2 font-medium">• Claridad óptica excepcional</span>
+                      </div>
                     </div>
                   </div>
                 </div>
