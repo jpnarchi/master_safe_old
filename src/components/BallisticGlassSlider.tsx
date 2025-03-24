@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 interface SlideItem {
   imageUrl: string;
   title: string;
-  description: string;
 }
 
 const BallisticGlassSlider = () => {
@@ -22,19 +21,16 @@ const BallisticGlassSlider = () => {
 
   const slides: SlideItem[] = [
     {
-      imageUrl: "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png",
-      title: "Automóviles Premium",
-      description: "Protección balística NIJ III-A para vehículos de lujo"
+      imageUrl: "/lovable-uploads/c55693d5-aada-4a4c-8c5b-1d29642483b9.png",
+      title: "Aplicación Militar"
     },
     {
-      imageUrl: "/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png",
-      title: "Vehículos Militares",
-      description: "Resistencia a impactos de munición 7,62x39mm FMJ"
+      imageUrl: "/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png",
+      title: "Vehículos de Alta Seguridad"
     },
     {
-      imageUrl: "/lovable-uploads/b2b2805b-dab6-48ae-869c-0f8a9b51cda0.png",
-      title: "Embarcaciones de Lujo",
-      description: "Acabado premium con tecnología europea de vanguardia"
+      imageUrl: "/lovable-uploads/82e0c0e3-aaad-4d7f-aa32-398f7c44bafe.png",
+      title: "Embarcaciones de Lujo"
     }
   ];
 
@@ -69,7 +65,6 @@ const BallisticGlassSlider = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-pgnavy/80 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="text-2xl font-bold mb-2">{slide.title}</h3>
-                  <p className="text-white/90">{slide.description}</p>
                 </div>
               </div>
             </CarouselItem>
