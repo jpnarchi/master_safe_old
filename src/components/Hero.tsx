@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-white max-w-2xl">
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 animate-fade-in">
-                <Shield size={16} className="text-pgblue" />
+                <Shield size={16} className="text-white" />
                 <span className="text-sm font-medium">Tecnología Europea de Vanguardia</span>
               </div>
               
@@ -44,7 +44,7 @@ const Hero = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <a href="#neu" className="btn-primary bg-pgblue text-white hover:bg-white hover:text-pgnavy">
+                <a href="#neu" className="btn-primary bg-white text-pgnavy hover:bg-white/90 hover:text-pgnavy">
                   Descubrir Productos
                 </a>
                 <a href="#contact" className="btn-secondary border-white text-white hover:bg-white hover:text-pgnavy">
@@ -61,16 +61,16 @@ const Hero = () => {
                   <div className="p-8 flex flex-col h-full justify-center">
                     <h3 className="text-2xl font-bold text-white bg-pgnavy/80 px-4 py-2 rounded-lg inline-block mb-4 shadow-lg border border-pgblue/30">Resistencia Balística Superior</h3>
                     <div className="space-y-4 text-white">
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
                         <span className="ml-2 font-medium">• Certificación NIJ III-A</span>
                       </div>
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
                         <span className="ml-2 font-medium">• Resistencia a 7,62x39mm FMJ</span>
                       </div>
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
                         <span className="ml-2 font-medium">• Tecnología de punta alemana</span>
                       </div>
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-pgblue shadow-md">
+                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
                         <span className="ml-2 font-medium">• Claridad óptica excepcional</span>
                       </div>
                     </div>

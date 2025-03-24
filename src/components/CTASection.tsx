@@ -31,7 +31,7 @@ const CTASection: React.FC<CTASectionProps> = ({
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="max-w-3xl mx-auto scroll-reveal">
-          <h2 className="heading-lg mb-6">{title}</h2>
+          <h2 className="heading-lg mb-6 text-white">{title}</h2>
           <p className="text-lg text-white/80 mb-8">
             {description}
           </p>
