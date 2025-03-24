@@ -152,7 +152,7 @@ const NeuPage = () => {
           <img 
             src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
             alt="Background pattern"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
         

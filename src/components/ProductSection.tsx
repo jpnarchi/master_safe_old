@@ -62,7 +62,7 @@ const ProductSection = ({
         <img 
           src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
           alt="Background pattern"
-          className={`w-full h-full object-cover ${darkBackground ? 'opacity-25' : 'opacity-8'}`}
+          className={`w-full h-full object-cover ${darkBackground ? 'opacity-30' : 'opacity-10'}`}
         />
         <div className={`absolute inset-0 ${darkBackground ? 'bg-pgnavy/90' : 'bg-white/95'}`}></div>
       </div>
