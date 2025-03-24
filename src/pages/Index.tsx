@@ -7,6 +7,7 @@ import FeatureGrid from "../components/FeatureGrid";
 import SpecTable from "../components/SpecTable";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import CTASection from "../components/CTASection";
 import useScrollObserver from "../utils/ScrollObserver";
 
 const Index = () => {
@@ -130,7 +131,14 @@ const Index = () => {
         reversed={true}
       />
       
-      <ContactSection />
+      <CTASection 
+        title="¿Listo para elevar su seguridad?"
+        description="Contáctenos hoy mismo para descubrir cómo nuestros productos de vidrio blindado premium pueden proporcionarle la máxima protección con un diseño elegante."
+        primaryButtonText="Contactar ahora"
+        primaryButtonLink="/contacto"
+        secondaryButtonText="Volver arriba"
+        secondaryButtonLink="#"
+      />
       
       <Footer />
     </div>

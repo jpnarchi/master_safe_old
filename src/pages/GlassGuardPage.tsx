@@ -171,8 +171,17 @@ const GlassGuardPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white relative overflow-hidden">
+        {/* Background pattern overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            alt="Background pattern"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-3xl mx-auto scroll-reveal">
             <h2 className="heading-lg mb-6">Protección certificada para sus necesidades</h2>
             <p className="text-lg text-white/80 mb-8">
