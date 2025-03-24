@@ -121,24 +121,11 @@ const ProductSection = ({
                 ))}
               </div>
               
-              {/* Enhanced Feature List with more prominent styling */}
-              <div className="grid grid-cols-1 gap-4 mb-8">
-                {features.slice(0, features.length).map((feature, idx) => (
-                  <div 
-                    key={idx} 
-                    className={`flex items-start space-x-3 slide-up p-3 rounded-lg transition-all 
-                    ${darkBackground 
-                      ? 'bg-white/5 hover:bg-white/10 border border-white/10' 
-                      : 'bg-pgblue/5 hover:bg-pgblue/10 border border-pgblue/10'} 
-                    shadow-sm`} 
-                    style={{ transitionDelay: `${0.1 * idx}s` }}
-                  >
-                    <div className={`p-2 rounded-full ${darkBackground ? 'bg-pglight/20' : 'bg-pgblue/20'} flex-shrink-0`}>
-                      <Check size={18} className={`flex-shrink-0 ${darkBackground ? 'text-pglight' : 'text-pgblue'}`} />
-                    </div>
-                    <div>
-                      <span className={`font-medium ${darkBackground ? 'text-white' : 'text-pgnavy'}`}>{feature}</span>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                {features.slice(0, 4).map((feature, idx) => (
+                  <div key={idx} className="flex items-start space-x-2 slide-up stagger-delay-1" style={{ transitionDelay: `${0.1 * idx}s` }}>
+                    <Check size={18} className={`mt-0.5 flex-shrink-0 ${darkBackground ? 'text-pglight' : 'text-pgblue'}`} />
+                    <span className={`${darkBackground ? 'text-white/90' : 'text-pgnavy/90'}`}>{feature}</span>
                   </div>
                 ))}
               </div>
