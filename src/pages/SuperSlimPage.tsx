@@ -10,7 +10,7 @@ const SuperSlimPage = () => {
       subtitle="Más Liviano, más delgado, igual de resistente"
       bgImage="/lovable-uploads/6db9e596-a8cd-4f5a-97d0-7ff088c4c748.png"
       fullWidthBg={true}
-      overlayOpacity="bg-white/75"
+      overlayOpacity="bg-white/40"
       textColor="text-pgnavy"
     >
       {/* Introduction Section */}
