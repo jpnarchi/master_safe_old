@@ -55,14 +55,19 @@ const PageLayout = ({
       
       {/* Hero Section */}
       <section 
-        className={`min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative ${darkMode ? 'bg-pgnavy' : 'bg-white'}`}
+        className={`min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative pt-20 ${darkMode ? 'bg-pgnavy' : 'bg-white'}`}
       >
-        {/* Background with triangles pattern and overlay */}
+        {/* Background with image and overlay */}
         <div className="absolute inset-0">
           {bgImage ? (
             <div 
-              className={`absolute inset-0 bg-cover bg-center ${fullWidthBg ? 'object-cover' : ''}`}
-              style={{ backgroundImage: `url(${bgImage})` }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ 
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: fullWidthBg ? 'cover' : 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
             >
               <div className={`absolute inset-0 ${overlayOpacity}`}></div>
             </div>
@@ -79,11 +84,13 @@ const PageLayout = ({
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center relative z-10">
-          <h1 className={`heading-xl mb-6 ${textColor} slide-up active`}>
+          <h1 className={`heading-xl mb-6 ${textColor} slide-up active drop-shadow-lg`}>
             {title}
           </h1>
           {subtitle && (
-            <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${darkMode ? 'text-white/80' : 'text-pgnavy/70'} slide-up active`} style={{ transitionDelay: '0.1s' }}>
+            <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
+              textColor === 'text-white' ? 'text-white/90' : 'text-pgnavy/70'
+            } slide-up active drop-shadow-md`} style={{ transitionDelay: '0.1s' }}>
               {subtitle}
             </p>
           )}

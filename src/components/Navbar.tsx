@@ -30,18 +30,16 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-lg shadow-sm' : 'bg-pgnavy/20 backdrop-blur-md'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-pgnavy shadow-md"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <Link to="/">
               <img 
-                src={isScrolled ? "/lovable-uploads/b2b2805b-dab6-48ae-869c-0f8a9b51cda0.png" : "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png"} 
+                src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" 
                 alt="PG Products Logo" 
-                className="h-10 md:h-12 transition-all duration-300" 
+                className="h-10 md:h-12" 
               />
             </Link>
           </div>
@@ -52,9 +50,7 @@ const Navbar = () => {
               <Link 
                 key={item.name} 
                 to={item.path}
-                className={`font-medium transition-colors duration-300 ${
-                  isScrolled ? 'text-pgnavy hover:text-pgblue' : 'text-white hover:text-white/80'
-                }`}
+                className="font-medium text-white hover:text-white/80 transition-colors duration-300"
               >
                 {item.name}
               </Link>
@@ -64,9 +60,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link 
               to="/contacto" 
-              className={`inline-flex items-center rounded-md px-4 py-2 font-medium ${
-                isScrolled ? 'bg-pgnavy text-white hover:bg-pgblue' : 'bg-white text-pgnavy hover:bg-white/90'
-              } transition-colors duration-300`}
+              className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-white text-pgnavy hover:bg-white/90 transition-colors duration-300"
             >
               Contacto
             </Link>
@@ -76,9 +70,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               type="button"
-              className={`p-2 rounded-md ${
-                isScrolled ? 'text-pgnavy hover:bg-gray-100' : 'text-white hover:bg-white/10'
-              }`}
+              className="p-2 rounded-md text-white hover:bg-white/10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

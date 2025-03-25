@@ -10,8 +10,8 @@ const SuperSlimPage = () => {
       subtitle="Más Liviano, más delgado, igual de resistente"
       bgImage="/lovable-uploads/6db9e596-a8cd-4f5a-97d0-7ff088c4c748.png"
       fullWidthBg={true}
-      overlayOpacity="bg-white/40"
-      textColor="text-pgnavy"
+      overlayOpacity="bg-gradient-to-b from-pgnavy/70 via-pgnavy/50 to-pgnavy/30"
+      textColor="text-white"
     >
       {/* Introduction Section */}
       <section className="py-20 bg-white">
