@@ -12,6 +12,7 @@ interface PageLayoutProps {
   darkMode?: boolean;
   fullWidthBg?: boolean;
   overlayOpacity?: string;
+  textColor?: string;
 }
 
 const PageLayout = ({ 
@@ -21,7 +22,8 @@ const PageLayout = ({
   bgImage, 
   darkMode = false, 
   fullWidthBg = false,
-  overlayOpacity = darkMode ? 'bg-pgnavy/70' : 'bg-white/70' 
+  overlayOpacity = darkMode ? 'bg-pgnavy/70' : 'bg-white/70',
+  textColor = darkMode ? 'text-white' : 'text-pgnavy'
 }: PageLayoutProps) => {
   useScrollObserver();
 
@@ -77,7 +79,7 @@ const PageLayout = ({
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center relative z-10">
-          <h1 className={`heading-xl mb-6 ${darkMode ? 'text-white' : 'text-pgnavy'} slide-up active`}>
+          <h1 className={`heading-xl mb-6 ${textColor} slide-up active`}>
             {title}
           </h1>
           {subtitle && (
