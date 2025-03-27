@@ -1,20 +1,31 @@
 
-import { ShieldCheck, CheckSquare, Maximize, Wrench } from 'lucide-react';
+import { Shield, CheckCircle, FileCheck, LayoutGrid } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
+import CTASection from '../components/CTASection';
 
 const SteelGlassPage = () => {
   return (
     <PageLayout 
       title="SteelGlass" 
       subtitle="Resistente hasta el Borde"
-      bgImage="/lovable-uploads/steelglass-bg.jpg"
-      darkMode={true}
+      bgImage="/lovable-uploads/f5c6e475-3162-4ca5-b907-7e8d88c03f2e.png"
+      fullWidthBg={true}
+      overlayOpacity="bg-gradient-to-b from-pgnavy/70 via-pgnavy/50 to-pgnavy/30"
+      textColor="text-white"
     >
       {/* Introduction Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 slide-left">
+            <div className="relative h-96 rounded-2xl overflow-hidden slide-left">
+              <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/20 to-pgblue/20 z-10 rounded-2xl"></div>
+              <img 
+                src="/lovable-uploads/steelglass-product.jpg" 
+                alt="SteelGlass" 
+                className="w-full h-full object-cover rounded-2xl" 
+              />
+            </div>
+            <div className="space-y-6 slide-right">
               <h2 className="heading-lg text-pgnavy">Vidrio Blindado con Acero Integrado</h2>
               <p className="text-lg text-pgnavy/70">
                 SteelGlass integra en su formulación un inserto de acero en el contorno, añadiendo protección hasta el borde. 
@@ -26,34 +37,26 @@ const SteelGlassPage = () => {
                 entre el bloque balístico del vidrio y la parte opaca.
               </p>
               <div className="pt-4">
-                <a href="#ventajas" className="btn-primary">Descubrir ventajas</a>
+                <a href="#caracteristicas" className="btn-primary">Explorar SteelGlass</a>
               </div>
-            </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden slide-right">
-              <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/20 to-pgblue/20 z-10 rounded-2xl"></div>
-              <img 
-                src="/lovable-uploads/steelglass-product.jpg" 
-                alt="SteelGlass" 
-                className="w-full h-full object-cover rounded-2xl" 
-              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section id="ventajas" className="py-20 bg-pgnavy text-white">
+      {/* Features Section */}
+      <section id="caracteristicas" className="py-20 bg-pgnavy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
-            <h2 className="heading-lg mb-4">Ventajas de SteelGlass</h2>
+            <h2 className="heading-lg mb-4">Características Destacadas</h2>
             <p className="text-lg text-white/70 max-w-3xl mx-auto">
-              Descubra por qué SteelGlass representa un avance revolucionario en la tecnología de vidrio blindado.
+              SteelGlass ofrece soluciones de blindaje con acero integrado para protección incluso en los bordes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors slide-up">
-              <Maximize className="w-12 h-12 text-pglight mb-4" />
+              <CheckCircle className="w-12 h-12 text-pglight mb-4" />
               <h3 className="text-xl font-bold mb-3">Evita la instalación de Overlaps</h3>
               <p className="text-white/70">
                 El acero integrado en el borde elimina la necesidad de overlaps adicionales, simplificando el proceso de instalación y mejorando la estética.
@@ -61,7 +64,7 @@ const SteelGlassPage = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors slide-up" style={{ transitionDelay: '0.1s' }}>
-              <CheckSquare className="w-12 h-12 text-pglight mb-4" />
+              <Shield className="w-12 h-12 text-pglight mb-4" />
               <h3 className="text-xl font-bold mb-3">Mantiene la originalidad del vehículo</h3>
               <p className="text-white/70">
                 Al no requerir modificaciones externas visibles, SteelGlass permite conservar la apariencia original del vehículo sin comprometer la seguridad.
@@ -69,7 +72,7 @@ const SteelGlassPage = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors slide-up" style={{ transitionDelay: '0.2s' }}>
-              <Wrench className="w-12 h-12 text-pglight mb-4" />
+              <LayoutGrid className="w-12 h-12 text-pglight mb-4" />
               <h3 className="text-xl font-bold mb-3">Acabado Premium</h3>
               <p className="text-white/70">
                 El acero inoxidable no solo proporciona protección adicional, sino también un acabado estético superior que realza la apariencia del vehículo.
@@ -77,7 +80,7 @@ const SteelGlassPage = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors slide-up" style={{ transitionDelay: '0.3s' }}>
-              <ShieldCheck className="w-12 h-12 text-pglight mb-4" />
+              <FileCheck className="w-12 h-12 text-pglight mb-4" />
               <h3 className="text-xl font-bold mb-3">Acero inoxidable certificado</h3>
               <p className="text-white/70">
                 Utiliza acero inoxidable balístico certificado que garantiza los más altos estándares de protección y durabilidad.
@@ -87,103 +90,104 @@ const SteelGlassPage = () => {
         </div>
       </section>
 
-      {/* Technical Details */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative h-80 rounded-2xl overflow-hidden slide-left">
-              <img 
-                src="/lovable-uploads/steelglass-detail.jpg" 
-                alt="SteelGlass Detail" 
-                className="w-full h-full object-cover rounded-2xl" 
-              />
-            </div>
-            
-            <div className="space-y-8 slide-right">
-              <h2 className="heading-lg text-pgnavy">Detalles Técnicos</h2>
-              <p className="text-lg text-pgnavy/70">
-                SteelGlass es un avance tecnológico patentado por PG Products que refuerza los puntos más vulnerables del vidrio blindado.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="border-l-4 border-pgnavy pl-4">
-                  <p className="text-pgnavy/80">
-                    <strong>Refuerzo estructural:</strong> Minimiza rupturas en el cierre continuo de las puertas, proporcionando mayor integridad estructural.
-                  </p>
-                </div>
-                
-                <div className="border-l-4 border-pgnavy pl-4">
-                  <p className="text-pgnavy/80">
-                    <strong>Protección completa:</strong> Bajo agresión, SteelGlass apoya el bloque balístico y evita que se desprenda de la lámina externa y caiga en el interior del vehículo, protegiendo a los ocupantes.
-                  </p>
-                </div>
-                
-                <div className="border-l-4 border-pgnavy pl-4">
-                  <p className="text-pgnavy/80">
-                    <strong>Versatilidad:</strong> Compatible con distintos niveles de protección, desde armas cortas (hasta NIJ IIIA y B4) hasta niveles superiores para armas largas (NIJ III, DN6, DN7 y otros).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Protection Diagram */}
+      {/* Composition Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 scroll-reveal">
-            <h2 className="heading-lg text-pgnavy mb-4">Protección Superior en Puntos Críticos</h2>
-            <p className="text-lg text-pgnavy/70 max-w-3xl mx-auto">
-              SteelGlass refuerza el vidrio en el borde y, en caso de ataque, protege a los ocupantes en los puntos vulnerables de la unión entre el paquete balístico del vidrio y el blindaje opaco.
-            </p>
-          </div>
-
-          <div className="relative h-96 bg-gray-100 rounded-xl overflow-hidden shadow-sm slide-up">
-            <img 
-              src="/lovable-uploads/steelglass-diagram.jpg" 
-              alt="SteelGlass Protection Diagram" 
-              className="w-full h-full object-contain" 
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-pgnavy/70 backdrop-blur-sm px-6 py-4 rounded-lg max-w-md text-center">
-                <p className="text-white font-medium">
-                  El acero integrado protege la zona de transición entre el vidrio y la carrocería, eliminando puntos débiles.
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8 slide-left">
+              <h2 className="heading-lg text-pgnavy">Composición Avanzada</h2>
+              <p className="text-lg text-pgnavy/70">
+                La composición de SteelGlass incorpora acero inoxidable en los bordes del vidrio para proporcionar mayor resistencia estructural y protección balística integral.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-pgnavy text-white flex items-center justify-center flex-shrink-0 mt-1">1</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-pgnavy">Vidrio reforzado</h3>
+                    <p className="text-pgnavy/70">Capa exterior de alta resistencia con tratamiento especial antirrayas.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-pgnavy text-white flex items-center justify-center flex-shrink-0 mt-1">2</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-pgnavy">Acero inoxidable balístico</h3>
+                    <p className="text-pgnavy/70">Marco de acero integrado en los bordes que proporciona resistencia estructural sin comprometer la estética.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-pgnavy text-white flex items-center justify-center flex-shrink-0 mt-1">3</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-pgnavy">Sellado anti-deformación</h3>
+                    <p className="text-pgnavy/70">Sistema de sellado especial que mantiene la integridad del vidrio incluso bajo condiciones extremas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative slide-right">
+              <div className="rounded-xl overflow-hidden">
+                <img 
+                  src="/lovable-uploads/steelglass-detail.jpg" 
+                  alt="SteelGlass Detail" 
+                  className="w-full h-auto" 
+                />
+              </div>
+              
+              <div className="absolute bottom-4 right-4 bg-pgnavy text-white px-4 py-2 rounded-lg text-sm font-medium">
+                Tecnología Patentada
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pgnavy to-pgblue text-white relative overflow-hidden">
-        {/* Background pattern overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
-            alt="Background pattern"
-            className="w-full h-full object-cover opacity-30"
-          />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="max-w-3xl mx-auto scroll-reveal">
-            <h2 className="heading-lg mb-6">Protección integral sin compromisos</h2>
-            <p className="text-lg text-white/80 mb-8">
-              Descubra cómo SteelGlass puede mejorar la seguridad de su vehículo manteniendo su apariencia original. Contacte con nuestros especialistas hoy mismo.
+      {/* Standards Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 scroll-reveal">
+            <h2 className="heading-lg text-pgnavy mb-4">Estándares y Normas</h2>
+            <p className="text-lg text-pgnavy/70 max-w-3xl mx-auto">
+              SteelGlass cumple con las más exigentes normas internacionales de seguridad y protección balística.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/contacto" className="bg-white text-pgnavy hover:bg-white/90 px-8 py-3 rounded-md font-medium transition-colors">
-                Solicitar presupuesto
-              </a>
-              <a href="/#productos" className="border border-white text-white hover:bg-white/10 px-8 py-3 rounded-md font-medium transition-colors">
-                Ver otros productos
-              </a>
-            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              "ABNT NBR 15000", 
+              "CEN 1063", 
+              "NATO STANAG 4569", 
+              "NIJ 0108.01", 
+              "RENAR MA.02",
+              "VPAM APR 2006", 
+              "VPAM BRV 2009",
+              "VPAM ERV 2010", 
+              "VPAM PM 2007",
+              "NOM 142 SCFI 2000"
+            ].map((standard, index) => (
+              <div 
+                key={standard} 
+                className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center slide-up"
+                style={{ transitionDelay: `${index * 0.05}s` }}
+              >
+                <p className="font-medium text-pgnavy">{standard}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Use CTASection component */}
+      <CTASection 
+        title="Protección integral sin compromisos"
+        description="Descubra cómo SteelGlass puede mejorar la seguridad de su vehículo manteniendo su apariencia original. Contacte con nuestros especialistas hoy mismo."
+        primaryButtonText="Solicitar presupuesto"
+        primaryButtonLink="/contacto"
+        secondaryButtonText="Ver otros productos"
+        secondaryButtonLink="/#productos"
+      />
     </PageLayout>
   );
 };
