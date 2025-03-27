@@ -124,8 +124,8 @@ const GlassGuardPage = () => {
             <div className="relative slide-right">
               <div className="rounded-xl overflow-hidden">
                 <img 
-                  src="/lovable-uploads/glassguard-composition.jpg" 
-                  alt="GlassGuard Composition" 
+                  src="/lovable-uploads/de5f22cf-7bbd-4cba-a6bc-28027fd75774.png" 
+                  alt="Vehículo policial blindado con GlassGuard" 
                   className="w-full h-auto" 
                 />
               </div>
