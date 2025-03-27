@@ -1,3 +1,4 @@
+
 import { Shield, Zap, Target, Baseline } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import CTASection from '../components/CTASection';
@@ -7,8 +8,10 @@ const UltraPage = () => {
     <PageLayout 
       title="ULTRA" 
       subtitle="Menor espesor, Único desempeño Balístico"
-      bgImage="/lovable-uploads/ultra-bg.jpg"
+      bgImage="/lovable-uploads/4477eed3-2c74-42de-bfbc-62af32b7fc24.png"
       darkMode={true}
+      fullWidthBg={true}
+      overlayOpacity="bg-gradient-to-b from-pgnavy/70 via-pgnavy/50 to-pgnavy/30"
     >
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,8 +33,8 @@ const UltraPage = () => {
             <div className="relative h-96 rounded-2xl overflow-hidden slide-right">
               <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/20 to-pgblue/20 z-10 rounded-2xl"></div>
               <img 
-                src="/lovable-uploads/ultra-product.jpg" 
-                alt="ULTRA Glass" 
+                src="/lovable-uploads/079eba18-1c78-4ae5-935f-5f9415053368.png" 
+                alt="ULTRA Glass - Dodge Durango SRT" 
                 className="w-full h-full object-cover rounded-2xl" 
               />
             </div>
@@ -170,12 +173,12 @@ const UltraPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative rounded-xl overflow-hidden h-96 slide-left">
               <img 
-                src="/lovable-uploads/ultra-tests.jpg" 
-                alt="ULTRA Ballistic Tests" 
+                src="/lovable-uploads/02cb4a80-a267-4a10-8624-af11e5945bd3.png" 
+                alt="ULTRA Ballistic Glass - Toyota Sequoia" 
                 className="w-full h-full object-cover" 
               />
               <div className="absolute bottom-0 left-0 right-0 bg-pgnavy/80 backdrop-blur-sm p-4 text-white text-center">
-                <p className="font-medium">Pruebas de resistencia con munición 7,62x39mm FMJ</p>
+                <p className="font-medium">Protección avanzada para diferentes tipos de vehículos</p>
               </div>
             </div>
             
