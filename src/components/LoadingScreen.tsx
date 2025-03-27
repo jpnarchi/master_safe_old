@@ -34,6 +34,7 @@ const LoadingScreen = ({ duration = 2500, isLoading }: LoadingScreenProps) => {
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
     >
+      {/* Maintain the exact dimensions of the logo container */}
       <div className="w-64 h-64 mb-8 animate-pulse">
         <PGLogo className="text-white" />
       </div>
