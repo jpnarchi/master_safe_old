@@ -20,8 +20,8 @@ const SteelGlassPage = () => {
             <div className="relative h-96 rounded-2xl overflow-hidden slide-left">
               <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/20 to-pgblue/20 z-10 rounded-2xl"></div>
               <img 
-                src="/lovable-uploads/steelglass-product.jpg" 
-                alt="SteelGlass" 
+                src="/lovable-uploads/74356578-08a7-4a0d-ad9b-ef8f2083fe81.png" 
+                alt="SteelGlass - BMW premium vehicle" 
                 className="w-full h-full object-cover rounded-2xl" 
               />
             </div>
@@ -130,8 +130,8 @@ const SteelGlassPage = () => {
             <div className="relative slide-right">
               <div className="rounded-xl overflow-hidden">
                 <img 
-                  src="/lovable-uploads/steelglass-detail.jpg" 
-                  alt="SteelGlass Detail" 
+                  src="/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png" 
+                  alt="SteelGlass - BMW SUV on road" 
                   className="w-full h-auto" 
                 />
               </div>
