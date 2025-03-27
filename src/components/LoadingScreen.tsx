@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import { Loader } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PGLogo from './PGLogo';
 
@@ -35,10 +34,9 @@ const LoadingScreen = ({ duration = 2500, isLoading }: LoadingScreenProps) => {
       )}
     >
       {/* Maintain the exact dimensions of the logo container */}
-      <div className="w-64 h-64 mb-8 animate-pulse">
+      <div className="w-64 h-64 mb-8 transition-all duration-500 ease-in-out">
         <PGLogo className="text-white" />
       </div>
-      <Loader className="w-12 h-12 text-white animate-spin" />
     </div>
   );
 };
