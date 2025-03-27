@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import LoadingScreen from "./components/LoadingScreen";
 import Index from "./pages/Index";
@@ -16,16 +16,19 @@ import SuperSlimPage from "./pages/SuperSlimPage";
 import UltraPage from "./pages/UltraPage";
 import ContactPage from "./pages/ContactPage";
 
-const App = () => {
-  // Initialize QueryClient inside the component
-  const queryClient = new QueryClient();
+// Component to handle page transitions and loading
+const PageContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
   
   useEffect(() => {
+    // Reset loading state on route change
+    setIsLoading(true);
+    
     // Preload critical assets and all images
     const preloadImages = () => {
       // Add a minimum delay to ensure loading screen is visible
-      const minDelay = new Promise(resolve => setTimeout(resolve, 2000));
+      const minDelay = new Promise(resolve => setTimeout(resolve, 2500));
       
       // Find all images in the document that need to be loaded
       const loadAllImages = new Promise(resolve => {
@@ -52,7 +55,7 @@ const App = () => {
         })
         .catch(() => {
           // Fallback in case of any errors
-          setTimeout(() => setIsLoading(false), 3000);
+          setTimeout(() => setIsLoading(false), 3500);
         });
     };
     
@@ -62,29 +65,40 @@ const App = () => {
       // Clean up event listeners if component unmounts
       window.removeEventListener('load', () => {});
     };
-  }, []);
+  }, [location.pathname]); // Re-run on route change
+  
+  return (
+    <>
+      <LoadingScreen isLoading={isLoading} />
+      <div className={isLoading ? 'invisible' : 'visible'}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/neu" element={<NeuPage />} />
+          <Route path="/glassguard" element={<GlassGuardPage />} />
+          <Route path="/steelglass" element={<SteelGlassPage />} />
+          <Route path="/superslim" element={<SuperSlimPage />} />
+          <Route path="/ultra" element={<UltraPage />} />
+          <Route path="/contacto" element={<ContactPage />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </>
+  );
+};
+
+const App = () => {
+  // Initialize QueryClient inside the component
+  const queryClient = new QueryClient();
   
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <LoadingScreen />
-        <div className={isLoading ? 'invisible' : 'visible'}>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/neu" element={<NeuPage />} />
-              <Route path="/glassguard" element={<GlassGuardPage />} />
-              <Route path="/steelglass" element={<SteelGlassPage />} />
-              <Route path="/superslim" element={<SuperSlimPage />} />
-              <Route path="/ultra" element={<UltraPage />} />
-              <Route path="/contacto" element={<ContactPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <PageContainer />
+        </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );

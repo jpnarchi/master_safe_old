@@ -6,19 +6,26 @@ import PGLogo from './PGLogo';
 
 interface LoadingScreenProps {
   duration?: number;
+  isLoading: boolean;
 }
 
-const LoadingScreen = ({ duration = 2000 }: LoadingScreenProps) => {
+const LoadingScreen = ({ duration = 2500, isLoading }: LoadingScreenProps) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Start the fade-out animation after the specified duration
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, duration);
+    // Only start the fade-out animation when loading is complete
+    if (!isLoading) {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 500); // Short delay after loading completes
 
-    return () => clearTimeout(timer);
-  }, [duration]);
+      return () => clearTimeout(timer);
+    } else {
+      setIsVisible(true);
+    }
+  }, [isLoading, duration]);
+
+  if (!isVisible && !isLoading) return null;
 
   return (
     <div 
@@ -26,9 +33,8 @@ const LoadingScreen = ({ duration = 2000 }: LoadingScreenProps) => {
         "fixed inset-0 z-50 flex flex-col items-center justify-center bg-pgnavy transition-opacity duration-700",
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
-      style={{ display: isVisible ? 'flex' : 'none' }}
     >
-      <div className="w-48 h-48 mb-8 animate-pulse">
+      <div className="w-64 h-64 mb-8 animate-pulse">
         <PGLogo className="text-white" />
       </div>
       <Loader className="w-12 h-12 text-white animate-spin" />
