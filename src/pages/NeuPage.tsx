@@ -7,7 +7,7 @@ const NeuPage = () => {
     <PageLayout 
       title="NEU Premium Ballistic Glass" 
       subtitle="Cristal blindado automotriz con ingeniería Alemana y estándares Europeos"
-      bgImage="/lovable-uploads/neu-bg.jpg"
+      bgImage="/lovable-uploads/af3501d2-8f81-42fb-b113-6a18bf7571f5.png"
       fullWidthBg={true}
       overlayOpacity="bg-gradient-to-b from-pgnavy/70 via-pgnavy/50 to-pgnavy/30"
       textColor="text-white"
