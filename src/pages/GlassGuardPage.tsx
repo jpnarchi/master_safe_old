@@ -7,7 +7,10 @@ const GlassGuardPage = () => {
     <PageLayout 
       title="GlassGuard" 
       subtitle="Calidad, Durabilidad y balística comprobada"
-      bgImage="/lovable-uploads/glassguard-bg.jpg"
+      bgImage="/lovable-uploads/40cfe7f9-b375-46b7-8288-f45cd9946d7f.png"
+      fullWidthBg={true}
+      overlayOpacity="bg-gradient-to-b from-pgnavy/70 via-pgnavy/50 to-pgnavy/30"
+      textColor="text-white"
     >
       {/* Introduction Section */}
       <section className="py-20 bg-white">
