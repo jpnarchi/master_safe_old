@@ -22,24 +22,37 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    // Preload critical assets
+    // Preload critical assets and all images
     const preloadImages = () => {
       // Add a minimum delay to ensure loading screen is visible
-      const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
+      const minDelay = new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Handle actual document loading
-      const documentLoaded = new Promise(resolve => {
-        if (document.readyState === 'complete') {
-          resolve(true);
-        } else {
-          window.addEventListener('load', () => resolve(true), { once: true });
-        }
+      // Find all images in the document that need to be loaded
+      const loadAllImages = new Promise(resolve => {
+        // Function to check if all images are loaded
+        const checkImagesLoaded = () => {
+          // If document is fully loaded, then proceed
+          if (document.readyState === 'complete') {
+            // Add a small buffer to ensure transitions are smooth
+            setTimeout(() => resolve(true), 500);
+          } else {
+            // Check again after a short delay
+            setTimeout(checkImagesLoaded, 100);
+          }
+        };
+        
+        // Start checking
+        checkImagesLoaded();
       });
       
-      // Wait for both minimum delay and document loading
-      Promise.all([minDelay, documentLoaded])
+      // Wait for both minimum delay and all images to load
+      Promise.all([minDelay, loadAllImages])
         .then(() => {
-          setTimeout(() => setIsLoading(false), 100);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          // Fallback in case of any errors
+          setTimeout(() => setIsLoading(false), 3000);
         });
     };
     

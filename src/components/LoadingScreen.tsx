@@ -8,7 +8,7 @@ interface LoadingScreenProps {
   duration?: number;
 }
 
-const LoadingScreen = ({ duration = 1500 }: LoadingScreenProps) => {
+const LoadingScreen = ({ duration = 2000 }: LoadingScreenProps) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -28,10 +28,10 @@ const LoadingScreen = ({ duration = 1500 }: LoadingScreenProps) => {
       )}
       style={{ display: isVisible ? 'flex' : 'none' }}
     >
-      <div className="w-40 h-40 mb-8">
+      <div className="w-48 h-48 mb-8 animate-pulse">
         <PGLogo className="text-white" />
       </div>
-      <Loader className="w-10 h-10 text-white animate-spin" />
+      <Loader className="w-12 h-12 text-white animate-spin" />
     </div>
   );
 };
