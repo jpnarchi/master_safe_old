@@ -8,7 +8,7 @@ interface LoadingScreenProps {
   duration?: number;
 }
 
-const LoadingScreen = ({ duration = 1200 }: LoadingScreenProps) => {
+const LoadingScreen = ({ duration = 1500 }: LoadingScreenProps) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -20,17 +20,16 @@ const LoadingScreen = ({ duration = 1200 }: LoadingScreenProps) => {
     return () => clearTimeout(timer);
   }, [duration]);
 
-  if (!isVisible) return null;
-
   return (
     <div 
       className={cn(
-        "fixed inset-0 z-50 flex flex-col items-center justify-center bg-pgnavy transition-opacity duration-500",
+        "fixed inset-0 z-50 flex flex-col items-center justify-center bg-pgnavy transition-opacity duration-700",
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
+      style={{ display: isVisible ? 'flex' : 'none' }}
     >
-      <div className="w-32 h-32 mb-8 text-white">
-        <PGLogo />
+      <div className="w-40 h-40 mb-8">
+        <PGLogo className="text-white" />
       </div>
       <Loader className="w-10 h-10 text-white animate-spin" />
     </div>

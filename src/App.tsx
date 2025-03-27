@@ -22,47 +22,56 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    // Check if all assets are loaded
-    window.addEventListener('load', () => {
-      // Add a minimum delay to show the loading screen
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    });
+    // Preload critical assets
+    const preloadImages = () => {
+      // Add a minimum delay to ensure loading screen is visible
+      const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Handle actual document loading
+      const documentLoaded = new Promise(resolve => {
+        if (document.readyState === 'complete') {
+          resolve(true);
+        } else {
+          window.addEventListener('load', () => resolve(true), { once: true });
+        }
+      });
+      
+      // Wait for both minimum delay and document loading
+      Promise.all([minDelay, documentLoaded])
+        .then(() => {
+          setTimeout(() => setIsLoading(false), 100);
+        });
+    };
     
-    // Fallback in case the load event already fired
-    if (document.readyState === 'complete') {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }
+    preloadImages();
     
     return () => {
-      window.removeEventListener('load', () => {
-        setIsLoading(false);
-      });
+      // Clean up event listeners if component unmounts
+      window.removeEventListener('load', () => {});
     };
   }, []);
   
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {isLoading && <LoadingScreen />}
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/neu" element={<NeuPage />} />
-            <Route path="/glassguard" element={<GlassGuardPage />} />
-            <Route path="/steelglass" element={<SteelGlassPage />} />
-            <Route path="/superslim" element={<SuperSlimPage />} />
-            <Route path="/ultra" element={<UltraPage />} />
-            <Route path="/contacto" element={<ContactPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <LoadingScreen />
+        <div className={isLoading ? 'invisible' : 'visible'}>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/neu" element={<NeuPage />} />
+              <Route path="/glassguard" element={<GlassGuardPage />} />
+              <Route path="/steelglass" element={<SteelGlassPage />} />
+              <Route path="/superslim" element={<SuperSlimPage />} />
+              <Route path="/ultra" element={<UltraPage />} />
+              <Route path="/contacto" element={<ContactPage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
       </TooltipProvider>
     </QueryClientProvider>
   );
