@@ -7,7 +7,7 @@ const NeuPage = () => {
     <PageLayout 
       title="NEU Premium Ballistic Glass" 
       subtitle="Cristal blindado automotriz con ingeniería Alemana y estándares Europeos"
-      bgImage="/lovable-uploads/af3501d2-8f81-42fb-b113-6a18bf7571f5.png"
+      bgImage="/lovable-uploads/b3344555-f7a7-43fd-8be2-ce26a49a554e.png"
       fullWidthBg={true}
       overlayOpacity="bg-gradient-to-b from-pgnavy/70 via-pgnavy/50 to-pgnavy/30"
       textColor="text-white"
@@ -127,7 +127,7 @@ const NeuPage = () => {
             <div className="relative slide-right">
               <div className="rounded-xl overflow-hidden">
                 <img 
-                  src="/lovable-uploads/neu-product.jpg" 
+                  src="/lovable-uploads/af3501d2-8f81-42fb-b113-6a18bf7571f5.png" 
                   alt="NEU Premium Glass - Detalle" 
                   className="w-full h-auto" 
                 />
