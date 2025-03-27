@@ -29,7 +29,7 @@ const LoadingScreen = ({ duration = 2500, isLoading }: LoadingScreenProps) => {
   return (
     <div 
       className={cn(
-        "fixed inset-0 z-50 flex flex-col items-center justify-center bg-pgnavy transition-opacity duration-700",
+        "fixed inset-0 z-50 flex flex-col items-center justify-center transition-opacity duration-700 bg-gradient-to-r from-pgblue to-blue-600 animate-gradient-x",
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
     >

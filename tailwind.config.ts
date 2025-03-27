@@ -110,6 +110,16 @@ export default {
 				'slide-in-right': {
 					'0%': { transform: 'translateX(100%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				'gradient-x': {
+					'0%, 100%': {
+						'background-size': '200% 200%',
+						'background-position': 'left center'
+					},
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
+					}
 				}
 			},
 			animation: {
@@ -122,7 +132,8 @@ export default {
 				'background-shine': 'background-shine 2s linear infinite',
 				'slide-in-bottom': 'slide-in-bottom 0.7s ease-out',
 				'slide-in-left': 'slide-in-left 0.3s ease-out',
-				'slide-in-right': 'slide-in-right 0.3s ease-out'
+				'slide-in-right': 'slide-in-right 0.3s ease-out',
+				'gradient-x': 'gradient-x 10s ease infinite'
 			},
 			backgroundImage: {
 				'blue-gradient': 'linear-gradient(90deg, #001A41 0%, #0055B8 100%)',
