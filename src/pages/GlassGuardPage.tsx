@@ -19,7 +19,7 @@ const GlassGuardPage = () => {
             <div className="relative h-96 rounded-2xl overflow-hidden slide-left">
               <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/20 to-pgblue/20 z-10 rounded-2xl"></div>
               <img 
-                src="/lovable-uploads/glassguard-product.jpg" 
+                src="/lovable-uploads/b2b2805b-dab6-48ae-869c-0f8a9b51cda0.png" 
                 alt="GlassGuard Premium" 
                 className="w-full h-full object-cover rounded-2xl" 
               />
