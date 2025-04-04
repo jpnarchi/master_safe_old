@@ -40,8 +40,8 @@ const Index = () => {
       <Hero />
       
       <VideoSection 
-        title="Nuestra Historia"
-        subtitle="Descubre la trayectoria de PG Products y su compromiso con la innovación y la seguridad"
+        title=""
+        subtitle=""
       />
       
       <section id="neu" className="py-16 md:py-24 relative overflow-hidden">
