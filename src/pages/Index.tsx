@@ -40,6 +40,12 @@ const Index = () => {
       
       <Hero />
       
+      <VideoSection 
+        videoId="UB9eppCeLXE" 
+        title="Nuestra Historia"
+        subtitle="Descubre la trayectoria de PG Products y su compromiso con la innovación y la seguridad"
+      />
+      
       <section id="neu" className="py-16 md:py-24 relative overflow-hidden">
         {/* Triangular Background Pattern */}
         <div className="absolute inset-0 z-0">
@@ -212,12 +218,6 @@ const Index = () => {
           "Compatible con accesorios como redes desempañantes y antenas"
         ]}
         reversed={true}
-      />
-      
-      <VideoSection 
-        videoId="UB9eppCeLXE" 
-        title="Nuestra Historia"
-        subtitle="Descubre la trayectoria de PG Products y su compromiso con la innovación y la seguridad"
       />
       
       <CTASection 
