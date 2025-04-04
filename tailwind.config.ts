@@ -139,8 +139,24 @@ export default {
 				'blue-gradient': 'linear-gradient(90deg, #001A41 0%, #0055B8 100%)',
 				'white-gradient': 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.4) 100%)',
 				'shine': 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0))',
+			},
+			aspectRatio: {
+				'16/9': '16 / 9',
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		function({ addComponents }) {
+			addComponents({
+				'.aspect-w-16': {
+					position: 'relative',
+					paddingBottom: '56.25%',
+				},
+				'.aspect-h-9': {
+					position: 'relative',
+				},
+			});
+		},
+	],
 } satisfies Config;

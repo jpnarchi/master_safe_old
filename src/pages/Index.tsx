@@ -8,6 +8,7 @@ import SpecTable from "../components/SpecTable";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
+import VideoSection from "../components/VideoSection";
 import useScrollObserver from "../utils/ScrollObserver";
 import BallisticGlassSlider from "../components/BallisticGlassSlider";
 
@@ -211,6 +212,12 @@ const Index = () => {
           "Compatible con accesorios como redes desempañantes y antenas"
         ]}
         reversed={true}
+      />
+      
+      <VideoSection 
+        videoId="UB9eppCeLXE" 
+        title="Nuestra Historia"
+        subtitle="Descubre la trayectoria de PG Products y su compromiso con la innovación y la seguridad"
       />
       
       <CTASection 

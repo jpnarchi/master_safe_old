@@ -15,6 +15,7 @@ import SteelGlassPage from "./pages/SteelGlassPage";
 import SuperSlimPage from "./pages/SuperSlimPage";
 import UltraPage from "./pages/UltraPage";
 import ContactPage from "./pages/ContactPage";
+import HistoriaPage from "./pages/HistoriaPage";
 
 // Component to handle page transitions and loading
 const PageContainer = () => {
@@ -79,6 +80,7 @@ const PageContainer = () => {
           <Route path="/superslim" element={<SuperSlimPage />} />
           <Route path="/ultra" element={<UltraPage />} />
           <Route path="/contacto" element={<ContactPage />} />
+          <Route path="/historia" element={<HistoriaPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
