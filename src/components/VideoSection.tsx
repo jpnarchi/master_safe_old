@@ -48,8 +48,8 @@ const VideoSection: React.FC<VideoSectionProps> = ({
         )}
       </div>
       
-      {/* PG Logo at bottom left - now larger with gradient background */}
-      <div className="absolute bottom-10 left-10 z-10 w-48 h-auto p-3 rounded-lg bg-gradient-to-tr from-pgnavy/40 to-transparent backdrop-blur-sm">
+      {/* PG Logo at bottom left - now much larger with gradient background */}
+      <div className="absolute bottom-10 left-10 z-10 w-72 h-auto p-4 rounded-lg bg-gradient-to-tr from-pgnavy/40 to-transparent backdrop-blur-sm">
         <PGLogo className="drop-shadow-lg" />
       </div>
     </section>
