@@ -30,7 +30,7 @@ const Navbar = () => {
   }, []);
 
   const productItems = [
-    { name: "NEU", path: "/neu", description: "Ingeniería Alemana Premium" },
+    // "NEU" removed from here and moved to main navigation
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde" },
     { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente" },
@@ -61,6 +61,14 @@ const Navbar = () => {
               className="font-medium text-white hover:text-white/80 transition-colors duration-300"
             >
               Inicio
+            </Link>
+            
+            {/* NEU Link - Added here */}
+            <Link 
+              to="/neu"
+              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+            >
+              NEU
             </Link>
             
             {/* Historia Link */}
@@ -137,11 +145,21 @@ const Navbar = () => {
               Inicio
             </Link>
             
+            {/* NEU Link - Added here */}
+            <Link
+              to="/neu"
+              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
+              style={{ animationDelay: '0.05s' }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              NEU
+            </Link>
+            
             {/* Historia Link */}
             <Link
               to="/historia"
               className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.05s' }}
+              style={{ animationDelay: '0.1s' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Historia
