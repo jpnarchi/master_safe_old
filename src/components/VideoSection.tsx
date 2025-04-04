@@ -10,7 +10,7 @@ interface VideoSectionProps {
 const VideoSection: React.FC<VideoSectionProps> = ({ 
   title, 
   subtitle,
-  videoSrc
+  videoSrc = "/VIDEO-2025-04-04-08-27-50.mp4" // Default to this MP4 file
 }) => {
   return (
     <section className="py-20 bg-pgnavy/5 relative overflow-hidden">
@@ -49,38 +49,17 @@ const VideoSection: React.FC<VideoSectionProps> = ({
         
         <div className="rounded-xl overflow-hidden shadow-2xl border border-pgnavy/10 bg-white">
           <div className="aspect-w-16 aspect-h-9 relative">
-            {videoSrc ? (
-              // When videoSrc is provided, display the actual MP4 video
-              <video 
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src={videoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              // Placeholder for when the video is not yet available
-              <div className="absolute inset-0 w-full h-full bg-pgnavy/5 flex flex-col items-center justify-center">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-16 w-16 text-pgnavy/30 mb-4" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={1.5} 
-                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" 
-                  />
-                </svg>
-                <p className="text-pgnavy/60 font-medium">Video will be available soon</p>
-              </div>
-            )}
+            {/* Always display the MP4 video */}
+            <video 
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
