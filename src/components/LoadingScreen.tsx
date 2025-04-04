@@ -6,12 +6,16 @@ import PGLogo from './PGLogo';
 interface LoadingScreenProps {
   duration?: number;
   isLoading: boolean;
+  enabled?: boolean; // New prop to enable/disable the loading screen
 }
 
-const LoadingScreen = ({ duration = 2500, isLoading }: LoadingScreenProps) => {
-  const [isVisible, setIsVisible] = useState(true);
+const LoadingScreen = ({ duration = 2500, isLoading, enabled = false }: LoadingScreenProps) => {
+  const [isVisible, setIsVisible] = useState(enabled);
 
   useEffect(() => {
+    // Only process if enabled
+    if (!enabled) return;
+    
     // Only start the fade-out animation when loading is complete
     if (!isLoading) {
       const timer = setTimeout(() => {
@@ -22,9 +26,10 @@ const LoadingScreen = ({ duration = 2500, isLoading }: LoadingScreenProps) => {
     } else {
       setIsVisible(true);
     }
-  }, [isLoading, duration]);
+  }, [isLoading, duration, enabled]);
 
-  if (!isVisible && !isLoading) return null;
+  // Return null if not enabled or not visible and not loading
+  if (!enabled || (!isVisible && !isLoading)) return null;
 
   return (
     <div 
