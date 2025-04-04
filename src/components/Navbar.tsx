@@ -37,10 +37,6 @@ const Navbar = () => {
     { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior" }
   ];
 
-  const navItems = [
-    { name: "Historia", path: "/historia" }
-  ];
-
   return (
     <header 
       className="fixed top-0 left-0 right-0 z-50 bg-pgnavy shadow-md"
@@ -59,6 +55,23 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
+            {/* Home Link */}
+            <Link 
+              to="/"
+              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+            >
+              Inicio
+            </Link>
+            
+            {/* Historia Link */}
+            <Link 
+              to="/historia"
+              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+            >
+              Historia
+            </Link>
+            
+            {/* Products Menu */}
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -87,16 +100,6 @@ const Navbar = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            
-            {navItems.map((item) => (
-              <Link 
-                key={item.name} 
-                to={item.path}
-                className="font-medium text-white hover:text-white/80 transition-colors duration-300"
-              >
-                {item.name}
-              </Link>
-            ))}
           </nav>
 
           <div className="hidden md:block">
@@ -125,6 +128,26 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg animate-slide-in-right">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {/* Home Link */}
+            <Link
+              to="/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Inicio
+            </Link>
+            
+            {/* Historia Link */}
+            <Link
+              to="/historia"
+              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
+              style={{ animationDelay: '0.05s' }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Historia
+            </Link>
+            
+            {/* Products Submenu */}
             <div className="block px-3 py-2 font-medium text-pgnavy">
               <div 
                 className="flex justify-between items-center cursor-pointer"
@@ -153,22 +176,10 @@ const Navbar = () => {
               </div>
             </div>
             
-            {navItems.map((item, index) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-                style={{ animationDelay: `${(index + productItems.length) * 0.05}s` }}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            
             <Link
               to="/contacto"
               className="block px-3 py-2 rounded-md text-base font-medium bg-pgnavy text-white hover:bg-pgblue animate-slide-in-bottom"
-              style={{ animationDelay: '0.35s' }}
+              style={{ animationDelay: '0.25s' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contacto
