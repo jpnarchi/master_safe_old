@@ -1,5 +1,5 @@
 
-import { Shield, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Shield, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import {
   Carousel,
@@ -57,7 +57,6 @@ const Hero = () => {
               align: "start",
               loop: true,
               duration: 40,
-              autoplay: true,
             }}
             className="w-full"
           >
