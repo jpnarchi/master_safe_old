@@ -1,5 +1,13 @@
 
-import { Shield, ChevronDown } from 'lucide-react';
+import { Shield, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Hero = () => {
   const scrollToNextSection = () => {
@@ -8,6 +16,27 @@ const Hero = () => {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const banners = [
+    {
+      title: "Tecnología Europea de Vanguardia",
+      subtitle: "PG Products, líder en la producción de vidrio blindado premium presenta soluciones innovadoras",
+      image: "/lovable-uploads/b2b2805b-dab6-48ae-869c-0f8a9b51cda0.png",
+      cta: "Descubrir Productos"
+    },
+    {
+      title: "Resistencia Balística Superior",
+      subtitle: "Certificación NIJ III-A y resistencia a 7,62x39mm FMJ con ingeniería Alemana",
+      image: "/lovable-uploads/c55693d5-aada-4a4c-8c5b-1d29642483b9.png",
+      cta: "Ver Especificaciones"
+    },
+    {
+      title: "Soluciones Premium",
+      subtitle: "Descubra nuestra gama completa de productos de vidrio blindado de alta calidad",
+      image: "/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png",
+      cta: "Explorar Productos"
+    }
+  ];
 
   return (
     <section className="relative h-screen overflow-hidden">
@@ -23,64 +52,65 @@ const Hero = () => {
 
       <div className="relative h-full flex flex-col justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-white max-w-2xl">
-              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 animate-fade-in">
-                <Shield size={16} className="text-white" />
-                <span className="text-sm font-medium">Tecnología Europea de Vanguardia</span>
-              </div>
-              
-              {/* Large logo */}
-              <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                <img 
-                  src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" 
-                  alt="PG Products Logo" 
-                  className="h-auto max-w-full w-auto max-h-40 object-contain"
-                />
-              </div>
-              
-              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                PG Products, líder en la producción de vidrio blindado premium presenta soluciones innovadoras con ingeniería Alemana y estándares Europeos.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <a href="#neu" className="btn-primary bg-white text-pgnavy hover:bg-white/90 hover:text-pgnavy">
-                  Descubrir Productos
-                </a>
-                <a href="#contact" className="btn-secondary border-white text-white hover:bg-white hover:text-pgnavy">
-                  Contactar
-                </a>
-              </div>
-            </div>
-            
-            <div className="hidden md:block relative animate-fade-in-right">
-              <div className="relative z-20">
-                <div className="w-full h-96 rounded-2xl bg-pgnavy/5 backdrop-filter backdrop-blur-lg border border-pgnavy/10 shadow-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pgblue/20 to-transparent"></div>
-                  <div className="absolute inset-0 shine-effect"></div>
-                  <div className="p-8 flex flex-col h-full justify-center">
-                    <h3 className="text-2xl font-bold text-white bg-pgnavy/80 px-4 py-2 rounded-lg inline-block mb-4 shadow-lg border border-pgblue/30">Resistencia Balística Superior</h3>
-                    <div className="space-y-4 text-white">
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
-                        <span className="ml-2 font-medium">• Certificación NIJ III-A</span>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+              duration: 40,
+              autoplay: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {banners.map((banner, index) => (
+                <CarouselItem key={index} className="md:basis-full">
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="text-white max-w-2xl">
+                      <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 animate-fade-in">
+                        <Shield size={16} className="text-white" />
+                        <span className="text-sm font-medium">{banner.title}</span>
                       </div>
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
-                        <span className="ml-2 font-medium">• Resistencia a 7,62x39mm FMJ</span>
+                      
+                      {/* Large logo */}
+                      <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                        <img 
+                          src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" 
+                          alt="PG Products Logo" 
+                          className="h-auto max-w-full w-auto max-h-40 object-contain"
+                        />
                       </div>
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
-                        <span className="ml-2 font-medium">• Tecnología de punta alemana</span>
+                      
+                      <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                        {banner.subtitle}
+                      </p>
+                      
+                      <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                        <a href="#neu" className="btn-primary bg-white text-pgnavy hover:bg-white/90 hover:text-pgnavy">
+                          {banner.cta}
+                        </a>
                       </div>
-                      <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-2 rounded-lg border-l-4 border-white shadow-md">
-                        <span className="ml-2 font-medium">• Claridad óptica excepcional</span>
+                    </div>
+                    
+                    <div className="hidden md:block relative animate-fade-in-right">
+                      <div className="relative z-20 overflow-hidden rounded-2xl">
+                        <img 
+                          src={banner.image} 
+                          alt={banner.title}
+                          className="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-pgnavy via-transparent to-transparent opacity-50"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-pgblue/20 blur-3xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-pgblue/20 blur-3xl"></div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <div className="flex items-center justify-between absolute top-1/2 left-4 right-4 -translate-y-1/2 z-10">
+              <CarouselPrevious className="bg-white/10 backdrop-blur-md hover:bg-white/20 border-white/20" />
+              <CarouselNext className="bg-white/10 backdrop-blur-md hover:bg-white/20 border-white/20" />
             </div>
-          </div>
+          </Carousel>
         </div>
         
         {/* Scroll indicator */}
