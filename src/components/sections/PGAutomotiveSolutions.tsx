@@ -1,8 +1,9 @@
+
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Card } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+
 const PGAutomotiveSolutions = () => {
   const features = [{
     icon: Car,
@@ -17,13 +18,14 @@ const PGAutomotiveSolutions = () => {
     title: "Ingeniería Avanzada",
     description: "Diseño europeo de alta precisión"
   }];
+  
   const products = [{
     id: "glassguard",
     title: "PG Glass Guard",
     description: "Protección balística con visión perfecta",
     color: "bg-pgnavy",
     link: "/glassguard",
-    image: "/lovable-uploads/1414ec57-bb00-4541-8bb1-7a2a70eb299b.png"
+    image: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png"
   }, {
     id: "superslim",
     title: "PG Super Slim",
@@ -99,12 +101,16 @@ const PGAutomotiveSolutions = () => {
               {products.slice(0, 3).map((product, index) => <div key={index} className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 aspect-[4/3] ${product.color} ${product.textColor || 'text-white'} scale-in h-full`} style={{
               animationDelay: `${index * 0.1}s`
             }}>
-                  {product.id === "glassguard" ? <div className="w-full mb-6">
-                      <AspectRatio ratio={16 / 3} className="bg-transparent">
-                        
-                      </AspectRatio>
-                    </div> : <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>}
-                  {product.id !== "glassguard" && <h4 className="text-xl font-bold mb-3">{product.title}</h4>}
+                  {product.id === "glassguard" ? (
+                    <div className="flex justify-center mb-6">
+                      <img 
+                        src={product.image} 
+                        alt="PG Glass Guard" 
+                        className="max-w-[120px] max-h-[120px] object-contain mb-6"
+                      />
+                    </div>
+                  ) : <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>}
+                  <h4 className="text-xl font-bold mb-3">{product.title}</h4>
                   <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
                   <Button variant={product.textColor ? "outline" : "secondary"} size="sm" className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"} asChild>
                     <a href={product.link}>Descubrir</a>
