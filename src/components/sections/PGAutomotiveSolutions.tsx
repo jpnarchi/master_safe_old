@@ -90,7 +90,6 @@ const PGAutomotiveSolutions = () => {
           </div>
         </div>
 
-        {/* Pyramid layout for products with uniform card sizes */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-pgnavy mb-12 text-center">Nuestros Productos</h3>
           
@@ -98,38 +97,86 @@ const PGAutomotiveSolutions = () => {
           <div className="flex flex-col items-center gap-6">
             {/* First row - 3 products */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-              {products.slice(0, 3).map((product, index) => <div key={index} className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 aspect-[4/3] ${product.color} ${product.textColor || 'text-white'} scale-in h-full`} style={{
-              animationDelay: `${index * 0.1}s`
-            }}>
-                  {product.id === "glassguard" ? (
-                    <div className="flex justify-center mb-6">
+              {products.slice(0, 3).map((product, index) => (
+                <div 
+                  key={index} 
+                  className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center ${product.color} ${product.textColor || 'text-white'} scale-in h-full`} 
+                  style={{
+                    animationDelay: `${index * 0.1}s`
+                  }}
+                >
+                  {/* Image section - 50% height */}
+                  <div className="flex items-center justify-center w-full h-1/2 p-4">
+                    {product.image ? (
                       <img 
-                        src={product.image} 
-                        alt="PG Glass Guard" 
-                        className="max-w-[120px] max-h-[120px] object-contain mb-6"
+                        src={product.image}
+                        alt={product.title}
+                        className="max-w-[80%] max-h-[100%] object-contain"
                       />
-                    </div>
-                  ) : <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>}
-                  <h4 className="text-xl font-bold mb-3">{product.title}</h4>
-                  <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
-                  <Button variant={product.textColor ? "outline" : "secondary"} size="sm" className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"} asChild>
-                    <a href={product.link}>Descubrir</a>
-                  </Button>
-                </div>)}
+                    ) : (
+                      <div className="w-20 h-20 flex items-center justify-center">
+                        <Shield className="w-16 h-16 opacity-50" />
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Content section - 50% height */}
+                  <div className="w-full h-1/2 flex flex-col items-center justify-center gap-3 p-6">
+                    <h4 className="text-xl font-bold">{product.title}</h4>
+                    <p className="text-center opacity-80 text-sm">{product.description}</p>
+                    <Button 
+                      variant={product.textColor ? "outline" : "secondary"} 
+                      size="sm" 
+                      className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"} 
+                      asChild
+                    >
+                      <a href={product.link}>Descubrir</a>
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
             
             {/* Second row - 2 products centered with exact same dimensions as first row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 w-full">
-              {products.slice(3).map((product, index) => <div key={index} className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 aspect-[4/3] ${product.color} ${product.textColor || 'text-white'} scale-in h-full`} style={{
-              animationDelay: `${(index + 3) * 0.1}s`
-            }}>
-                  <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
-                  <h4 className="text-xl font-bold mb-3">{product.title}</h4>
-                  <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
-                  <Button variant={product.textColor ? "outline" : "secondary"} size="sm" className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"} asChild>
-                    <a href={product.link}>Descubrir</a>
-                  </Button>
-                </div>)}
+              {products.slice(3).map((product, index) => (
+                <div 
+                  key={index} 
+                  className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center ${product.color} ${product.textColor || 'text-white'} scale-in h-full`} 
+                  style={{
+                    animationDelay: `${(index + 3) * 0.1}s`
+                  }}
+                >
+                  {/* Image section - 50% height */}
+                  <div className="flex items-center justify-center w-full h-1/2 p-4">
+                    {product.image ? (
+                      <img 
+                        src={product.image}
+                        alt={product.title}
+                        className="max-w-[80%] max-h-[100%] object-contain"
+                      />
+                    ) : (
+                      <div className="w-20 h-20 flex items-center justify-center">
+                        <Shield className="w-16 h-16 opacity-50" />
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Content section - 50% height */}
+                  <div className="w-full h-1/2 flex flex-col items-center justify-center gap-3 p-6">
+                    <h4 className="text-xl font-bold">{product.title}</h4>
+                    <p className="text-center opacity-80 text-sm">{product.description}</p>
+                    <Button 
+                      variant={product.textColor ? "outline" : "secondary"} 
+                      size="sm" 
+                      className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"} 
+                      asChild
+                    >
+                      <a href={product.link}>Descubrir</a>
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
