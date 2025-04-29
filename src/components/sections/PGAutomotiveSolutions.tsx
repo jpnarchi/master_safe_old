@@ -1,3 +1,4 @@
+
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -47,7 +48,8 @@ const PGAutomotiveSolutions = () => {
     description: "Máxima protección para amenazas extremas",
     color: "bg-pglight",
     textColor: "text-pgnavy",
-    link: "/ultra"
+    link: "/ultra",
+    image: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png"
   }, {
     id: "neu",
     title: "PG Neu",
