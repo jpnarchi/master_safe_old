@@ -1,3 +1,4 @@
+
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -32,7 +33,8 @@ const PGAutomotiveSolutions = () => {
     description: "15% más liviano sin comprometer seguridad",
     color: "bg-pglight",
     textColor: "text-pgnavy",
-    link: "/superslim"
+    link: "/superslim",
+    image: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png"
   }, {
     id: "steelglass",
     title: "PG Steel Glass",
