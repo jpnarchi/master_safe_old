@@ -1,33 +1,24 @@
 
-import { Car, Shield, Settings } from "lucide-react";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from "@/components/ui/carousel";
+import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Separator } from "@/components/ui/separator";
 
 const PGAutomotiveSolutions = () => {
-  const isMobile = useIsMobile();
-  
   const features = [
     {
       icon: Car,
       title: "Soluciones Automotrices",
-      description: "Vidrios blindados de alta calidad para vehículos con tecnología europea"
+      description: "Vidrios blindados para vehículos de alta gama"
     },
     {
       icon: Shield,
       title: "Protección Superior",
-      description: "Resistencia balística certificada para máxima seguridad"
+      description: "Balística certificada para máxima seguridad"
     },
     {
       icon: Settings,
       title: "Ingeniería Avanzada",
-      description: "Diseño y desarrollo con estándares europeos de calidad"
+      description: "Diseño europeo de alta precisión"
     }
   ];
 
@@ -76,8 +67,8 @@ const PGAutomotiveSolutions = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-pgnavy mb-4">PG Automotive Solutions</h2>
-          <p className="text-xl text-pgnavy/70 max-w-3xl mx-auto">
-            Tecnología europea de vanguardia en vidrio blindado automotriz
+          <p className="text-xl text-pgblue/70 max-w-3xl mx-auto">
+            Innovación transparente para proteger lo que más importa
           </p>
         </div>
 
@@ -85,56 +76,85 @@ const PGAutomotiveSolutions = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="glass-card p-8 hover:bg-pgnavy/5 scroll-reveal"
+              className="glass-card p-8 hover:bg-pgnavy/5 text-center scroll-reveal"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <feature.icon className="h-12 w-12 text-pgnavy mb-6" />
+              <div className="flex justify-center mb-6">
+                <feature.icon className="h-16 w-16 text-pgnavy" />
+              </div>
               <h3 className="text-xl font-bold text-pgnavy mb-4">{feature.title}</h3>
               <p className="text-pgnavy/70">{feature.description}</p>
             </div>
           ))}
         </div>
 
+        <div className="text-center mb-10">
+          <Button variant="default" className="bg-pgnavy hover:bg-pgblue">
+            Explorar soluciones
+          </Button>
+        </div>
+
+        {/* Transition visual */}
+        <div className="relative py-16">
+          <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2">
+            <Separator className="bg-pgnavy/10 h-[2px]" />
+          </div>
+          <div className="bg-white relative z-10 w-12 h-12 mx-auto rounded-full border border-pgnavy/10 flex items-center justify-center animate-bounce">
+            <ChevronDown className="h-6 w-6 text-pgnavy/70" />
+          </div>
+        </div>
+
+        {/* Pyramid layout for products */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-pgnavy mb-8 text-center">Nuestros Productos</h3>
+          <h3 className="text-2xl font-bold text-pgnavy mb-12 text-center">Nuestros Productos</h3>
           
-          <Carousel 
-            opts={{
-              align: "start",
-              slidesToScroll: 1,
-              containScroll: "trimSnaps",
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {products.map((product, index) => (
-                <CarouselItem 
-                  key={index} 
-                  className={`pl-4 md:basis-1/3 ${isMobile ? 'basis-full' : ''}`}
+          {/* First row - 3 products */}
+          <div className="grid md:grid-cols-3 gap-6 mb-6">
+            {products.slice(0, 3).map((product, index) => (
+              <div 
+                key={index} 
+                className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 ${product.color} ${product.textColor || 'text-white'} scale-in`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
+                <h4 className="text-xl font-bold mb-3">{product.title}</h4>
+                <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
+                <Button 
+                  variant={product.textColor ? "outline" : "secondary"} 
+                  size="sm"
+                  className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"}
+                  asChild
                 >
-                  <div 
-                    className={`h-64 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg flex flex-col items-center justify-center px-6 py-8 ${product.color} ${product.textColor || 'text-white'}`}
+                  <a href={product.link}>Descubrir</a>
+                </Button>
+              </div>
+            ))}
+          </div>
+          
+          {/* Second row - 2 products centered */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+              {products.slice(3).map((product, index) => (
+                <div 
+                  key={index} 
+                  className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 ${product.color} ${product.textColor || 'text-white'} scale-in`}
+                  style={{ animationDelay: `${(index + 3) * 0.1}s` }}
+                >
+                  <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
+                  <h4 className="text-xl font-bold mb-3">{product.title}</h4>
+                  <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
+                  <Button 
+                    variant={product.textColor ? "outline" : "secondary"} 
+                    size="sm"
+                    className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"}
+                    asChild
                   >
-                    <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
-                    <h4 className="text-xl font-bold mb-3">{product.title}</h4>
-                    <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
-                    <Button 
-                      variant={product.textColor ? "outline" : "secondary"} 
-                      size="sm"
-                      className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"}
-                      asChild
-                    >
-                      <a href={product.link}>Descubrir</a>
-                    </Button>
-                  </div>
-                </CarouselItem>
+                    <a href={product.link}>Descubrir</a>
+                  </Button>
+                </div>
               ))}
-            </CarouselContent>
-            <div className="flex justify-center mt-8">
-              <CarouselPrevious className="static translate-y-0 mr-2" />
-              <CarouselNext className="static translate-y-0 ml-2" />
             </div>
-          </Carousel>
+          </div>
         </div>
       </div>
     </section>
