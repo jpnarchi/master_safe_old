@@ -1,4 +1,3 @@
-
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -41,7 +40,7 @@ const PGAutomotiveSolutions = () => {
     description: "Protección reforzada con acero integrado",
     color: "bg-pgnavy",
     link: "/steelglass",
-    image: "/lovable-uploads/c36fe180-4dad-4a78-9a71-d6cd358aab55.png"
+    image: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png"
   }, {
     id: "ultra",
     title: "PG Ultra",
