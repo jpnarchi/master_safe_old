@@ -34,7 +34,7 @@ const PGAutomotiveSolutions = () => {
     color: "bg-pglight",
     textColor: "text-pgnavy",
     link: "/superslim",
-    image: "/lovable-uploads/7ce30128-1b73-4d54-b483-c3c60b8a90db.png"
+    image: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png"
   }, {
     id: "steelglass",
     title: "PG Steel Glass",
