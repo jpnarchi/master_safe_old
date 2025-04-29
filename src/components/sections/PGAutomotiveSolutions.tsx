@@ -3,6 +3,7 @@ import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Card } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PGAutomotiveSolutions = () => {
   const features = [
@@ -29,7 +30,8 @@ const PGAutomotiveSolutions = () => {
       title: "PG Glass Guard",
       description: "Protección balística con visión perfecta",
       color: "bg-pgnavy",
-      link: "/glassguard"
+      link: "/glassguard",
+      image: "/lovable-uploads/1414ec57-bb00-4541-8bb1-7a2a70eb299b.png"
     },
     {
       id: "superslim",
@@ -119,8 +121,20 @@ const PGAutomotiveSolutions = () => {
                   className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 aspect-[4/3] ${product.color} ${product.textColor || 'text-white'} scale-in h-full`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
-                  <h4 className="text-xl font-bold mb-3">{product.title}</h4>
+                  {product.id === "glassguard" ? (
+                    <div className="w-full mb-6">
+                      <AspectRatio ratio={16 / 3} className="bg-transparent">
+                        <img 
+                          src={product.image} 
+                          alt={product.title} 
+                          className="object-contain w-full"
+                        />
+                      </AspectRatio>
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
+                  )}
+                  {product.id !== "glassguard" && <h4 className="text-xl font-bold mb-3">{product.title}</h4>}
                   <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
                   <Button 
                     variant={product.textColor ? "outline" : "secondary"} 
