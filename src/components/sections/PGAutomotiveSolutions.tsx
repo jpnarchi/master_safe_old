@@ -40,7 +40,8 @@ const PGAutomotiveSolutions = () => {
     title: "PG Steel Glass",
     description: "Protección reforzada con acero integrado",
     color: "bg-pgnavy",
-    link: "/steelglass"
+    link: "/steelglass",
+    image: "/lovable-uploads/c36fe180-4dad-4a78-9a71-d6cd358aab55.png"
   }, {
     id: "ultra",
     title: "PG Ultra",
