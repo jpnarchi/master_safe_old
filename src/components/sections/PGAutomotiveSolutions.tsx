@@ -23,7 +23,7 @@ const PGAutomotiveSolutions = () => {
     id: "glassguard",
     title: "PG Glass Guard",
     description: "Protección balística con visión perfecta",
-    color: "bg-white", // Fondo blanco para logo azul marino
+    color: "bg-pglight", // Cambiado a fondo azul claro
     textColor: "text-pgnavy",
     link: "/glassguard",
     image: "/lovable-uploads/44604513-e2f1-4816-b14b-13ac8e66c935.png"
@@ -31,7 +31,7 @@ const PGAutomotiveSolutions = () => {
     id: "superslim",
     title: "PG Super Slim",
     description: "15% más liviano sin comprometer seguridad",
-    color: "bg-pglight", // Fondo azul claro para logo azul oscuro
+    color: "bg-pglight", // Ya tiene fondo azul claro
     textColor: "text-pgnavy",
     link: "/superslim",
     image: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png"
@@ -39,15 +39,15 @@ const PGAutomotiveSolutions = () => {
     id: "steelglass",
     title: "PG Steel Glass",
     description: "Protección reforzada con acero integrado",
-    color: "bg-white", // Cambiado a fondo blanco para logo gris oscuro
-    textColor: "text-pgnavy", // Ajustado para visibilidad en fondo blanco
+    color: "bg-pglight", // Cambiado a fondo azul claro
+    textColor: "text-pgnavy",
     link: "/steelglass",
     image: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png"
   }, {
     id: "ultra",
     title: "PG Ultra",
     description: "Máxima protección para amenazas extremas",
-    color: "bg-white", // Fondo blanco para logo celeste
+    color: "bg-pglight", // Cambiado a fondo azul claro
     textColor: "text-pgnavy",
     link: "/ultra",
     image: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png"
@@ -55,7 +55,7 @@ const PGAutomotiveSolutions = () => {
     id: "neu",
     title: "PG Neu",
     description: "Nueva generación de vidrio blindado premium",
-    color: "bg-[#33C3F0]", // Fondo celeste claro para logo azul marino
+    color: "bg-pglight", // Cambiado de celeste a azul claro
     textColor: "text-pgnavy",
     link: "/neu",
     image: "/lovable-uploads/8d97ffb7-449f-43e8-8378-481d3f3080e3.png"
