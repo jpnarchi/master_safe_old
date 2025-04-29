@@ -23,7 +23,8 @@ const PGAutomotiveSolutions = () => {
     id: "glassguard",
     title: "PG Glass Guard",
     description: "Protección balística con visión perfecta",
-    color: "bg-pgnavy",
+    color: "bg-white", // Changed from bg-pgnavy to bg-white
+    textColor: "text-pgnavy", // Added text color for contrast against white background
     link: "/glassguard",
     image: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png"
   }, {
@@ -106,7 +107,7 @@ const PGAutomotiveSolutions = () => {
                       <img 
                         src={product.image} 
                         alt="PG Glass Guard" 
-                        className="max-w-[120px] max-h-[120px] object-contain mb-6"
+                        className="w-[120px] h-auto object-contain mb-6"
                       />
                     </div>
                   ) : <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>}
