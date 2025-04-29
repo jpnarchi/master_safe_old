@@ -1,4 +1,3 @@
-
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -23,7 +22,8 @@ const PGAutomotiveSolutions = () => {
     id: "glassguard",
     title: "PG Glass Guard",
     description: "Protección balística con visión perfecta",
-    color: "bg-pgnavy",
+    color: "bg-white",
+    textColor: "text-pgnavy",
     link: "/glassguard",
     image: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png"
   }, {
@@ -53,6 +53,7 @@ const PGAutomotiveSolutions = () => {
     color: "bg-pgnavy",
     link: "/neu"
   }];
+  
   return <section id="automotive" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
