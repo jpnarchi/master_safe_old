@@ -1,3 +1,4 @@
+
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -25,7 +26,7 @@ const PGAutomotiveSolutions = () => {
     color: "bg-white",
     textColor: "text-pgnavy",
     link: "/glassguard",
-    image: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png"
+    image: "/lovable-uploads/44604513-e2f1-4816-b14b-13ac8e66c935.png"
   }, {
     id: "superslim",
     title: "PG Super Slim",
