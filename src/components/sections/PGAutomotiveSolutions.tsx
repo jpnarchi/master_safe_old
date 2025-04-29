@@ -2,6 +2,7 @@
 import { Car, Shield, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Card } from "@/components/ui/card";
 
 const PGAutomotiveSolutions = () => {
   const features = [
@@ -104,40 +105,41 @@ const PGAutomotiveSolutions = () => {
           </div>
         </div>
 
-        {/* Pyramid layout for products */}
+        {/* Pyramid layout for products with uniform card sizes */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-pgnavy mb-12 text-center">Nuestros Productos</h3>
           
-          {/* First row - 3 products */}
-          <div className="grid md:grid-cols-3 gap-6 mb-6">
-            {products.slice(0, 3).map((product, index) => (
-              <div 
-                key={index} 
-                className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 ${product.color} ${product.textColor || 'text-white'} scale-in`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
-                <h4 className="text-xl font-bold mb-3">{product.title}</h4>
-                <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
-                <Button 
-                  variant={product.textColor ? "outline" : "secondary"} 
-                  size="sm"
-                  className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"}
-                  asChild
+          {/* Products grid with consistent sizing */}
+          <div className="flex flex-col items-center gap-6">
+            {/* First row - 3 products */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              {products.slice(0, 3).map((product, index) => (
+                <div 
+                  key={index} 
+                  className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 aspect-[4/3] ${product.color} ${product.textColor || 'text-white'} scale-in h-full`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <a href={product.link}>Descubrir</a>
-                </Button>
-              </div>
-            ))}
-          </div>
-          
-          {/* Second row - 2 products centered */}
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+                  <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
+                  <h4 className="text-xl font-bold mb-3">{product.title}</h4>
+                  <p className="text-center mb-6 opacity-80 text-sm">{product.description}</p>
+                  <Button 
+                    variant={product.textColor ? "outline" : "secondary"} 
+                    size="sm"
+                    className={product.textColor ? "border-pgnavy text-pgnavy hover:bg-pgnavy hover:text-white" : "text-pgnavy"}
+                    asChild
+                  >
+                    <a href={product.link}>Descubrir</a>
+                  </Button>
+                </div>
+              ))}
+            </div>
+            
+            {/* Second row - 2 products centered with exact same dimensions as first row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 w-full">
               {products.slice(3).map((product, index) => (
                 <div 
                   key={index} 
-                  className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 ${product.color} ${product.textColor || 'text-white'} scale-in`}
+                  className={`rounded-lg shadow-sm transition-all duration-300 hover:shadow-md flex flex-col items-center justify-center px-6 py-8 aspect-[4/3] ${product.color} ${product.textColor || 'text-white'} scale-in h-full`}
                   style={{ animationDelay: `${(index + 3) * 0.1}s` }}
                 >
                   <div className="w-16 h-16 bg-white/10 rounded-full mb-6"></div>
