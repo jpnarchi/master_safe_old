@@ -45,18 +45,8 @@ const PGAutomotiveSolutions = () => {
     image: "/lovable-uploads/8d97ffb7-449f-43e8-8378-481d3f3080e3.png"
   }];
   
-  return <section id="automotive" className="relative py-20">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <img 
-          src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
-          alt="Background pattern"
-          className="w-full h-full object-cover rotate-180"
-        />
-        <div className="absolute inset-0 bg-white/95"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return <section id="automotive" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-pgnavy mb-4">PG Automotive Solutions</h2>
           <p className="text-xl text-pgblue/70 max-w-3xl mx-auto">

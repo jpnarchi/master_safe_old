@@ -1,8 +1,14 @@
-
 const AboutPGGlass = () => {
   return (
-    <section id="about-pg" className="py-20 bg-pglight">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about-pg" className="py-20 bg-pglight relative">
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+          alt="Background pattern"
+          className="w-full h-full object-cover opacity-70"
+        />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 slide-left">
             <h2 className="heading-lg text-pgnavy mb-4">About PG Glass</h2>
@@ -18,9 +24,12 @@ const AboutPGGlass = () => {
           
           <div className="slide-right">
             <div className="relative rounded-2xl overflow-hidden">
-              <img 
-                src="/lovable-uploads/f5c6e475-3162-4ca5-b907-7e8d88c03f2e.png"
-                alt="PG Glass Factory"
+              <video 
+                src="/video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-[400px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/50 to-transparent"></div>
