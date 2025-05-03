@@ -45,49 +45,21 @@ const PGAutomotiveSolutions = () => {
     image: "/lovable-uploads/8d97ffb7-449f-43e8-8378-481d3f3080e3.png"
   }];
   
-  return <section id="automotive" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return <section id="automotive" className="py-20 bg-white relative">
+      {/* Fondo con imagen */}
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+          alt="Background pattern"
+          className="w-full h-full object-cover opacity-70"
+        />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="heading-lg text-pgnavy mb-4">PG Automotive Solutions</h2>
-          <p className="text-xl text-pgblue/70 max-w-3xl mx-auto">
-            Innovación transparente para proteger lo que más importa
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => <div key={index} className="glass-card p-8 hover:bg-pgnavy/5 text-center scroll-reveal" style={{
-          animationDelay: `${index * 0.1}s`
-        }}>
-              <div className="flex justify-center mb-6">
-                <feature.icon className="h-16 w-16 text-pgnavy" />
-              </div>
-              <h3 className="text-xl font-bold text-pgnavy mb-4">{feature.title}</h3>
-              <p className="text-pgnavy/70">{feature.description}</p>
-            </div>)}
-        </div>
-
-        <div className="text-center mb-10">
-          <Button variant="default" className="bg-pgnavy hover:bg-pgblue">
-            Explorar soluciones
-          </Button>
-        </div>
-
-        {/* Transition visual */}
-        <div className="relative py-16">
-          <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2">
-            <Separator className="bg-pgnavy/10 h-[2px]" />
-          </div>
-          <div className="bg-white relative z-10 w-12 h-12 mx-auto rounded-full border border-pgnavy/10 flex items-center justify-center animate-bounce">
-            <ChevronDown className="h-6 w-6 text-pgnavy/70" />
-          </div>
-        </div>
-
-        <div className="text-center mb-16">
-        <h2 className="heading-lg text-pgnavy mb-4 text-center">Nuestros Productos</h2>
-        <p className="text-xl text-pgblue/70 max-w-3xl mx-auto mb-16">
+          <h2 className="heading-lg text-pgnavy mb-4 text-center">Nuestros Productos</h2>
+          <p className="text-xl text-pgblue/70 max-w-3xl mx-auto mb-16">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
           </p>
-          
           {/* Products grid with images only */}
           <div className="flex flex-col items-center gap-12">
             {/* First row - 3 products */}
@@ -97,12 +69,11 @@ const PGAutomotiveSolutions = () => {
                   <img 
                     src={product.image}
                     alt={product.title}
-                    className="max-w-[300px] h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer"
+                    className="max-w-[300px] h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer bg-white"
                   />
                 </div>
               ))}
             </div>
-            
             {/* Second row - 2 products centered */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:w-2/3 w-full">
               {products.slice(3).map((product, index) => (
@@ -110,7 +81,7 @@ const PGAutomotiveSolutions = () => {
                   <img 
                     src={product.image}
                     alt={product.title}
-                    className="max-w-[300px] h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer"
+                    className="max-w-[300px] h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer bg-white"
                   />
                 </div>
               ))}

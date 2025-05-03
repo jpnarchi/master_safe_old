@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -31,10 +30,10 @@ const Navbar = () => {
 
   const productItems = [
     // "NEU" removed from here and moved to main navigation
-    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad" },
-    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde" },
-    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente" },
-    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior" }
+    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png" },
+    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png" },
+    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png" },
+    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior", img: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" }
   ];
 
   return (
@@ -95,10 +94,14 @@ const Navbar = () => {
                               to={item.path}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
-                              <div className="text-sm font-medium leading-none">{item.name}</div>
-                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                {item.description}
-                              </p>
+                              <div className="flex flex-col items-start text-left -gap-10">
+                                <img src={item.img} alt={item.name + ' logo'} className="w-78 h-78 object-contain ml-0" />
+                                <div>
+                                  <p className="line-clamp-2 text-xs leading-tight text-muted-foreground">
+                                    {item.description}
+                                  </p>
+                                </div>
+                              </div>
                             </Link>
                           </NavigationMenuLink>
                         </li>
@@ -179,18 +182,20 @@ const Navbar = () => {
                 <span>Nuestros Productos</span>
                 <ChevronDown size={16} />
               </div>
-              <div id="products-submenu" className="hidden pl-4 mt-2 space-y-1">
-                {productItems.map((item, index) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className="block px-3 py-2 rounded-md text-sm font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+              <div id="products-submenu" className="hidden pl-4 mt-2">
+                <div className="grid grid-cols-2 gap-2 justify-items-center">
+                  {productItems.map((item, index) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className="block p-1"
+                      style={{ animationDelay: `${index * 0.05}s` }}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <img src={item.img} alt={item.name + ' logo'} className="w-36 h-36 object-contain" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
             

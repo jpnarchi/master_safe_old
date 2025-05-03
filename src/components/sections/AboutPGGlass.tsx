@@ -1,13 +1,13 @@
 const AboutPGGlass = () => {
   return (
-    <section id="about-pg" className="py-20 bg-pglight relative">
-      <div className="absolute inset-0">
+    <section id="about-pg" className="py-20 bg-white relative">
+      {/* <div className="absolute inset-0">
         <img 
           src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
           alt="Background pattern"
           className="w-full h-full object-cover opacity-70"
         />
-      </div>
+      </div> */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 slide-left">

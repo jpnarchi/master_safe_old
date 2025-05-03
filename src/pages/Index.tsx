@@ -36,8 +36,8 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      <PGAutomotiveSolutions />
       <AboutPGGlass />
+      <PGAutomotiveSolutions />
       <PGBallistics />
       <Segments />
       <AboutUs />

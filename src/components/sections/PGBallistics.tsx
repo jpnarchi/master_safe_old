@@ -1,16 +1,35 @@
+import { useEffect, useState } from "react";
+
+const images = [
+  "/lovable-uploads/vidrio_disparos.avif",
+  "/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg"
+];
 
 const PGBallistics = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="ballistics" className="py-20 bg-pgnavy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <div className="relative rounded-2xl overflow-hidden">
-              <img 
-                src="/lovable-uploads/c55693d5-aada-4a4c-8c5b-1d29642483b9.png"
-                alt="Ballistic Testing"
-                className="w-full h-[500px] object-cover"
-              />
+            <div className="relative rounded-2xl overflow-hidden h-[500px]">
+              {images.map((img, idx) => (
+                <img
+                  key={img}
+                  src={img}
+                  alt="Ballistic Testing"
+                  className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ${current === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                  style={{ transitionProperty: 'opacity' }}
+                />
+              ))}
               <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/50 to-transparent"></div>
             </div>
           </div>
