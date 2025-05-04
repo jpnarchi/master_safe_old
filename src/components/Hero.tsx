@@ -34,7 +34,7 @@ const Hero = () => {
     {
       title: "Nuestra Gama de Productos",
       subtitle: "Descubra nuestra línea completa de vidrio blindado premium",
-      background: "/lovable-uploads/af3501d2-8f81-42fb-b113-6a18bf7571f5.png",
+      background: "/lovable-uploads/vidrio.jpg",
       cta: "Explorar Productos"
     }
   ];
@@ -50,7 +50,7 @@ const Hero = () => {
         {banners.map((banner, index) => (
           <div 
             key={index} 
-            className={`absolute inset-0 transition-opacity duration-700 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 transition-opacity duration-700 ${index === currentIndex ? 'opacity-70' : 'opacity-0'}`}
           >
             <img 
               src={banner.background}
@@ -60,7 +60,7 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
               alt="Background pattern overlay"
-              className="absolute inset-0 w-full h-full object-cover opacity-15"
+              className="absolute inset-0 w-full h-full object-cover opacity-35"
             />
             <div className="absolute inset-0 bg-pgnavy/40"></div>
           </div>

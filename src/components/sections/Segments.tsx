@@ -1,4 +1,3 @@
-
 const Segments = () => {
   const segments = [
     {
@@ -19,8 +18,15 @@ const Segments = () => {
   ];
 
   return (
-    <section id="segments" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="segments" className="py-20 bg-white relative">
+      {/* <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+          alt="Background pattern"
+          className="w-full h-full object-cover opacity-40 -scale-x-100"
+        />
+      </div> */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-pgnavy mb-4">Nuestros Segmentos</h2>
           <p className="text-xl text-pgnavy/70 max-w-3xl mx-auto">

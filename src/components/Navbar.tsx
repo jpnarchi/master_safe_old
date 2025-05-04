@@ -33,7 +33,8 @@ const Navbar = () => {
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png" },
     { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png" },
-    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior", img: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" }
+    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior", img: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" },
+    { name: "NEU", path: "/neu", description: "Desempeño gran", img: "/lovable-uploads/neu.png" }
   ];
 
   return (
@@ -62,20 +63,14 @@ const Navbar = () => {
               Inicio
             </Link>
             
-            {/* NEU Link - Added here */}
-            <Link 
-              to="/neu"
-              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
-            >
-              NEU
-            </Link>
+        
             
             {/* Historia Link */}
             <Link 
               to="/historia"
               className="font-medium text-white hover:text-white/80 transition-colors duration-300"
             >
-              Historia
+              About Us
             </Link>
             
             {/* Products Menu */}
@@ -83,7 +78,7 @@ const Navbar = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent text-white hover:bg-white/10 hover:text-white">
-                    Nuestros Productos
+                    PG Automative Solutions
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[400px] md:w-[500px] lg:w-[600px] grid-cols-2">
@@ -111,6 +106,20 @@ const Navbar = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+            <Link 
+              to="/pg-ballistics"
+              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+            >
+              PG Ballistics
+            </Link>
+
+            <Link 
+              to="/pg-ballistics"
+              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+            >
+              Segments
+            </Link>
+            
           </nav>
 
           <div className="hidden md:block">
@@ -148,15 +157,6 @@ const Navbar = () => {
               Inicio
             </Link>
             
-            {/* NEU Link - Added here */}
-            <Link
-              to="/neu"
-              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.05s' }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              NEU
-            </Link>
             
             {/* Historia Link */}
             <Link
