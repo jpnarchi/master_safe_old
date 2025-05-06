@@ -42,7 +42,7 @@ const PGAutomotiveSolutions = () => {
     id: "neu",
     title: "PG Neu",
     description: "Nueva generación de vidrio blindado premium",
-    image: "/lovable-uploads/8d97ffb7-449f-43e8-8378-481d3f3080e3.png"
+    image: "/lovable-uploads/neu.png"
   }];
   
   return <section id="automotive" className="py-20 bg-white relative">
@@ -66,11 +66,16 @@ const PGAutomotiveSolutions = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
               {products.slice(0, 3).map((product, index) => (
                 <div key={index} className="flex items-center justify-center">
-                  <img 
-                    src={product.image}
-                    alt={product.title}
-                    className="max-w-[300px] h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer bg-white"
-                  />
+                  <div className="relative max-w-[300px] w-full h-full group">
+                    <img 
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer bg-white transition-opacity duration-300 group-hover:opacity-0 opacity-100"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center p-4 bg-white border-2 border-pgnavy rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100 text-pgnavy text-center text-base font-medium">
+                      {product.description}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -78,11 +83,16 @@ const PGAutomotiveSolutions = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:w-2/3 w-full">
               {products.slice(3).map((product, index) => (
                 <div key={index} className="flex items-center justify-center">
-                  <img 
-                    src={product.image}
-                    alt={product.title}
-                    className="max-w-[300px] h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer bg-white"
-                  />
+                  <div className="relative max-w-[300px] w-full h-full group">
+                    <img 
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-auto object-contain border-2 border-pgnavy rounded-lg p-4 transition-transform duration-300 hover:scale-110 cursor-pointer bg-white transition-opacity duration-300 group-hover:opacity-0 opacity-100"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center p-4 bg-white border-2 border-pgnavy rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100 text-pgnavy text-center text-base font-medium">
+                      {product.description}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
