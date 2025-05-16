@@ -8,7 +8,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   
   const whiteLogo = "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png";
-  const blueLogo = "/ruta-a-tu-logo-azul.png";
+  const blueLogo = "/LogoPGPRODUCTSPGBLUE.png";
 
   const styles = `
     @keyframes fadeInDown {
@@ -93,7 +93,7 @@ const Navbar = () => {
               <img 
                 src={activeMenu === 'products' ? blueLogo : whiteLogo}
                 alt="PG Products Logo" 
-                className="h-10 md:h-12 transition-all duration-300 ease-in-out" 
+                className={`${activeMenu === 'products' ? 'h-16 md:h-20' : 'h-10 md:h-12'} transition-all duration-300 ease-in-out`} 
               />
             </Link>
           </div>
@@ -297,7 +297,7 @@ const Navbar = () => {
             <Link
               to="/contacto"
               className="block px-3 py-2 rounded-md text-base font-medium bg-pgnavy text-white hover:bg-pgblue animate-slide-in-bottom"
-              style={{ animationDelay: '0.25s' }}
+              style={{ animationDelay: '0.2s' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contacto
