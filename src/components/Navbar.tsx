@@ -1,19 +1,41 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+  
+  const whiteLogo = "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png";
+  const blueLogo = "/ruta-a-tu-logo-azul.png";
+
+  const styles = `
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-down {
+      animation: fadeInDown 0.3s ease-out forwards;
+    }
+  `;
+
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = styles;
+    document.head.appendChild(styleElement);
+    
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +50,21 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (activeMenu) {
+      const handleClickOutside = (event) => {
+        const nav = document.getElementById('main-nav');
+        if (nav && !nav.contains(event.target)) {
+          setActiveMenu(null);
+        }
+      };
+      
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [activeMenu]);
+
   const productItems = [
-    // "NEU" removed from here and moved to main navigation
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png" },
     { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png" },
@@ -37,105 +72,117 @@ const Navbar = () => {
     { name: "NEU", path: "/neu", description: "Desempeño gran", img: "/lovable-uploads/neu.png" }
   ];
 
+  const toggleMenu = (menuName) => {
+    setActiveMenu(activeMenu === menuName ? null : menuName);
+  };
+
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 bg-pgnavy shadow-md"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out ${
+        activeMenu === 'products' 
+          ? 'bg-white' 
+          : isScrolled 
+            ? 'backdrop-blur-md bg-black/50' 
+            : 'bg-transparent'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20" id="main-nav">
+          <div className="flex-shrink-0 pl-0">
             <Link to="/">
               <img 
-                src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" 
+                src={activeMenu === 'products' ? blueLogo : whiteLogo}
                 alt="PG Products Logo" 
-                className="h-10 md:h-12" 
+                className="h-10 md:h-12 transition-all duration-300 ease-in-out" 
               />
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
-            {/* Home Link */}
+          <nav className="hidden md:flex flex-1 justify-center space-x-8 items-center">
             <Link 
               to="/"
-              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+              className={`font-medium transition-colors duration-300 ease-out ${
+                activeMenu === 'products' 
+                  ? 'text-pgnavy hover:text-pgnavy/80' 
+                  : 'text-white hover:text-white/80'
+              }`}
             >
               Inicio
             </Link>
             
-        
-            
-            {/* Historia Link */}
             <Link 
               to="/historia"
-              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+              className={`font-medium transition-colors duration-300 ease-out ${
+                activeMenu === 'products' 
+                  ? 'text-pgnavy hover:text-pgnavy/80' 
+                  : 'text-white hover:text-white/80'
+              }`}
             >
               About Us
             </Link>
             
-            {/* Products Menu */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent text-white hover:bg-white/10 hover:text-white">
-                    PG Automative Solutions
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 w-[400px] md:w-[500px] lg:w-[600px] grid-cols-2">
-                      {productItems.map((item) => (
-                        <li key={item.name} className="row-span-1">
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.path}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              <div className="flex flex-col items-start text-left -gap-10">
-                                <img src={item.img} alt={item.name + ' logo'} className="w-78 h-78 object-contain ml-0" />
-                                <div>
-                                  <p className="line-clamp-2 text-xs leading-tight text-muted-foreground">
-                                    {item.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            <div className="relative">
+              <button
+                onClick={() => toggleMenu('products')}
+                onMouseEnter={() => setActiveMenu('products')}
+                className={`font-medium transition-colors duration-300 ease-in-out flex items-center gap-1 ${
+                  activeMenu === 'products' 
+                    ? 'text-pgnavy font-semibold' 
+                    : 'text-white hover:text-white/80'
+                }`}
+              >
+                PG Automotive Solutions
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-300 ${activeMenu === 'products' ? 'rotate-180' : ''}`} 
+                />
+              </button>
+            </div>
+            
             <Link 
               to="/pg-ballistics"
-              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+              className={`font-medium transition-colors duration-300 ease-out ${
+                activeMenu === 'products' 
+                  ? 'text-pgnavy hover:text-pgnavy/80' 
+                  : 'text-white hover:text-white/80'
+              }`}
             >
               PG Ballistics
             </Link>
 
             <Link 
-              to="/pg-ballistics"
-              className="font-medium text-white hover:text-white/80 transition-colors duration-300"
+              to="/segments"
+              className={`font-medium transition-colors duration-300 ease-out ${
+                activeMenu === 'products' 
+                  ? 'text-pgnavy hover:text-pgnavy/80' 
+                  : 'text-white hover:text-white/80'
+              }`}
             >
               Segments
             </Link>
-            
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:block pr-0">
             <Link 
               to="/contacto" 
-              className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-white text-pgnavy hover:bg-white/90 transition-colors duration-300"
+              className={`inline-flex items-center rounded-md px-4 py-2 font-medium transition-all duration-300 ease-in-out ${
+                activeMenu === 'products' 
+                  ? 'bg-pgnavy text-white hover:bg-pgnavy/90' 
+                  : 'bg-white text-pgnavy hover:bg-white/90'
+              }`}
             >
               Contacto
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               type="button"
-              className="p-2 rounded-md text-white hover:bg-white/10"
+              className={`p-2 rounded-md transition-colors duration-300 ease-in-out ${
+                activeMenu === 'products' 
+                  ? 'text-pgnavy hover:bg-pgnavy/10' 
+                  : 'text-white hover:bg-white/10'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -144,11 +191,41 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {activeMenu === 'products' && (
+        <div 
+          className="absolute left-0 right-0 bg-white shadow-xl transform transition-all duration-400 ease-in-out z-40 overflow-hidden animate-fade-in-down"
+          onMouseLeave={() => setActiveMenu(null)}
+        >
+          <div className="container mx-auto py-12 px-4 sm:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              {productItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105"
+                >
+                  <div className="mb-4 overflow-hidden rounded-lg">
+                    <img 
+                      src={item.img} 
+                      alt={item.name} 
+                      className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" 
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-pgnavy">{item.name}</h3>
+                  <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+                  <span className="inline-block mt-2 text-pgnavy underline-offset-4 group-hover:underline">
+                    Ver más
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg animate-slide-in-right">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {/* Home Link */}
             <Link
               to="/"
               className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
@@ -157,18 +234,15 @@ const Navbar = () => {
               Inicio
             </Link>
             
-            
-            {/* Historia Link */}
             <Link
               to="/historia"
               className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
               style={{ animationDelay: '0.1s' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Historia
+              About Us
             </Link>
             
-            {/* Products Submenu */}
             <div className="block px-3 py-2 font-medium text-pgnavy">
               <div 
                 className="flex justify-between items-center cursor-pointer"
@@ -179,7 +253,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                <span>Nuestros Productos</span>
+                <span>PG Automotive Solutions</span>
                 <ChevronDown size={16} />
               </div>
               <div id="products-submenu" className="hidden pl-4 mt-2">
@@ -192,12 +266,33 @@ const Navbar = () => {
                       style={{ animationDelay: `${index * 0.05}s` }}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <img src={item.img} alt={item.name + ' logo'} className="w-36 h-36 object-contain" />
+                      <div className="flex flex-col items-center">
+                        <img src={item.img} alt={item.name + ' logo'} className="w-28 h-28 object-contain" />
+                        <span className="text-sm font-medium mt-1">{item.name}</span>
+                      </div>
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
+            
+            <Link
+              to="/pg-ballistics"
+              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
+              style={{ animationDelay: '0.15s' }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              PG Ballistics
+            </Link>
+            
+            <Link
+              to="/segments"
+              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
+              style={{ animationDelay: '0.2s' }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Segments
+            </Link>
             
             <Link
               to="/contacto"
