@@ -6,7 +6,7 @@ const slides = [
     title: "GlassGuard",
     description: "Calidad y Durabilidad",
     price: "Protección superior para tu vehículo",
-    img: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png",
+    img: "/lovable-uploads/f3db5a79-c8a9-46fc-9660-a991756c711f.png",
     link: "#"
   },
   {
@@ -14,7 +14,7 @@ const slides = [
     title: "SteelGlass",
     description: "Resistente hasta el Borde",
     price: "Tecnología avanzada de protección",
-    img: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png",
+    img: "/lovable-uploads/Protege-a-tu-familia.webp",
     link: "#"
   },
   {
@@ -22,7 +22,7 @@ const slides = [
     title: "SuperSlim",
     description: "Liviano y Resistente",
     price: "Protección sin comprometer el diseño",
-    img: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png",
+    img: "/lovable-uploads/74356578-08a7-4a0d-ad9b-ef8f2083fe81.png",
     link: "#"
   },
   {
@@ -30,7 +30,7 @@ const slides = [
     title: "ULTRA",
     description: "Desempeño Balístico Superior",
     price: "La máxima protección disponible",
-    img: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png",
+    img: "/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png",
     link: "#"
   },
   {
@@ -38,7 +38,7 @@ const slides = [
     title: "NEU",
     description: "Desempeño Gran",
     price: "La nueva generación de protección",
-    img: "/lovable-uploads/neu.png",
+    img: "/lovable-uploads/82e0c0e3-aaad-4d7f-aa32-398f7c44bafe.png",
     link: "#"
   }
 ];
@@ -46,12 +46,58 @@ const slides = [
 const Hero = () => {
   const [current, setCurrent] = useState(0);
   const wrapperRef = useRef(null);
+  
+  // Definir el ancho del slide y el offset para que se vean partes de los slides adyacentes
+  const slideWidth = 85; // Ancho del slide principal en vw
+  const slideMargin = 2; // Margen reducido entre slides en vw
+  const slideOffset = 5; // Offset para mantener la visualización de slides adyacentes
+  
+  // Asegurar que el carrusel muestre correctamente el primer y último slide
+  useEffect(() => {
+    // Ajustar la posición del carrusel para que no queden espacios vacíos
+    const adjustCarousel = () => {
+      const wrapper = wrapperRef.current;
+      if (!wrapper) return;
+      
+      // Cuando estamos en el último slide, se maneja directamente en el transform
+      // para centrarlo, así que no necesitamos padding adicional aquí
+    };
+    
+    adjustCarousel();
+  }, [current]);
 
-  const goTo = idx => setCurrent(idx);
-  const next = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  const goTo = idx => {
+    // Si el índice es válido
+    if (idx >= 0 && idx < slides.length) {
+      setCurrent(idx);
+    }
+  };
+  
+  // Función next mejorada para manejar el caso especial del último slide
+  const next = () => {
+    setCurrent((prev) => {
+      // Si estamos en el último slide, volvemos al primero
+      if (prev === slides.length - 1) {
+        return 0;
+      }
+      // En caso contrario, avanzamos al siguiente
+      return prev + 1;
+    });
+  };
+  
+  // Función prev mejorada para manejar el caso especial del primer slide
+  const prev = () => {
+    setCurrent((prev) => {
+      // Si estamos en el primer slide, vamos al último
+      if (prev === 0) {
+        return slides.length - 1;
+      }
+      // En caso contrario, retrocedemos al anterior
+      return prev - 1;
+    });
+  };
 
-  // Touch/swipe support
+  // Touch/swipe support with improved behavior at the boundaries
   useEffect(() => {
     let startX = 0;
     let endX = 0;
@@ -62,11 +108,19 @@ const Hero = () => {
     const handleTouchEnd = e => {
       endX = e.changedTouches[0].clientX;
       const diff = startX - endX;
+      
+      // Solo cambiar si el desplazamiento es suficiente
       if (Math.abs(diff) > 50) {
-        if (diff > 0) next();
-        else prev();
+        if (diff > 0) {
+          // Deslizamiento hacia la izquierda (siguiente)
+          next();
+        } else {
+          // Deslizamiento hacia la derecha (anterior)
+          prev();
+        }
       }
     };
+    
     wrapper.addEventListener('touchstart', handleTouchStart);
     wrapper.addEventListener('touchend', handleTouchEnd);
     return () => {
@@ -78,53 +132,80 @@ const Hero = () => {
   return (
     <>
       <section
-        className="w-full min-h-screen bg-[url('/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg')] bg-cover bg-center bg-no-repeat relative"
+        className="w-full h-[70vh] bg-[url('/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg')] bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundPosition: 'center 30%' }}
       >
         {/* Overlay azul translúcido */}
         <div className="absolute inset-0 bg-blue-800/30 z-0" />
 
         {/* Contenido centrado */}
-        <div className="relative z-10 flex justify-center items-center min-h-screen pt-0">
+        <div className="relative z-10 flex flex-col justify-center items-center h-full gap-8">
           <img
             src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png"
             alt="PG Products Logo"
-            className="w-64 md:w-80 h-auto -mt-12"
+            className="w-64 md:w-80 h-auto"
           />
+          <div className="flex gap-4">
+            <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+              Contactar
+            </button>
+            <button className="px-8 py-3 bg-white text-blackfont-semibold rounded-lg  hover:bg-blue-50 transition">
+              Saber más
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Carrusel full width de productos */}
       <section className="w-full bg-white py-16 flex flex-col items-center">
         <div className="w-full relative">
-          <div className="flex items-center justify-between mb-8 max-w-7xl mx-auto px-4">
-            <button
-              onClick={prev}
-              className="p-2 rounded-full bg-blue-900/10 hover:bg-blue-900/20 text-blue-900 transition"
-              aria-label="Anterior"
-            >&#8592;</button>
-            <div className="text-lg font-semibold text-blue-900">Nuestros Productos</div>
-            <button
-              onClick={next}
-              className="p-2 rounded-full bg-blue-900/10 hover:bg-blue-900/20 text-blue-900 transition"
-              aria-label="Siguiente"
-            >&#8594;</button>
-          </div>
           <div className="overflow-hidden w-full">
+            {/* Wrapper con posición inicial ajustada para mostrar siempre parte del slide anterior */}
             <div
               ref={wrapperRef}
               className="flex transition-transform duration-500"
               style={{
-                transform: `translateX(-${current * 75}vw)`,
-                width: `${slides.length * 75}vw`
+                transform: current === slides.length - 1 
+                  ? `translateX(calc(-${current * (slideWidth + slideMargin * 2)}vw + ${(100 - slideWidth) / 2}vw))` // Centrar el último slide
+                  : `translateX(calc(-${current * (slideWidth + slideMargin * 2)}vw + ${slideOffset}vw))`, // Comportamiento normal
+                width: `${slides.length * (slideWidth + slideMargin * 2)}vw`,
+                margin: 0,
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center'
               }}
             >
               {slides.map((slide, idx) => (
                 <div
                   key={slide.title}
-                  className="w-[70vw] flex-shrink-0 flex flex-col justify-center relative mx-4 rounded-2xl shadow-xl overflow-hidden"
+                  className="flex-shrink-0 flex flex-col justify-center relative mx-2 rounded-2xl shadow-xl overflow-hidden cursor-pointer"
                   style={{
+                    width: `${slideWidth}vw`,
                     height: '420px',
                     background: `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('${slide.img}') center/cover`
+                  }}
+                  onClick={() => {
+                    // Al hacer clic en un slide
+                    if (current === slides.length - 1) {
+                      // Si estamos en el último slide y hacemos clic en él, volvemos al primero
+                      if (idx === current) {
+                        goTo(0);
+                      } 
+                      // Si hacemos clic en cualquier otro slide, vamos a ese slide
+                      else {
+                        goTo(idx);
+                      }
+                    } else if (idx === current - 1 || (current === 0 && idx === slides.length - 1)) {
+                      // Si hacemos clic en el slide anterior
+                      prev();
+                    } else if (idx === current + 1 || (current === slides.length - 1 && idx === 0)) {
+                      // Si hacemos clic en el slide siguiente
+                      next();
+                    } else if (idx !== current) {
+                      // Si hacemos clic en cualquier otro slide no adyacente
+                      goTo(idx);
+                    }
                   }}
                 >
                   <div className="absolute inset-0 flex flex-col justify-center items-start z-10 p-12">
@@ -136,6 +217,7 @@ const Hero = () => {
                       <a
                         href={slide.link}
                         className="btn btn-primary px-6 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-800 transition"
+                        onClick={(e) => e.stopPropagation()} // Evitar que el clic en el botón active el cambio de slide
                       >
                         Ver más
                       </a>

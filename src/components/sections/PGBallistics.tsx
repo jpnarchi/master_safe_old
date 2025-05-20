@@ -23,13 +23,13 @@ const PGBallistics = () => {
           <img
             key={img}
             src={img}
-            alt="Ballistic Testing"
+                alt="Ballistic Testing"
             className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ${current === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             style={{ transitionProperty: 'opacity' }}
-          />
+              />
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/70 to-transparent"></div>
-      </div>
+            </div>
       {/* Imagen para mobile (arriba, ancho completo) */}
       <div className="block md:hidden w-full h-64 relative">
         {images.map((img, idx) => (
@@ -42,7 +42,7 @@ const PGBallistics = () => {
           />
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-pgnavy/70 to-transparent"></div>
-      </div>
+          </div>
       <div className="max-w-7xl mx-auto flex-1 flex items-center relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center w-full min-h-[500px]">
           {/* Columna vacía para desktop (imagen de fondo) */}

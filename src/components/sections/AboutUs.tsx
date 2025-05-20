@@ -100,8 +100,8 @@ const AboutUs = () => {
               {content[activeTab].description}
             </p>
           )}
-        </div>
-
+            </div>
+            
         <div className="mt-12 grid md:grid-cols-3 gap-8">
           <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="flex items-center gap-4 mb-4">
@@ -112,13 +112,13 @@ const AboutUs = () => {
               Nuestro equipo está compuesto por profesionales altamente capacitados en ingeniería y seguridad.
             </p>
           </div>
-
+          
           <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="flex items-center gap-4 mb-4">
               <Shield className="w-8 h-8 text-pgblue" />
               <h4 className="text-xl font-bold text-pgnavy">Tecnología Avanzada</h4>
             </div>
-            <p className="text-pgnavy/70">
+              <p className="text-pgnavy/70">
               Utilizamos tecnología de punta y procesos de fabricación de última generación.
             </p>
           </div>

@@ -78,22 +78,16 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out ${
-        activeMenu === 'products' 
-          ? 'bg-white' 
-          : isScrolled 
-            ? 'backdrop-blur-md bg-black/50' 
-            : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 w-full bg-white shadow-sm transition-all duration-500 ease-in-out"
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20" id="main-nav">
           <div className="flex-shrink-0 pl-0">
             <Link to="/">
               <img 
-                src={activeMenu === 'products' ? blueLogo : whiteLogo}
+                src={blueLogo}
                 alt="PG Products Logo" 
-                className={`${activeMenu === 'products' ? 'h-16 md:h-20' : 'h-10 md:h-12'} transition-all duration-300 ease-in-out`} 
+                className="h-16 md:h-20 transition-all duration-300 ease-in-out" 
               />
             </Link>
           </div>
@@ -101,22 +95,14 @@ const Navbar = () => {
           <nav className="hidden md:flex flex-1 justify-center space-x-8 items-center">
             <Link 
               to="/"
-              className={`font-medium transition-colors duration-300 ease-out ${
-                activeMenu === 'products' 
-                  ? 'text-pgnavy hover:text-pgnavy/80' 
-                  : 'text-white hover:text-white/80'
-              }`}
+              className="font-medium text-pgnavy hover:text-pgnavy/80 transition-colors duration-300 ease-out"
             >
               Inicio
             </Link>
             
             <Link 
               to="/historia"
-              className={`font-medium transition-colors duration-300 ease-out ${
-                activeMenu === 'products' 
-                  ? 'text-pgnavy hover:text-pgnavy/80' 
-                  : 'text-white hover:text-white/80'
-              }`}
+              className="font-medium text-pgnavy hover:text-pgnavy/80 transition-colors duration-300 ease-out"
             >
               About Us
             </Link>
@@ -125,11 +111,7 @@ const Navbar = () => {
               <button
                 onClick={() => toggleMenu('products')}
                 onMouseEnter={() => setActiveMenu('products')}
-                className={`font-medium transition-colors duration-300 ease-in-out flex items-center gap-1 ${
-                  activeMenu === 'products' 
-                    ? 'text-pgnavy font-semibold' 
-                    : 'text-white hover:text-white/80'
-                }`}
+                className="font-medium text-pgnavy hover:text-pgnavy/80 transition-colors duration-300 ease-in-out flex items-center gap-1"
               >
                 PG Automotive Solutions
                 <ChevronDown 
@@ -141,22 +123,14 @@ const Navbar = () => {
             
             <Link 
               to="/pg-ballistics"
-              className={`font-medium transition-colors duration-300 ease-out ${
-                activeMenu === 'products' 
-                  ? 'text-pgnavy hover:text-pgnavy/80' 
-                  : 'text-white hover:text-white/80'
-              }`}
+              className="font-medium text-pgnavy hover:text-pgnavy/80 transition-colors duration-300 ease-out"
             >
               PG Ballistics
             </Link>
 
             <Link 
               to="/segments"
-              className={`font-medium transition-colors duration-300 ease-out ${
-                activeMenu === 'products' 
-                  ? 'text-pgnavy hover:text-pgnavy/80' 
-                  : 'text-white hover:text-white/80'
-              }`}
+              className="font-medium text-pgnavy hover:text-pgnavy/80 transition-colors duration-300 ease-out"
             >
               Segments
             </Link>
@@ -165,11 +139,7 @@ const Navbar = () => {
           <div className="hidden md:block pr-0">
             <Link 
               to="/contacto" 
-              className={`inline-flex items-center rounded-md px-4 py-2 font-medium transition-all duration-300 ease-in-out ${
-                activeMenu === 'products' 
-                  ? 'bg-pgnavy text-white hover:bg-pgnavy/90' 
-                  : 'bg-white text-pgnavy hover:bg-white/90'
-              }`}
+              className="inline-flex items-center rounded-md px-4 py-2 font-medium bg-pgnavy text-white hover:bg-pgnavy/90 transition-all duration-300 ease-in-out"
             >
               Contacto
             </Link>
@@ -178,11 +148,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               type="button"
-              className={`p-2 rounded-md transition-colors duration-300 ease-in-out ${
-                activeMenu === 'products' 
-                  ? 'text-pgnavy hover:bg-pgnavy/10' 
-                  : 'text-white hover:bg-white/10'
-              }`}
+              className="p-2 rounded-md text-pgnavy hover:bg-pgnavy/10 transition-colors duration-300 ease-in-out"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

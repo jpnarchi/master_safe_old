@@ -1,7 +1,7 @@
-
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import CompareTeslaSection from "../components/sections/CompareTeslaSection";
 import PGAutomotiveSolutions from "../components/sections/PGAutomotiveSolutions";
 import AboutPGGlass from "../components/sections/AboutPGGlass";
 import PGBallistics from "../components/sections/PGBallistics";
@@ -36,11 +36,12 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+      <CompareTeslaSection />
       <AboutPGGlass />
-      <PGAutomotiveSolutions />
-      <PGBallistics />
+      {/* <PGAutomotiveSolutions /> */}
+      {/* <PGBallistics /> */}
       <Segments />
-      <AboutUs />
+      {/* <AboutUs /> */}
       <Footer />
     </div>
   );
