@@ -9,6 +9,7 @@ import Segments from "../components/sections/Segments";
 import AboutUs from "../components/sections/AboutUs";
 import Footer from "../components/Footer";
 import useScrollObserver from "../utils/ScrollObserver";
+import SliderSecondHome from "../components/sections/SliderSecondHome";
 
 const Index = () => {
   useScrollObserver();
@@ -38,6 +39,7 @@ const Index = () => {
       <Hero />
       <CompareTeslaSection />
       <AboutPGGlass />
+      <SliderSecondHome />
       {/* <PGAutomotiveSolutions /> */}
       {/* <PGBallistics /> */}
       <Segments />
