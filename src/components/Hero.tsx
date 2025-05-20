@@ -132,7 +132,7 @@ const Hero = () => {
   return (
     <>
       <section
-        className="w-full h-[70vh] bg-[url('/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg')] bg-cover bg-center bg-no-repeat relative"
+        className="w-full h-[100vh] bg-[url('/lovable-uploads/b3344555-f7a7-43fd-8be2-ce26a49a554e.png')] bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundPosition: 'center 30%' }}
       >
         {/* Overlay azul translúcido */}
@@ -157,17 +157,17 @@ const Hero = () => {
       </section>
 
       {/* Carrusel full width de productos */}
-      <section className="w-full bg-white py-16 flex flex-col items-center">
-        <div className="w-full relative">
-          <div className="overflow-hidden w-full">
+      <section className="w-screen bg-white py-16 flex flex-col items-center overflow-x-hidden">
+        <div className="w-screen relative">
+          <div className="overflow-hidden w-screen">
             {/* Wrapper con posición inicial ajustada para mostrar siempre parte del slide anterior */}
             <div
               ref={wrapperRef}
               className="flex transition-transform duration-500"
               style={{
                 transform: current === slides.length - 1 
-                  ? `translateX(calc(-${current * (slideWidth + slideMargin * 2)}vw + ${(100 - slideWidth) / 2}vw))` // Centrar el último slide
-                  : `translateX(calc(-${current * (slideWidth + slideMargin * 2)}vw + ${slideOffset}vw))`, // Comportamiento normal
+                  ? `translateX(calc(-${current * (slideWidth + slideMargin * 2)}vw))` // Centrar el último slide
+                  : `translateX(calc(-${current * (slideWidth + slideMargin * 2)}vw))`, // Comportamiento normal
                 width: `${slides.length * (slideWidth + slideMargin * 2)}vw`,
                 margin: 0,
                 padding: 0,
@@ -179,10 +179,10 @@ const Hero = () => {
               {slides.map((slide, idx) => (
                 <div
                   key={slide.title}
-                  className="flex-shrink-0 flex flex-col justify-center relative mx-2 rounded-2xl shadow-xl overflow-hidden cursor-pointer"
+                  className="flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer"
                   style={{
                     width: `${slideWidth}vw`,
-                    height: '420px',
+                    height: '100vh',
                     background: `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('${slide.img}') center/cover`
                   }}
                   onClick={() => {
