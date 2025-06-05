@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PGLogo from './PGLogo';
 
@@ -11,10 +10,10 @@ interface VideoSectionProps {
 const VideoSection: React.FC<VideoSectionProps> = ({ 
   title, 
   subtitle,
-  videoSrc = "/VIDEO-2025-04-04-08-27-50.mp4" // Default to this MP4 file
+  videoSrc = "/PG INSTITUCIONAL.mp4" // Cambiado al video solicitado
 }) => {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden mb-0">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <video 

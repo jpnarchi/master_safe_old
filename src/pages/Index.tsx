@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import CompareTeslaSection from "../components/sections/CompareTeslaSection";
+import VideoSection from "../components/VideoSection";
+// import CompareTeslaSection from "../components/sections/CompareTeslaSection";
 import PGAutomotiveSolutions from "../components/sections/PGAutomotiveSolutions";
 import AboutPGGlass from "../components/sections/AboutPGGlass";
 import PGBallistics from "../components/sections/PGBallistics";
-import Segments from "../components/sections/Segments";
+// import Segments from "../components/sections/Segments";
 import AboutUs from "../components/sections/AboutUs";
 import Footer from "../components/Footer";
 import useScrollObserver from "../utils/ScrollObserver";
@@ -16,7 +17,7 @@ const Index = () => {
 
   useEffect(() => {
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
@@ -37,12 +38,13 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      <CompareTeslaSection />
+      <VideoSection title="" />
       <AboutPGGlass />
+      {/* <CompareTeslaSection /> */}
       <SliderSecondHome />
       {/* <PGAutomotiveSolutions /> */}
       {/* <PGBallistics /> */}
-      <Segments />
+      {/* <Segments /> */}
       {/* <AboutUs /> */}
       <Footer />
     </div>
