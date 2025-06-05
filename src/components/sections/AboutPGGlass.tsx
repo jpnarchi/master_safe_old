@@ -7,17 +7,6 @@ const AboutPGGlass = () => {
     <section id="about-pg" className="py-20 bg-white relative">
       <div className="w-[90vw] max-w-[1700px] mx-auto flex flex-col gap-10">
         {/* Texto About PG Glass */}
-        <div className="bg-gray-100 rounded-2xl p-10 md:p-16 shadow text-justify">
-          <h2 className="heading-lg text-pgnavy mb-4 text-center">About PG Glass</h2>
-          <p className="text-xl text-pgnavy/70 mb-4">
-            PG Glass es líder en la fabricación de vidrio blindado premium, combinando tecnología europea 
-            de vanguardia con los más altos estándares de calidad en la industria automotriz.
-          </p>
-          <p className="text-xl text-pgnavy/70">
-            Nuestra dedicación a la innovación y excelencia nos ha posicionado como referentes 
-            en soluciones de seguridad transparente para vehículos de alta gama.
-          </p>
-        </div>
         {/* Grid de dos cards grandes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Card GlassGuard */}
