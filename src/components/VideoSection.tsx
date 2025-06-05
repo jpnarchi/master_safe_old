@@ -10,7 +10,7 @@ interface VideoSectionProps {
 const VideoSection: React.FC<VideoSectionProps> = ({ 
   title, 
   subtitle,
-  videoSrc = "/PG INSTITUCIONAL.mp4" // Cambiado al video solicitado
+  videoSrc = "https://drive.google.com/uc?export=download&id=1xmM-DxNBt5gKXyIBnN23eGv_JE6eDuj3" // Usar video de Google Drive
 }) => {
   return (
     <section className="relative w-full h-screen overflow-hidden mb-0">
