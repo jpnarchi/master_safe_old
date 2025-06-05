@@ -6,7 +6,7 @@ const slides = [
     title: "GlassGuard",
     description: "Calidad y Durabilidad",
     price: "Protección superior para tu vehículo",
-    img: "/lovable-uploads/f3db5a79-c8a9-46fc-9660-a991756c711f.png",
+    img: "/lovable-uploads/IMG_4544.jpg",
     link: "#"
   },
   {
@@ -14,7 +14,7 @@ const slides = [
     title: "SteelGlass",
     description: "Resistente hasta el Borde",
     price: "Tecnología avanzada de protección",
-    img: "/lovable-uploads/Protege-a-tu-familia.webp",
+    img: "/lovable-uploads/IMG_4421.jpg",
     link: "#"
   },
   {
