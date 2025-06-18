@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import { Timeline } from '@/components/Timeline';
@@ -50,6 +49,36 @@ const HistoriaPage = () => {
       subtitle="Una trayectoria de innovación, calidad y excelencia en seguridad"
       darkMode={true}
     >
+      <section className="relative w-full h-screen flex flex-col justify-end items-center overflow-hidden">
+        <video 
+          src="/PGREDUCEDVID.mp4" 
+          className="absolute inset-0 w-full h-full object-cover" 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 w-full flex flex-col items-center justify-center absolute top-0 left-0 pt-24">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg text-center">Nuestra Historia</h1>
+          <p className="text-xl md:text-2xl text-white/90 mb-10 text-center max-w-2xl drop-shadow-md">Una trayectoria de innovación, calidad y excelencia en seguridad</p>
+        </div>
+        <div className="relative z-10 w-full flex flex-col md:flex-row gap-6 max-w-4xl justify-center items-center mb-12">
+          <div className="bg-white/80 rounded-2xl shadow-lg p-6 w-72 text-center">
+            <h3 className="text-lg font-bold text-pgnavy mb-2">+ de 100 k</h3>
+            <p className="text-pgnavy/70">Empleados</p>
+          </div>
+          <div className="bg-white/80 rounded-2xl shadow-lg p-6 w-72 text-center">
+            <h3 className="text-lg font-bold text-pgnavy mb-2">Una misión</h3>
+            <p className="text-pgnavy/70">Innovación y protección</p>
+          </div>
+          <div className="bg-white/80 rounded-2xl shadow-lg p-6 w-72 text-center">
+            <h3 className="text-lg font-bold text-pgnavy mb-2">20.4 Mmt<sup>1</sup></h3>
+            <p className="text-pgnavy/70">CO₂ evitado en 2023</p>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-white">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
