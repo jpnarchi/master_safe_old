@@ -70,11 +70,11 @@ const Navbar = () => {
   }, [activeMenu]);
 
   const productItems = [
-    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png" },
-    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png" },
-    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png" },
-    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior", img: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" },
-    { name: "NEU", path: "/neu", description: "Desempeño gran", img: "/lovable-uploads/neu.png" }
+    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/PGGLASSGUARDLOG.jpeg" },
+    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/PGSTEELGLASSLOG.jpeg" },
+    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/PGSUPERSLIMLOG.jpeg" },
+    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior", img: "/PGULTRALOG.jpeg" },
+    { name: "NEU", path: "/neu", description: "Desempeño gran", img: "/PGNEULOG.jpeg" }
   ];
 
   const toggleMenu = (menuName) => {
@@ -207,7 +207,6 @@ const Navbar = () => {
                       className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" 
                     />
                   </div>
-                  <h3 className="text-lg font-semibold text-pgnavy">{item.name}</h3>
                   <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                   <span className="inline-block mt-2 text-pgnavy underline-offset-4 group-hover:underline">
                     Ver más
@@ -264,7 +263,6 @@ const Navbar = () => {
                     >
                       <div className="flex flex-col items-center">
                         <img src={item.img} alt={item.name + ' logo'} className="w-28 h-28 object-contain" />
-                        <span className="text-sm font-medium mt-1">{item.name}</span>
                       </div>
                     </Link>
                   ))}
