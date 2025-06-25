@@ -8,7 +8,7 @@ const slides = [
     price: "Protección superior para tu vehículo",
     img: "/lovable-uploads/GLASSGUARDSLIDE.jpeg",
     logo: "/PGGLASSGUARDLOG.jpeg",
-    link: "#"
+    link: "/glassguard"
   },
   {
     category: "Resistencia Máxima",
@@ -17,7 +17,7 @@ const slides = [
     price: "Tecnología avanzada de protección",
     img: "/lovable-uploads/STEELGLASSSLIDE.jpeg",
     logo: "/PGSTEELGLASSLOG.jpeg",
-    link: "#"
+    link: "/steelglass"
   },
   {
     category: "Diseño Elegante",
@@ -26,16 +26,16 @@ const slides = [
     price: "Protección sin comprometer el diseño",
     img: "/lovable-uploads/SUPERSLIMSLIDE.jpeg",
     logo: "/PGSUPERSLIMLOG.jpeg",
-    link: "#"
+    link: "/superslim"
   },
   {
     category: "Rendimiento Superior",
     title: "ULTRA",
     description: "Desempeño Balístico Superior",
     price: "La máxima protección disponible",
-    img: "/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png",
+    img: "/lovable-uploads/PGULTRASLIDE.jpeg",
     logo: "/PGULTRALOG.jpeg",
-    link: "#"
+    link: "/ultra"
   },
   {
     category: "Innovación Total",
@@ -44,7 +44,7 @@ const slides = [
     price: "La nueva generación de protección",
     img: "/lovable-uploads/NEUSLIDE.jpeg",
     logo: "/PGNEULOG.jpeg",
-    link: "#"
+    link: "/neu"
   }
 ];
 

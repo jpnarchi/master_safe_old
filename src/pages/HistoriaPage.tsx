@@ -464,7 +464,7 @@ const HistoriaPage = () => {
       </section>
 
       <Footer />
-    </div>
+        </div>
   );
 };
 
