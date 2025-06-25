@@ -68,7 +68,7 @@ const Navbar = () => {
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
   }, [activeMenu]);
-
+"LOGOS DE PRODUCTOS EN EL NAV BAR"
   const productItems = [
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/PGGLASSGUARDLOG.jpeg" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/PGSTEELGLASSLOG.jpeg" },
