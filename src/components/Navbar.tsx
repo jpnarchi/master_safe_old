@@ -208,8 +208,6 @@ const Navbar = () => {
                       className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" 
                     />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{item.name}</h3>
-                  <p className="text-sm text-gray-600 mb-2">{item.description}</p>
                   <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium">
                     Ver más
                   </span>
@@ -267,9 +265,10 @@ const Navbar = () => {
                         <div className="bg-gray-50 p-3 rounded-lg mb-2">
                           <img src={item.img} alt={item.name + ' logo'} className="w-20 h-20 object-contain" />
                         </div>
-                        <span className="text-sm font-medium text-gray-900">{item.name}</span>
-                        <span className="text-xs text-gray-600">{item.description}</span>
                       </div>
+                      <span className="inline-block text-pgnavy underline-offset-4 font-medium mt-2">
+                        Ver más
+                      </span>
                     </Link>
                   ))}
                 </div>
