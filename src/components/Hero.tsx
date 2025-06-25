@@ -144,7 +144,7 @@ const Hero = () => {
   return (
     <>
       <section
-        className="w-full h-[100vh] bg-[url('/lovable-uploads/IMG_4473.jpg')] bg-cover bg-center bg-no-repeat relative"
+        className="w-full h-[100vh] bg-[url('/mainpagev1.jpeg')] bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundPosition: 'center 30%' }}
       >
         {/* Overlay azul translúcido */}
