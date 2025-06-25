@@ -68,13 +68,13 @@ const Navbar = () => {
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
   }, [activeMenu]);
-"LOGOS DE PRODUCTOS EN EL NAV BAR"
+
   const productItems = [
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/PGGLASSGUARDLOG.jpeg" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/PGSTEELGLASSLOG.jpeg" },
     { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/PGSUPERSLIMLOG.jpeg" },
-    { name: "ULTRA", path: "/ultra", description: "Desempeño Balístico Superior", img: "/PGULTRALOG.jpeg" },
-    { name: "NEU", path: "/neu", description: "Desempeño gran", img: "/PGNEULOG.jpeg" }
+    { name: "Ultra", path: "/ultra", description: "Desempeño Balístico Superior", img: "/PGULTRALOG.jpeg" },
+    { name: "Neu", path: "/neu", description: "Próxima Generación", img: "/PGNEULOG.jpeg" }
   ];
 
   const toggleMenu = (menuName) => {
@@ -199,16 +199,18 @@ const Navbar = () => {
                   key={item.name}
                   to={item.path}
                   className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105"
+                  onClick={() => setActiveMenu(null)}
                 >
-                  <div className="mb-4 overflow-hidden rounded-lg">
+                  <div className="mb-4 overflow-hidden rounded-lg bg-gray-50 p-4">
                     <img 
                       src={item.img} 
                       alt={item.name} 
                       className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" 
                     />
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-                  <span className="inline-block mt-2 text-pgnavy underline-offset-4 group-hover:underline">
+                  <h3 className="font-semibold text-gray-900 mb-1">{item.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+                  <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium">
                     Ver más
                   </span>
                 </Link>
@@ -252,17 +254,21 @@ const Navbar = () => {
                 <ChevronDown size={16} />
               </div>
               <div id="products-submenu" className="hidden pl-4 mt-2">
-                <div className="grid grid-cols-2 gap-2 justify-items-center">
+                <div className="grid grid-cols-2 gap-4 justify-items-center">
                   {productItems.map((item, index) => (
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="block p-1"
+                      className="block p-2 text-center"
                       style={{ animationDelay: `${index * 0.05}s` }}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <div className="flex flex-col items-center">
-                        <img src={item.img} alt={item.name + ' logo'} className="w-28 h-28 object-contain" />
+                        <div className="bg-gray-50 p-3 rounded-lg mb-2">
+                          <img src={item.img} alt={item.name + ' logo'} className="w-20 h-20 object-contain" />
+                        </div>
+                        <span className="text-sm font-medium text-gray-900">{item.name}</span>
+                        <span className="text-xs text-gray-600">{item.description}</span>
                       </div>
                     </Link>
                   ))}
