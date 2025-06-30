@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // SLIDER DE PRODUCTOS EN EL HERO
 const slides = [
   {
@@ -78,16 +79,12 @@ const Hero = () => {
     }
   };
 
-  // Función para calcular el transform - corregida para mostrar borde en la última slide
+  // Función para calcular el transform - ajustada para dejar ver parte de la penúltima slide en la última
   const getTransform = () => {
-    // Para el último slide, mostramos parte de la penúltima slide por la derecha
     if (current === slides.length - 1) {
-      // Calculamos para que se vea el borde derecho de la última slide
-      // y parte de la penúltima slide por la derecha
-      return `translateX(calc(-${(slides.length - 1) * slideWidth}vw + 15vw))`;
+      // Deja ver 10vw de la penúltima slide
+      return `translateX(calc(-${(slides.length - 1) * slideWidth}vw + 10vw))`;
     }
-    
-    // Para todos los otros slides, movimiento normal mostrando 25% del siguiente
     return `translateX(-${current * slideWidth}vw)`;
   };
 
@@ -177,15 +174,15 @@ const Hero = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{
                 transform: getTransform(),
-                width: current === slides.length - 1 
-                  ? `calc(${slides.length * slideWidth}vw + 15vw)`
-                  : `${slides.length * slideWidth}vw`,
+                width: `${slides.length * slideWidth}vw`,
               }}
             >
               {slides.map((slide, idx) => (
                 <div
                   key={slide.title}
-                  className="flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer rounded-3xl mx-6"
+                  className={`flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer rounded-3xl ${
+                    idx === slides.length - 1 ? 'ml-6 mr-10' : 'mx-6'
+                  }`}
                   style={{
                     width: `${slideWidth}vw`,
                     height: '90vh',
@@ -245,13 +242,13 @@ const Hero = () => {
                         {slide.price}
                       </p>
                       <div>
-                        <a
-                          href={slide.link}
+                        <Link
+                          to={slide.link}
                           className="btn btn-primary px-4 md:px-6 py-2 text-sm md:text-base rounded bg-blue-600 text-white font-semibold hover:bg-blue-800 transition"
                           onClick={(e) => e.stopPropagation()}
                         >
                           Ver más
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

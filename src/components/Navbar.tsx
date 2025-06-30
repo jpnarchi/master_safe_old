@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -75,6 +76,12 @@ const Navbar = () => {
     { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/PGSUPERSLIMLOG.jpeg" },
     { name: "Ultra", path: "/ultra", description: "Desempeño Balístico Superior", img: "/PGULTRALOG.jpeg" },
     { name: "Neu", path: "/neu", description: "Próxima Generación", img: "/PGNEULOG.jpeg" }
+  ];
+
+  const segmentItems = [
+    { name: "PG Automotive", path: "/pg-automotive", description: "Soluciones Automotrices", img: "/placeholder.svg" },
+    { name: "PG Military Applications", path: "/pg-military", description: "Aplicaciones Militares", img: "/placeholder.svg" },
+    { name: "PG Architectural Solutions", path: "/pg-architectural", description: "Soluciones Arquitectónicas", img: "/placeholder.svg" }
   ];
 
   const toggleMenu = (menuName) => {
@@ -150,14 +157,21 @@ const Navbar = () => {
               PG Ballistics
             </Link>
 
-            <Link 
-              to="/segments"
-              className={`font-medium transition-colors duration-300 ease-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
-              }`}
-            >
-              Segments
-            </Link>
+            <div className="relative">
+              <button
+                onClick={() => toggleMenu('segments')}
+                onMouseEnter={() => setActiveMenu('segments')}
+                className={`font-medium transition-colors duration-300 ease-in-out flex items-center gap-1 ${
+                  isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                }`}
+              >
+                Segments
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-300 ${activeMenu === 'segments' ? 'rotate-180' : ''}`} 
+                />
+              </button>
+            </div>
           </nav>
 
           <div className="hidden md:block pr-0">
@@ -189,30 +203,160 @@ const Navbar = () => {
 
       {activeMenu === 'products' && (
         <div 
-          className="absolute left-0 right-0 bg-white shadow-xl transform transition-all duration-400 ease-in-out z-40 overflow-hidden animate-fade-in-down"
-          onMouseLeave={() => setActiveMenu(null)}
+          className="absolute left-0 right-0 bg-white shadow-xl transform transition-all duration-400 ease-in-out z-50 overflow-hidden animate-fade-in-down"
+          onMouseLeave={() => {
+            console.log('Mouse left dropdown area');
+            setTimeout(() => {
+              console.log('Closing dropdown after delay');
+              setActiveMenu(null);
+            }, 150);
+          }}
         >
           <div className="container mx-auto py-12 px-4 sm:px-8">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {productItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105"
-                  onClick={() => setActiveMenu(null)}
-                >
-                  <div className="mb-4 overflow-hidden rounded-lg bg-gray-50 p-4">
-                    <img 
-                      src={item.img} 
-                      alt={item.name} 
-                      className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" 
-                    />
+              {productItems.map((item) => {
+                const targetPath = item.path;
+                console.log(`Setting up link for ${item.name} -> ${targetPath}`);
+                
+                // Definir estilos específicos para cada grupo de logos
+                const getImageStyles = (logoName) => {
+                  switch(logoName) {
+                    case 'ULTRA':
+                    case 'NEU':
+                      // Logos más altos (301px, 358px) - necesitan más altura
+                      return {
+                        width: '220px',
+                        height: 'auto',
+                        maxHeight: '140px'
+                      };
+                    case 'GlassGuard':
+                    case 'SteelGlass':
+                      // Logos más bajos (205px, 215px) - necesitan menos altura
+                      return {
+                        width: '180px',
+                        height: 'auto',
+                        maxHeight: '100px'
+                      };
+                    case 'SuperSlim':
+                      // Logo intermedio (288px)
+                      return {
+                        width: '200px',
+                        height: 'auto',
+                        maxHeight: '120px'
+                      };
+                    default:
+                      return {
+                        width: '200px',
+                        height: 'auto',
+                        maxHeight: '120px'
+                      };
+                  }
+                };
+                
+                return (
+                  <div
+                    key={item.name}
+                    className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 relative z-10 cursor-pointer"
+                    onClick={(e) => {
+                      console.log(`Clicked on ${item.name}`);
+                      console.log(`Target path: ${targetPath}`);
+                      e.preventDefault();
+                      e.stopPropagation();
+                      
+                      setActiveMenu(null);
+                      console.log('Dropdown closed');
+                      
+                      setTimeout(() => {
+                        console.log(`Navigating to: ${targetPath}`);
+                        navigate(targetPath);
+                      }, 50);
+                    }}
+                    onMouseDown={(e) => {
+                      console.log(`Mouse down on ${item.name}`);
+                      e.stopPropagation();
+                    }}
+                  >
+                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-32 flex items-center justify-center">
+                      <img 
+                        src={item.img} 
+                        alt={item.name} 
+                        className="object-contain transition-transform duration-300 group-hover:scale-105 cursor-pointer" 
+                        style={getImageStyles(item.name)}
+                      />
+                    </div>
+                    <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium cursor-pointer">
+                      Ver más
+                    </span>
                   </div>
-                  <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium">
-                    Ver más
-                  </span>
-                </Link>
-              ))}
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {activeMenu === 'segments' && (
+        <div 
+          className="absolute left-0 right-0 bg-white shadow-xl transform transition-all duration-400 ease-in-out z-50 overflow-hidden animate-fade-in-down"
+          onMouseLeave={() => {
+            console.log('Mouse left segments dropdown area');
+            setTimeout(() => {
+              console.log('Closing segments dropdown after delay');
+              setActiveMenu(null);
+            }, 150);
+          }}
+        >
+          <div className="container mx-auto py-12 px-4 sm:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+              {segmentItems.map((item) => {
+                console.log(`Setting up segment link for ${item.name} -> ${item.path}`);
+                
+                // Estilos específicos para segments (todos uniformes por ahora)
+                const getSegmentImageStyles = () => {
+                  return {
+                    width: '200px',
+                    height: 'auto',
+                    maxHeight: '120px'
+                  };
+                };
+                
+                return (
+                  <div
+                    key={item.name}
+                    className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 relative z-10 cursor-pointer"
+                    onClick={(e) => {
+                      console.log(`Clicked on segment ${item.name}`);
+                      console.log(`Target path: ${item.path}`);
+                      e.preventDefault();
+                      e.stopPropagation();
+                      
+                      setActiveMenu(null);
+                      console.log('Segments dropdown closed');
+                      
+                      setTimeout(() => {
+                        console.log(`Navigating to: ${item.path}`);
+                        navigate(item.path);
+                      }, 50);
+                    }}
+                    onMouseDown={(e) => {
+                      console.log(`Mouse down on segment ${item.name}`);
+                      e.stopPropagation();
+                    }}
+                  >
+                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-32 flex items-center justify-center">
+                      <img 
+                        src={item.img} 
+                        alt={item.name} 
+                        className="object-contain transition-transform duration-300 group-hover:scale-105 cursor-pointer" 
+                        style={getSegmentImageStyles()}
+                      />
+                    </div>
+                    <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium cursor-pointer">
+                      Ver más
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -253,24 +397,119 @@ const Navbar = () => {
               </div>
               <div id="products-submenu" className="hidden pl-4 mt-2">
                 <div className="grid grid-cols-2 gap-4 justify-items-center">
-                  {productItems.map((item, index) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className="block p-2 text-center"
-                      style={{ animationDelay: `${index * 0.05}s` }}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <div className="flex flex-col items-center">
-                        <div className="bg-gray-50 p-3 rounded-lg mb-2">
-                          <img src={item.img} alt={item.name + ' logo'} className="w-20 h-20 object-contain" />
+                  {productItems.map((item, index) => {
+                    // Definir estilos específicos para móvil
+                    const getMobileImageStyles = (logoName) => {
+                      switch(logoName) {
+                        case 'ULTRA':
+                        case 'NEU':
+                          // Logos más altos - necesitan más espacio
+                          return {
+                            width: '90px',
+                            height: 'auto',
+                            maxHeight: '80px'
+                          };
+                        case 'GlassGuard':
+                        case 'SteelGlass':
+                          // Logos más bajos - necesitan menos espacio
+                          return {
+                            width: '70px',
+                            height: 'auto',
+                            maxHeight: '60px'
+                          };
+                        case 'SuperSlim':
+                          // Logo intermedio
+                          return {
+                            width: '80px',
+                            height: 'auto',
+                            maxHeight: '70px'
+                          };
+                        default:
+                          return {
+                            width: '80px',
+                            height: 'auto',
+                            maxHeight: '70px'
+                          };
+                      }
+                    };
+                    
+                    return (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        className="block p-2 text-center"
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <div className="flex flex-col items-center">
+                          <div className="bg-transparent p-0 rounded-none mb-2 w-20 h-20 flex items-center justify-center">
+                            <img 
+                              src={item.img} 
+                              alt={item.name + ' logo'} 
+                              className="object-contain" 
+                              style={getMobileImageStyles(item.name)}
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <span className="inline-block text-pgnavy underline-offset-4 font-medium mt-2">
-                        Ver más
-                      </span>
-                    </Link>
-                  ))}
+                        <span className="inline-block text-pgnavy underline-offset-4 font-medium mt-2">
+                          Ver más
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            
+            <div className="block px-3 py-2 font-medium text-pgnavy">
+              <div 
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => {
+                  const submenu = document.getElementById('segments-submenu');
+                  if (submenu) {
+                    submenu.classList.toggle('hidden');
+                  }
+                }}
+              >
+                <span>Segments</span>
+                <ChevronDown size={16} />
+              </div>
+              <div id="segments-submenu" className="hidden pl-4 mt-2">
+                <div className="grid grid-cols-1 gap-4 justify-items-center">
+                  {segmentItems.map((item, index) => {
+                    // Definir estilos específicos para móvil segments
+                    const getMobileSegmentImageStyles = () => {
+                      return {
+                        width: '80px',
+                        height: 'auto',
+                        maxHeight: '70px'
+                      };
+                    };
+                    
+                    return (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        className="block p-2 text-center w-full"
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <div className="flex flex-col items-center">
+                          <div className="bg-transparent p-0 rounded-none mb-2 w-20 h-20 flex items-center justify-center">
+                            <img 
+                              src={item.img} 
+                              alt={item.name + ' logo'} 
+                              className="object-contain" 
+                              style={getMobileSegmentImageStyles()}
+                            />
+                          </div>
+                        </div>
+                        <span className="inline-block text-pgnavy underline-offset-4 font-medium mt-2">
+                          Ver más
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -278,25 +517,16 @@ const Navbar = () => {
             <Link
               to="/pg-ballistics"
               className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.15s' }}
+              style={{ animationDelay: '0.2s' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               PG Ballistics
             </Link>
             
             <Link
-              to="/segments"
-              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.2s' }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Segments
-            </Link>
-            
-            <Link
               to="/contacto"
               className="block px-3 py-2 rounded-md text-base font-medium bg-pgnavy text-white hover:bg-pgblue animate-slide-in-bottom"
-              style={{ animationDelay: '0.2s' }}
+              style={{ animationDelay: '0.25s' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contacto
