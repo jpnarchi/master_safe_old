@@ -131,7 +131,7 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            
+
             <div className="relative">
               <button
                 onClick={() => toggleMenu('products')}
@@ -147,15 +147,6 @@ const Navbar = () => {
                 />
               </button>
             </div>
-            
-            <Link 
-              to="/pg-ballistics"
-              className={`font-medium transition-colors duration-300 ease-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
-              }`}
-            >
-              PG Ballistics
-            </Link>
 
             <div className="relative">
               <button
@@ -172,6 +163,24 @@ const Navbar = () => {
                 />
               </button>
             </div>
+
+            <Link 
+              to="/pg-ballistics"
+              className={`font-medium transition-colors duration-300 ease-out ${
+                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+              }`}
+            >
+              PG Ballistics
+            </Link>
+
+            <Link 
+              to="/about-pg-glass"
+              className={`font-medium transition-colors duration-300 ease-out ${
+                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+              }`}
+            >
+              About PG Glass
+            </Link>
           </nav>
 
           <div className="hidden md:block pr-0">
@@ -522,7 +531,14 @@ const Navbar = () => {
             >
               PG Ballistics
             </Link>
-            
+            <Link
+              to="/about-pg-glass"
+              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
+              style={{ animationDelay: '0.22s' }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About PG Glass
+            </Link>
             <Link
               to="/contacto"
               className="block px-3 py-2 rounded-md text-base font-medium bg-pgnavy text-white hover:bg-pgblue animate-slide-in-bottom"
