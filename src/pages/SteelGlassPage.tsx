@@ -14,8 +14,8 @@ const SteelGlassPage = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-20 px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Product Logo Container */}
-          <div className="mb-12">
+          {/* Product Logo y texto azul */}
+          <div className="mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="w-48 h-48 bg-gray-100 rounded-2xl flex items-center justify-center">
               <img 
                 src="/PGSTEELGLASSLOG.jpeg" 
@@ -23,18 +23,25 @@ const SteelGlassPage = () => {
                 className="w-40 h-40 object-contain"
               />
             </div>
+            <div className="mt-4 md:mt-0 md:ml-6">
+              <span className="text-4xl font-bold text-pgblue block">Premium Ballistic Glass with Steel Frame.</span>
+            </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mb-12">
-            SteelGlass representa la máxima protección balística con refuerzo de acero inoxidable que extiende la protección hasta los bordes
+          {/* Texto descriptivo antes de la imagen grande */}
+          <p className="text-2xl font-semibold text-pgnavy text-justify text-left w-full mb-8">
+            Un cristal blindado que Integra en la formulación un Inserto de Acero en el contorno adicionando protección hasta el borde.
           </p>
-          
           {/* Hero Image */}
           <div className="relative h-[600px] bg-gray-100 rounded-2xl overflow-hidden">
             <img 
-              src="/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png" 
+              src="/steelglassfotocarrusel0.jpg" 
               alt="SteelGlass Product"
               className="w-full h-full object-cover"
             />
+            {/* Franja azul tipo etiqueta con texto */}
+            <div className="absolute left-0 bottom-0 w-[90%] h-16 bg-pgblue flex items-center pl-8" style={{clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)'}}>
+              <span className="text-white font-bold text-2xl md:text-3xl">Resistente hasta el borde.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -42,22 +49,22 @@ const SteelGlassPage = () => {
       {/* Key Metrics */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">NIJ III-A</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Certification</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center w-full">
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono 1 Steel Glass.png" alt="Evita instalación Overlaps" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Evita instalación Overlaps.</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">32mm</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Thickness</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono 2 Steel Glass.png" alt="Mantiene Originalidad" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Mantiene Originalidad</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">80%</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Transparency</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono 3 Steel Glass.png" alt="Acabado premium" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Acabado premium</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">52kg/m²</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Weight</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono 4 Steel Glass.png" alt="Acero Inoxidable Integrado" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Acero Inoxidable Integrado</span>
             </div>
           </div>
         </div>
@@ -87,83 +94,67 @@ const SteelGlassPage = () => {
           <div>
             {activeTab === 0 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Maximum Edge-to-Edge Protection</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  SteelGlass represents the ultimate in ballistic protection, featuring stainless steel reinforcement that extends protection to the very edges of the glass.
+                {/* TEXTO E IMAGEN PARA OVERVIEW */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  {/* Reemplaza este texto por el de Overview */}
+                  Se trata de un vidrio blindado con <span className="font-semibold">acero insertado</span> en el bloque balístico, dando estructura y resistencia en los bordes eliminando la necesidad del overlap tradicional; manteniendo la <span className="font-semibold">originalidad</span> del vehículo y facilitando el trabajo de las empresas de blindaje.
                 </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">Stainless steel edge reinforcement</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">NIJ III-A ballistic certification</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">Edge-to-edge protection coverage</span>
-                  </li>
-                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  {/* Reemplaza la ruta de la imagen por la de Overview */}
+                  <img 
+                    src="/steelglassfotooverview.jpg" 
+                    alt="SteelGlass Overview" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </>
             )}
             {activeTab === 1 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Stainless Steel Integration</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  SteelGlass incorporates certified stainless steel ballistic material that provides additional protection while enhancing the vehicle's aesthetic appeal.
+                {/* TEXTO E IMAGEN PARA TECHNOLOGY */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  Constituye un refuerzo estructural y minimiza rupturas en el cierre continuo de las puertas, Bajo agresión, SteelGlass apoya el bloque balístico y evita que se desprenda de la lámina externa y caiga en el interior del vehículo alcanzando a sus ocupantes.
                 </p>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-medium mb-2">Certified Stainless Steel Ballistic Material</h3>
-                    <p className="text-gray-600 text-sm">Advanced steel composition that guarantees the highest standards of protection</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Anti-Deformation Sealing System</h3>
-                    <p className="text-gray-600 text-sm">Special sealing system that maintains glass integrity even under extreme conditions</p>
-                  </div>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/steelglassfototechnology.jpg" 
+                    alt="Technology" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </>
             )}
             {activeTab === 2 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Technical Specifications</h2>
-                <dl className="space-y-4">
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Thickness</dt>
-                    <dd className="font-medium">32mm</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Weight</dt>
-                    <dd className="font-medium">52kg/m²</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Transparency</dt>
-                    <dd className="font-medium">&gt;80%</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Edge Protection</dt>
-                    <dd className="font-medium">Full perimeter</dd>
-                  </div>
-                </dl>
+                {/* TEXTO E IMAGEN PARA SPECIFICATIONS */}
+                <ul className="text-base md:text-lg font-normal text-left mb-6 leading-snug list-disc list-inside">
+                  <li>
+                    <span className="font-bold text-pgnavy">Steel Glass</span> incorpora un inserto de protección balística adicional en los niveles de armas cortas (<span className="font-bold">hasta NIJ IIIA y B4</span>) y un refuerzo estructural y de apoyo al contorno del cristal en niveles superiores y de armas largas. (<span className="font-bold">NIJ IIII, DN6, DN7 Y OTROS</span>)
+                  </li>
+                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/steelglassfotospecifications.jpg" 
+                    alt="Specifications" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </>
             )}
             {activeTab === 3 && (
               <>
-                <h2 className="text-3xl font-light mb-6">High-Security Applications</h2>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-medium mb-2">Executive Protection</h3>
-                    <p className="text-gray-600 text-sm">Maximum protection for high-profile individuals and VIP transport</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">High-Risk Environments</h3>
-                    <p className="text-gray-600 text-sm">Enhanced security for operations in dangerous areas</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Military Applications</h3>
-                    <p className="text-gray-600 text-sm">Tactical vehicles and specialized military equipment</p>
-                  </div>
+                {/* TEXTO E IMAGEN PARA APPLICATIONS */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  {/* Escribe aquí el texto para Applications */}
+                  Texto para la pestaña Applications...
+                </p>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  {/* Cambia la ruta de la imagen para Applications */}
+                  <img 
+                    src="/ruta/a/tu-imagen-applications.jpg" 
+                    alt="Applications" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </>
             )}
