@@ -51,19 +51,19 @@ const SteelGlassPage = () => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center w-full">
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono 1 Steel Glass.png" alt="Evita instalación Overlaps" className="w-28 h-28 mb-4 object-contain" />
+              <img src="/lovable-uploads/icono1SteelGlass.png" alt="Evita instalación Overlaps" className="w-28 h-28 mb-4 object-contain" />
               <span className="text-base md:text-lg text-pgblue font-bold text-center">Evita instalación Overlaps.</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono 2 Steel Glass.png" alt="Mantiene Originalidad" className="w-28 h-28 mb-4 object-contain" />
+              <img src="/lovable-uploads/icono2SteelGlass.png" alt="Mantiene Originalidad" className="w-28 h-28 mb-4 object-contain" />
               <span className="text-base md:text-lg text-pgblue font-bold text-center">Mantiene Originalidad</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono 3 Steel Glass.png" alt="Acabado premium" className="w-28 h-28 mb-4 object-contain" />
+              <img src="/lovable-uploads/icono3SteelGlass.png" alt="Acabado premium" className="w-28 h-28 mb-4 object-contain" />
               <span className="text-base md:text-lg text-pgblue font-bold text-center">Acabado premium</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono 4 Steel Glass.png" alt="Acero Inoxidable Integrado" className="w-28 h-28 mb-4 object-contain" />
+              <img src="/lovable-uploads/icono4SteelGlass.png" alt="Acero Inoxidable Integrado" className="w-28 h-28 mb-4 object-contain" />
               <span className="text-base md:text-lg text-pgblue font-bold text-center">Acero Inoxidable Integrado</span>
             </div>
           </div>
