@@ -127,7 +127,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHero((prev) => (prev + 1) % carouselImages.length);
-    }, 3500);
+      }, 3500);
     return () => clearInterval(interval);
   }, []);
 
@@ -226,20 +226,20 @@ const Hero = () => {
                       <div className="text-xs md:text-sm font-medium mb-1 md:mb-2 opacity-90 text-white">
                         {slide.category}
                       </div>
-                      <div
+                      <div 
                         className="mb-1 md:mb-2"
                         style={{
-                          width: slide.title === "GlassGuard" || slide.title === "SteelGlass"
-                            ? '240px'
+                          width: slide.title === "GlassGuard" || slide.title === "SteelGlass" 
+                            ? '240px' 
                             : '200px',
-                          height: slide.title === "GlassGuard" || slide.title === "SteelGlass"
-                            ? '80px'
+                          height: slide.title === "GlassGuard" || slide.title === "SteelGlass" 
+                            ? '80px' 
                             : '70px',
                           background: 'transparent'
                         }}
                       >
-                        <img
-                          src={slide.logo}
+                        <img 
+                          src={slide.logo} 
                           alt={`${slide.title} Logo`}
                           className="w-full h-full object-contain"
                         />

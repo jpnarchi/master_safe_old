@@ -131,7 +131,7 @@ const Navbar = () => {
             >
               About Us
             </Link>
-
+            
             <div className="relative">
               <button
                 onClick={() => toggleMenu('products')}
@@ -147,7 +147,7 @@ const Navbar = () => {
                 />
               </button>
             </div>
-
+            
             <div className="relative">
               <button
                 onClick={() => toggleMenu('segments')}
