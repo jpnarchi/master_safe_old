@@ -18,7 +18,7 @@ const SteelGlassPage = () => {
           <div className="mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="w-48 h-48 bg-gray-100 rounded-2xl flex items-center justify-center">
               <img 
-                src="/PGSTEELGLASSLOG.jpeg" 
+                src="/lovable-uploads/steelgalsslogopagev1.jpeg" 
                 alt="SteelGlass Logo" 
                 className="w-40 h-40 object-contain"
               />
@@ -144,14 +144,14 @@ const SteelGlassPage = () => {
             {activeTab === 3 && (
               <>
                 {/* TEXTO E IMAGEN PARA APPLICATIONS */}
-                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
-                  {/* Escribe aquí el texto para Applications */}
-                  Texto para la pestaña Applications...
-                </p>
+                <ul className="text-base md:text-lg font-normal text-left mb-6 leading-snug list-disc list-inside">
+                  <li>
+                    SteelGlass es aplicable en cualquier vidrio blindado bien sea para proteccion balistic del borde o para refuerzo estructural, en aplicaciones automotriz, militar o marina
+                  </li>
+                </ul>
                 <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
-                  {/* Cambia la ruta de la imagen para Applications */}
                   <img 
-                    src="/ruta/a/tu-imagen-applications.jpg" 
+                    src="/lovable-uploads/steelglassfotoapplication.jpeg" 
                     alt="Applications" 
                     className="w-full h-full object-contain"
                   />

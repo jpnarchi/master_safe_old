@@ -8,7 +8,7 @@ const slides = [
     description: "Calidad y Durabilidad",
     price: "Protección superior para tu vehículo",
     img: "/lovable-uploads/GLASSGUARDSLIDE.jpeg",
-    logo: "/PGGLASSGUARDLOG.jpeg",
+    logo: "/lovable-uploads/Glassguardlogo.png",
     link: "/glassguard"
   },
   {
@@ -17,7 +17,7 @@ const slides = [
     description: "Resistente hasta el Borde",
     price: "Tecnología avanzada de protección",
     img: "/lovable-uploads/STEELGLASSSLIDE.jpeg",
-    logo: "/PGSTEELGLASSLOG.jpeg",
+    logo: "/lovable-uploads/SteelGlasslogo.png",
     link: "/steelglass"
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     description: "Liviano y Resistente",
     price: "Protección sin comprometer el diseño",
     img: "/lovable-uploads/SUPERSLIMSLIDE.jpeg",
-    logo: "/PGSUPERSLIMLOG.jpeg",
+    logo: "/lovable-uploads/SuperSlimlogo.png",
     link: "/superslim"
   },
   {
@@ -35,7 +35,7 @@ const slides = [
     description: "Desempeño Balístico Superior",
     price: "La máxima protección disponible",
     img: "/lovable-uploads/PGULTRASLIDE.jpeg",
-    logo: "/PGULTRALOG.jpeg",
+    logo: "/lovable-uploads/Ultralogo.png",
     link: "/ultra"
   },
   {
@@ -44,15 +44,14 @@ const slides = [
     description: "Desempeño Gran",
     price: "La nueva generación de protección",
     img: "/lovable-uploads/NEUSLIDE.jpeg",
-    logo: "/PGNEULOG.jpeg",
+    logo: "/lovable-uploads/Neulogo.png",
     link: "/neu"
   }
 ];
-
 const carouselImages = [
   '/mainpagev1.jpeg',
-  '/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png',
-  '/lovable-uploads/6db9e596-a8cd-4f5a-97d0-7ff088c4c748.png',
+  '/lovable-uploads/mainpagev2.jpeg',
+  '/lovable-uploads/mainpagev3.png',
 ];
 
 const Hero = () => {
