@@ -14,27 +14,34 @@ const GlassGuardPage = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-20 px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Product Logo Container */}
-          <div className="mb-12">
+          {/* Product Logo y texto azul */}
+          <div className="mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="w-48 h-48 bg-gray-100 rounded-2xl flex items-center justify-center">
               <img 
-                src="/PGGLASSGUARDLOG.jpeg" 
+                src="/lovable-uploads/Glassguardlogo.png" 
                 alt="GlassGuard Logo" 
                 className="w-40 h-40 object-contain"
               />
             </div>
+            <div className="mt-4 md:mt-0 md:ml-6">
+              <span className="text-4xl font-bold text-pgblue block">Premium Ballistic Glass Protection.</span>
+            </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mb-12">
-            GlassGuard compone un portafolio de soluciones de blindaje transparente según normas locales e internacionales
+          {/* Texto descriptivo antes de la imagen grande */}
+          <p className="text-2xl font-semibold text-pgnavy text-justify text-left w-full mb-8">
+            GlassGuard compone un portafolio de soluciones de blindaje transparente según normas locales e internacionales.
           </p>
-          
           {/* Hero Image */}
           <div className="relative h-[600px] bg-gray-100 rounded-2xl overflow-hidden">
             <img 
-              src="/lovable-uploads/40cfe7f9-b375-46b7-8288-f45cd9946d7f.png" 
+              src="/lovable-uploads/GLASSGUARDSLIDE.jpeg" 
               alt="GlassGuard Product"
               className="w-full h-full object-cover"
             />
+            {/* Franja azul tipo etiqueta con texto */}
+            <div className="absolute left-0 bottom-0 w-[90%] h-16 bg-pgblue flex items-center pl-8" style={{clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)'}}>
+              <span className="text-white font-bold text-2xl md:text-3xl">Calidad y Durabilidad.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -42,22 +49,22 @@ const GlassGuardPage = () => {
       {/* Key Metrics */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">NIJ III-A</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Certification</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center w-full">
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono1GlassGuard.png" alt="Certificación NIJ III-A" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">NIJ III-A</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">28mm</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Thickness</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono2GlassGuard.png" alt="28mm Grosor" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">28mm</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">85%</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Transparency</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono3GlassGuard.png" alt="85% Transparencia" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">85%</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">45kg/m²</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Weight</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono4GlassGuard.png" alt="45kg/m² Peso" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">45kg/m²</span>
             </div>
           </div>
         </div>
@@ -87,83 +94,65 @@ const GlassGuardPage = () => {
           <div>
             {activeTab === 0 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Premium Ballistic Protection</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  GlassGuard represents the pinnacle of transparent armor solutions, combining certified ballistic resistance with exceptional durability and optical clarity.
+                {/* TEXTO E IMAGEN PARA OVERVIEW */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  GlassGuard representa la máxima protección balística transparente, combinando resistencia balística certificada con durabilidad excepcional y claridad óptica.
                 </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">NIJ III-A ballistic certification</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">Advanced ceramic coating technology</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">Multi-layer polymer composition</span>
-                  </li>
-                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/glassguardfotooverview.jpg" 
+                    alt="GlassGuard Overview" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </>
             )}
             {activeTab === 1 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Advanced Material Science</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  GlassGuard utilizes cutting-edge material science with a proprietary three-layer composition that provides superior ballistic resistance.
+                {/* TEXTO E IMAGEN PARA TECHNOLOGY */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  GlassGuard utiliza tecnología avanzada de laminación multicapa que proporciona protección balística superior manteniendo la transparencia óptima y la durabilidad a largo plazo.
                 </p>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-medium mb-2">Ceramic-Coated Glass</h3>
-                    <p className="text-gray-600 text-sm">Exterior layer reinforced with high-durability ceramic finish</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Elastomeric Polymers</h3>
-                    <p className="text-gray-600 text-sm">Intermediate layer that absorbs and dissipates impact energy</p>
-                  </div>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/glassguardfototechnology.jpg" 
+                    alt="Technology" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </>
             )}
             {activeTab === 2 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Technical Specifications</h2>
-                <dl className="space-y-4">
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Thickness</dt>
-                    <dd className="font-medium">28mm</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Weight</dt>
-                    <dd className="font-medium">45kg/m²</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Transparency</dt>
-                    <dd className="font-medium">&gt;85%</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Impact Resistance</dt>
-                    <dd className="font-medium">Multiple 9mm rounds</dd>
-                  </div>
-                </dl>
+                {/* TEXTO E IMAGEN PARA SPECIFICATIONS */}
+                <ul className="text-base md:text-lg font-normal text-left mb-6 leading-snug list-disc list-inside">
+                  <li>
+                    <span className="font-bold text-pgnavy">GlassGuard</span> cumple con la certificación <span className="font-bold">NIJ III-A</span> para protección contra armas de fuego de mano, con un grosor de <span className="font-bold">28mm</span> y transparencia del <span className="font-bold">85%</span>.
+                  </li>
+                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/glassguardfotospecifications.jpg" 
+                    alt="Specifications" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </>
             )}
             {activeTab === 3 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Versatile Applications</h2>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-medium mb-2">Executive Vehicles</h3>
-                    <p className="text-gray-600 text-sm">High-security protection for VIP transportation</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Law Enforcement</h3>
-                    <p className="text-gray-600 text-sm">Tactical vehicles and mobile command centers</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Military Transport</h3>
-                    <p className="text-gray-600 text-sm">Armored personnel carriers and support vehicles</p>
-                  </div>
+                {/* TEXTO E IMAGEN PARA APPLICATIONS */}
+                <ul className="text-base md:text-lg font-normal text-left mb-6 leading-snug list-disc list-inside">
+                  <li>
+                    GlassGuard es ideal para aplicaciones automotrices, vehículos blindados, edificios gubernamentales y cualquier entorno que requiera protección balística transparente de alta calidad.
+                  </li>
+                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/glassguardfotoapplication.jpeg" 
+                    alt="Applications" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </>
             )}

@@ -71,11 +71,11 @@ const Navbar = () => {
   }, [activeMenu]);
 
   const productItems = [
-    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/PGGLASSGUARDLOG.jpeg" },
-    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/PGSTEELGLASSLOG.jpeg" },
-    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/PGSUPERSLIMLOG.jpeg" },
-    { name: "Ultra", path: "/ultra", description: "Desempeño Balístico Superior", img: "/PGULTRALOG.jpeg" },
-    { name: "Neu", path: "/neu", description: "Próxima Generación", img: "/PGNEULOG.jpeg" }
+    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/Glassguardlogo.png" },
+    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/SteelGlasslogo.png" },
+    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/lovable-uploads/SuperSlimlogo.png" },
+    { name: "Ultra", path: "/ultra", description: "Desempeño Balístico Superior", img: "/lovable-uploads/Ultralogo.png" },
+    { name: "Neu", path: "/neu", description: "Próxima Generación", img: "/lovable-uploads/Neulogo.png" }
   ];
 
   const segmentItems = [
@@ -227,39 +227,13 @@ const Navbar = () => {
                 const targetPath = item.path;
                 console.log(`Setting up link for ${item.name} -> ${targetPath}`);
                 
-                // Definir estilos específicos para cada grupo de logos
-                const getImageStyles = (logoName) => {
-                  switch(logoName) {
-                    case 'ULTRA':
-                    case 'NEU':
-                      // Logos más altos (301px, 358px) - necesitan más altura
-                      return {
-                        width: '220px',
-                        height: 'auto',
-                        maxHeight: '140px'
-                      };
-                    case 'GlassGuard':
-                    case 'SteelGlass':
-                      // Logos más bajos (205px, 215px) - necesitan menos altura
-                      return {
-                        width: '180px',
-                        height: 'auto',
-                        maxHeight: '100px'
-                      };
-                    case 'SuperSlim':
-                      // Logo intermedio (288px)
-                      return {
-                        width: '200px',
-                        height: 'auto',
-                        maxHeight: '120px'
-                      };
-                    default:
-                      return {
-                        width: '200px',
-                        height: 'auto',
-                        maxHeight: '120px'
-                      };
-                  }
+                // Estilos uniformes para todos los logos
+                const getImageStyles = () => {
+                  return {
+                    width: '160px',
+                    height: '100px',
+                    objectFit: 'contain' as const
+                  };
                 };
                 
                 return (
@@ -285,12 +259,12 @@ const Navbar = () => {
                       e.stopPropagation();
                     }}
                   >
-                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-32 flex items-center justify-center">
+                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-28 flex items-center justify-center">
                       <img 
                         src={item.img} 
                         alt={item.name} 
                         className="object-contain transition-transform duration-300 group-hover:scale-105 cursor-pointer" 
-                        style={getImageStyles(item.name)}
+                        style={getImageStyles()}
                       />
                     </div>
                     <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium cursor-pointer">
@@ -323,9 +297,9 @@ const Navbar = () => {
                 // Estilos específicos para segments (todos uniformes por ahora)
                 const getSegmentImageStyles = () => {
                   return {
-                    width: '200px',
-                    height: 'auto',
-                    maxHeight: '120px'
+                    width: '160px',
+                    height: '100px',
+                    objectFit: 'contain' as const
                   };
                 };
                 
@@ -352,7 +326,7 @@ const Navbar = () => {
                       e.stopPropagation();
                     }}
                   >
-                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-32 flex items-center justify-center">
+                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-28 flex items-center justify-center">
                       <img 
                         src={item.img} 
                         alt={item.name} 
@@ -407,39 +381,13 @@ const Navbar = () => {
               <div id="products-submenu" className="hidden pl-4 mt-2">
                 <div className="grid grid-cols-2 gap-4 justify-items-center">
                   {productItems.map((item, index) => {
-                    // Definir estilos específicos para móvil
-                    const getMobileImageStyles = (logoName) => {
-                      switch(logoName) {
-                        case 'ULTRA':
-                        case 'NEU':
-                          // Logos más altos - necesitan más espacio
-                          return {
-                            width: '90px',
-                            height: 'auto',
-                            maxHeight: '80px'
-                          };
-                        case 'GlassGuard':
-                        case 'SteelGlass':
-                          // Logos más bajos - necesitan menos espacio
-                          return {
-                            width: '70px',
-                            height: 'auto',
-                            maxHeight: '60px'
-                          };
-                        case 'SuperSlim':
-                          // Logo intermedio
-                          return {
-                            width: '80px',
-                            height: 'auto',
-                            maxHeight: '70px'
-                          };
-                        default:
-                          return {
-                            width: '80px',
-                            height: 'auto',
-                            maxHeight: '70px'
-                          };
-                      }
+                    // Estilos uniformes para móvil
+                    const getMobileImageStyles = () => {
+                      return {
+                        width: '80px',
+                        height: '60px',
+                        objectFit: 'contain' as const
+                      };
                     };
                     
                     return (
@@ -456,7 +404,7 @@ const Navbar = () => {
                               src={item.img} 
                               alt={item.name + ' logo'} 
                               className="object-contain" 
-                              style={getMobileImageStyles(item.name)}
+                              style={getMobileImageStyles()}
                             />
                           </div>
                         </div>
@@ -490,8 +438,8 @@ const Navbar = () => {
                     const getMobileSegmentImageStyles = () => {
                       return {
                         width: '80px',
-                        height: 'auto',
-                        maxHeight: '70px'
+                        height: '60px',
+                        objectFit: 'contain' as const
                       };
                     };
                     

@@ -49,8 +49,8 @@ const slides = [
   }
 ];
 const carouselImages = [
-  '/mainpagev1.jpeg',
-  '/lovable-uploads/mainpagev2.jpeg',
+  'lovable-uploads/mainhomepagev1.png',
+  '/lovable-uploads/mainhomepagev1-2.png',
   '/lovable-uploads/mainpagev3.png',
 ];
 
@@ -195,7 +195,7 @@ const Hero = () => {
                   style={{
                     width: `${slideWidth}vw`,
                     height: '90vh',
-                    background: `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('${slide.img}') center/cover`,
+                    background: `url('${slide.img}') center/cover`,
                     borderRadius: '2rem',
                   }}
                 >

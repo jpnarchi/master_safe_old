@@ -14,27 +14,34 @@ const UltraPage = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-20 px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Product Logo Container */}
-          <div className="mb-12">
+          {/* Product Logo y texto azul */}
+          <div className="mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="w-48 h-48 bg-gray-100 rounded-2xl flex items-center justify-center">
               <img 
-                src="/PGULTRALOG.jpeg" 
+                src="/lovable-uploads/Ultralogo.png" 
                 alt="Ultra Logo" 
                 className="w-40 h-40 object-contain"
               />
             </div>
+            <div className="mt-4 md:mt-0 md:ml-6">
+              <span className="text-4xl font-bold text-pgblue block">Ultimate Ballistic Glass Performance.</span>
+            </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mb-12">
-            Ultra representa el equilibrio perfecto entre máxima protección y peso mínimo con desempeño balístico superior
+          {/* Texto descriptivo antes de la imagen grande */}
+          <p className="text-2xl font-semibold text-pgnavy text-justify text-left w-full mb-8">
+            ULTRA representa el máximo nivel de protección balística disponible, combinando resistencia extrema con tecnología de vanguardia.
           </p>
-          
           {/* Hero Image */}
           <div className="relative h-[600px] bg-gray-100 rounded-2xl overflow-hidden">
             <img 
-              src="/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" 
+              src="/lovable-uploads/PGULTRASLIDE.jpeg" 
               alt="Ultra Product"
               className="w-full h-full object-cover"
             />
+            {/* Franja azul tipo etiqueta con texto */}
+            <div className="absolute left-0 bottom-0 w-[90%] h-16 bg-pgblue flex items-center pl-8" style={{clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)'}}>
+              <span className="text-white font-bold text-2xl md:text-3xl">Desempeño Superior.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -42,22 +49,22 @@ const UltraPage = () => {
       {/* Key Metrics */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">NIJ III-A</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Certification</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center w-full">
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono1Ultra.png" alt="Máxima Resistencia" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Máxima Resistencia</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">22mm</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Thickness</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono2Ultra.png" alt="Protección Extrema" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Protección Extrema</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">88%</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Transparency</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono3Ultra.png" alt="Tecnología Avanzada" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Tecnología Avanzada</span>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-light mb-2">30kg/m²</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Weight</div>
+            <div className="flex flex-col items-center">
+              <img src="/lovable-uploads/icono4Ultra.png" alt="Rendimiento Superior" className="w-28 h-28 mb-4 object-contain" />
+              <span className="text-base md:text-lg text-pgblue font-bold text-center">Rendimiento Superior</span>
             </div>
           </div>
         </div>
@@ -87,83 +94,65 @@ const UltraPage = () => {
           <div>
             {activeTab === 0 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Superior Ballistic Performance</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Ultra represents the perfect balance between maximum protection and minimum weight. Our ultra-lightweight ballistic glass solution provides exceptional protection while maintaining original vehicle performance characteristics.
+                {/* TEXTO E IMAGEN PARA OVERVIEW */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  ULTRA representa la máxima protección balística disponible, diseñada para los entornos más exigentes donde la seguridad es crítica y no se pueden hacer compromisos.
                 </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">Lightweight 22mm construction</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">NIJ III-A ballistic certification</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-1 h-1 bg-black rounded-full mr-4"></div>
-                    <span className="text-gray-700">Performance-optimized design</span>
-                  </li>
-                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/ultrafotooverview.jpg" 
+                    alt="Ultra Overview" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </>
             )}
             {activeTab === 1 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Advanced Lightweight Technology</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Ultra utilizes cutting-edge lightweight materials and advanced engineering to achieve maximum protection with minimal weight impact on vehicle performance.
+                {/* TEXTO E IMAGEN PARA TECHNOLOGY */}
+                <p className="text-base md:text-lg font-normal text-center mb-6 leading-snug">
+                  ULTRA utiliza tecnología de protección multicapa avanzada con materiales de alta resistencia que proporcionan protección balística extrema contra múltiples amenazas.
                 </p>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-medium mb-2">Lightweight Material Engineering</h3>
-                    <p className="text-gray-600 text-sm">Advanced materials provide maximum protection with minimal weight addition</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Performance-Optimized Design</h3>
-                    <p className="text-gray-600 text-sm">Engineered to maintain vehicle dynamics while providing ballistic protection</p>
-                  </div>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/ultrafototechnology.jpg" 
+                    alt="Technology" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </>
             )}
             {activeTab === 2 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Technical Specifications</h2>
-                <dl className="space-y-4">
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Thickness</dt>
-                    <dd className="font-medium">22mm</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Weight</dt>
-                    <dd className="font-medium">30kg/m²</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Transparency</dt>
-                    <dd className="font-medium">&gt;88%</dd>
-                  </div>
-                  <div className="flex justify-between py-3 border-b border-gray-200">
-                    <dt className="text-gray-600">Protection Level</dt>
-                    <dd className="font-medium">NIJ III-A</dd>
-                  </div>
-                </dl>
+                {/* TEXTO E IMAGEN PARA SPECIFICATIONS */}
+                <ul className="text-base md:text-lg font-normal text-left mb-6 leading-snug list-disc list-inside">
+                  <li>
+                    <span className="font-bold text-pgnavy">ULTRA</span> proporciona protección balística <span className="font-bold">extrema</span> contra múltiples amenazas, incluyendo <span className="font-bold">armas de alto calibre</span> y <span className="font-bold">explosivos</span>, con la máxima durabilidad y resistencia.
+                  </li>
+                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/ultrafotospecifications.jpg" 
+                    alt="Specifications" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </>
             )}
             {activeTab === 3 && (
               <>
-                <h2 className="text-3xl font-light mb-6">Performance-Critical Applications</h2>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-medium mb-2">High-Performance Vehicles</h3>
-                    <p className="text-gray-600 text-sm">Ideal for vehicles where performance and weight are critical factors</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Sports Cars</h3>
-                    <p className="text-gray-600 text-sm">Maintains driving dynamics while providing ballistic protection</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-2">Executive Sedans</h3>
-                    <p className="text-gray-600 text-sm">Performance-oriented protection for high-end vehicles</p>
-                  </div>
+                {/* TEXTO E IMAGEN PARA APPLICATIONS */}
+                <ul className="text-base md:text-lg font-normal text-left mb-6 leading-snug list-disc list-inside">
+                  <li>
+                    ULTRA es ideal para aplicaciones militares de alto riesgo, vehículos presidenciales, instalaciones de máxima seguridad y cualquier entorno donde se requiera la máxima protección disponible.
+                  </li>
+                </ul>
+                <div className="bg-gray-100 rounded-xl p-2 flex justify-center items-center" style={{height: '400px'}}>
+                  <img 
+                    src="/lovable-uploads/ultrafotoapplication.jpeg" 
+                    alt="Applications" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </>
             )}
