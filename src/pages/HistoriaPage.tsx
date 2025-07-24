@@ -124,25 +124,37 @@ function ValoresMiniCarousel() {
   }, [current]);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center">
-      <div className="relative w-full max-w-md min-h-[220px] flex items-center justify-center">
+    <div className="w-full h-full flex flex-col overflow-hidden">
+      <div className="relative w-full flex-1 flex items-center justify-center px-1 overflow-hidden">
         {valores.map((valor, idx) => (
           <div
             key={valor.titulo}
-            className={`absolute left-0 top-0 w-full h-full transition-all duration-500 ease-in-out 
-              ${current === idx ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}
-              flex flex-col items-center justify-center bg-pglight rounded-xl shadow p-8`}
+            className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out 
+              ${current === idx ? 'opacity-100 z-10 transform scale-100' : 'opacity-0 z-0 pointer-events-none transform scale-95'}
+              flex flex-col items-center justify-center bg-gradient-to-br from-pglight to-white rounded-xl shadow-lg border border-gray-200 p-3 overflow-hidden`}
+            style={{
+              boxShadow: '0 6px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03)'
+            }}
           >
-            <h3 className="text-2xl font-bold text-pgnavy mb-3">{valor.titulo}</h3>
-            <p className="text-pgnavy/70 text-justify text-lg">{valor.texto}</p>
+            <div className="w-8 h-8 bg-pgblue rounded-full flex items-center justify-center mb-2 flex-shrink-0">
+              <span className="text-white font-bold text-sm">{valor.titulo.charAt(0)}</span>
+            </div>
+            <h3 className="text-lg md:text-xl font-bold text-pgnavy mb-2 text-center leading-tight flex-shrink-0">{valor.titulo}</h3>
+            <p className="text-pgnavy/80 text-center text-xs md:text-sm leading-snug text-justify overflow-hidden">
+              {valor.texto}
+            </p>
           </div>
         ))}
       </div>
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2 mt-2 justify-center flex-shrink-0">
         {valores.map((_, idx) => (
           <button
             key={idx}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 border border-pgnavy/40 ${current === idx ? 'bg-pgnavy' : 'bg-pglight'}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 border ${
+              current === idx 
+                ? 'bg-pgblue border-pgblue scale-110' 
+                : 'bg-transparent border-pgnavy/30 hover:border-pgblue/60 hover:scale-105'
+            }`}
             onClick={() => setCurrent(idx)}
             aria-label={`Ir a valor ${idx + 1}`}
           />
@@ -154,50 +166,68 @@ function ValoresMiniCarousel() {
 
 function CardSectionGrid() {
   return (
-    <section className="py-0 bg-white w-full">
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-0">
+    <section className="py-12 bg-white w-full">
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
         {/* Tarjeta 1: Valores que nos Definen */}
-        <div className="flex flex-col items-stretch justify-center bg-white rounded-3xl shadow-xl h-[80vh] m-2 overflow-hidden">
+        <div className="flex flex-col bg-white rounded-3xl shadow-2xl h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
           {/* Imagen superior */}
-          <div className="h-1/2 w-full flex items-center justify-center bg-gray-100 rounded-t-3xl overflow-hidden">
-            <img src="/lovable-uploads/ff6f9f97-d670-45cd-97a0-85bdbb32e648.png" alt="Valores" className="h-full w-full object-contain rounded-t-3xl p-8" />
+          <div className="h-2/5 w-full flex items-center justify-center bg-gradient-to-br from-pglight to-gray-50 overflow-hidden">
+            <img 
+              src="/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" 
+              alt="Valores que nos Definen" 
+              className="h-full w-full object-contain p-4" 
+            />
           </div>
           {/* Título y mini-carrusel */}
-          <div className="h-1/2 w-full flex flex-col items-center justify-center px-10 py-8">
-            <h2 className="heading-lg text-pgnavy mb-6">Valores que nos Definen</h2>
-            <ValoresMiniCarousel />
+          <div className="h-3/5 w-full flex flex-col items-center justify-start px-4 py-4 overflow-hidden">
+            <h2 className="text-xl md:text-2xl font-bold text-pgnavy mb-4 text-center leading-tight w-full">Valores que nos Definen</h2>
+            <div className="flex-1 w-full overflow-hidden">
+              <ValoresMiniCarousel />
+            </div>
           </div>
         </div>
+        
         {/* Tarjeta 2: Nuestros Orígenes (CENTRO) */}
-        <div className="flex flex-col items-stretch justify-center bg-white rounded-3xl shadow-xl h-[80vh] m-2 overflow-hidden">
-          <div className="h-1/2 w-full flex items-center justify-center bg-gray-100 rounded-t-3xl overflow-hidden">
+        <div className="flex flex-col bg-white rounded-3xl shadow-2xl h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="h-2/5 w-full flex items-center justify-center bg-gradient-to-br from-pglight to-gray-50 overflow-hidden">
             <img 
               src="/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png" 
               alt="PG Products Headquarters" 
-              className="h-full w-full object-cover rounded-t-3xl"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-1/2 w-full flex flex-col items-center justify-center px-10 py-8">
-            <h2 className="heading-lg text-pgnavy mb-4">Nuestros Orígenes</h2>
-            <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-lg">
-              Desde nuestra fundación en 2010, PG Products ha estado a la vanguardia de la industria de vidrio blindado, combinando ingeniería alemana de precisión con estándares europeos de excelencia. Lo que comenzó como una visión para revolucionar la seguridad automotriz se ha convertido en una referencia global de innovación y calidad en la fabricación de vidrio blindado premium.
-            </p>
+          <div className="h-3/5 w-full flex flex-col items-center justify-start px-4 py-4 overflow-hidden">
+            <h2 className="text-xl md:text-2xl font-bold text-pgnavy mb-3 text-center leading-tight w-full">Nuestros Orígenes</h2>
+            <div className="flex-1 w-full flex flex-col justify-center overflow-hidden">
+              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed mb-3 text-justify">
+                Desde nuestra fundación en 2010, PG Products ha estado a la vanguardia de la industria de vidrio blindado, combinando ingeniería alemana de precisión con estándares europeos de excelencia.
+              </p>
+              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed text-justify">
+                Lo que comenzó como una visión para revolucionar la seguridad automotriz se ha convertido en una referencia global de innovación y calidad en la fabricación de vidrio blindado premium.
+              </p>
+            </div>
           </div>
         </div>
+        
         {/* Tarjeta 3: Nuestro Compromiso */}
-        <div className="flex flex-col items-stretch justify-center bg-white rounded-3xl shadow-xl h-[80vh] m-2 overflow-hidden">
-          <div className="h-1/2 w-full flex items-center justify-center bg-gray-100 rounded-t-3xl overflow-hidden">
+        <div className="flex flex-col bg-white rounded-3xl shadow-2xl h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="h-2/5 w-full flex items-center justify-center bg-gradient-to-br from-pglight to-gray-50 overflow-hidden">
             <img 
               src="/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png" 
               alt="PG Products Laboratory" 
-              className="h-full w-full object-cover rounded-t-3xl"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-1/2 w-full flex flex-col items-center justify-center px-10 py-8">
-            <h2 className="heading-lg text-pgnavy mb-4">Nuestro Compromiso</h2>
-            <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-lg">
-              En PG Products, estamos comprometidos con la seguridad, la innovación y la excelencia. No solo fabricamos vidrio blindado; creamos soluciones de protección que salvan vidas. Nuestro compromiso va más allá de cumplir estándares; buscamos constantemente superarlos, estableciendo nuevos referentes en la industria global de seguridad. Cada producto que sale de nuestras instalaciones es el resultado de años de investigación, desarrollo meticuloso y pruebas exhaustivas. Es nuestro aporte para un mundo más seguro.
-            </p>
+          <div className="h-3/5 w-full flex flex-col items-center justify-start px-4 py-4 overflow-hidden">
+            <h2 className="text-xl md:text-2xl font-bold text-pgnavy mb-3 text-center leading-tight w-full">Nuestro Compromiso</h2>
+            <div className="flex-1 w-full flex flex-col justify-center overflow-hidden">
+              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed mb-3 text-justify">
+                En PG Products, estamos comprometidos con la seguridad, la innovación y la excelencia. No solo fabricamos vidrio blindado; creamos soluciones de protección que salvan vidas.
+              </p>
+              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed text-justify">
+                Nuestro compromiso va más allá de cumplir estándares; buscamos constantemente superarlos, estableciendo nuevos referentes en la industria global de seguridad. Cada producto que sale de nuestras instalaciones es el resultado de años de investigación, desarrollo meticuloso y pruebas exhaustivas.
+              </p>
+            </div>
           </div>
         </div>
       </div>
