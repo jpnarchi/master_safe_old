@@ -70,6 +70,23 @@ const Navbar = () => {
     }
   }, [activeMenu]);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const handleClickOutside = (event) => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenu && menuButton && 
+            !mobileMenu.contains(event.target) && 
+            !menuButton.contains(event.target)) {
+          setIsMobileMenuOpen(false);
+        }
+      };
+      
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isMobileMenuOpen]);
+
   const productItems = [
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/Glassguardlogo.png" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/SteelGlasslogo.png" },
@@ -198,6 +215,7 @@ const Navbar = () => {
 
           <div className="md:hidden">
             <button
+              id="mobile-menu-button"
               type="button"
               className={`p-2 rounded-md transition-colors duration-300 ease-in-out ${
                 isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:bg-pgnavy/10' : 'text-white hover:bg-white/10'
@@ -268,7 +286,7 @@ const Navbar = () => {
                       />
                     </div>
                     <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium cursor-pointer">
-                      Ver más
+                       
                     </span>
                   </div>
                 );
@@ -346,7 +364,7 @@ const Navbar = () => {
       )}
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg animate-slide-in-right">
+        <div id="mobile-menu" className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-40 animate-slide-in-right">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               to="/"
@@ -367,16 +385,22 @@ const Navbar = () => {
             
             <div className="block px-3 py-2 font-medium text-pgnavy">
               <div 
-                className="flex justify-between items-center cursor-pointer"
+                className="flex justify-between items-center cursor-pointer hover:bg-pglight rounded-md px-2 py-1"
                 onClick={() => {
                   const submenu = document.getElementById('products-submenu');
-                  if (submenu) {
+                  const chevron = document.getElementById('products-chevron');
+                  if (submenu && chevron) {
                     submenu.classList.toggle('hidden');
+                    chevron.classList.toggle('rotate-180');
                   }
                 }}
               >
                 <span>PG Automotive Solutions</span>
-                <ChevronDown size={16} />
+                <ChevronDown 
+                  id="products-chevron" 
+                  size={16} 
+                  className="transition-transform duration-300 ease-in-out" 
+                />
               </div>
               <div id="products-submenu" className="hidden pl-4 mt-2">
                 <div className="grid grid-cols-2 gap-4 justify-items-center">
@@ -420,16 +444,22 @@ const Navbar = () => {
             
             <div className="block px-3 py-2 font-medium text-pgnavy">
               <div 
-                className="flex justify-between items-center cursor-pointer"
+                className="flex justify-between items-center cursor-pointer hover:bg-pglight rounded-md px-2 py-1"
                 onClick={() => {
                   const submenu = document.getElementById('segments-submenu');
-                  if (submenu) {
+                  const chevron = document.getElementById('segments-chevron');
+                  if (submenu && chevron) {
                     submenu.classList.toggle('hidden');
+                    chevron.classList.toggle('rotate-180');
                   }
                 }}
               >
                 <span>Segments</span>
-                <ChevronDown size={16} />
+                <ChevronDown 
+                  id="segments-chevron" 
+                  size={16} 
+                  className="transition-transform duration-300 ease-in-out" 
+                />
               </div>
               <div id="segments-submenu" className="hidden pl-4 mt-2">
                 <div className="grid grid-cols-1 gap-4 justify-items-center">

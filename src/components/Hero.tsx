@@ -189,12 +189,11 @@ const Hero = () => {
               {slides.map((slide, idx) => (
                 <div
                   key={slide.title}
-                  className={`flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer rounded-3xl ${
+                  className={`flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer rounded-3xl h-[50vh] md:h-[90vh] ${
                     idx === slides.length - 1 ? 'ml-6 mr-10' : 'mx-6'
                   }`}
                   style={{
                     width: `${slideWidth}vw`,
-                    height: '90vh',
                     background: `url('${slide.img}') center/cover`,
                     borderRadius: '2rem',
                   }}
@@ -265,7 +264,7 @@ const Hero = () => {
             </div>
           </div>
           {/* Dots indicadores - overlayed at the bottom center */}
-          <div className="absolute left-0 right-0 bottom-4 flex justify-center gap-2 z-30 pointer-events-none">
+          <div className="absolute left-0 right-0 bottom-4 flex justify-center gap-2 z-30 pointer-events-none ">
             {slides.map((_, idx) => (
               <span
                 key={idx}
