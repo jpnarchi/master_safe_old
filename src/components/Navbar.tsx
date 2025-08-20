@@ -87,6 +87,23 @@ const Navbar = () => {
     }
   }, [activeMenu]);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const handleClickOutside = (event) => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenu && menuButton && 
+            !mobileMenu.contains(event.target) && 
+            !menuButton.contains(event.target)) {
+          setIsMobileMenuOpen(false);
+        }
+      };
+      
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isMobileMenuOpen]);
+
   const productItems = [
     { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/Glassguardlogo.png" },
     { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/SteelGlasslogo.png" },
@@ -221,6 +238,7 @@ const Navbar = () => {
 
           <div className="md:hidden">
             <button
+              id="mobile-menu-button"
               type="button"
               className={`p-2 rounded-md transition-colors duration-300 ease-in-out ${
                 isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:bg-pgnavy/10' : 'text-white hover:bg-white/10'
@@ -297,7 +315,7 @@ const Navbar = () => {
                       />
                     </div>
                     <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium cursor-pointer">
-                      Ver más
+                       
                     </span>
                   </div>
                 );
@@ -375,7 +393,7 @@ const Navbar = () => {
       )}
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg mobile-menu-enter border-t border-gray-200">
+        <div id="mobile-menu" className="md:hidden bg-white shadow-lg mobile-menu-enter border-t border-gray-200">
           <div className="px-4 pt-4 pb-6 space-y-2">
             <Link
               to="/"
@@ -403,7 +421,7 @@ const Navbar = () => {
                   size={16} 
                   className={`transition-transform duration-300 ${
                     mobileProductsOpen ? 'rotate-180' : ''
-                  }`} 
+                  }`}
                 />
               </div>
               <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -449,7 +467,7 @@ const Navbar = () => {
                   size={16} 
                   className={`transition-transform duration-300 ${
                     mobileSegmentsOpen ? 'rotate-180' : ''
-                  }`} 
+                  }`}
                 />
               </div>
               <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
