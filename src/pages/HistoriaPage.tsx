@@ -136,11 +136,11 @@ function ValoresMiniCarousel() {
               boxShadow: '0 6px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03)'
             }}
           >
-            <div className="w-8 h-8 bg-pgblue rounded-full flex items-center justify-center mb-2 flex-shrink-0">
-              <span className="text-white font-bold text-sm">{valor.titulo.charAt(0)}</span>
+            <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-pgblue rounded-full flex items-center justify-center mb-1.5 sm:mb-2 flex-shrink-0">
+              <span className="text-white font-bold text-xs sm:text-sm">{valor.titulo.charAt(0)}</span>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-pgnavy mb-2 text-center leading-tight flex-shrink-0">{valor.titulo}</h3>
-            <p className="text-pgnavy/80 text-center text-xs md:text-sm leading-snug text-justify overflow-hidden">
+            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-pgnavy mb-1.5 sm:mb-2 text-center leading-tight flex-shrink-0">{valor.titulo}</h3>
+            <p className="text-pgnavy/80 text-center text-xs sm:text-sm md:text-base leading-snug text-justify overflow-hidden">
               {valor.texto}
             </p>
           </div>
@@ -166,21 +166,21 @@ function ValoresMiniCarousel() {
 
 function CardSectionGrid() {
   return (
-    <section className="py-12 bg-white w-full">
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+    <section className="py-8 sm:py-10 md:py-12 bg-white w-full">
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
         {/* Tarjeta 1: Valores que nos Definen */}
-        <div className="flex flex-col bg-white rounded-3xl shadow-2xl h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl h-[70vh] sm:h-[75vh] md:h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
           {/* Imagen superior */}
           <div className="h-2/5 w-full flex items-center justify-center bg-gradient-to-br from-pglight to-gray-50 overflow-hidden">
             <img 
               src="/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" 
               alt="Valores que nos Definen" 
-              className="h-full w-full object-contain p-4" 
+              className="h-full w-full object-contain p-2 sm:p-3 md:p-4" 
             />
           </div>
           {/* Título y mini-carrusel */}
-          <div className="h-3/5 w-full flex flex-col items-center justify-start px-4 py-4 overflow-hidden">
-            <h2 className="text-xl md:text-2xl font-bold text-pgnavy mb-4 text-center leading-tight w-full">Valores que nos Definen</h2>
+          <div className="h-3/5 w-full flex flex-col items-center justify-start px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 overflow-hidden">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-pgnavy mb-2 sm:mb-3 md:mb-4 text-center leading-tight w-full">Valores que nos Definen</h2>
             <div className="flex-1 w-full overflow-hidden">
               <ValoresMiniCarousel />
             </div>
@@ -188,7 +188,7 @@ function CardSectionGrid() {
         </div>
         
         {/* Tarjeta 2: Nuestros Orígenes (CENTRO) */}
-        <div className="flex flex-col bg-white rounded-3xl shadow-2xl h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl h-[70vh] sm:h-[75vh] md:h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
           <div className="h-2/5 w-full flex items-center justify-center bg-gradient-to-br from-pglight to-gray-50 overflow-hidden">
             <img 
               src="/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png" 
@@ -196,13 +196,13 @@ function CardSectionGrid() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-3/5 w-full flex flex-col items-center justify-start px-4 py-4 overflow-hidden">
-            <h2 className="text-xl md:text-2xl font-bold text-pgnavy mb-3 text-center leading-tight w-full">Nuestros Orígenes</h2>
+          <div className="h-3/5 w-full flex flex-col items-center justify-start px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 overflow-hidden">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-pgnavy mb-2 sm:mb-3 text-center leading-tight w-full">Nuestros Orígenes</h2>
             <div className="flex-1 w-full flex flex-col justify-center overflow-hidden">
-              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed mb-3 text-justify">
+              <p className="text-xs sm:text-sm md:text-base text-pgnavy/80 leading-relaxed mb-2 sm:mb-3 text-justify">
                 Desde nuestra fundación en 2010, PG Products ha estado a la vanguardia de la industria de vidrio blindado, combinando ingeniería alemana de precisión con estándares europeos de excelencia.
               </p>
-              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed text-justify">
+              <p className="text-xs sm:text-sm md:text-base text-pgnavy/80 leading-relaxed text-justify">
                 Lo que comenzó como una visión para revolucionar la seguridad automotriz se ha convertido en una referencia global de innovación y calidad en la fabricación de vidrio blindado premium.
               </p>
             </div>
@@ -210,7 +210,7 @@ function CardSectionGrid() {
         </div>
         
         {/* Tarjeta 3: Nuestro Compromiso */}
-        <div className="flex flex-col bg-white rounded-3xl shadow-2xl h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl h-[70vh] sm:h-[75vh] md:h-[85vh] overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
           <div className="h-2/5 w-full flex items-center justify-center bg-gradient-to-br from-pglight to-gray-50 overflow-hidden">
             <img 
               src="/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png" 
@@ -218,13 +218,13 @@ function CardSectionGrid() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-3/5 w-full flex flex-col items-center justify-start px-4 py-4 overflow-hidden">
-            <h2 className="text-xl md:text-2xl font-bold text-pgnavy mb-3 text-center leading-tight w-full">Nuestro Compromiso</h2>
+          <div className="h-3/5 w-full flex flex-col items-center justify-start px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 overflow-hidden">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-pgnavy mb-2 sm:mb-3 text-center leading-tight w-full">Nuestro Compromiso</h2>
             <div className="flex-1 w-full flex flex-col justify-center overflow-hidden">
-              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed mb-3 text-justify">
+              <p className="text-xs sm:text-sm md:text-base text-pgnavy/80 leading-relaxed mb-2 sm:mb-3 text-justify">
                 En PG Products, estamos comprometidos con la seguridad, la innovación y la excelencia. No solo fabricamos vidrio blindado; creamos soluciones de protección que salvan vidas.
               </p>
-              <p className="text-sm md:text-base text-pgnavy/80 leading-relaxed text-justify">
+              <p className="text-xs sm:text-sm md:text-base text-pgnavy/80 leading-relaxed text-justify">
                 Nuestro compromiso va más allá de cumplir estándares; buscamos constantemente superarlos, estableciendo nuevos referentes en la industria global de seguridad. Cada producto que sale de nuestras instalaciones es el resultado de años de investigación, desarrollo meticuloso y pruebas exhaustivas.
               </p>
             </div>
@@ -366,69 +366,69 @@ const TimelineCarousel = () => {
   };
 
   return (
-    <div className="w-full px-4 md:px-8 lg:px-16 py-4 md:py-6 bg-white flex flex-col">
+    <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 py-3 sm:py-4 md:py-6 bg-white flex flex-col">
       {/* Contenedor principal del carrusel */}
       <div className="relative flex-1 flex flex-col">
         {/* Imagen principal */}
-        <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-lg mb-4 flex-1">
+        <div className="relative overflow-hidden rounded-md sm:rounded-lg border border-gray-200 shadow-md sm:shadow-lg mb-3 sm:mb-4 flex-1">
           <img 
             src={currentItem.image} 
             alt={currentItem.title}
-            className="w-full h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] object-cover"
+            className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] object-cover"
           />
         </div>
 
         {/* Timeline inferior */}
         <div className="relative">
           {/* Línea del timeline */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-900"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-blue-900"></div>
           
           {/* Contenedor de años y descripción */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-0">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 sm:gap-4 lg:gap-0">
             {/* Sección izquierda: Año principal con descripción */}
-            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 lg:gap-12 flex-1">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 flex-1">
               {/* Año con flechas */}
-              <div className="flex items-center justify-center md:justify-start gap-2 md:gap-3">
+              <div className="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 md:gap-3">
                 <button
                   onClick={goToPrevious}
-                  className="text-blue-900 hover:text-blue-700 transition-colors p-1 hover:bg-blue-50 rounded-full"
+                  className="text-blue-900 hover:text-blue-700 transition-colors p-0.5 sm:p-1 hover:bg-blue-50 rounded-full"
                   aria-label="Año anterior"
                 >
-                  <ChevronLeft size={24} className="md:w-7 md:h-7" />
+                  <ChevronLeft size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </button>
                 
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-900">
                   {currentItem.year}
                 </div>
                 
                 <button
                   onClick={goToNext}
-                  className="text-blue-900 hover:text-blue-700 transition-colors p-1 hover:bg-blue-50 rounded-full"
+                  className="text-blue-900 hover:text-blue-700 transition-colors p-0.5 sm:p-1 hover:bg-blue-50 rounded-full"
                   aria-label="Año siguiente"
                 >
-                  <ChevronRight size={24} className="md:w-7 md:h-7" />
+                  <ChevronRight size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
                 </button>
               </div>
 
               {/* Descripción */}
-              <div className="pt-2 flex-1 pr-0 md:pr-4 lg:pr-6">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 mb-2 md:mb-4 text-center md:text-left">
+              <div className="pt-1 sm:pt-2 flex-1 pr-0 sm:pr-2 md:pr-4 lg:pr-6">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-800 mb-1.5 sm:mb-2 md:mb-3 lg:mb-4 text-center sm:text-left leading-tight">
                   {currentItem.title}
                 </h3>
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed text-justify">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed text-justify">
                   {currentItem.description}
                 </p>
               </div>
             </div>
 
             {/* Años secundarios */}
-            <div className="flex justify-center lg:justify-end gap-8 md:gap-12 lg:gap-16">
+            <div className="flex justify-center lg:justify-end gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16">
               {getVisibleYears().slice(1).map((year, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-lg md:text-xl lg:text-2xl font-light text-gray-400 mb-1 md:mb-2">
+                  <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-gray-400 mb-0.5 sm:mb-1 md:mb-2">
                     {year}
                   </div>
-                  <div className="w-px h-2 md:h-3 bg-gray-400 mx-auto"></div>
+                  <div className="w-px h-1.5 sm:h-2 md:h-3 bg-gray-400 mx-auto"></div>
                 </div>
               ))}
             </div>
@@ -457,34 +457,34 @@ const HistoriaPage = () => {
           playsInline
         />
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 w-full flex flex-col items-center justify-start pt-32">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg text-center">Nuestra Historia</h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-10 text-center max-w-2xl drop-shadow-md">Una trayectoria de innovación, calidad y excelencia en seguridad</p>
+        <div className="relative z-10 w-full flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-32 px-4 sm:px-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg text-center leading-tight">Nuestra Historia</h1>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 mb-6 sm:mb-8 md:mb-10 text-center max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl drop-shadow-md px-2 sm:px-0 leading-relaxed">Una trayectoria de innovación, calidad y excelencia en seguridad</p>
         </div>
         {/* Estadísticas abajo */}
-        <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col md:flex-row gap-6 max-w-4xl mx-auto justify-center items-center">
-          <div className="bg-white/80 rounded-2xl shadow-lg p-6 w-72 text-center backdrop-blur-sm">
-            <h3 className="text-lg font-bold text-pgnavy mb-2">+ de 100 k</h3>
-            <p className="text-pgnavy/70">Empleados</p>
+        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 z-10 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 max-w-sm sm:max-w-2xl md:max-w-4xl mx-auto justify-center items-center px-4 sm:px-6">
+          <div className="bg-white/80 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 w-full sm:w-48 md:w-72 text-center backdrop-blur-sm">
+            <h3 className="text-sm sm:text-base md:text-lg font-bold text-pgnavy mb-1 sm:mb-2">+ de 100 k</h3>
+            <p className="text-xs sm:text-sm md:text-base text-pgnavy/70">Empleados</p>
           </div>
-          <div className="bg-white/80 rounded-2xl shadow-lg p-6 w-72 text-center backdrop-blur-sm">
-            <h3 className="text-lg font-bold text-pgnavy mb-2">Una misión</h3>
-            <p className="text-pgnavy/70">Innovación y protección</p>
+          <div className="bg-white/80 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 w-full sm:w-48 md:w-72 text-center backdrop-blur-sm">
+            <h3 className="text-sm sm:text-base md:text-lg font-bold text-pgnavy mb-1 sm:mb-2">Una misión</h3>
+            <p className="text-xs sm:text-sm md:text-base text-pgnavy/70">Innovación y protección</p>
           </div>
-          <div className="bg-white/80 rounded-2xl shadow-lg p-6 w-72 text-center backdrop-blur-sm">
-            <h3 className="text-lg font-bold text-pgnavy mb-2">20.4 Mmt<sup>1</sup></h3>
-            <p className="text-pgnavy/70">CO₂ evitado en 2023</p>
+          <div className="bg-white/80 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 w-full sm:w-48 md:w-72 text-center backdrop-blur-sm">
+            <h3 className="text-sm sm:text-base md:text-lg font-bold text-pgnavy mb-1 sm:mb-2">20.4 Mmt<sup>1</sup></h3>
+            <p className="text-xs sm:text-sm md:text-base text-pgnavy/70">CO₂ evitado en 2023</p>
           </div>
         </div>
       </section>
 
       <CardSectionGrid />
 
-      <section className="py-16 bg-gray-50 w-full">
+      <section className="py-8 sm:py-12 md:py-16 bg-gray-50 w-full">
         <div className="w-full">
-          <div className="text-center mb-12 scroll-reveal">
-            <h2 className="heading-lg text-pgnavy mb-3">Nuestro Recorrido</h2>
-            <p className="text-xl text-pgnavy/70 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12 scroll-reveal px-4 sm:px-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-pgnavy mb-2 sm:mb-3 leading-tight">Nuestro Recorrido</h2>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-pgnavy/70 max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
               Un viaje de dedicación, innovación continua y compromiso con la excelencia
             </p>
           </div>

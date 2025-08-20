@@ -15,6 +15,11 @@ import SuperSlimPage from "./pages/SuperSlimPage";
 import UltraPage from "./pages/UltraPage";
 import ContactPage from "./pages/ContactPage";
 import HistoriaPage from "./pages/HistoriaPage";
+import PGAutomotivePage from "./pages/PGAutomotivePage";
+import PGMilitaryPage from "./pages/PGMilitaryPage";
+import PGArchitecturalPage from "./pages/PGArchitecturalPage";
+import PGBallisticsPage from "./pages/PGBallisticsPage";
+import AboutPGGlassPage from "./pages/AboutPGGlassPage";
 
 // Component to handle page transitions and loading
 const PageContainer = () => {
@@ -37,6 +42,11 @@ const PageContainer = () => {
         <Route path="/ultra" element={<UltraPage />} />
         <Route path="/contacto" element={<ContactPage />} />
         <Route path="/historia" element={<HistoriaPage />} />
+        <Route path="/pg-automotive" element={<PGAutomotivePage />} />
+        <Route path="/pg-military" element={<PGMilitaryPage />} />
+        <Route path="/pg-architectural" element={<PGArchitecturalPage />} />
+        <Route path="/pg-ballistics" element={<PGBallisticsPage />} />
+        <Route path="/about-pg-glass" element={<AboutPGGlassPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

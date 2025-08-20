@@ -70,10 +70,32 @@ const Hero = () => {
   }, []);
 
   // --- CARRUSEL DE PRODUCTOS ---
-  const slideWidth = 75; // 75vw para mostrar 25% del siguiente slide
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  const getSlideWidth = () => {
+    if (window.innerWidth < 768) return 90; // mobile
+    if (window.innerWidth < 1024) return 80; // tablet
+    return 75; // desktop
+  };
+  
+  const slideWidth = isMobile ? 90 : (window.innerWidth < 1024 ? 80 : 75);
   const getTransform = () => {
     if (currentProduct === slides.length - 1) {
-      return `translateX(calc(-${(slides.length - 1) * slideWidth}vw + 10vw))`;
+      let offset = '10vw'; // desktop default
+      if (window.innerWidth < 768) offset = '5vw'; // mobile
+      else if (window.innerWidth < 1024) offset = '7.5vw'; // tablet
+      return `translateX(calc(-${(slides.length - 1) * slideWidth}vw + ${offset}))`;
     }
     return `translateX(-${currentProduct * slideWidth}vw)`;
   };
@@ -133,7 +155,7 @@ const Hero = () => {
   return (
     <>
       {/* HERO PRINCIPAL */}
-      <section className="w-full h-[100vh] relative overflow-hidden flex items-center justify-center">
+      <section className="w-full h-screen min-h-[600px] max-h-[900px] relative overflow-hidden flex items-center justify-center">
         {carouselImages.map((img, idx) => (
           <div
             key={img}
@@ -147,26 +169,11 @@ const Hero = () => {
             />
           </div>
         ))}
-        <div className="relative z-20 flex flex-col items-center justify-center w-full h-full gap-8">
-          <img
-            src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png"
-            alt="PG Products Logo"
-            className="w-64 md:w-80 h-auto mb-4"
-          />
-          <div className="flex gap-4">
-            <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
-              Contactar
-            </button>
-            <button className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-blue-50 transition">
-              Saber más
-            </button>
-          </div>
-        </div>
-        <div className="absolute left-0 right-0 bottom-8 flex justify-center gap-2 z-30">
+        <div className="absolute left-0 right-0 bottom-4 sm:bottom-8 flex justify-center gap-2 z-30">
           {carouselImages.map((_, idx) => (
             <span
               key={idx}
-              className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full cursor-pointer transition-all duration-300 ${
                 currentHero === idx ? 'bg-blue-900 scale-110' : 'bg-blue-200 hover:bg-blue-300'
               }`}
               onClick={() => setCurrentHero(idx)}
@@ -176,7 +183,7 @@ const Hero = () => {
       </section>
 
       {/* CARRUSEL DE PRODUCTOS */}
-      <section className="w-screen bg-white py-10 flex flex-col items-center overflow-hidden">
+      <section className="w-screen bg-white py-6 sm:py-10 flex flex-col items-center overflow-hidden">
         <div className="w-screen relative">
           <div className="overflow-hidden w-screen">
             <div
@@ -189,14 +196,17 @@ const Hero = () => {
               {slides.map((slide, idx) => (
                 <div
                   key={slide.title}
-                  className={`flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer rounded-3xl ${
-                    idx === slides.length - 1 ? 'ml-6 mr-10' : 'mx-6'
+                  className={`flex-shrink-0 flex flex-col justify-center relative shadow-xl overflow-hidden cursor-pointer rounded-2xl sm:rounded-3xl ${
+                    idx === slides.length - 1 
+                      ? 'ml-3 mr-5 sm:ml-6 sm:mr-10' 
+                      : 'mx-3 sm:mx-6'
                   }`}
                   style={{
                     width: `${slideWidth}vw`,
-                    height: '90vh',
+                    height: isMobile ? '70vh' : (window.innerWidth < 1024 ? '80vh' : '90vh'),
+                    minHeight: isMobile ? '400px' : (window.innerWidth < 1024 ? '450px' : '500px'),
                     background: `url('${slide.img}') center/cover`,
-                    borderRadius: '2rem',
+                    borderRadius: isMobile ? '1rem' : (window.innerWidth < 1024 ? '1.5rem' : '2rem'),
                   }}
                 >
                   {/* Área invisible izquierda para regresar */}
@@ -220,20 +230,32 @@ const Hero = () => {
                     />
                   )}
                   {/* Contenido del slide */}
-                  <div className="absolute inset-0 flex flex-col justify-center items-start z-10 pl-6 md:pl-12 lg:pl-16">
-                    <div className="max-w-sm md:max-w-md">
-                      <div className="text-xs md:text-sm font-medium mb-1 md:mb-2 opacity-90 text-white">
+                  <div className="absolute inset-0 flex flex-col justify-center items-start z-10 pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 pr-4">
+                    <div className="max-w-xs sm:max-w-sm md:max-w-lg w-full">
+                      <div className="text-xs sm:text-sm md:text-base font-medium mb-1 sm:mb-2 opacity-90 text-white">
                         {slide.category}
                       </div>
                       <div 
-                        className="mb-1 md:mb-2"
+                        className="mb-1 sm:mb-2"
                         style={{
-                          width: slide.title === "GlassGuard" || slide.title === "SteelGlass" 
-                            ? '240px' 
-                            : '200px',
-                          height: slide.title === "GlassGuard" || slide.title === "SteelGlass" 
-                            ? '80px' 
-                            : '70px',
+                          width: (() => {
+                            if (window.innerWidth < 768) {
+                              return slide.title === "GlassGuard" || slide.title === "SteelGlass" ? '160px' : '140px';
+                            } else if (window.innerWidth < 1024) {
+                              return slide.title === "GlassGuard" || slide.title === "SteelGlass" ? '200px' : '170px';
+                            } else {
+                              return slide.title === "GlassGuard" || slide.title === "SteelGlass" ? '240px' : '200px';
+                            }
+                          })(),
+                          height: (() => {
+                            if (window.innerWidth < 768) {
+                              return slide.title === "GlassGuard" || slide.title === "SteelGlass" ? '50px' : '45px';
+                            } else if (window.innerWidth < 1024) {
+                              return slide.title === "GlassGuard" || slide.title === "SteelGlass" ? '65px' : '60px';
+                            } else {
+                              return slide.title === "GlassGuard" || slide.title === "SteelGlass" ? '80px' : '70px';
+                            }
+                          })(),
                           background: 'transparent'
                         }}
                       >
@@ -243,16 +265,16 @@ const Hero = () => {
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <p className="text-sm md:text-base mb-1 opacity-90 text-white">
+                      <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-1 opacity-90 text-white">
                         {slide.description}
                       </p>
-                      <p className="text-xs md:text-sm mb-4 md:mb-6 opacity-80 text-white">
+                      <p className="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 md:mb-6 opacity-80 text-white">
                         {slide.price}
                       </p>
                       <div>
                         <Link
                           to={slide.link}
-                          className="btn btn-primary px-4 md:px-6 py-2 text-sm md:text-base rounded bg-blue-600 text-white font-semibold hover:bg-blue-800 transition"
+                          className="btn btn-primary px-3 sm:px-4 md:px-5 lg:px-6 py-2 md:py-2.5 text-xs sm:text-sm md:text-base rounded bg-blue-600 text-white font-semibold hover:bg-blue-800 transition inline-block"
                           onClick={(e) => e.stopPropagation()}
                         >
                           Ver más
@@ -265,11 +287,11 @@ const Hero = () => {
             </div>
           </div>
           {/* Dots indicadores - overlayed at the bottom center */}
-          <div className="absolute left-0 right-0 bottom-4 flex justify-center gap-2 z-30 pointer-events-none">
+          <div className="absolute left-0 right-0 bottom-2 sm:bottom-4 flex justify-center gap-1.5 sm:gap-2 z-30 pointer-events-none">
             {slides.map((_, idx) => (
               <span
                 key={idx}
-                className={`w-3 h-3 rounded-full pointer-events-auto cursor-pointer transition-all duration-300 ${
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full pointer-events-auto cursor-pointer transition-all duration-300 ${
                   currentProduct === idx ? 'bg-blue-900 scale-110' : 'bg-blue-200 hover:bg-blue-300'
                 }`}
                 onClick={() => setCurrentProduct(idx)}

@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileSegmentsOpen, setMobileSegmentsOpen] = useState(false);
   
   const whiteLogo = "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png";
   const blueLogo = "/LogoPGPRODUCTSPGBLUE.png";
@@ -24,12 +26,27 @@ const Navbar = () => {
       }
     }
     
+    @keyframes slideInFromTop {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
     .animate-fade-in-down {
       animation: fadeInDown 0.3s ease-out forwards;
     }
 
     .navbar-transition {
       transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile-menu-enter {
+      animation: slideInFromTop 0.3s ease-out forwards;
     }
   `;
 
@@ -79,13 +96,19 @@ const Navbar = () => {
   ];
 
   const segmentItems = [
-    { name: "PG Automotive", path: "/pg-automotive", description: "Soluciones Automotrices", img: "/placeholder.svg" },
+    { name: "PG Automotive BRG", path: "/pg-automotive", description: "Soluciones Automotrices", img: "/placeholder.svg" },
     { name: "PG Military Applications", path: "/pg-military", description: "Aplicaciones Militares", img: "/placeholder.svg" },
     { name: "PG Architectural Solutions", path: "/pg-architectural", description: "Soluciones Arquitectónicas", img: "/placeholder.svg" }
   ];
 
   const toggleMenu = (menuName) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setMobileProductsOpen(false);
+    setMobileSegmentsOpen(false);
   };
 
   return (
@@ -202,7 +225,13 @@ const Navbar = () => {
               className={`p-2 rounded-md transition-colors duration-300 ease-in-out ${
                 isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:bg-pgnavy/10' : 'text-white hover:bg-white/10'
               }`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                if (isMobileMenuOpen) {
+                  setMobileProductsOpen(false);
+                  setMobileSegmentsOpen(false);
+                }
+              }}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -346,152 +375,137 @@ const Navbar = () => {
       )}
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg animate-slide-in-right">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden bg-white shadow-lg mobile-menu-enter border-t border-gray-200">
+          <div className="px-4 pt-4 pb-6 space-y-2">
             <Link
               to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
+              onClick={closeMobileMenu}
             >
               Inicio
             </Link>
             
             <Link
               to="/historia"
-              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.1s' }}
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
+              onClick={closeMobileMenu}
             >
               About Us
             </Link>
             
-            <div className="block px-3 py-2 font-medium text-pgnavy">
+            <div className="block font-medium text-pgnavy">
               <div 
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() => {
-                  const submenu = document.getElementById('products-submenu');
-                  if (submenu) {
-                    submenu.classList.toggle('hidden');
-                  }
-                }}
+                className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               >
                 <span>PG Automotive Solutions</span>
-                <ChevronDown size={16} />
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-300 ${
+                    mobileProductsOpen ? 'rotate-180' : ''
+                  }`} 
+                />
               </div>
-              <div id="products-submenu" className="hidden pl-4 mt-2">
-                <div className="grid grid-cols-2 gap-4 justify-items-center">
-                  {productItems.map((item, index) => {
-                    // Estilos uniformes para móvil
-                    const getMobileImageStyles = () => {
-                      return {
-                        width: '80px',
-                        height: '60px',
-                        objectFit: 'contain' as const
-                      };
-                    };
-                    
-                    return (
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                mobileProductsOpen 
+                  ? 'max-h-96 opacity-100 mt-2' 
+                  : 'max-h-0 opacity-0'
+              }`}>
+                <div className="pl-4">
+                  <div className="grid grid-cols-2 gap-3 justify-items-center">
+                    {productItems.map((item, index) => (
                       <Link
                         key={item.name}
                         to={item.path}
-                        className="block p-2 text-center"
-                        style={{ animationDelay: `${index * 0.05}s` }}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block p-2 text-center hover:bg-pglight/20 rounded-lg transition-colors w-full"
+                        onClick={closeMobileMenu}
                       >
                         <div className="flex flex-col items-center">
-                          <div className="bg-transparent p-0 rounded-none mb-2 w-20 h-20 flex items-center justify-center">
+                          <div className="bg-transparent p-1 rounded-lg mb-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
                             <img 
                               src={item.img} 
-                              alt={item.name + ' logo'} 
-                              className="object-contain" 
-                              style={getMobileImageStyles()}
+                              alt={`${item.name} logo`} 
+                              className="object-contain w-full h-full" 
                             />
                           </div>
+                          <span className="text-xs sm:text-sm text-pgnavy font-medium text-center leading-tight">
+                            {item.name}
+                          </span>
                         </div>
-                        <span className="inline-block text-pgnavy underline-offset-4 font-medium mt-2">
-                          Ver más
-                        </span>
                       </Link>
-                    );
-                  })}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
             
-            <div className="block px-3 py-2 font-medium text-pgnavy">
+            <div className="block font-medium text-pgnavy">
               <div 
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() => {
-                  const submenu = document.getElementById('segments-submenu');
-                  if (submenu) {
-                    submenu.classList.toggle('hidden');
-                  }
-                }}
+                className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
+                onClick={() => setMobileSegmentsOpen(!mobileSegmentsOpen)}
               >
                 <span>Segments</span>
-                <ChevronDown size={16} />
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-300 ${
+                    mobileSegmentsOpen ? 'rotate-180' : ''
+                  }`} 
+                />
               </div>
-              <div id="segments-submenu" className="hidden pl-4 mt-2">
-                <div className="grid grid-cols-1 gap-4 justify-items-center">
-                  {segmentItems.map((item, index) => {
-                    // Definir estilos específicos para móvil segments
-                    const getMobileSegmentImageStyles = () => {
-                      return {
-                        width: '80px',
-                        height: '60px',
-                        objectFit: 'contain' as const
-                      };
-                    };
-                    
-                    return (
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                mobileSegmentsOpen 
+                  ? 'max-h-96 opacity-100 mt-2' 
+                  : 'max-h-0 opacity-0'
+              }`}>
+                <div className="pl-4">
+                  <div className="space-y-2">
+                    {segmentItems.map((item, index) => (
                       <Link
                         key={item.name}
                         to={item.path}
-                        className="block p-2 text-center w-full"
-                        style={{ animationDelay: `${index * 0.05}s` }}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center p-3 hover:bg-pglight/20 rounded-lg transition-colors w-full"
+                        onClick={closeMobileMenu}
                       >
-                        <div className="flex flex-col items-center">
-                          <div className="bg-transparent p-0 rounded-none mb-2 w-20 h-20 flex items-center justify-center">
-                            <img 
-                              src={item.img} 
-                              alt={item.name + ' logo'} 
-                              className="object-contain" 
-                              style={getMobileSegmentImageStyles()}
-                            />
-                          </div>
+                        <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-pglight/30 rounded-md mr-3">
+                          <img 
+                            src={item.img} 
+                            alt={`${item.name} logo`} 
+                            className="object-contain w-8 h-8" 
+                          />
                         </div>
-                        <span className="inline-block text-pgnavy underline-offset-4 font-medium mt-2">
-                          Ver más
-                        </span>
+                        <div className="flex-1">
+                          <span className="block text-sm font-medium text-pgnavy">
+                            {item.name}
+                          </span>
+                          <span className="text-xs text-pgnavy/70">
+                            {item.description}
+                          </span>
+                        </div>
                       </Link>
-                    );
-                  })}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
             
             <Link
               to="/pg-ballistics"
-              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.2s' }}
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
+              onClick={closeMobileMenu}
             >
               PG Ballistics
             </Link>
             <Link
               to="/about-pg-glass"
-              className="block px-3 py-2 rounded-md text-base font-medium text-pgnavy hover:bg-pglight animate-slide-in-bottom"
-              style={{ animationDelay: '0.22s' }}
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
+              onClick={closeMobileMenu}
             >
               About PG Glass
             </Link>
             <Link
               to="/contacto"
-              className="block px-3 py-2 rounded-md text-base font-medium bg-pgnavy text-white hover:bg-pgblue animate-slide-in-bottom"
-              style={{ animationDelay: '0.25s' }}
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 rounded-lg text-base font-medium bg-pgnavy text-white hover:bg-pgblue transition-colors mt-4"
+              onClick={closeMobileMenu}
             >
               Contacto
             </Link>
