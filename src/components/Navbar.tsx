@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -13,6 +14,16 @@ const Navbar = () => {
   
   const whiteLogo = "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png";
   const blueLogo = "/LogoPGPRODUCTSPGBLUE.png";
+  
+  // Páginas que necesitan navbar siempre visible (fondo blanco)
+  const pagesWithAlwaysVisibleNav = [
+    '/glassguard', '/steelglass', '/superslim', '/ultra', '/neu', // Productos
+    '/pg-automotive', '/pg-military', '/pg-architectural', // Segmentos
+    '/pg-ballistics', '/about-pg-glass', '/contacto' // Otras páginas
+  ];
+  
+  const shouldAlwaysShowNav = pagesWithAlwaysVisibleNav.includes(location.pathname);
+  const isHomePage = location.pathname === '/';
 
   const styles = `
     @keyframes fadeInDown {
@@ -130,24 +141,26 @@ const Navbar = () => {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 w-full navbar-transition"
+      className="fixed top-0 left-0 right-0 z-[9999] w-full navbar-transition"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* White background container that appears on hover */}
-      <div className={`absolute inset-0 bg-white shadow-sm navbar-transition ${
-        isHovered || isScrolled || activeMenu ? 'opacity-100' : 'opacity-0'
+      {/* Background container - conditional visibility */}
+      <div className={`absolute inset-0 navbar-transition ${
+        shouldAlwaysShowNav 
+          ? 'bg-white shadow-lg border-b border-gray-200 opacity-100'
+          : `bg-white shadow-sm ${isHovered || isScrolled || activeMenu ? 'opacity-100' : 'opacity-0'}`
       }`} />
       
-      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="flex items-center justify-between h-20" id="main-nav">
           <div className="flex-shrink-0 pl-0">
             <Link to="/">
               <img 
-                src={isHovered || isScrolled || activeMenu ? blueLogo : whiteLogo}
+                src={shouldAlwaysShowNav ? blueLogo : (isHovered || isScrolled || activeMenu ? blueLogo : whiteLogo)}
                 alt="PG Products Logo" 
                 className={`transition-all duration-300 ease-in-out ${
-                  isHovered || isScrolled || activeMenu ? 'h-16 md:h-20' : 'h-12 md:h-16'
+                  shouldAlwaysShowNav ? 'h-16 md:h-20' : (isHovered || isScrolled || activeMenu ? 'h-16 md:h-20' : 'h-12 md:h-16')
                 }`}
               />
             </Link>
@@ -157,7 +170,9 @@ const Navbar = () => {
             <Link 
               to="/"
               className={`font-medium transition-colors duration-300 ease-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                shouldAlwaysShowNav 
+                  ? 'text-pgnavy hover:text-pgnavy/80'
+                  : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
               Inicio
@@ -166,7 +181,9 @@ const Navbar = () => {
             <Link 
               to="/historia"
               className={`font-medium transition-colors duration-300 ease-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                shouldAlwaysShowNav 
+                  ? 'text-pgnavy hover:text-pgnavy/80'
+                  : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
               About Us
@@ -177,7 +194,9 @@ const Navbar = () => {
                 onClick={() => toggleMenu('products')}
                 onMouseEnter={() => setActiveMenu('products')}
                 className={`font-medium transition-colors duration-300 ease-in-out flex items-center gap-1 ${
-                  isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                  shouldAlwaysShowNav 
+                    ? 'text-pgnavy hover:text-pgnavy/80'
+                    : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
                 PG Automotive Solutions
@@ -193,7 +212,9 @@ const Navbar = () => {
                 onClick={() => toggleMenu('segments')}
                 onMouseEnter={() => setActiveMenu('segments')}
                 className={`font-medium transition-colors duration-300 ease-in-out flex items-center gap-1 ${
-                  isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                  shouldAlwaysShowNav 
+                    ? 'text-pgnavy hover:text-pgnavy/80'
+                    : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
                 Segments
@@ -207,7 +228,9 @@ const Navbar = () => {
             <Link 
               to="/pg-ballistics"
               className={`font-medium transition-colors duration-300 ease-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                shouldAlwaysShowNav 
+                  ? 'text-pgnavy hover:text-pgnavy/80'
+                  : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
               PG Ballistics
@@ -216,7 +239,9 @@ const Navbar = () => {
             <Link 
               to="/about-pg-glass"
               className={`font-medium transition-colors duration-300 ease-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80'
+                shouldAlwaysShowNav 
+                  ? 'text-pgnavy hover:text-pgnavy/80'
+                  : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
               About PG Glass
@@ -227,9 +252,11 @@ const Navbar = () => {
             <Link 
               to="/contacto" 
               className={`inline-flex items-center rounded-md px-4 py-2 font-medium transition-all duration-300 ease-in-out ${
-                isHovered || isScrolled || activeMenu
-                  ? 'bg-pgnavy text-white hover:bg-pgnavy/90' 
-                  : 'bg-white text-pgnavy hover:bg-white/90'
+                shouldAlwaysShowNav
+                  ? 'bg-pgnavy text-white hover:bg-pgnavy/90'
+                  : (isHovered || isScrolled || activeMenu
+                    ? 'bg-pgnavy text-white hover:bg-pgnavy/90' 
+                    : 'bg-white text-pgnavy hover:bg-white/90')
               }`}
             >
               Contacto
@@ -241,7 +268,9 @@ const Navbar = () => {
               id="mobile-menu-button"
               type="button"
               className={`p-2 rounded-md transition-colors duration-300 ease-in-out ${
-                isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:bg-pgnavy/10' : 'text-white hover:bg-white/10'
+                shouldAlwaysShowNav 
+                  ? 'text-pgnavy hover:bg-pgnavy/10'
+                  : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:bg-pgnavy/10' : 'text-white hover:bg-white/10')
               }`}
               onClick={() => {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -259,7 +288,7 @@ const Navbar = () => {
 
       {activeMenu === 'products' && (
         <div 
-          className="absolute left-0 right-0 bg-white shadow-xl transform transition-all duration-400 ease-in-out z-50 overflow-hidden animate-fade-in-down"
+          className="absolute left-0 right-0 top-full bg-white shadow-xl transform transition-all duration-400 ease-in-out z-[9998] overflow-hidden animate-fade-in-down"
           onMouseLeave={() => {
             console.log('Mouse left dropdown area');
             setTimeout(() => {
@@ -327,7 +356,7 @@ const Navbar = () => {
 
       {activeMenu === 'segments' && (
         <div 
-          className="absolute left-0 right-0 bg-white shadow-xl transform transition-all duration-400 ease-in-out z-50 overflow-hidden animate-fade-in-down"
+          className="absolute left-0 right-0 top-full bg-white shadow-xl transform transition-all duration-400 ease-in-out z-[9998] overflow-hidden animate-fade-in-down"
           onMouseLeave={() => {
             console.log('Mouse left segments dropdown area');
             setTimeout(() => {

@@ -57,152 +57,158 @@ const PGAutomotivePage = () => {
         </div>
       </section>
 
-      {/* OEM Section - Text Left, Carousel Right */}
+      {/* OEM Section - Centered Text */}
       <section className="py-8 sm:py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-            {/* Left: OEM Descriptive Text */}
-            <div className="space-y-4 sm:space-y-6 order-2 lg:order-1">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pgnavy mb-3 sm:mb-4 text-center lg:text-left">
-                OEM Solutions
-              </h2>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.
-              </p>
-              <div className="space-y-2 sm:space-y-3 mt-4 sm:mt-6">
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-                  <span className="text-sm sm:text-base font-medium text-pgnavy">Factory Integration</span>
-                </div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-                  <span className="text-sm sm:text-base font-medium text-pgnavy">Original Aesthetics</span>
-                </div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-                  <span className="text-sm sm:text-base font-medium text-pgnavy">Quality Assurance</span>
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pgnavy mb-6 sm:mb-8">
+            OEM Solutions
+          </h2>
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+            Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.
+          </p>
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
+            Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
+              <span className="text-sm sm:text-base font-medium text-pgnavy">Factory Integration</span>
             </div>
-
-            {/* Right: OEM Success Cases Carousel */}
-            <div className="space-y-3 sm:space-y-4 order-1 lg:order-2">
-              <h3 className="text-lg sm:text-xl font-semibold text-pgnavy text-center">
-                OEM Success Cases
-              </h3>
-              <div className="relative bg-gray-100 rounded-lg sm:rounded-xl overflow-hidden">
-                <div className="relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
-                  <img
-                    src={oemImages[oemImageIndex]}
-                    alt={`OEM Success Case ${oemImageIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Navigation buttons */}
-                  <button
-                    onClick={prevOemImage}
-                    className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1.5 sm:p-2 transition-all"
-                  >
-                    <ChevronLeft size={16} className="text-pgnavy sm:w-5 sm:h-5" />
-                  </button>
-                  <button
-                    onClick={nextOemImage}
-                    className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1.5 sm:p-2 transition-all"
-                  >
-                    <ChevronRight size={16} className="text-pgnavy sm:w-5 sm:h-5" />
-                  </button>
-                  {/* Dots indicator */}
-                  <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 sm:space-x-2">
-                    {oemImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setOemImageIndex(index)}
-                        className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
-                          index === oemImageIndex ? 'bg-white' : 'bg-white/50'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
+              <span className="text-sm sm:text-base font-medium text-pgnavy">Original Aesthetics</span>
+            </div>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
+              <span className="text-sm sm:text-base font-medium text-pgnavy">Quality Assurance</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Retrofit Section - Carousel Left, Text Right */}
-      <section className="py-8 sm:py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-            {/* Left: Retrofit Success Cases Carousel */}
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-pgnavy text-center">
-                Retrofit Success Cases
-              </h3>
-              <div className="relative bg-gray-100 rounded-lg sm:rounded-xl overflow-hidden shadow-sm">
-                <div className="relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
-                  <img
-                    src={retrofitImages[retrofitImageIndex]}
-                    alt={`Retrofit Success Case ${retrofitImageIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Navigation buttons */}
-                  <button
-                    onClick={prevRetrofitImage}
-                    className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1.5 sm:p-2 transition-all"
-                  >
-                    <ChevronLeft size={16} className="text-pgnavy sm:w-5 sm:h-5" />
-                  </button>
-                  <button
-                    onClick={nextRetrofitImage}
-                    className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1.5 sm:p-2 transition-all"
-                  >
-                    <ChevronRight size={16} className="text-pgnavy sm:w-5 sm:h-5" />
-                  </button>
-                  {/* Dots indicator */}
-                  <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 sm:space-x-2">
-                    {retrofitImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setRetrofitImageIndex(index)}
-                        className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
-                          index === retrofitImageIndex ? 'bg-white' : 'bg-white/50'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* OEM Full Screen Carousel */}
+      <section className="relative">
+        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+          <img
+            src={oemImages[oemImageIndex]}
+            alt={`OEM Success Case ${oemImageIndex + 1}`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20"></div>
+          
+          {/* Navigation buttons */}
+          <button
+            onClick={prevOemImage}
+            className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
+          >
+            <ChevronLeft size={24} className="text-pgnavy sm:w-6 sm:h-6" />
+          </button>
+          <button
+            onClick={nextOemImage}
+            className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
+          >
+            <ChevronRight size={24} className="text-pgnavy sm:w-6 sm:h-6" />
+          </button>
+          
+          {/* Dots indicator */}
+          <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+            {oemImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setOemImageIndex(index)}
+                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all ${
+                  index === oemImageIndex ? 'bg-white' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          {/* Overlay text */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 sm:p-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-2">
+              OEM Success Cases
+            </h3>
+            <p className="text-sm sm:text-base text-white/90 text-center max-w-2xl mx-auto">
+              Showcasing our successful partnerships with automotive manufacturers worldwide
+            </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Right: Retrofit Descriptive Text */}
-            <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pgnavy mb-3 sm:mb-4 text-center lg:text-left">
-                Retrofit Solutions
-              </h2>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.
-              </p>
-              <div className="space-y-2 sm:space-y-3 mt-4 sm:mt-6">
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-                  <span className="text-sm sm:text-base font-medium text-pgnavy">Existing Vehicle Integration</span>
-                </div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-                  <span className="text-sm sm:text-base font-medium text-pgnavy">Custom Solutions</span>
-                </div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-                  <span className="text-sm sm:text-base font-medium text-pgnavy">Professional Installation</span>
-                </div>
-              </div>
+      {/* Retrofit Section - Centered Text */}
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pgnavy mb-6 sm:mb-8">
+            Retrofit Solutions
+          </h2>
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+            Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.
+          </p>
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
+            With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
+              <span className="text-sm sm:text-base font-medium text-pgnavy">Existing Vehicle Integration</span>
             </div>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
+              <span className="text-sm sm:text-base font-medium text-pgnavy">Custom Solutions</span>
+            </div>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
+              <span className="text-sm sm:text-base font-medium text-pgnavy">Professional Installation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Retrofit Full Screen Carousel */}
+      <section className="relative">
+        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+          <img
+            src={retrofitImages[retrofitImageIndex]}
+            alt={`Retrofit Success Case ${retrofitImageIndex + 1}`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20"></div>
+          
+          {/* Navigation buttons */}
+          <button
+            onClick={prevRetrofitImage}
+            className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
+          >
+            <ChevronLeft size={24} className="text-pgnavy sm:w-6 sm:h-6" />
+          </button>
+          <button
+            onClick={nextRetrofitImage}
+            className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
+          >
+            <ChevronRight size={24} className="text-pgnavy sm:w-6 sm:h-6" />
+          </button>
+          
+          {/* Dots indicator */}
+          <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+            {retrofitImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setRetrofitImageIndex(index)}
+                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all ${
+                  index === retrofitImageIndex ? 'bg-white' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          {/* Overlay text */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 sm:p-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-2">
+              Retrofit Success Cases
+            </h3>
+            <p className="text-sm sm:text-base text-white/90 text-center max-w-2xl mx-auto">
+              Transforming existing vehicles with advanced ballistic protection solutions
+            </p>
           </div>
         </div>
       </section>
