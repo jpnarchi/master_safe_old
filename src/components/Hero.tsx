@@ -50,8 +50,8 @@ const slides = [
 ];
 const carouselImages = [
   'lovable-uploads/mainhomepagev1.png',
-  '/lovable-uploads/mainhomepagev1-2.png',
-  '/lovable-uploads/mainpagev3.png',
+  '/lovable-uploads/Home hero-4.png',
+  '/lovable-uploads/tchelao05_RJ.jpg',
 ];
 
 const Hero = () => {
