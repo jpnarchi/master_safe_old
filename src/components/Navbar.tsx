@@ -249,14 +249,14 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden md:block pr-0">
-            <Link 
-              to="/contacto" 
-              className={`inline-flex items-center rounded-md px-4 py-2 font-medium transition-all duration-300 ease-in-out ${
+            <Link
+              to="/contacto"
+              className={`inline-flex items-center rounded-md px-4 py-2 font-medium transition-all duration-300 ease-in-out border-2 ${
                 shouldAlwaysShowNav
-                  ? 'bg-pgnavy text-white hover:bg-pgnavy/90'
+                  ? 'bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white'
                   : (isHovered || isScrolled || activeMenu
-                    ? 'bg-pgnavy text-white hover:bg-pgnavy/90' 
-                    : 'bg-white text-pgnavy hover:bg-white/90')
+                    ? 'bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white'
+                    : 'bg-transparent text-white border-white hover:bg-white hover:text-pgnavy')
               }`}
             >
               Contacto
