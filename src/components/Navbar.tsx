@@ -16,12 +16,12 @@ const Navbar = () => {
   const blueLogo = "/LogoPGPRODUCTSPGBLUE.png";
   
   // Páginas que necesitan navbar siempre visible (fondo blanco)
+  // Product pages removed - they now use transparent navbar like home
   const pagesWithAlwaysVisibleNav = [
-    '/glassguard', '/steelglass', '/superslim', '/ultra', '/neu', // Productos
-    '/pg-automotive', '/pg-military', '/pg-architectural', // Segmentos
-    '/pg-ballistics', '/about-pg-glass', '/contacto' // Otras páginas
+    '/pg-ballistics', '/about-pg-glass', '/contacto', // Otras páginas
+    '/historia' // About Us
   ];
-  
+
   const shouldAlwaysShowNav = pagesWithAlwaysVisibleNav.includes(location.pathname);
   const isHomePage = location.pathname === '/';
 

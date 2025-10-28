@@ -1,166 +1,372 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { toast } from "sonner";
 
 const GlassGuardPage = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  const tabs = ['Overview', 'Technology', 'Specifications', 'Applications'];
+  const tabs = ['PG Glass Guard', 'Composición', 'Tecnología', 'Especificaciones'];
+
+  const useCases = [
+    {
+      title: 'Aplicaciones Gubernamentales',
+      description: 'Soluciones certificadas para vehículos oficiales y de gobierno con los más altos estándares de seguridad.',
+      image: '/lovable-uploads/casos_de_uso_slider_3.png'
+    },
+    {
+      title: 'Transporte de valores',
+      description: 'En un entorno de alta seguridad, la protección es primordial. Descubra cómo GlassGuard ofrece soluciones de blindaje personalizadas para vehículos de transporte de valores.',
+      image: '/lovable-uploads/casos_de_uso_slider_3.png'
+    },
+    {
+      title: 'Vehículos de Alta Seguridad',
+      description: 'Protección premium para vehículos ejecutivos y de alta gama que requieren máxima seguridad sin comprometer la estética.',
+      image: '/lovable-uploads/casos_de_uso_slider_3.png'
+    }
+  ];
+
+  const keyBenefits = [
+    { label: 'Protección:', detail: 'Detiene balas y fragmentos de alta velocidad.' },
+    { label: 'Claridad:', detail: 'Visión clara y sin distorsiones.' },
+    { label: 'Durabilidad:', detail: 'Resiste impactos repetidos y condiciones climáticas extremas.' },
+    { label: 'Adaptabilidad:', detail: 'Se puede cortar, moldear y laminar para diversas aplicaciones.' },
+    { label: 'Seguridad:', detail: 'Brinda tranquilidad y protección en entornos de riesgo.' }
+  ];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Por favor complete todos los campos requeridos");
+      return;
+    }
+    console.log('Form submitted:', formData);
+    toast.success("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleCancel = () => {
+    setFormData({ name: '', email: '', message: '' });
+    toast.info("Formulario cancelado");
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % useCases.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
+  };
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+
       {/* Hero Section */}
-      <section className="pt-20 pb-12 sm:pb-20 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Product Logo y texto azul */}
-          <div className="mb-8 sm:mb-10 md:mb-12 flex flex-col md:flex-row items-center md:items-center gap-4 sm:gap-5 md:gap-6">
-            <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 bg-gray-100 rounded-xl sm:rounded-2xl flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/Glassguardlogo.png" 
-                alt="GlassGuard Logo" 
-                className="w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain"
-              />
-            </div>
-            <div className="text-center md:text-left md:ml-4 lg:ml-6">
-              <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-pgblue block leading-tight">Premium Ballistic Glass Protection.</span>
-            </div>
-          </div>
-          {/* Texto descriptivo antes de la imagen grande */}
-          <p className="text-lg sm:text-xl md:text-2xl font-semibold text-pgnavy text-center md:text-left w-full mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
-            GlassGuard compone un portafolio de soluciones de blindaje transparente según normas locales e internacionales.
+      <section className="relative h-[740px] w-full overflow-hidden">
+        <img
+          src="/Hero_img_PG_Glassguard_1.png"
+          alt="GlassGuard Background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
+          <h1 className="text-white text-xl md:text-2xl font-normal text-center mb-4 font-montserrat">
+            Vidrio premium de resistencia balística certificada
+          </h1>
+
+          <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 font-montserrat">
+            PG GlassGuard
+          </h2>
+
+          <p className="text-white text-base md:text-lg lg:text-xl font-normal text-center max-w-3xl leading-relaxed font-montserrat">
+            GlassGuard compone un portafolio de soluciones de blindaje
+            transparente según normas locales e internacionales para
+            diferentes aplicaciones de alta especificación.
           </p>
-          {/* Hero Image */}
-          <div className="relative h-[300px] sm:h-[350px] md:h-[500px] lg:h-[600px] bg-gray-100 rounded-xl sm:rounded-2xl overflow-hidden">
-            <img 
-              src="/lovable-uploads/GLASSGUARDSLIDE.jpeg" 
-              alt="GlassGuard Product"
-              className="w-full h-full object-cover"
+
+          {/* Navigation Dots */}
+          <div className="absolute bottom-12 flex gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#7F8CAD]"></div>
+            <div className="w-3 h-3 rounded-full bg-white/70"></div>
+            <div className="w-3 h-3 rounded-full bg-white/70"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Benefits Section with Extended Blue Background */}
+      <section className="relative" style={{background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 4.44%, rgba(4, 64, 161, 0.80) 108.12%)'}}>
+        <div className="mx-auto flex flex-col items-center pb-64" style={{width: '1728px', maxWidth: '100%'}}>
+          {/* Premium Armor Glass Logo and Title */}
+          <div className="flex items-center justify-center gap-6 mb-12 mt-16" style={{
+            width: '1568px',
+            height: '146px',
+            maxWidth: '95%',
+            borderRadius: '23px',
+            background: 'rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
+          }}>
+            <img
+              src="/lovable-uploads/Glassguardlogo.png"
+              alt="GlassGuard Logo"
+              style={{width: '389px', height: '50px'}}
+              className="object-contain"
             />
-            {/* Franja azul tipo etiqueta con texto */}
-            <div className="absolute left-0 bottom-0 w-[95%] sm:w-[90%] h-12 sm:h-14 md:h-16 bg-pgblue flex items-center pl-4 sm:pl-6 md:pl-8" style={{clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)'}}>
-              <span className="text-white font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">Calidad y Durabilidad.</span>
+            <h2 className="font-normal text-black font-montserrat" style={{width: '265px', height: '36px', fontSize: '36px', lineHeight: '36px'}}>
+              Key Benefits
+            </h2>
+          </div>
+
+          {/* Benefits List */}
+          <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
+            <div className="space-y-2">
+              {keyBenefits.map((benefit, index) => (
+                <div key={index} className="flex items-start justify-start gap-4">
+                  <img
+                    src="/lovable-uploads/checkmark_bullet.png"
+                    alt="Checkmark"
+                    className="w-8 h-8 flex-shrink-0 mt-1 object-contain"
+                  />
+                  <p className="text-lg md:text-xl font-montserrat">
+                    <span className="font-bold">{benefit.label}</span>{' '}
+                    <span className="font-normal">{benefit.detail}</span>
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
+
+          {/* Tabs Navigation */}
+          <div className="mb-8 w-full px-4">
+            <div className="flex justify-between items-center border-b border-black pb-4 overflow-x-auto gap-8 max-w-7xl mx-auto">
+              {tabs.map((tab, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTab(index)}
+                  className={`text-2xl md:text-3xl font-normal whitespace-nowrap transition-all font-montserrat ${
+                    activeTab === index
+                      ? 'text-black'
+                      : 'text-black/50 hover:text-black/75'
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Tab Description */}
+          <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
+            <p className="text-center text-base md:text-lg font-montserrat">
+              GlassGuard representa la máxima protección balística transparente, combinando resistencia balística certificada con durabilidad excepcional y claridad óptica.
+            </p>
+          </div>
+        </div>
+
+        {/* Image that overflows out of blue background */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex justify-center" style={{bottom: '-271px'}}>
+          <img
+            src="/lovable-uploads/img_tab_1_pg_glassguard.png"
+            alt="GlassGuard Product"
+            style={{width: '1526px', height: '543px', maxWidth: '95vw'}}
+            className="object-contain"
+          />
         </div>
       </section>
 
-      {/* Key Metrics */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center justify-items-center w-full">
-            <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono1GlassGuard.png" alt="Certificación NIJ III-A" className="w-16 h-16 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 sm:mb-3 md:mb-4 object-contain" />
-              <span className="text-sm sm:text-base md:text-base lg:text-lg text-pgblue font-bold text-center">NIJ III-A</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono2GlassGuard.png" alt="28mm Grosor" className="w-16 h-16 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 sm:mb-3 md:mb-4 object-contain" />
-              <span className="text-sm sm:text-base md:text-base lg:text-lg text-pgblue font-bold text-center">28mm</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono3GlassGuard.png" alt="85% Transparencia" className="w-16 h-16 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 sm:mb-3 md:mb-4 object-contain" />
-              <span className="text-sm sm:text-base md:text-base lg:text-lg text-pgblue font-bold text-center">85%</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/icono4GlassGuard.png" alt="45kg/m² Peso" className="w-16 h-16 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 sm:mb-3 md:mb-4 object-contain" />
-              <span className="text-sm sm:text-base md:text-base lg:text-lg text-pgblue font-bold text-center">45kg/m²</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Spacer for overflowing image */}
+      <div style={{height: '271px'}}></div>
 
-      {/* Product Details */}
-      <section className="py-12 sm:py-16 md:py-20">
+      {/* Use Cases and Applications */}
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          {/* Tabs */}
-          <div className="flex space-x-4 sm:space-x-6 md:space-x-6 lg:space-x-8 border-b border-gray-200 mb-8 sm:mb-10 md:mb-12 overflow-x-auto">
-            {tabs.map((tab, index) => (
+          <h2 className="text-4xl md:text-5xl font-bold text-[#05204B] text-center mb-16 font-montserrat">
+            Casos de uso y Aplicaciones
+          </h2>
+
+          <div className="relative">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-xl h-[500px]">
+                <img
+                  src={useCases[currentSlide].image}
+                  alt={useCases[currentSlide].title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="space-y-6">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#05204B] text-center md:text-left font-montserrat">
+                  {useCases[currentSlide].title}
+                </h3>
+                <p className="text-xl md:text-2xl text-[#3E3E3E] text-center md:text-left font-montserrat">
+                  {useCases[currentSlide].description}
+                </p>
+              </div>
+            </div>
+
+            {/* Carousel Controls */}
+            <div className="flex justify-center md:justify-end gap-4 mt-12">
               <button
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className={`pb-3 sm:pb-3 md:pb-4 px-1 text-xs sm:text-sm md:text-base font-medium transition-colors whitespace-nowrap ${
-                  activeTab === index 
-                    ? 'text-black border-b-2 border-black' 
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
+                onClick={prevSlide}
+                className="w-20 h-20 rounded-full bg-gray-200/50 hover:bg-gray-300/50 flex items-center justify-center transition-colors"
               >
-                {tab}
+                <ChevronLeft className="w-8 h-8 text-[#05204B]" strokeWidth={3} />
               </button>
-            ))}
-          </div>
-
-          {/* Tab Content */}
-          <div>
-            {activeTab === 0 && (
-              <>
-                {/* TEXTO E IMAGEN PARA OVERVIEW */}
-                <p className="text-sm sm:text-base md:text-lg font-normal text-center mb-4 sm:mb-5 md:mb-6 leading-relaxed px-2 sm:px-0">
-                  GlassGuard representa la máxima protección balística transparente, combinando resistencia balística certificada con durabilidad excepcional y claridad óptica.
-                </p>
-                <div className="bg-gray-100 rounded-lg sm:rounded-xl p-1 sm:p-2 flex justify-center items-center h-[250px] sm:h-[280px] md:h-[350px] lg:h-[400px]">
-                  <img 
-                    src="/lovable-uploads/glassguardfotooverview.jpg" 
-                    alt="GlassGuard Overview" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </>
-            )}
-            {activeTab === 1 && (
-              <>
-                {/* TEXTO E IMAGEN PARA TECHNOLOGY */}
-                <p className="text-sm sm:text-base md:text-lg font-normal text-center mb-4 sm:mb-5 md:mb-6 leading-relaxed px-2 sm:px-0">
-                  GlassGuard utiliza tecnología avanzada de laminación multicapa que proporciona protección balística superior manteniendo la transparencia óptima y la durabilidad a largo plazo.
-                </p>
-                <div className="bg-gray-100 rounded-lg sm:rounded-xl p-1 sm:p-2 flex justify-center items-center h-[250px] sm:h-[280px] md:h-[350px] lg:h-[400px]">
-                  <img 
-                    src="/lovable-uploads/glassguardfototechnology.jpg" 
-                    alt="Technology" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </>
-            )}
-            {activeTab === 2 && (
-              <>
-                {/* TEXTO E IMAGEN PARA SPECIFICATIONS */}
-                <ul className="text-sm sm:text-base md:text-lg font-normal text-left mb-4 sm:mb-5 md:mb-6 leading-relaxed list-disc list-inside px-2 sm:px-0">
-                  <li>
-                    <span className="font-bold text-pgnavy">GlassGuard</span> cumple con la certificación <span className="font-bold">NIJ III-A</span> para protección contra armas de fuego de mano, con un grosor de <span className="font-bold">28mm</span> y transparencia del <span className="font-bold">85%</span>.
-                  </li>
-                </ul>
-                <div className="bg-gray-100 rounded-lg sm:rounded-xl p-1 sm:p-2 flex justify-center items-center h-[250px] sm:h-[280px] md:h-[350px] lg:h-[400px]">
-                  <img 
-                    src="/lovable-uploads/glassguardfotospecifications.jpg" 
-                    alt="Specifications" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </>
-            )}
-            {activeTab === 3 && (
-              <>
-                {/* TEXTO E IMAGEN PARA APPLICATIONS */}
-                <ul className="text-sm sm:text-base md:text-lg font-normal text-left mb-4 sm:mb-5 md:mb-6 leading-relaxed list-disc list-inside px-2 sm:px-0">
-                  <li>
-                    GlassGuard es ideal para aplicaciones automotrices, vehículos blindados, edificios gubernamentales y cualquier entorno que requiera protección balística transparente de alta calidad.
-                  </li>
-                </ul>
-                <div className="bg-gray-100 rounded-lg sm:rounded-xl p-1 sm:p-2 flex justify-center items-center h-[250px] sm:h-[280px] md:h-[350px] lg:h-[400px]">
-                  <img 
-                    src="/lovable-uploads/glassguardfotoapplication.jpeg" 
-                    alt="Applications" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </>
-            )}
+              <button
+                onClick={nextSlide}
+                className="w-20 h-20 rounded-full bg-gray-200/50 hover:bg-gray-300/50 flex items-center justify-center transition-colors border-4 border-[#00CCFF]"
+              >
+                <ChevronRight className="w-8 h-8 text-[#05204B]" strokeWidth={3} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <Footer />
+      {/* Brochures and Downloads */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#05204B] text-center mb-16 font-montserrat">
+            Brochures y Descargas
+          </h2>
+
+          <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="flex items-center justify-between p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <span className="text-xl md:text-2xl text-[#3E3E3E] font-montserrat">
+                Brochure de producto PG GlassGuard.pdf
+              </span>
+              <button className="w-20 h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+                <Download className="w-10 h-10 text-black" />
+              </button>
+            </div>
+
+            <div className="flex items-center justify-between p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <span className="text-xl md:text-2xl text-[#3E3E3E] font-montserrat">
+                Tabla balística para PG GlassGuard.pdf
+              </span>
+              <button className="w-20 h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+                <Download className="w-10 h-10 text-black" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="relative py-20 overflow-hidden">
+        <img
+          src="/bg_form_contact@2x.png"
+          alt="Contact Background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/35" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Left Side - Text */}
+            <div className="text-white space-y-6">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-montserrat">
+                Protegemos tu seguridad
+              </h2>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-snug font-montserrat">
+                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+              </p>
+            </div>
+
+            {/* Right Side - Form */}
+            <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-white text-lg font-bold mb-1 font-montserrat">
+                    Nombre completo
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat"
+                    placeholder="Introduzca su nombre"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-white text-lg font-bold mb-1 font-montserrat">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat"
+                    placeholder="Introduzca su dirección de correo electrónico"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-white text-lg font-bold mb-1 font-montserrat">
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-3 py-2 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat resize-none"
+                    placeholder="Escriba aquí su mensaje"
+                    required
+                  />
+                </div>
+
+                <div className="flex gap-5 flex-wrap">
+                  <button
+                    type="button"
+                    onClick={handleCancel}
+                    className="flex-1 min-w-[240px] px-3 py-4 bg-transparent border-2 border-white rounded-lg text-white text-lg font-bold hover:bg-white/10 transition-colors font-montserrat"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 min-w-[240px] px-3 py-4 bg-[#08254C] rounded-lg text-white text-lg font-bold hover:bg-[#0a2d5c] transition-colors font-montserrat"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer with black background */}
+      <div className="bg-black">
+        <Footer />
+      </div>
     </div>
   );
 };

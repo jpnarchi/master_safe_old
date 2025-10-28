@@ -22,6 +22,7 @@ export default {
 			fontFamily: {
 				sans: ["Inter", "sans-serif"],
 				display: ["Montserrat", "sans-serif"],
+				montserrat: ["Montserrat", "sans-serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
