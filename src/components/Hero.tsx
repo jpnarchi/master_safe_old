@@ -1,47 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// SLIDER DE PRODUCTOS EN EL HERO
-const slides = [
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
+
+const carouselImages = [
+  '/Hero1_img_pattern@2xx.png',
+  '/Hero_img_PG_SuperSlim_1.png',
+  '/Hero-PORSCHE_img_pattern@2x.png',
+  '/Hero4_img_pattern@2x.png',
+];
+
+// TODAS LAS TARJETAS PARA EL CARRUSEL (PRODUCTOS + NUEVAS)
+const allProductCards = [
   {
-    category: "Calidad, Durabilidad y balística comprobada",
     title: "GlassGuard",
-    description: "Vidrio premium de resistencia balística certificada",
-    price: "Protección superior para tu vehículo",
     img: "/Glassguard_card.png",
     logo: "/new-card-logoPG-GlassGuard.svg",
+    description: "Vidrio premium de resistencia balística certificada",
     link: "/glassguard"
   },
   {
-    category: "Más Liviano, más delgado, igual de resistente",
     title: "SuperSlim",
-    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
-    price: "Protección sin comprometer el diseño",
     img: "/Superslim_card.png",
     logo: "/new-card-logo-PG-Superslim.svg",
+    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
     link: "/superslim"
   },
   {
-    category: "Resistente hasta el Borde",
     title: "SteelGlass",
-    description: "Premium Ballistic Glass with Steel Frame",
-    price: "Tecnología avanzada de protección",
-    img: "/Steelglass_card 3@2x.png",
+    img: "/Steelglass_card.png",
     logo: "/new-card-logo-PG-SteelGlass.svg",
+    description: "Premium Ballistic Glass with Steel Frame",
     link: "/steelglass"
+  },
+  {
+    title: "PG NEU",
+    img: "/Neu_card.png",
+    logo: "/PG Neu.svg",
+    description: "Premium ballistic glass with remarkable resistance",
+    link: "/pg-neu"
+  },
+  {
+    title: "PG ULTRA",
+    img: "/Ultra_card.png",
+    logo: "/PG Ultra.svg",
+    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
+    link: "/pg-ultra"
   }
-];
-const carouselImages = [
-  '/new-Hero1_img_pattern@2x.png',
-  '/new-Hero2_img_pattern@2x.png',
-  '/new-Hero3_img_pattern@2x.png',
 ];
 
 const Hero = () => {
   // Estado para el hero principal (carrusel de imágenes)
   const [currentHero, setCurrentHero] = useState(0);
-  // Estado para el carrusel de productos
-  const [currentProduct, setCurrentProduct] = useState(0);
-  const [isPausedProduct, setIsPausedProduct] = useState(false);
+  // Estado para el carrusel de productos con dots
+  const [currentProductSlide, setCurrentProductSlide] = useState(0);
+  const [productApi, setProductApi] = useState<any>(null);
 
   // --- HERO PRINCIPAL ---
   useEffect(() => {
@@ -51,88 +64,36 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // --- CARRUSEL DE PRODUCTOS ---
-  const [isMobile, setIsMobile] = useState(false);
-  
+  // --- CARRUSEL DE PRODUCTOS CON DOTS ---
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
-  const getSlideWidth = () => {
-    if (window.innerWidth < 768) return 85; // mobile
-    if (window.innerWidth < 1024) return 65; // tablet
-    return 55; // desktop - narrower cards
-  };
+    if (!productApi) return;
 
-  const slideWidth = isMobile ? 85 : (window.innerWidth < 1024 ? 65 : 55);
-  const getTransform = () => {
-    if (currentProduct === slides.length - 1) {
-      let offset = '22.5vw'; // desktop default - center the last card
-      if (window.innerWidth < 768) offset = '7.5vw'; // mobile
-      else if (window.innerWidth < 1024) offset = '17.5vw'; // tablet
-      return `translateX(calc(-${(slides.length - 1) * slideWidth}vw + ${offset}))`;
-    }
-    return `translateX(-${currentProduct * slideWidth}vw)`;
-  };
-  useEffect(() => {
-    let interval;
-    if (currentProduct === slides.length - 1) {
-      if (!isPausedProduct) {
-        setIsPausedProduct(true);
-        interval = setTimeout(() => {
-          setCurrentProduct(0);
-          setIsPausedProduct(false);
-        }, 4000);
-      }
-    } else {
-      interval = setInterval(() => {
-        setCurrentProduct((prev) => prev + 1);
-      }, 3500);
-    }
+    const onSelect = () => {
+      setCurrentProductSlide(productApi.selectedScrollSnap());
+    };
+
+    productApi.on('select', onSelect);
+    onSelect();
+
     return () => {
-      if (interval) {
-        clearInterval(interval);
-        clearTimeout(interval);
-      }
+      productApi.off('select', onSelect);
     };
-  }, [currentProduct, isPausedProduct]);
+  }, [productApi]);
 
-  // Touch/swipe support
+  // Auto-play para el carrusel de productos
   useEffect(() => {
-    let startX = 0;
-    let endX = 0;
-    const wrapper = document.querySelector('.carousel-wrapper');
-    if (!wrapper) return;
-    const handleTouchStart = e => { startX = e.touches[0].clientX; };
-    const handleTouchEnd = e => {
-      endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) { setCurrentProduct((prev) => prev + 1); } else { setCurrentProduct((prev) => prev - 1); }
-      }
-    };
-    wrapper.addEventListener('touchstart', handleTouchStart);
-    wrapper.addEventListener('touchend', handleTouchEnd);
-    return () => {
-      wrapper.removeEventListener('touchstart', handleTouchStart);
-      wrapper.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [currentProduct]);
+    if (!productApi) return;
 
-  // Autoplay
-  useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentHero((prev) => (prev + 1) % carouselImages.length);
-      }, 5000);
+      if (productApi.canScrollNext()) {
+        productApi.scrollNext();
+      } else {
+        productApi.scrollTo(0);
+      }
+    }, 4000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [productApi]);
 
   return (
     <>
@@ -154,8 +115,48 @@ const Hero = () => {
 
         {/* Hero Content Overlay */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white">
-          {/* Slide 1: Nuestro ADN */}
+          {/* Slide 1: PG Premium Ballistic Glass */}
           {currentHero === 0 && (
+            <>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12">
+                <span className="font-normal">PG Premium</span> <span className="font-bold">Ballistic Glass</span>
+              </h1>
+
+              <p className="text-lg md:text-xl lg:text-2xl text-center mb-8 md:mb-12 max-w-4xl px-4 leading-relaxed">
+                Un cristal blindado automotriz diseñado y desarrollado con ingeniería alemana, producido con las mejores materias primas bajo estándares de diseño europeo.
+              </p>
+
+              <Link
+                to="/contacto"
+                className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
+              >
+                Conocer más
+              </Link>
+            </>
+          )}
+
+          {/* Slide 2: PG SuperSlim */}
+          {currentHero === 1 && (
+            <>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12">
+                <span className="font-normal">PG</span> <span className="font-bold">SuperSlim</span>
+              </h1>
+
+              <p className="text-lg md:text-xl lg:text-2xl text-center mb-8 md:mb-12 max-w-4xl px-4 leading-relaxed">
+                Un cristal blindado certificado que mantiene la resistencia balística pero con una formulación mas delgada que asegura un 15% menos de peso y mayor vida útil
+              </p>
+
+              <Link
+                to="/contacto"
+                className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
+              >
+                Solicitar cotización
+              </Link>
+            </>
+          )}
+
+          {/* Slide 3: Nuestro ADN */}
+          {currentHero === 2 && (
             <>
               {/* Main Title */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12">
@@ -222,31 +223,11 @@ const Hero = () => {
             </>
           )}
 
-          {/* Slide 2: PG Premium Ballistic Glass */}
-          {currentHero === 1 && (
+          {/* Slide 4: PG Materiales de última generación */}
+          {currentHero === 3 && (
             <>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12">
-                <span className="font-normal">PG Premium</span> <span className="font-bold">Ballistic Glass</span>
-              </h1>
-
-              <p className="text-lg md:text-xl lg:text-2xl text-center mb-8 md:mb-12 max-w-4xl px-4 leading-relaxed">
-                Un cristal blindado automotriz diseñado y desarrollado con ingeniería alemana, producido con las mejores materias primas bajo estándares de diseño europeo.
-              </p>
-
-              <Link
-                to="/contacto"
-                className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
-              >
-                Solicitar cotización
-              </Link>
-            </>
-          )}
-
-          {/* Slide 3: PG SuperSlim */}
-          {currentHero === 2 && (
-            <>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12">
-                <span className="font-normal">PG</span> <span className="font-bold">SuperSlim</span>
+                <span className="font-normal">PG Materiales</span> <span className="font-bold">de última generación</span>
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-center mb-8 md:mb-12 max-w-4xl px-4 leading-relaxed">
@@ -257,7 +238,7 @@ const Hero = () => {
                 to="/contacto"
                 className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
               >
-                Solicitar cotización
+                Conocer más
               </Link>
             </>
           )}
@@ -276,122 +257,83 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* PRODUCT CARDS SECTION */}
-      <section className="w-full bg-white py-8 md:py-12">
-        <div className="w-full px-2 sm:px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-[1400px] mx-auto">
+      {/* PRODUCT CARDS CAROUSEL SECTION */}
+      <section className="w-full bg-white py-12 md:py-16 relative">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <Carousel
+            setApi={setProductApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {allProductCards.map((card, index) => (
+                <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="border-0 shadow-none bg-transparent">
+                    <CardContent className="p-0">
+                      <div
+                        className="relative overflow-hidden flex flex-col p-6"
+                        style={{
+                          backgroundImage: `url(${card.img})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          borderRadius: '38px',
+                          height: '600px'
+                        }}
+                      >
+                        {/* Center section with logo and text */}
+                        <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
+                          <img
+                            src={card.logo}
+                            alt={card.title}
+                            className="max-w-[280px] w-full h-auto mb-6"
+                          />
+                          <p className="text-lg font-medium leading-relaxed">
+                            {card.description}
+                          </p>
+                        </div>
 
-            {/* GlassGuard Card */}
-            <div
-              className="relative overflow-hidden flex flex-col p-6"
-              style={{
-                backgroundImage: 'url(/Glassguard_card.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '38px',
-                height: '600px'
-              }}
-            >
-              {/* Center section with logo and text */}
-              <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
-                <img
-                  src="/new-card-logoPG-GlassGuard.svg"
-                  alt="PG GlassGuard"
-                  className="max-w-[280px] w-full h-auto mb-6"
-                />
-                <p className="text-lg font-medium leading-relaxed">
-                  Vidrio premium de resistencia<br />balística certificada
-                </p>
-              </div>
+                        {/* Button at bottom */}
+                        <div className="text-center mt-auto mb-4">
+                          <Link
+                            to={card.link}
+                            className="inline-flex items-center rounded-xl px-8 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
+                          >
+                            Conocer más
+                          </Link>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
-              {/* Button at bottom */}
-              <div className="text-center mt-auto mb-4">
-                <Link
-                  to="/glassguard"
-                  className="inline-flex items-center rounded-xl px-8 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
-                >
-                  Conocer más
-                </Link>
-              </div>
-            </div>
-
-            {/* SuperSlim Card */}
-            <div
-              className="relative overflow-hidden flex flex-col p-6"
-              style={{
-                backgroundImage: 'url(/Superslim_card.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '38px',
-                height: '600px'
-              }}
-            >
-              {/* Center section with logo and text */}
-              <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
-                <img
-                  src="/new-card-logo-PG-Superslim.svg"
-                  alt="PG SuperSlim"
-                  className="max-w-[280px] w-full h-auto mb-6"
-                />
-                <p className="text-lg font-medium leading-relaxed">
-                  Premium Ballistic Glass: Thinner,<br />lightweight and more durable
-                </p>
-              </div>
-
-              {/* Button at bottom */}
-              <div className="text-center mt-auto mb-4">
-                <Link
-                  to="/superslim"
-                  className="inline-flex items-center rounded-xl px-8 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
-                >
-                  Conocer más
-                </Link>
-              </div>
-            </div>
-
-            {/* SteelGlass Card */}
-            <div
-              className="relative overflow-hidden flex flex-col p-6 md:col-span-2 lg:col-span-1"
-              style={{
-                backgroundImage: 'url(/Steelglass_card.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '38px',
-                height: '600px'
-              }}
-            >
-              {/* Center section with logo and text */}
-              <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
-                <img
-                  src="/new-card-logo-PG-SteelGlass.svg"
-                  alt="PG SteelGlass"
-                  className="max-w-[280px] w-full h-auto mb-6"
-                />
-                <p className="text-lg font-medium leading-relaxed">
-                  Premium Ballistic Glass<br />with Steel Frame
-                </p>
-              </div>
-
-              {/* Button at bottom */}
-              <div className="text-center mt-auto mb-4">
-                <Link
-                  to="/steelglass"
-                  className="inline-flex items-center rounded-xl px-8 py-3 font-medium transition-all duración-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
-                >
-                  Conocer más
-                </Link>
-              </div>
-            </div>
-
+          {/* Dots Navigation */}
+          <div className="flex justify-center gap-2 mt-8">
+            {allProductCards.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentProductSlide === index ? 'bg-pgnavy scale-110' : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                onClick={() => productApi?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
+
 
       {/* INVESTIGACIÓN & DESARROLLO SECTION */}
       <section
         className="w-full py-32 md:py-48 relative overflow-hidden flex items-center justify-center"
         style={{
-          backgroundImage: 'url(/glass_close_up@2x.png)',
+          backgroundImage: 'url(/RnD_image@2x.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           minHeight: '800px'
@@ -502,83 +444,203 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* PROCESS STEPS SECTION */}
-      <section className="w-full bg-white pt-10 pb-16 lg:pt-14 lg:pb-20">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+      {/* FULL SCREEN VIDEO SECTION */}
+      <section className="w-full h-screen relative overflow-hidden flex items-center justify-center">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
 
-          {/* Steps Flow Container - 5 Containers */}
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto space-y-8 lg:space-y-0">
+        {/* Watermark Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className="text-white text-4xl md:text-6xl lg:text-7xl font-bold opacity-20 rotate-[-30deg] select-none"
+            style={{
+              textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+            }}
+          >
+            ESTE NO ES EL VIDEO FINAL
+          </div>
+        </div>
+      </section>
 
-            {/* Container 1: Step 1 - Elige un producto */}
-            <div className="text-center flex-1">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-6 bg-gray-200 rounded-full flex items-center justify-center">
-                <img
-                  src="/product_box_icon.svg"
-                  alt="Producto"
-                  className="w-12 h-12 lg:w-16 lg:h-16"
-                />
+      {/* NUESTRO ADN SECTION */}
+      <section className="w-full bg-white py-16 lg:py-20">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Title - Centered */}
+          <h2 className="text-center mb-16 lg:mb-20" style={{
+            color: '#1E3A5F',
+            fontSize: '36px',
+            fontFamily: 'Montserrat',
+            fontWeight: 700,
+            lineHeight: '1.4'
+          }}>
+            Nuestro ADN es la protección: <span style={{ fontWeight: 400 }}>tecnología, diseño y confianza en cada capa.</span>
+          </h2>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:flex items-start justify-center gap-8 xl:gap-16">
+
+            {/* Benefit 1: Protección balística sin compromisos */}
+            <div className="flex-1 max-w-[340px]">
+              <div className="flex justify-center mb-8">
+                <div className="relative w-[180px] h-[180px] bg-gray-200 rounded-[45px] rotate-45 flex items-center justify-center">
+                  <img
+                    src="/balistica_ico_beneficio.svg"
+                    alt="Protección balística"
+                    className="-rotate-45 w-[90px] h-[90px]"
+                  />
+                </div>
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-pgnavy mb-4">
-                Elige un producto
+              <h3 className="text-center mb-6" style={{
+                color: '#1E3A5F',
+                fontSize: '22px',
+                fontFamily: 'Montserrat',
+                fontWeight: 700,
+                lineHeight: '1.3'
+              }}>
+                Protección balística<br/>sin compromisos
               </h3>
-              <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices, orci vitae convallis mattis.
+              <p className="text-center leading-tight" style={{
+                color: '#1A202C',
+                fontSize: '15px',
+                lineHeight: '1.4'
+              }}>
+                Cada producto PG Products está diseñado y probado bajo los más altos estándares internacionales (NIJ, EN, STANAG), garantizando resistencia comprobada ante múltiples amenazas. Nuestra ingeniería multicapa ofrece una defensa superior con el máximo nivel de seguridad, transparencia y durabilidad.
               </p>
             </div>
 
-            {/* Container 2: Connecting Line 1 */}
-            <div className="flex items-center justify-center flex-1 hidden lg:flex">
-              <img
-                src="/linea_pasos@2x.png"
-                alt="Connection line"
-                className="w-full max-w-md h-auto"
-              />
+            {/* Connecting Line 1 */}
+            <div className="flex items-center" style={{ marginTop: '90px' }}>
+              <img src="/linea_pasos@2x.png" alt="Connection line" className="w-[180px] h-auto" />
             </div>
 
-            {/* Container 3: Step 2 - Selecciona una fecha */}
-            <div className="text-center flex-1">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-6 bg-gray-200 rounded-full flex items-center justify-center">
-                <img
-                  src="/calendar_icon.svg"
-                  alt="Calendario"
-                  className="w-12 h-12 lg:w-16 lg:h-16"
-                />
+            {/* Benefit 2: Innovación en diseño y tecnología */}
+            <div className="flex-1 max-w-[340px]">
+              <div className="flex justify-center mb-8">
+                <div className="relative w-[180px] h-[180px] bg-gray-200 rounded-[45px] rotate-45 flex items-center justify-center">
+                  <img
+                    src="/innovacion_ico_beneficio.svg"
+                    alt="Innovación en diseño"
+                    className="-rotate-45 w-[90px] h-[90px]"
+                  />
+                </div>
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-pgnavy mb-4">
-                Selecciona una fecha
+              <h3 className="text-center mb-6" style={{
+                color: '#1E3A5F',
+                fontSize: '22px',
+                fontFamily: 'Montserrat',
+                fontWeight: 700,
+                lineHeight: '1.3'
+              }}>
+                Innovación en diseño<br/>y tecnología
               </h3>
-              <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices, orci vitae convallis mattis.
+              <p className="text-center leading-tight" style={{
+                color: '#1A202C',
+                fontSize: '15px',
+                lineHeight: '1.4'
+              }}>
+                Integramos ciencia de materiales avanzada, geometrías de precisión y procesos automatizados que optimizan el desempeño balístico sin sacrificar la estética del vehículo o estructura. PG Products redefine el blindaje al fusionar protección, ligereza y elegancia en una sola solución.
               </p>
             </div>
 
-            {/* Container 4: Connecting Line 2 */}
-            <div className="flex items-center justify-center flex-1 hidden lg:flex">
-              <img
-                src="/linea_pasos@2x.png"
-                alt="Connection line"
-                className="w-full max-w-md h-auto"
-              />
+            {/* Connecting Line 2 */}
+            <div className="flex items-center" style={{ marginTop: '90px' }}>
+              <img src="/linea_pasos@2x.png" alt="Connection line" className="w-[180px] h-auto" />
             </div>
 
-            {/* Container 5: Step 3 - Solicita una cotización */}
-            <div className="text-center flex-1">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-6 bg-gray-200 rounded-full flex items-center justify-center">
-                <img
-                  src="/quote_icon.svg"
-                  alt="Cotización"
-                  className="w-12 h-12 lg:w-16 lg:h-16"
-                />
+            {/* Benefit 3: Calidad certificada y experiencia global */}
+            <div className="flex-1 max-w-[340px]">
+              <div className="flex justify-center mb-8">
+                <div className="relative w-[180px] h-[180px] bg-gray-200 rounded-[45px] rotate-45 flex items-center justify-center">
+                  <img
+                    src="/calidad_ico_beneficio.svg"
+                    alt="Calidad certificada"
+                    className="-rotate-45 w-[90px] h-[90px]"
+                  />
+                </div>
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-pgnavy mb-4">
-                Solicita una cotización
+              <h3 className="text-center mb-6" style={{
+                color: '#1E3A5F',
+                fontSize: '22px',
+                fontFamily: 'Montserrat',
+                fontWeight: 700,
+                lineHeight: '1.3'
+              }}>
+                Calidad certificada<br/>y experiencia global
               </h3>
-              <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices, orci vitae convallis mattis.
+              <p className="text-center leading-tight" style={{
+                color: '#1A202C',
+                fontSize: '15px',
+                lineHeight: '1.4'
+              }}>
+                Con más de dos décadas de trayectoria en la industria del vidrio blindado, PG Products combina experiencia, investigación y control de calidad ISO 9001:2015 para ofrecer productos con acabados únicos, claridad óptica excepcional y una instalación de alto rendimiento respaldada por expertos internacionales.
               </p>
             </div>
 
           </div>
+
+          {/* Mobile version - stack vertically */}
+          <div className="lg:hidden flex flex-col space-y-12">
+            {/* Benefit 1 */}
+            <div className="text-center">
+              <div className="flex justify-center mb-6">
+                <div className="relative w-[140px] h-[140px] bg-gray-200 rounded-[35px] rotate-45 flex items-center justify-center">
+                  <img src="/balistica_ico_beneficio.svg" alt="Protección balística" className="-rotate-45 w-[70px] h-[70px]" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4 px-4">Protección balística<br/>sin compromisos</h3>
+              <p className="text-center px-4 leading-tight" style={{
+                color: '#1A202C',
+                fontSize: '15px',
+                lineHeight: '1.4'
+              }}>
+                Cada producto PG Products está diseñado y probado bajo los más altos estándares internacionales (NIJ, EN, STANAG), garantizando resistencia comprobada ante múltiples amenazas. Nuestra ingeniería multicapa ofrece una defensa superior con el máximo nivel de seguridad, transparencia y durabilidad.
+              </p>
+            </div>
+
+            {/* Benefit 2 */}
+            <div className="text-center">
+              <div className="flex justify-center mb-6">
+                <div className="relative w-[140px] h-[140px] bg-gray-200 rounded-[35px] rotate-45 flex items-center justify-center">
+                  <img src="/innovacion_ico_beneficio.svg" alt="Innovación en diseño" className="-rotate-45 w-[70px] h-[70px]" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4 px-4">Innovación en diseño<br/>y tecnología</h3>
+              <p className="text-center px-4 leading-tight" style={{
+                color: '#1A202C',
+                fontSize: '15px',
+                lineHeight: '1.4'
+              }}>
+                Integramos ciencia de materiales avanzada, geometrías de precisión y procesos automatizados que optimizan el desempeño balístico sin sacrificar la estética del vehículo o estructura. PG Products redefine el blindaje al fusionar protección, ligereza y elegancia en una sola solución.
+              </p>
+            </div>
+
+            {/* Benefit 3 */}
+            <div className="text-center">
+              <div className="flex justify-center mb-6">
+                <div className="relative w-[140px] h-[140px] bg-gray-200 rounded-[35px] rotate-45 flex items-center justify-center">
+                  <img src="/calidad_ico_beneficio.svg" alt="Calidad certificada" className="-rotate-45 w-[70px] h-[70px]" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4 px-4">Calidad certificada<br/>y experiencia global</h3>
+              <p className="text-center px-4 leading-tight" style={{
+                color: '#1A202C',
+                fontSize: '15px',
+                lineHeight: '1.4'
+              }}>
+                Con más de dos décadas de trayectoria en la industria del vidrio blindado, PG Products combina experiencia, investigación y control de calidad ISO 9001:2015 para ofrecer productos con acabados únicos, claridad óptica excepcional y una instalación de alto rendimiento respaldada por expertos internacionales.
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
