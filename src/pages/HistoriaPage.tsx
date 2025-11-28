@@ -1,668 +1,152 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import useScrollObserver from '../utils/ScrollObserver';
 
-const carouselCards = [
-  {
-    key: 'origenes',
-    content: (
-      <div className="flex flex-col items-center justify-center h-full w-full text-center">
-        <img 
-          src="/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png" 
-          alt="PG Products Headquarters" 
-          className="w-full max-w-xs h-48 object-cover rounded-xl mb-6 mx-auto"
-        />
-        <h2 className="heading-lg text-pgnavy mb-4">Nuestros Orígenes</h2>
-        <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-xl">
-          Desde nuestra fundación en 2010, PG Products ha estado a la vanguardia de la industria de vidrio blindado, combinando ingeniería alemana de precisión con estándares europeos de excelencia.
-        </p>
-        <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-xl mt-2">
-          Lo que comenzó como una visión para revolucionar la seguridad automotriz se ha convertido en una referencia global de innovación y calidad en la fabricación de vidrio blindado premium.
-        </p>
-      </div>
-    )
-  },
-  {
-    key: 'valores',
-    content: (
-      <div className="flex flex-col items-center justify-center h-full w-full text-center">
-        <h2 className="heading-lg text-pgnavy mb-6">Valores que nos Definen</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-          <div className="bg-pglight p-6 rounded-xl flex flex-col items-center">
-            <div className="w-16 h-16 bg-pgnavy rounded-full flex items-center justify-center mb-4 mx-auto">
-              <img 
-                src="/lovable-uploads/ff6f9f97-d670-45cd-97a0-85bdbb32e648.png" 
-                alt="Innovation Icon" 
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-pgnavy mb-2">Innovación</h3>
-            <p className="text-pgnavy/70 text-justify">
-              Buscamos constantemente nuevas tecnologías y métodos para mejorar nuestros productos y anticiparnos a las necesidades del mercado.
-            </p>
-          </div>
-          <div className="bg-pglight p-6 rounded-xl flex flex-col items-center">
-            <div className="w-16 h-16 bg-pgnavy rounded-full flex items-center justify-center mb-4 mx-auto">
-              <img 
-                src="/lovable-uploads/f3db5a79-c8a9-46fc-9660-a991756c711f.png" 
-                alt="Quality Icon" 
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-pgnavy mb-2">Calidad</h3>
-            <p className="text-pgnavy/70 text-justify">
-              Nos comprometemos con los más altos estándares en cada etapa de nuestro proceso de producción, sin compromisos.
-            </p>
-          </div>
-          <div className="bg-pglight p-6 rounded-xl flex flex-col items-center">
-            <div className="w-16 h-16 bg-pgnavy rounded-full flex items-center justify-center mb-4 mx-auto">
-              <img 
-                src="/lovable-uploads/af3501d2-8f81-42fb-b113-6a18bf7571f5.png" 
-                alt="Security Icon" 
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-pgnavy mb-2">Seguridad</h3>
-            <p className="text-pgnavy/70 text-justify">
-              La protección de vidas es nuestra máxima prioridad. Cada producto que desarrollamos tiene como objetivo ofrecer la máxima seguridad.
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-    },
-    {
-    key: 'compromiso',
-    content: (
-      <div className="flex flex-col items-center justify-center h-full w-full text-center">
-        <img 
-          src="/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png" 
-          alt="PG Products Laboratory" 
-          className="w-full max-w-xs h-48 object-cover rounded-xl mb-6 mx-auto"
-        />
-        <h2 className="heading-lg text-pgnavy mb-4">Nuestro Compromiso</h2>
-        <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-xl">
-          En PG Products, estamos comprometidos con la seguridad, la innovación y la excelencia. No solo fabricamos vidrio blindado; creamos soluciones de protección que salvan vidas.
-        </p>
-        <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-xl mt-2">
-          Nuestro compromiso va más allá de cumplir estándares; buscamos constantemente superarlos, estableciendo nuevos referentes en la industria global de seguridad.
-        </p>
-        <p className="text-lg text-pgnavy/70 text-justify mx-auto max-w-xl mt-2">
-          Cada producto que sale de nuestras instalaciones es el resultado de años de investigación, desarrollo meticuloso y pruebas exhaustivas. Es nuestro aporte para un mundo más seguro.
-        </p>
-      </div>
-    )
-  }
-];
-
-function ValoresMiniCarousel() {
-  const valores = [
-    {
-      titulo: 'Innovación',
-      texto: 'Buscamos constantemente nuevas tecnologías y métodos para mejorar nuestros productos y anticiparnos a las necesidades del mercado.'
-    },
-    {
-      titulo: 'Calidad',
-      texto: 'Nos comprometemos con los más altos estándares en cada etapa de nuestro proceso de producción, sin compromisos.'
-    },
-    {
-      titulo: 'Seguridad',
-      texto: 'La protección de vidas es nuestra máxima prioridad. Cada producto que desarrollamos tiene como objetivo ofrecer la máxima seguridad.'
-    }
-  ];
-  const [current, setCurrent] = React.useState(0);
-  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-
-  React.useEffect(() => {
-    timeoutRef.current && clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % valores.length);
-    }, 4000);
-    return () => timeoutRef.current && clearTimeout(timeoutRef.current);
-  }, [current]);
-
-  return (
-    <div className="w-full h-full flex flex-col overflow-hidden">
-      <div className="relative w-full flex-1 flex items-center justify-center px-1 overflow-hidden">
-        {valores.map((valor, idx) => (
-          <div
-            key={valor.titulo}
-            className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out 
-              ${current === idx ? 'opacity-100 z-10 transform scale-100' : 'opacity-0 z-0 pointer-events-none transform scale-95'}
-              flex flex-col items-center justify-center bg-gradient-to-br from-pglight to-white rounded-xl shadow-lg border border-gray-200 p-3 overflow-hidden`}
-            style={{
-              boxShadow: '0 6px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03)'
-            }}
-          >
-            <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-pgblue rounded-full flex items-center justify-center mb-1.5 sm:mb-2 flex-shrink-0">
-              <span className="text-white font-bold text-xs sm:text-sm">{valor.titulo.charAt(0)}</span>
-            </div>
-            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-pgnavy mb-1.5 sm:mb-2 text-center leading-tight flex-shrink-0">{valor.titulo}</h3>
-            <p className="text-pgnavy/80 text-center text-xs sm:text-sm md:text-base leading-snug text-justify overflow-hidden">
-              {valor.texto}
-            </p>
-          </div>
-        ))}
-      </div>
-      <div className="flex gap-2 mt-2 justify-center flex-shrink-0">
-        {valores.map((_, idx) => (
-          <button
-            key={idx}
-            className={`w-2 h-2 rounded-full transition-all duration-300 border ${
-              current === idx 
-                ? 'bg-pgblue border-pgblue scale-110' 
-                : 'bg-transparent border-pgnavy/30 hover:border-pgblue/60 hover:scale-105'
-            }`}
-            onClick={() => setCurrent(idx)}
-            aria-label={`Ir a valor ${idx + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CardSectionGrid() {
-  return (
-    <section className="w-full">
-      {/* Sección 1: Valores que nos Definen */}
-      <div className="min-h-screen bg-gray-50 flex items-center relative overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-32 right-16 w-40 h-40 border-2 border-pgblue transform rotate-12"></div>
-          <div className="absolute bottom-32 left-16 w-28 h-28 border-2 border-pgblue"></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-24 bg-pgblue transform -rotate-12"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-20 h-2 bg-pgblue"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Contenido de texto */}
-            <div className="space-y-8 order-2 lg:order-1">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-1 bg-pgblue"></div>
-                    <span className="text-pgblue font-bold text-lg tracking-wide">NUESTROS PILARES</span>
-                  </div>
-                  <div className="w-8 h-8 border-l-4 border-b-4 border-pgblue"></div>
-                </div>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-pgnavy leading-tight">
-                  Valores que nos <span className="text-pgblue">Definen</span>
-                </h2>
-              </div>
-              
-              <div className="space-y-10">
-                <div className="relative">
-                  <div className="absolute -left-6 -top-4 w-20 h-20 border-2 border-pgblue/20"></div>
-                  <div className="bg-white p-8 shadow-lg border-l-4 border-pgblue relative">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-pgblue to-pgnavy flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">C</span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-pgnavy">Calidad</h3>
-                    </div>
-                    <p className="text-gray-700 text-lg leading-relaxed font-light">
-                      Nos comprometemos con los <span className="font-semibold text-pgnavy">más altos estándares</span> en cada etapa de nuestro proceso de producción, sin compromisos.
-                    </p>
-                    <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-pgblue/30"></div>
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <div className="absolute -right-6 -top-4 w-16 h-16 bg-pgblue/5"></div>
-                  <div className="bg-white p-8 shadow-lg border-l-4 border-pgblue relative">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-pgblue to-pgnavy flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">I</span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-pgnavy">Innovación</h3>
-                    </div>
-                    <p className="text-gray-700 text-lg leading-relaxed font-light">
-                      Buscamos constantemente <span className="font-semibold text-pgnavy">nuevas tecnologías y métodos</span> para mejorar nuestros productos y anticiparnos a las necesidades del mercado.
-                    </p>
-                    <div className="absolute bottom-4 right-4 w-4 h-4 bg-pgblue"></div>
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <div className="absolute -left-6 -bottom-4 w-18 h-2 bg-pgblue/20"></div>
-                  <div className="bg-white p-8 shadow-lg border-l-4 border-pgblue relative">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-pgblue to-pgnavy flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">S</span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-pgnavy">Seguridad</h3>
-                    </div>
-                    <p className="text-gray-700 text-lg leading-relaxed font-light">
-                      La <span className="font-semibold text-pgnavy">protección de vidas</span> es nuestra máxima prioridad. Cada producto que desarrollamos tiene como objetivo ofrecer la máxima seguridad.
-                    </p>
-                    <div className="absolute top-4 right-4 w-8 h-8 border-2 border-pgblue/20 transform rotate-45"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Imagen con diseño mejorado */}
-            <div className="order-1 lg:order-2 relative">
-              <div className="absolute -top-8 -right-8 w-full h-full border-2 border-pgblue/20 z-0"></div>
-              <div className="absolute -bottom-8 -left-8 w-3/4 h-3/4 bg-pgblue/5 z-0"></div>
-              
-              <div className="relative h-[450px] lg:h-[650px] bg-gradient-to-br from-pglight to-white shadow-2xl overflow-hidden z-10">
-                <img 
-                  src="/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png" 
-                  alt="Valores que nos Definen" 
-                  className="w-full h-full object-contain p-8"
-                />
-                <div className="absolute inset-0 bg-gradient-to-bl from-pgnavy/5 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/20 to-transparent p-6">
-                  <div className="flex items-center space-x-4 text-pgnavy">
-                    <div className="w-12 h-1 bg-pgblue"></div>
-                    <span className="font-semibold">PG Ultra - Excelencia en Protección</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Elementos decorativos para la imagen */}
-              <div className="absolute top-4 left-4 w-8 h-8 border-t-4 border-l-4 border-pgblue z-20"></div>
-              <div className="absolute bottom-4 right-4 w-6 h-6 bg-pgblue z-20"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Sección 2: Nuestros Orígenes */}
-      <div className="min-h-screen bg-white flex items-center relative overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-24 left-20 w-36 h-36 border-2 border-pgblue transform -rotate-45"></div>
-          <div className="absolute bottom-24 right-20 w-32 h-32 border-2 border-pgblue transform rotate-12"></div>
-          <div className="absolute top-2/3 right-1/4 w-2 h-28 bg-pgblue transform rotate-45"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-24 h-2 bg-pgblue transform -rotate-12"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Imagen con diseño mejorado */}
-            <div className="order-1 relative">
-              <div className="absolute -top-8 -left-8 w-full h-full border-2 border-pgblue/20 z-0"></div>
-              <div className="absolute -bottom-8 -right-8 w-3/4 h-3/4 bg-pgblue/5 z-0"></div>
-              
-              <div className="relative h-[450px] lg:h-[650px] shadow-2xl overflow-hidden z-10">
-                <img 
-                  src="/lovable-uploads/c55d1fe8-b46c-4024-ae78-3836cca27264.png" 
-                  alt="PG Products Headquarters" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-pgnavy/10 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent p-6">
-                  <div className="flex items-center space-x-4 text-white">
-                    <div className="w-12 h-1 bg-white"></div>
-                    <span className="font-semibold">Sede Principal - PG Products</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Elementos decorativos para la imagen */}
-              <div className="absolute top-4 right-4 w-8 h-8 border-t-4 border-r-4 border-pgblue z-20"></div>
-              <div className="absolute bottom-4 left-4 w-6 h-6 bg-pgblue z-20"></div>
-            </div>
-            
-            {/* Contenido de texto */}
-            <div className="space-y-8 order-2">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-1 bg-pgblue"></div>
-                    <span className="text-pgblue font-bold text-lg tracking-wide">NUESTRA HISTORIA</span>
-                  </div>
-                  <div className="w-8 h-8 border-l-4 border-b-4 border-pgblue"></div>
-                </div>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-pgnavy leading-tight">
-                  Nuestros <span className="text-pgblue">Orígenes</span>
-                </h2>
-              </div>
-              
-              <div className="space-y-8">
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-pgblue to-transparent"></div>
-                  <p className="text-gray-700 text-xl leading-relaxed font-light">
-                    Desde nuestra fundación en 2010, PG Products ha estado a la <span className="font-semibold text-pgnavy">vanguardia de la industria de vidrio blindado</span>, combinando ingeniería alemana de precisión con estándares europeos de excelencia.
-                  </p>
-                </div>
-                
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-pgblue/50 to-transparent"></div>
-                  <p className="text-gray-700 text-xl leading-relaxed font-light">
-                    Lo que comenzó como una visión para revolucionar la seguridad automotriz se ha convertido en una <span className="font-semibold text-pgnavy">referencia global de innovación y calidad</span> en la fabricación de vidrio blindado premium.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Timeline mejorado */}
-              <div className="pt-8">
-                <div className="relative">
-                  <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-pgblue/20"></div>
-                  <div className="bg-gradient-to-br from-pglight to-white p-8 shadow-lg border-l-4 border-pgblue">
-                    <div className="flex items-center space-x-6">
-                      <div className="text-center">
-                        <div className="text-5xl font-bold text-pgblue mb-2">2010</div>
-                        <div className="w-16 h-1 bg-pgblue mx-auto"></div>
-                      </div>
-                      <div className="h-16 w-px bg-pgblue"></div>
-                      <div>
-                        <div className="font-bold text-xl text-pgnavy mb-2">Año de Fundación</div>
-                        <div className="text-gray-600 text-lg">Inicio de una nueva era en seguridad</div>
-                        <div className="text-pgblue font-semibold text-sm mt-1">• Ingeniería alemana • Estándares europeos</div>
-                      </div>
-                    </div>
-                    <div className="absolute top-4 right-4 w-8 h-8 border-2 border-pgblue/20 transform rotate-45"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Sección 3: Nuestro Compromiso */}
-      <div className="min-h-screen bg-white flex items-center relative overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-pgblue transform rotate-45"></div>
-          <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-pgblue"></div>
-          <div className="absolute top-1/2 left-1/4 w-2 h-20 bg-pgblue transform rotate-45"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-2 bg-pgblue"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Contenido de texto */}
-            <div className="space-y-8 order-2 lg:order-1">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-1 bg-pgblue"></div>
-                    <span className="text-pgblue font-bold text-lg tracking-wide">NUESTRA MISIÓN</span>
-                  </div>
-                  <div className="w-8 h-8 border-l-4 border-b-4 border-pgblue"></div>
-                </div>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-pgnavy leading-tight">
-                  Nuestro <span className="text-pgblue">Compromiso</span>
-                </h2>
-              </div>
-              
-              <div className="space-y-8">
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-pgblue to-transparent"></div>
-                  <p className="text-gray-700 text-xl leading-relaxed font-light">
-                    En PG Products, estamos comprometidos con la seguridad, la innovación y la excelencia. No solo fabricamos vidrio blindado; <span className="font-semibold text-pgnavy">creamos soluciones de protección que salvan vidas.</span>
-                  </p>
-                </div>
-                
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-pgblue/50 to-transparent"></div>
-                  <p className="text-gray-700 text-xl leading-relaxed font-light">
-                    Nuestro compromiso va más allá de cumplir estándares; buscamos constantemente superarlos, estableciendo <span className="font-semibold text-pgnavy">nuevos referentes en la industria global de seguridad.</span>
-                  </p>
-                </div>
-                
-                <div className="relative pl-8">
-                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-pgblue/30 to-transparent"></div>
-                  <p className="text-gray-700 text-xl leading-relaxed font-light">
-                    Cada producto que sale de nuestras instalaciones es el resultado de años de investigación, desarrollo meticuloso y pruebas exhaustivas. <span className="font-semibold text-pgnavy">Es nuestro aporte para un mundo más seguro.</span>
-                  </p>
-                </div>
-              </div>
-              
-              {/* Estadísticas mejoradas */}
-              <div className="grid grid-cols-2 gap-8 pt-8">
-                <div className="relative">
-                  <div className="absolute -top-4 -left-4 w-16 h-16 border-2 border-pgblue/20"></div>
-                  <div className="bg-gradient-to-br from-pglight to-white p-6 shadow-lg border-l-4 border-pgblue">
-                    <div className="text-4xl font-bold text-pgblue mb-2">10M+</div>
-                    <div className="text-pgnavy font-semibold">Vidas Protegidas</div>
-                    <div className="text-gray-600 text-sm mt-1">A nivel mundial</div>
-                  </div>
-                </div>
-                <div className="relative">
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-pgblue/10"></div>
-                  <div className="bg-gradient-to-br from-pglight to-white p-6 shadow-lg border-l-4 border-pgblue">
-                    <div className="text-4xl font-bold text-pgblue mb-2">50+</div>
-                    <div className="text-pgnavy font-semibold">Países Alcanzados</div>
-                    <div className="text-gray-600 text-sm mt-1">Presencia global</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Imagen con diseño mejorado */}
-            <div className="order-1 lg:order-2 relative">
-              <div className="absolute -top-8 -left-8 w-full h-full border-2 border-pgblue/20 z-0"></div>
-              <div className="absolute -bottom-8 -right-8 w-3/4 h-3/4 bg-pgblue/5 z-0"></div>
-              
-              <div className="relative h-[450px] lg:h-[650px] shadow-2xl overflow-hidden z-10">
-                <img 
-                  src="/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png" 
-                  alt="PG Products Laboratory" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-pgnavy/10 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent p-6">
-                  <div className="flex items-center space-x-4 text-white">
-                    <div className="w-12 h-1 bg-white"></div>
-                    <span className="font-semibold">Centro de Investigación y Desarrollo</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Elementos decorativos para la imagen */}
-              <div className="absolute top-4 right-4 w-8 h-8 border-t-4 border-r-4 border-pgblue z-20"></div>
-              <div className="absolute bottom-4 left-4 w-6 h-6 bg-pgblue z-20"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const TimelineCarousel = () => {
-  // Datos del timeline basados en la segunda imagen
   const timelineData = [
     {
       year: 1998,
       title: "Se Funda PG Products Barueri (SP)",
-      image: "/api/placeholder/1200/600",
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
       description: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño."
     },
     {
-      year: 1999,
-      title: "Patente BRG Steel Glass",
-      image: "/api/placeholder/1200/600",
-      description: "Desarrollo de tecnología innovadora en vidrio templado. Primera patente registrada que revolucionó la industria del blindaje automotriz."
+      year: 2000,
+      title: "Expansión Regional",
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
+      description: "Crecimiento en el mercado latinoamericano con nuevos clientes y certificaciones."
     },
     {
       year: 2004,
       title: "Miembro Fundador Brasil",
-      image: "/api/placeholder/1200/600",
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
       description: "Participación activa en la industria brasileña como miembro fundador de la asociación de blindadores del país."
-    },
-    {
-      year: 2005,
-      title: "Planta PG No.2 Cotia (SP)",
-      image: "/api/placeholder/1200/600",
-      description: "Expansión de capacidad productiva con la apertura de la segunda planta en Cotia, São Paulo. Certificación Dot.#R12."
     },
     {
       year: 2006,
       title: "Certificación NATO STANAG I y II",
-      image: "/api/placeholder/1200/600",
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
       description: "Obtención de certificación militar de alta seguridad bajo los estándares internacionales NATO STANAG niveles I y II."
-    },
-    {
-      year: 2007,
-      title: "QMS ISO 9001:2000",
-      image: "/api/placeholder/1200/600",
-      description: "Certificación de calidad internacional ISO 9001:2000 otorgada por TUV SUD, garantizando los más altos estándares de producción."
-    },
-    {
-      year: 2008,
-      title: "OEM BWM X5 Nivel B4",
-      image: "/api/placeholder/1200/600",
-      description: "Proveedor oficial de blindaje para BMW X5 con protección nivel B4 contra AK-47, marcando un hito en el blindaje de lujo."
     },
     {
       year: 2009,
       title: "Planta México en Toluca",
-      image: "/api/placeholder/1200/600",
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
       description: "Expansión internacional con la apertura de la planta no.3 PG Products México en Toluca, fortaleciendo presencia en Norteamérica."
     },
     {
-      year: 2010,
-      title: "Programa BRG Lanzamisil",
-      image: "/api/placeholder/1200/600",
-      description: "Desarrollo de vehículos militares especializados ASTROS II y UNIMOG 4x4 para las fuerzas armadas brasileñas."
-    },
-    {
-      year: 2011,
+      year: 2012,
       title: "Certificado BRG Brasil",
-      image: "/api/placeholder/1200/600",
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
       description: "Certificación nacional brasileña ABNT NBR 15000, consolidando el liderazgo en el mercado de blindaje nacional."
     },
     {
-      year: 2013,
-      title: "QMS ISO 9001:2008 México",
-      image: "/api/placeholder/1200/600",
-      description: "Certificación de calidad ISO 9001:2008 por TUV SUD para las operaciones en México, asegurando estándares internacionales."
-    },
-    {
-      year: 2014,
+      year: 2015,
       title: "Exportación Internacional",
-      image: "/api/placeholder/1200/600",
-      description: "Inicio de exportaciones a Argentina (RENAR), Francia e Israel, expandiendo la presencia global de PG Products."
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
+      description: "Inicio de exportaciones a Argentina, Francia e Israel, expandiendo la presencia global de PG Products."
     },
     {
-      year: 2018,
-      title: "OEM BWM X5 (F15)",
-      image: "/api/placeholder/1200/600",
-      description: "Nueva generación de blindaje para BMW X5 (F15) con niveles de protección VR4 y VR6, liderando en tecnología automotriz."
-    },
-    {
-      year: 2020,
+      year: 2019,
       title: "QMS ISO 9001:2015",
-      image: "/api/placeholder/1200/600",
-      description: "Actualización de certificaciones ISO 9001:2015 por TUV SUD para Brasil y México, manteniendo los más altos estándares."
-    },
-    {
-      year: 2021,
-      title: "Patente Resistencia a Explosivos",
-      image: "/api/placeholder/1200/600",
-      description: "Innovación revolucionaria con nueva patente BRG con resistencia a explosivos, elevando los estándares de seguridad."
-    },
-    {
-      year: 2023,
-      title: "Creación PG NEU",
-      image: "/api/placeholder/1200/600",
-      description: "Lanzamiento de nueva división PG NEU y productos antidesactivos, marcando el futuro de la protección balística."
+      image: "/lovable-uploads/tchelao05_RJ.jpg",
+      description: "Actualización de certificaciones ISO 9001:2015, manteniendo los más altos estándares."
     }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? timelineData.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === timelineData.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const currentItem = timelineData[currentIndex];
 
-  // Función para obtener los años visibles en el timeline inferior
   const getVisibleYears = () => {
-    const visibleCount = 5;
+    const visibleCount = 8;
     const years = [];
-    
+
     for (let i = 0; i < visibleCount; i++) {
       const index = (currentIndex + i) % timelineData.length;
       years.push(timelineData[index].year);
     }
-    
+
     return years;
   };
 
   return (
-    <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 py-3 sm:py-4 md:py-6 bg-white flex flex-col">
-      {/* Contenedor principal del carrusel */}
-      <div className="relative flex-1 flex flex-col">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Imagen principal */}
-        <div className="relative overflow-hidden rounded-md sm:rounded-lg border border-gray-200 shadow-md sm:shadow-lg mb-3 sm:mb-4 flex-1">
-          <img 
-            src={currentItem.image} 
+        <div className="relative overflow-hidden rounded-lg mb-8">
+          <img
+            src={currentItem.image}
             alt={currentItem.title}
-            className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] object-cover"
+            className="w-full h-[334px] object-cover"
           />
         </div>
 
-        {/* Timeline inferior */}
+        {/* Timeline */}
         <div className="relative">
           {/* Línea del timeline */}
-          <div className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-blue-900"></div>
-          
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-pgnavy"></div>
+
           {/* Contenedor de años y descripción */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 sm:gap-4 lg:gap-0">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             {/* Sección izquierda: Año principal con descripción */}
-            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 flex-1">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-6 flex-1">
               {/* Año con flechas */}
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 md:gap-3">
+              <div className="flex items-center gap-4">
                 <button
                   onClick={goToPrevious}
-                  className="text-blue-900 hover:text-blue-700 transition-colors p-0.5 sm:p-1 hover:bg-blue-50 rounded-full"
+                  className="text-pgnavy hover:text-pgblue transition-colors p-1"
                   aria-label="Año anterior"
                 >
-                  <ChevronLeft size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
+                  <ChevronLeft size={32} />
                 </button>
-                
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-900">
+
+                <div className="text-6xl md:text-7xl font-bold text-pgnavy">
                   {currentItem.year}
                 </div>
-                
+
                 <button
                   onClick={goToNext}
-                  className="text-blue-900 hover:text-blue-700 transition-colors p-0.5 sm:p-1 hover:bg-blue-50 rounded-full"
+                  className="text-pgnavy hover:text-pgblue transition-colors p-1"
                   aria-label="Año siguiente"
                 >
-                  <ChevronRight size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
+                  <ChevronRight size={32} />
                 </button>
               </div>
 
               {/* Descripción */}
-              <div className="pt-1 sm:pt-2 flex-1 pr-0 sm:pr-2 md:pr-4 lg:pr-6">
-                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-800 mb-1.5 sm:mb-2 md:mb-3 lg:mb-4 text-center sm:text-left leading-tight">
+              <div className="pt-2 flex-1">
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
                   {currentItem.title}
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed text-justify">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   {currentItem.description}
                 </p>
               </div>
             </div>
 
             {/* Años secundarios */}
-            <div className="flex justify-center lg:justify-end gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16">
+            <div className="flex justify-center lg:justify-end gap-8 md:gap-12">
               {getVisibleYears().slice(1).map((year, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-gray-400 mb-0.5 sm:mb-1 md:mb-2">
+                  <div className="text-lg md:text-xl font-light text-gray-400 mb-2">
                     {year}
                   </div>
-                  <div className="w-px h-1.5 sm:h-2 md:h-3 bg-gray-400 mx-auto"></div>
+                  <div className="w-px h-3 bg-gray-400 mx-auto"></div>
                 </div>
               ))}
             </div>
@@ -675,60 +159,332 @@ const TimelineCarousel = () => {
 
 const HistoriaPage = () => {
   useScrollObserver();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      
-      {/* Hero Section with Video */}
-      <section className="relative w-full h-screen flex flex-col justify-start items-center overflow-hidden">
-        <video 
-          src="/lovable-uploads/PGREDUCEDVID.mp4" 
-          className="absolute inset-0 w-full h-full object-cover" 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 w-full flex flex-col items-center justify-start pt-20 sm:pt-28 md:pt-32 px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg text-center leading-tight">Nuestra Historia</h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 mb-6 sm:mb-8 md:mb-10 text-center max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl drop-shadow-md px-2 sm:px-0 leading-relaxed">Una trayectoria de innovación, calidad y excelencia en seguridad</p>
+
+      {/* Hero Section */}
+      <section className="relative h-[442px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg"
+            alt="PG Products as a Company"
+            className="w-full h-full object-cover"
+          />
         </div>
-        {/* Estadísticas abajo */}
-        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 z-10 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 max-w-sm sm:max-w-2xl md:max-w-4xl mx-auto justify-center items-center px-4 sm:px-6">
-          <div className="bg-white/80 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 w-full sm:w-48 md:w-72 text-center backdrop-blur-sm">
-            <h3 className="text-sm sm:text-base md:text-lg font-bold text-pgnavy mb-1 sm:mb-2">+ de 100 k</h3>
-            <p className="text-xs sm:text-sm md:text-base text-pgnavy/70">Empleados</p>
+      </section>
+
+      {/* PG Products como compañía Section */}
+      <section className="relative py-20 bg-gradient-to-b from-gray-100 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Gray container */}
+          <div className="bg-gray-100 rounded-lg p-12 shadow-lg">
+            <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-8">
+              PG Products como compañía
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Fundada en 1998 en São Paulo, PG Products® es uno de los líderes mundiales en la
+              fabricación de cristales de protección balística con diversas aplicaciones. Ha creado
+              la tecnología patentada SteelGlass®, un cristal laminado blindado con inserción de acero
+              inoxidable.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              En 2007, la empresa pasó a formar parte del selecto grupo de cuatro proveedores globales
+              de vidrios blindados para automóviles de los principales fabricantes alemanes. En 2008
+              inauguró su planta de fabricación en Norteamérica, en la ciudad de Toluca, México, para
+              satisfacer la demanda local y la de los fabricantes alemanes.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mt-6">
+              Actualmente, la empresa cuenta con una completa cartera de soluciones en vidrios blindados
+              y ha alcanzado un alto nivel en tecnología, investigando y desarrollando nuevos materiales,
+              procesos y sistemas, y atiende, además de los segmentos automovilístico y militar, proyectos
+              para la industria aeronáutica, naval y arquitectónica.
+            </p>
           </div>
-          <div className="bg-white/80 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 w-full sm:w-48 md:w-72 text-center backdrop-blur-sm">
-            <h3 className="text-sm sm:text-base md:text-lg font-bold text-pgnavy mb-1 sm:mb-2">Una misión</h3>
-            <p className="text-xs sm:text-sm md:text-base text-pgnavy/70">Innovación y protección</p>
-          </div>
-          <div className="bg-white/80 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 w-full sm:w-48 md:w-72 text-center backdrop-blur-sm">
-            <h3 className="text-sm sm:text-base md:text-lg font-bold text-pgnavy mb-1 sm:mb-2">20.4 Mmt<sup>1</sup></h3>
-            <p className="text-xs sm:text-sm md:text-base text-pgnavy/70">CO₂ evitado en 2023</p>
+
+          {/* Two columns text */}
+          <div className="grid md:grid-cols-2 gap-12 mt-16">
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Para satisfacer las demandas y exigencias del mercado global, la empresa cuenta con una
+                fábrica de vidrios blindados en São Paulo, en el municipio de Cotia, uno de los principales
+                polos industriales de la capital. Diseñada con un layout que favorece una alta eficiencia
+                en los flujos internos y en el consumo de energía, la planta de 6.200 m² está situada a 3 km
+                de la Rodoanel, una importante vía de distribución de la producción industrial del estado de
+                São Paulo. En el continente americano, ubicada en la ciudad de Toluca, PG Products® cuenta
+                con otra fábrica, PG México, creada para satisfacer las demandas locales y de los fabricantes
+                europeos.
+              </p>
+            </div>
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                La calidad de los cristales balísticos de PG Products® se somete a rigurosas pruebas para
+                cumplir con los requisitos de los clientes, siguiendo las normas y certificaciones nacionales
+                e internacionales. Todos los productos que se comercializan reciben un código de seguimiento,
+                un identificador único, que permite acceder a toda la información sobre su fabricación,
+                desarrollada previamente de acuerdo con las especificaciones de seguridad de cada nivel de blindaje.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <CardSectionGrid />
+      {/* Nuestras Plantas de Producción Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/formulacion-home.png"
+            alt="Production Plants Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
 
-      <section className="py-8 sm:py-12 md:py-16 bg-gray-50 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-6">
+              Nuestras Plantas de Producción
+            </h2>
+            <p className="text-xl text-gray-700 mb-4">
+              Innovación que une continentes, precisión que define nuestra excelencia.
+            </p>
+            <p className="text-lg text-gray-600 max-w-5xl mx-auto leading-relaxed">
+              En PG Products desarrollamos nuestras soluciones balísticas desde dos centros estratégicos
+              de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas
+              automatizadas de laminación y control de calidad bajo normas ISO 9001:2015 y NIJ Level III-A/III.
+            </p>
+          </div>
+
+          {/* Cards de plantas */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Card México */}
+            <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+              <div className="relative h-64">
+                <img
+                  src="/lovable-uploads/IMG_4421.jpg"
+                  alt="Mexico Flag"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pgnavy/80"></div>
+                <div className="absolute bottom-8 left-8">
+                  <img
+                    src="/lovable-uploads/44604513-e2f1-4816-b14b-13ac8e66c935.png"
+                    alt="Mexico Flag"
+                    className="w-32 h-32 object-contain mb-4"
+                  />
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-bold text-pgnavy mb-4">México</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Centro de producción y ensayos balísticos para el mercado norte y centroamericano.
+                  Tecnología avanzada, manufactura certificada y soporte técnico especializado.
+                </p>
+              </div>
+            </div>
+
+            {/* Card Brasil */}
+            <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+              <div className="relative h-64">
+                <img
+                  src="/lovable-uploads/IMG_4473.jpg"
+                  alt="Brasil Flag"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pgnavy/80"></div>
+                <div className="absolute bottom-8 left-8">
+                  <img
+                    src="/lovable-uploads/263ffb06-d243-4ca1-88ab-a68943ddd637.png"
+                    alt="Brasil Flag"
+                    className="w-32 h-32 object-contain mb-4"
+                  />
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-bold text-pgnavy mb-4">Brasil</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Sede principal y laboratorio de innovación. Investigación, ingeniería multicapa y
+                  control de calidad de última generación.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nuestra Gente Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-16">
+            Nuestra gente
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                src="/RnD_image@2x.png"
+                alt="Our People"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+
+              {/* Slider dots */}
+              <div className="flex justify-center mt-6 gap-3">
+                {[0, 1, 2].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3.5 h-3.5 rounded-full transition-all ${
+                      currentSlide === index ? 'bg-pgblue' : 'bg-gray-300'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                En PG Products, creemos que la verdadera fortaleza de nuestra compañía no está solo
+                en la tecnología, sino en las personas que la hacen posible.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Desde ingenieros y técnicos especializados hasta diseñadores y personal operativo,
+                todos compartimos un mismo propósito: proteger vidas a través de la excelencia. Su
+                conocimiento, precisión y sentido de responsabilidad son el reflejo del ADN PG Products:
+                innovación, calidad y confianza.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nuestro Recorrido Section - Keep existing timeline */}
+      <section className="py-16 bg-gray-50 w-full">
         <div className="w-full">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12 scroll-reveal px-4 sm:px-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-pgnavy mb-2 sm:mb-3 leading-tight">Nuestro Recorrido</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-pgnavy/70 max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
+          <div className="text-center mb-12 px-4 sm:px-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-4">
+              Nuestro Recorrido
+            </h2>
+            <p className="text-lg md:text-xl text-pgnavy/70 max-w-3xl mx-auto">
               Un viaje de dedicación, innovación continua y compromiso con la excelencia
             </p>
           </div>
-          
+
           <TimelineCarousel />
         </div>
       </section>
 
-      <Footer />
+      {/* Archivos para descargar Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-12">
+            Archivos para descargar
+          </h2>
+
+          <div className="space-y-8">
+            {/* Download Item 1 */}
+            <div className="flex items-center justify-between border-t border-gray-300 pt-8">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold text-pgnavy">
+                  Brochure de productos PG Products
+                </h3>
+              </div>
+              <button className="flex items-center justify-center w-16 h-16 bg-pgblue hover:bg-pgblue/90 rounded-lg transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <polyline points="7 10 12 15 17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* Download Item 2 */}
+            <div className="flex items-center justify-between border-t border-gray-300 pt-8">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold text-pgnavy">
+                  Descargue nuestro último informe anual
+                </h3>
+              </div>
+              <button className="flex items-center justify-center w-16 h-16 bg-pgblue hover:bg-pgblue/90 rounded-lg transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <polyline points="7 10 12 15 17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <div className="border-t border-gray-300 pt-2"></div>
+          </div>
         </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/bg_form_contact@2x.png"
+            alt="Contact Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-pgnavy/70"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Protegemos tu seguridad
+              </h2>
+              <p className="text-lg md:text-xl text-white/90">
+                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <label className="text-white text-sm mb-2 block">Email</label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white rounded-lg"
+                />
+              </div>
+
+              <div>
+                <label className="text-white text-sm mb-2 block">Nombre</label>
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white rounded-lg"
+                />
+              </div>
+
+              <div>
+                <label className="text-white text-sm mb-2 block">Mensaje</label>
+                <textarea
+                  placeholder="Mensaje"
+                  rows={4}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white rounded-lg resize-none"
+                />
+              </div>
+
+              <div className="flex gap-4">
+                <button className="flex-1 px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-pgnavy rounded-lg transition-colors">
+                  Cerrar
+                </button>
+                <button className="flex-1 px-6 py-3 bg-pgblue hover:bg-pgblue/90 text-white rounded-lg transition-colors">
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
   );
 };
 

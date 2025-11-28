@@ -18,8 +18,7 @@ const Navbar = () => {
   // Páginas que necesitan navbar siempre visible (fondo blanco)
   // Product pages removed - they now use transparent navbar like home
   const pagesWithAlwaysVisibleNav = [
-    '/pg-ballistics', '/about-pg-glass', '/contacto', // Otras páginas
-    '/historia' // About Us
+    '/pg-ballistics', '/contacto' // Otras páginas
   ];
 
   const shouldAlwaysShowNav = pagesWithAlwaysVisibleNav.includes(location.pathname);

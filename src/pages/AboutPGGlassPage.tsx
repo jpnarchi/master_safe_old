@@ -1,305 +1,447 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Dna, Cog, FlaskConical, Award } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+
+// Product cards data
+const allProductCards = [
+  {
+    title: "GlassGuard",
+    img: "/Glassguard_card.png",
+    logo: "/new-card-logoPG-GlassGuard.svg",
+    description: "Vidrio premium de resistencia balística certificada",
+    link: "/glassguard"
+  },
+  {
+    title: "SuperSlim",
+    img: "/Superslim_card.png",
+    logo: "/new-card-logo-PG-Superslim.svg",
+    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
+    link: "/superslim"
+  },
+  {
+    title: "SteelGlass",
+    img: "/Steelglass_card.png",
+    logo: "/new-card-logo-PG-SteelGlass.svg",
+    description: "Premium Ballistic Glass with Steel Frame",
+    link: "/steelglass"
+  },
+  {
+    title: "PG NEU",
+    img: "/Neu_card.png",
+    logo: "/PG Neu.svg",
+    description: "Premium ballistic glass with remarkable resistance",
+    link: "/neu"
+  },
+  {
+    title: "PG ULTRA",
+    img: "/Ultra_card.png",
+    logo: "/PG Ultra.svg",
+    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
+    link: "/ultra"
+  }
+];
 
 const AboutPGGlassPage = () => {
-  const [activeSection, setActiveSection] = useState('pgdna');
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+  const [currentProductSlide, setCurrentProductSlide] = useState(0);
+  const [productApi, setProductApi] = useState<any>(null);
 
-  const sections = [
-    { id: 'pgdna', title: 'PG DNA', icon: Dna },
-    { id: 'quality', title: 'Quality & Technology', icon: Cog },
-    { id: 'rd', title: 'R&D', icon: FlaskConical }
+  const heroSlides = [
+    {
+      title: "Conoce más de PG Glass",
+      description: "Nuestros productos conservan una identidad que nos permite ofrecer ademas de seguridad, calidad total, es así como poseemos un ADN propio PG que traslada características diferenciadas en cada aspecto.",
+      image: "/lovable-uploads/hero_about_pg_glass@2x.png"
+    }
   ];
+
+  // Carousel product dots sync
+  useEffect(() => {
+    if (!productApi) return;
+
+    const onSelect = () => {
+      setCurrentProductSlide(productApi.selectedScrollSnap());
+    };
+
+    productApi.on('select', onSelect);
+    onSelect();
+
+    return () => {
+      productApi.off('select', onSelect);
+    };
+  }, [productApi]);
+
+  // Auto-play for product carousel
+  useEffect(() => {
+    if (!productApi) return;
+
+    const interval = setInterval(() => {
+      if (productApi.canScrollNext()) {
+        productApi.scrollNext();
+      } else {
+        productApi.scrollTo(0);
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [productApi]);
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
-      {/* Hero Banner */}
-      <section className="pt-20">
-        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
-          <img 
-            src="/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg" 
-            alt="About PG Glass Banner"
+
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroSlides[currentHeroSlide].image}
+            alt="Hero Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-full flex items-center">
-              <div className="text-white max-w-2xl">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                  About PG Glass
-                </h1>
-                <p className="text-xl sm:text-2xl text-white/90 mb-8 leading-relaxed">
-                  Innovation, Quality, and Excellence in Ballistic Protection
-                </p>
-                <div className="w-20 h-1 bg-pgblue mb-8"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-pgnavy/80 via-pgnavy/70 to-pgnavy/60"></div>
+        </div>
+
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-5xl mx-auto px-4 text-center text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+              {heroSlides[currentHeroSlide].title}
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+              {heroSlides[currentHeroSlide].description}
+            </p>
+          </div>
+        </div>
+
+        {/* Slider Navigation Dots */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentHeroSlide(index)}
+              className={`w-3.5 h-3.5 rounded-full transition-all ${
+                currentHeroSlide === index ? 'bg-white' : 'bg-white/40'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* ADN PG Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left side - ADN PG Image */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/lovable-uploads/Adn_pg@2x.png"
+                alt="ADN PG Visualization"
+                className="w-auto h-auto max-w-full"
+              />
+            </div>
+
+            {/* Right side - Features */}
+            <div className="space-y-12">
+              {/* Feature 1 */}
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-16 h-16">
+                  <img
+                    src="/bullet_ico 1.svg"
+                    alt="Ballistic Engineering Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-pgnavy mb-3">
+                    Ingeniería Balística Innovadora
+                  </h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Creamos formulas de cristal blindado de avanzada
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-16 h-16">
+                  <img
+                    src="/geometry_ico 1.svg"
+                    alt="Stable Geometry Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-pgnavy mb-3">
+                    Geometria Estable
+                  </h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Producción bajo procesos de ingeniería 3D y CAD CAM de ultima generación.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-16 h-16">
+                  <img
+                    src="/finish_ico 1.svg"
+                    alt="Unique Aesthetics Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-pgnavy mb-3">
+                    Estética Única
+                  </h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Acabados de alta calidad acordes a las exigencias y evolución de los mercados.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-16 h-16">
+                  <img
+                    src="/optics_ico 1.svg"
+                    alt="Outstanding Optics Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-pgnavy mb-3">
+                    Óptica Destacable
+                  </h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Consistente a las reglas internacionales.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content with Hierarchical Structure */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          
-          {/* About PG Glass Main Section */}
-          <div className="mb-12 sm:mb-16">
-            <div className="bg-pgnavy text-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-center leading-tight">About PG Glass</h2>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 text-center max-w-4xl mx-auto leading-relaxed px-2 sm:px-4">
-                PG Glass represents the pinnacle of ballistic protection technology, combining decades of expertise 
-                with cutting-edge innovation to deliver superior security solutions across automotive, military, and architectural applications.
+      {/* Formulación PG Section */}
+      <section className="relative overflow-hidden">
+        <img
+          src="/lovable-uploads/bg_formulacion_pg@2x.png"
+          alt="Formulación PG"
+          className="w-full h-auto"
+        />
+
+        {/* Text Overlay - Bottom Left */}
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-6">
+                Formulación PG
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                La composición del vidrio permite que el proyectil al impacto disminuya su fuerza
+                y el policarbonato absorba su energía cinética y se detenga quedando encapsulado
+                y evitando así cualquier esquirla al interior del vehículo.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Company Overview Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
-              <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-pgblue mb-2">25+</div>
-                <div className="text-gray-600 text-sm sm:text-base md:text-lg">Years of Experience</div>
-              </div>
-              <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-pgblue mb-2">500+</div>
-                <div className="text-gray-600 text-sm sm:text-base md:text-lg">Successful Projects</div>
-              </div>
-              <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-pgblue mb-2">99%</div>
-                <div className="text-gray-600 text-sm sm:text-base md:text-lg">Client Satisfaction</div>
-              </div>
+      {/* Producto, Ingeniería & Desarrollo Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">
+            Producto, Ingenieria & Desarrollo
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
+            <div>
+              <img
+                src="/RnD_image@2x.png"
+                alt="Product Development"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                En PG Products contamos con un equipo humano capacitado y experimentado en
+                investigación y desarrollo de producto que adelanta diseño continuo de soluciones
+                a nivel de formulación balística, nuevos materiales, mejora de procesos y composiciones
+                para aplicaciones especiales, ademas proyectos en conjunto con reconocidos institutos
+                y universidades.
+              </p>
             </div>
           </div>
 
-          {/* Hierarchical Subsections */}
-          <div className="space-y-8">
-            {/* Navigation Tabs */}
-            <div className="flex justify-center mb-8 sm:mb-12 px-2">
-              <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 bg-gray-100 p-1 rounded-xl w-full sm:w-auto max-w-2xl">
-                {sections.map((section) => {
-                  const IconComponent = section.icon;
-                  return (
-                    <button
-                      key={section.id}
-                      onClick={() => setActiveSection(section.id)}
-                      className={`flex items-center justify-center sm:justify-start space-x-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base ${
-                        activeSection === section.id
-                          ? 'bg-pgblue text-white shadow-lg'
-                          : 'text-gray-600 hover:text-pgblue'
-                      }`}
-                    >
-                      <IconComponent size={16} className="sm:w-5 sm:h-5" />
-                      <span className="text-center sm:text-left">{section.title}</span>
-                    </button>
-                  );
-                })}
-              </div>
+          {/* Slider Navigation Dots */}
+          <div className="flex justify-center mt-12 space-x-3">
+            {[0, 1, 2].map((index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentProductSlide(index)}
+                className={`w-3.5 h-3.5 rounded-full transition-all ${
+                  currentProductSlide === index ? 'bg-pgblue' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portafolio de Productos Section - Carousel */}
+      <section className="w-full bg-white py-12 md:py-16 relative">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">
+            Portafolio de Productos
+          </h2>
+
+          <p className="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-16 leading-relaxed">
+            Hemos desarrollado BRG para más de 300 modelos vigentes de vehículos en todos los niveles
+            de acuerdo a normas locales e internacionales con especificaciones y adaptaciones para
+            aplicaciones automotriz & militar. Ademas del portafolio proveemos soluciones particulares
+            a los mercados con nuestros productos de linea
+          </p>
+
+          <Carousel
+            setApi={setProductApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {allProductCards.map((card, index) => (
+                <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="border-0 shadow-none bg-transparent">
+                    <CardContent className="p-0">
+                      <div
+                        className="relative overflow-hidden flex flex-col p-6"
+                        style={{
+                          backgroundImage: `url(${card.img})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          borderRadius: '38px',
+                          height: '600px'
+                        }}
+                      >
+                        {/* Center section with logo and text */}
+                        <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
+                          <img
+                            src={card.logo}
+                            alt={card.title}
+                            className="max-w-[280px] w-full h-auto mb-6"
+                          />
+                          <p className="text-lg font-medium leading-relaxed">
+                            {card.description}
+                          </p>
+                        </div>
+
+                        {/* Button at bottom */}
+                        <div className="text-center mt-auto mb-4">
+                          <Link
+                            to={card.link}
+                            className="inline-flex items-center rounded-xl px-8 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
+                          >
+                            Conocer más
+                          </Link>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Dots Navigation */}
+          <div className="flex justify-center gap-2 mt-8">
+            {allProductCards.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentProductSlide === index ? 'bg-pgnavy scale-110' : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                onClick={() => productApi?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section - Protegemos tu seguridad */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/bg_form_contact@2x.png"
+            alt="Contact Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-pgnavy/70"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text */}
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Protegemos tu seguridad
+              </h2>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+              </p>
             </div>
 
-            {/* Content Sections */}
-            <div className="min-h-[500px]">
-              
-              {/* PG DNA Section */}
-              {activeSection === 'pgdna' && (
-                <div className="bg-pgblue text-white p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl">
-                  <div className="flex items-center mb-6 sm:mb-8">
-                    <div className="w-3 h-6 sm:w-4 sm:h-8 bg-white mr-3 sm:mr-4"></div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">PG DNA</h3>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                    <div className="space-y-4 sm:space-y-6 order-2 lg:order-1">
-                      <h4 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Our Core Values</h4>
-                      <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6 sm:mb-8">
-                        At the heart of PG Glass lies our unwavering commitment to excellence, innovation, and safety. 
-                        Our DNA is built on the foundation of protecting lives through superior ballistic solutions.
-                      </p>
-                      
-                      <div className="space-y-3 sm:space-y-4">
-                        <div className="flex items-start space-x-3 sm:space-x-4">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <h5 className="font-semibold text-base sm:text-lg">Innovation First</h5>
-                            <p className="text-white/80 text-sm sm:text-base">Continuously pushing the boundaries of ballistic protection technology</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start space-x-3 sm:space-x-4">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <h5 className="font-semibold text-base sm:text-lg">Quality Commitment</h5>
-                            <p className="text-white/80 text-sm sm:text-base">Rigorous testing and quality assurance in every product</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start space-x-3 sm:space-x-4">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <h5 className="font-semibold text-base sm:text-lg">Safety Excellence</h5>
-                            <p className="text-white/80 text-sm sm:text-base">Exceeding international safety standards and certifications</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex justify-center order-1 lg:order-2 mb-6 lg:mb-0">
-                      <img 
-                        src="/lovable-uploads/vidrios-home.png" 
-                        alt="PG DNA" 
-                        className="w-full max-w-xs sm:max-w-md h-auto object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+            {/* Right side - Form */}
+            <div className="space-y-6">
+              <div>
+                <label className="text-white text-sm mb-2 block">Email</label>
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white"
+                />
+              </div>
 
-              {/* Quality & Technology Section */}
-              {activeSection === 'quality' && (
-                <div className="bg-pgblue text-white p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl">
-                  <div className="flex items-center mb-6 sm:mb-8">
-                    <div className="w-3 h-6 sm:w-4 sm:h-8 bg-white mr-3 sm:mr-4"></div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">Quality & Technology</h3>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
-                    <div className="space-y-4 sm:space-y-6">
-                      <h4 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Advanced Manufacturing</h4>
-                      <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6 sm:mb-8">
-                        Our state-of-the-art manufacturing processes combine traditional craftsmanship with 
-                        cutting-edge technology to produce ballistic glass that exceeds industry standards.
-                      </p>
-                      
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-                        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl">
-                          <h5 className="font-semibold text-base sm:text-lg mb-2">Multi-Layer Technology</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">Advanced lamination processes for maximum protection</p>
-                        </div>
-                        
-                        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl">
-                          <h5 className="font-semibold text-base sm:text-lg mb-2">Precision Engineering</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">Computer-controlled manufacturing for consistency</p>
-                        </div>
-                        
-                        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl">
-                          <h5 className="font-semibold text-base sm:text-lg mb-2">Quality Testing</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">Rigorous ballistic testing protocols</p>
-                        </div>
-                        
-                        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl">
-                          <h5 className="font-semibold text-base sm:text-lg mb-2">ISO Certified</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">International quality management standards</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4 sm:space-y-6">
-                      <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl">
-                        <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Certifications</h4>
-                        <ul className="space-y-2 sm:space-y-3 text-white/90">
-                          <li className="flex items-center space-x-2">
-                            <Award size={14} className="text-white flex-shrink-0 sm:w-4 sm:h-4" />
-                            <span className="text-sm sm:text-base">NIJ Level III-A Certified</span>
-                          </li>
-                          <li className="flex items-center space-x-2">
-                            <Award size={14} className="text-white flex-shrink-0 sm:w-4 sm:h-4" />
-                            <span className="text-sm sm:text-base">EN 1063 European Standards</span>
-                          </li>
-                          <li className="flex items-center space-x-2">
-                            <Award size={14} className="text-white flex-shrink-0 sm:w-4 sm:h-4" />
-                            <span className="text-sm sm:text-base">ISO 9001:2015 Quality Management</span>
-                          </li>
-                          <li className="flex items-center space-x-2">
-                            <Award size={14} className="text-white flex-shrink-0 sm:w-4 sm:h-4" />
-                            <span className="text-sm sm:text-base">Military Specification Compliance</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              <div>
+                <label className="text-white text-sm mb-2 block">Nombre</label>
+                <Input
+                  type="text"
+                  placeholder="Nombre"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white"
+                />
+              </div>
 
-              {/* R&D Section */}
-              {activeSection === 'rd' && (
-                <div className="bg-pgblue text-white p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl">
-                  <div className="flex items-center mb-6 sm:mb-8">
-                    <div className="w-3 h-6 sm:w-4 sm:h-8 bg-white mr-3 sm:mr-4"></div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">Research & Development</h3>
-                  </div>
-                  
-                  <div className="space-y-8 sm:space-y-12">
-                    <div className="text-center">
-                      <h4 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Innovation Laboratory</h4>
-                      <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-4xl mx-auto px-2 sm:px-4">
-                        Our dedicated R&D facility houses cutting-edge equipment and a team of materials scientists, 
-                        engineers, and ballistics experts working to advance the future of protective glass technology.
-                      </p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-                      <div className="text-center">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                          <FlaskConical size={24} className="text-pgblue sm:w-8 sm:h-8" />
-                        </div>
-                        <h5 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Materials Research</h5>
-                        <p className="text-white/80 text-sm sm:text-base">
-                          Developing next-generation materials for enhanced protection and reduced weight
-                        </p>
-                      </div>
-                      
-                      <div className="text-center">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                          <Cog size={24} className="text-pgblue sm:w-8 sm:h-8" />
-                        </div>
-                        <h5 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Process Innovation</h5>
-                        <p className="text-white/80 text-sm sm:text-base">
-                          Optimizing manufacturing processes for improved efficiency and quality
-                        </p>
-                      </div>
-                      
-                      <div className="text-center sm:col-span-2 md:col-span-1">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                          <Award size={24} className="text-pgblue sm:w-8 sm:h-8" />
-                        </div>
-                        <h5 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Testing Protocols</h5>
-                        <p className="text-white/80 text-sm sm:text-base">
-                          Developing advanced testing methodologies and validation procedures
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl">
-                      <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center">Current Research Projects</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <div className="border-l-4 border-white pl-3 sm:pl-4">
-                          <h5 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Next-Gen Composites</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">
-                            Developing ultra-lightweight ballistic materials with enhanced protection capabilities
-                          </p>
-                        </div>
-                        <div className="border-l-4 border-white pl-3 sm:pl-4">
-                          <h5 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Smart Glass Technology</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">
-                            Integrating IoT sensors and smart technologies into ballistic glass systems
-                          </p>
-                        </div>
-                        <div className="border-l-4 border-white pl-3 sm:pl-4">
-                          <h5 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Environmental Resistance</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">
-                            Improving performance under extreme environmental conditions
-                          </p>
-                        </div>
-                        <div className="border-l-4 border-white pl-3 sm:pl-4">
-                          <h5 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Cost Optimization</h5>
-                          <p className="text-white/80 text-xs sm:text-sm">
-                            Reducing manufacturing costs while maintaining superior quality standards
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              <div>
+                <label className="text-white text-sm mb-2 block">Mensaje</label>
+                <Textarea
+                  placeholder="Mensaje"
+                  rows={4}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white resize-none"
+                />
+              </div>
+
+              <div className="flex gap-4">
+                <Button
+                  variant="outline"
+                  className="flex-1 border-white text-white hover:bg-white hover:text-pgnavy"
+                >
+                  Cerrar
+                </Button>
+                <Button
+                  className="flex-1 bg-pgblue hover:bg-pgblue/90 text-white"
+                >
+                  Enviar
+                </Button>
+              </div>
             </div>
           </div>
         </div>
