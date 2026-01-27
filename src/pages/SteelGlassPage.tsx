@@ -15,10 +15,31 @@ const SteelGlassPage = () => {
 
   const tabs = ['PG Steel Glass', 'Composición', 'Tecnología', 'Especificaciones'];
 
+  const tabDescriptions = [
+    // Tab 1 - PG STEEL GLASS
+    `Un cristal blindado que integra en la formulación un inserto de Acero en el contorno adicionando protección hasta el borde, Evita la instalación de Overlaps, Mantiene la originalidad del Vehículo, Acabado Premium, Acero inoxidable integrado.
+
+- Disponible en distintos niveles.
+- Acero Inoxidable de PG certificado además de protección brinda un acabado Premium
+- Su gran factor diferencial es proteger a los ocupantes del vehículo del punto vulnerable formado entre el bloque balístico del vidrio y la parte opaca.
+- El inserto de acero es desarrollado y patentado por PG Products`,
+    // Tab 2 - COMPOSICIÓN
+    `Se trata de un vidrio blindado con acero insertado en el bloque balístico, dando estructura y resistencia en los bordes eliminando la necesidad del overlap tradicional; manteniendo la originalidad del vehículo y facilitando el trabajo de las empresas de blindaje. Su gran factor diferencial es proteger a los ocupantes del vehículo del punto vulnerable formado entre el bloque balístico del vidrio y la parte opaca.`,
+    // Tab 3 - TECNOLOGÍA
+    `Constituye un refuerzo estructural y minimiza rupturas en el cierre continuo de las puertas, Bajo agresión, SteelGlass apoya el bloque balístico y evita que se desprenda de la lámina externa y caiga en el interior del vehículo alcanzando a sus ocupantes.`,
+    // Tab 4 - ESPECIFICACIONES
+    `Steel Glass incorpora un inserto de protección balística adicional en los niveles de armas cortas (hasta NIJ IIIA y B4) y un refuerzo estructural y de apoyo al contorno del cristal en niveles superiores y de armas largas (NIJ III, DN6, DN7 Y OTROS)
+
+- Evita la instalación de Overlaps.
+- Mantiene la originalidad del Vehículo.
+- Acabado Premium.
+- Acero inoxidable integrado.`
+  ];
+
   const useCases = [
     {
-      title: 'Vehículos Blindados Premium',
-      description: 'SteelGlass elimina la necesidad de overlaps tradicionales, manteniendo la originalidad del vehículo y proporcionando un acabado premium sin comprometer la seguridad.',
+      title: 'Aplicaciones blindaje civil y Gubernamental',
+      description: 'Soluciones certificadas para protección de vehículos oficiales y de gobierno desde niveles de protección urbana de delincuencia común, como para organizada y terrorismo.',
       image: '/lovable-uploads/casos_de_uso_slider_1.png'
     },
     {
@@ -28,14 +49,14 @@ const SteelGlassPage = () => {
     },
     {
       title: 'Protección Marina',
-      description: 'Resistencia superior en entornos marinos con protección balística y refuerzo estructural.',
+      description: 'Resistencia hasta el borde para cristales con protección balística y refuerzo estructural.',
       image: '/lovable-uploads/casos_de_uso_slider_1.png'
     }
   ];
 
   const keyBenefits = [
     { label: 'Protección del Borde:', detail: 'Inserto de acero integrado que protege hasta el borde del cristal.' },
-    { label: 'Sin Overlaps:', detail: 'Elimina la necesidad de instalación de overlaps tradicionales.' },
+    { label: 'Sin Overlaps:', detail: 'Elimina la necesidad de instalación de extensiones de acero en el marco de la puerta tradicionales.' },
     { label: 'Originalidad:', detail: 'Mantiene el diseño original del vehículo con acabado premium.' },
     { label: 'Refuerzo Estructural:', detail: 'Minimiza rupturas y evita desprendimiento del bloque balístico.' },
     { label: 'Versatilidad:', detail: 'Aplicable en automotriz, militar y aplicaciones marinas.' }
@@ -173,8 +194,8 @@ const SteelGlassPage = () => {
 
           {/* Tab Description */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat">
-              SteelGlass incorpora tecnología única de acero integrado, proporcionando protección balística superior hasta el borde del cristal con acabado premium.
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
+              {tabDescriptions[activeTab]}
             </p>
           </div>
         </div>

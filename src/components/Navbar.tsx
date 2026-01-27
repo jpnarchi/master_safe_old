@@ -115,11 +115,11 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   const productItems = [
-    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/lovable-uploads/Glassguardlogo.png" },
-    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/lovable-uploads/SteelGlasslogo.png" },
-    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/lovable-uploads/SuperSlimlogo.png" },
-    { name: "Ultra", path: "/ultra", description: "Desempeño Balístico Superior", img: "/lovable-uploads/Ultralogo.png" },
-    { name: "Neu", path: "/neu", description: "Próxima Generación", img: "/lovable-uploads/Neulogo.png" }
+    { name: "GlassGuard", path: "/glassguard", description: "Calidad y Durabilidad", img: "/btn_pg_glassguard.png" },
+    { name: "SteelGlass", path: "/steelglass", description: "Resistente hasta el Borde", img: "/btn_pg_steelglass.png" },
+    { name: "SuperSlim", path: "/superslim", description: "Liviano y Resistente", img: "/btn_pg_superslim.png" },
+    { name: "Ultra", path: "/ultra", description: "Desempeño Balístico Superior", img: "/btn_pg_ultra.png" },
+    { name: "Neu", path: "/neu", description: "Próxima Generación", img: "/btn_pg_neu.png" }
   ];
 
   const segmentItems = [
@@ -235,15 +235,15 @@ const Navbar = () => {
               PG Ballistics
             </Link>
 
-            <Link 
-              to="/about-pg-glass"
+            <Link
+              to="/pg-dna"
               className={`font-medium transition-colors duration-300 ease-out ${
-                shouldAlwaysShowNav 
+                shouldAlwaysShowNav
                   ? 'text-pgnavy hover:text-pgnavy/80'
                   : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
-              About PG Glass
+              PG DNA
             </Link>
           </nav>
 
@@ -542,11 +542,11 @@ const Navbar = () => {
               PG Ballistics
             </Link>
             <Link
-              to="/about-pg-glass"
+              to="/pg-dna"
               className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
               onClick={closeMobileMenu}
             >
-              About PG Glass
+              PG DNA
             </Link>
             <Link
               to="/contacto"

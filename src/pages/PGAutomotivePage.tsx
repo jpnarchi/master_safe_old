@@ -1,214 +1,348 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, Download } from 'lucide-react';
+import { toast } from "sonner";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const PGAutomotivePage = () => {
-  const [oemImageIndex, setOemImageIndex] = useState(0);
-  const [retrofitImageIndex, setRetrofitImageIndex] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  // OEM Success Cases Images
-  const oemImages = [
-    "/lovable-uploads/steelgalsslogopagev1.jpeg", // Placeholder - replace with actual OEM images
-    "/steelglassfotooverview.jpg",
-    "/steelglassfototechnology.jpg"
-  ];
-
-  // Retrofit Success Cases Images  
-  const retrofitImages = [
-    "/steelglassfotospecifications.jpg", // Placeholder - replace with actual retrofit images
-    "/lovable-uploads/steelglassfotoapplication.jpeg",
-    "/steelglassfotocarrusel0.jpg"
-  ];
-
-  const nextOemImage = () => {
-    setOemImageIndex((prev) => (prev + 1) % oemImages.length);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const prevOemImage = () => {
-    setOemImageIndex((prev) => (prev - 1 + oemImages.length) % oemImages.length);
-  };
-
-  const nextRetrofitImage = () => {
-    setRetrofitImageIndex((prev) => (prev + 1) % retrofitImages.length);
-  };
-
-  const prevRetrofitImage = () => {
-    setRetrofitImageIndex((prev) => (prev - 1 + retrofitImages.length) % retrofitImages.length);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    toast.success("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
   };
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
-      {/* Banner Section - Full width image */}
-      <section className="pt-20 pb-8">
-        <div className="relative h-[200px] sm:h-[250px] md:h-[300px] overflow-hidden">
-          <img 
-            src="/steelglassfotocarrusel0.jpg" 
-            alt="PG Automotive BRG Banner"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">
-              PG Automotive BRG
-            </h1>
-          </div>
-        </div>
-      </section>
 
-      {/* OEM Section - Centered Text */}
-      <section className="py-8 sm:py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pgnavy mb-6 sm:mb-8">
-            OEM Solutions
-          </h2>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-            Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.
-          </p>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
-            Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-              <span className="text-sm sm:text-base font-medium text-pgnavy">Factory Integration</span>
-            </div>
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-              <span className="text-sm sm:text-base font-medium text-pgnavy">Original Aesthetics</span>
-            </div>
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-              <span className="text-sm sm:text-base font-medium text-pgnavy">Quality Assurance</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* OEM Full Screen Carousel */}
-      <section className="relative">
-        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+      {/* Hero Section - Full width image with gradient overlay */}
+      <section className="relative h-[350px] sm:h-[400px] md:h-[442px]">
+        <div className="absolute inset-0">
           <img
-            src={oemImages[oemImageIndex]}
-            alt={`OEM Success Case ${oemImageIndex + 1}`}
+            src="/steelglassfotocarrusel0.jpg"
+            alt="PG Automotive BRG"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/20"></div>
-          
-          {/* Navigation buttons */}
-          <button
-            onClick={prevOemImage}
-            className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
-          >
-            <ChevronLeft size={24} className="text-pgnavy sm:w-6 sm:h-6" />
-          </button>
-          <button
-            onClick={nextOemImage}
-            className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
-          >
-            <ChevronRight size={24} className="text-pgnavy sm:w-6 sm:h-6" />
-          </button>
-          
-          {/* Dots indicator */}
-          <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-            {oemImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setOemImageIndex(index)}
-                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all ${
-                  index === oemImageIndex ? 'bg-white' : 'bg-white/50'
-                }`}
-              />
-            ))}
-          </div>
-          
-          {/* Overlay text */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-2">
-              OEM Success Cases
-            </h3>
-            <p className="text-sm sm:text-base text-white/90 text-center max-w-2xl mx-auto">
-              Showcasing our successful partnerships with automotive manufacturers worldwide
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pgblue/80 to-pgnavy/60"></div>
         </div>
       </section>
 
-      {/* Retrofit Section - Centered Text */}
-      <section className="py-8 sm:py-12 md:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pgnavy mb-6 sm:mb-8">
-            Retrofit Solutions
-          </h2>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-            Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.
-          </p>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
-            With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-              <span className="text-sm sm:text-base font-medium text-pgnavy">Existing Vehicle Integration</span>
-            </div>
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-              <span className="text-sm sm:text-base font-medium text-pgnavy">Custom Solutions</span>
-            </div>
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-2 h-2 bg-pgblue rounded-full flex-shrink-0"></div>
-              <span className="text-sm sm:text-base font-medium text-pgnavy">Professional Installation</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Retrofit Full Screen Carousel */}
+      {/* Introduction Section */}
       <section className="relative">
-        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
-          <img
-            src={retrofitImages[retrofitImageIndex]}
-            alt={`Retrofit Success Case ${retrofitImageIndex + 1}`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20"></div>
-          
-          {/* Navigation buttons */}
-          <button
-            onClick={prevRetrofitImage}
-            className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
-          >
-            <ChevronLeft size={24} className="text-pgnavy sm:w-6 sm:h-6" />
-          </button>
-          <button
-            onClick={nextRetrofitImage}
-            className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 sm:p-4 transition-all shadow-lg"
-          >
-            <ChevronRight size={24} className="text-pgnavy sm:w-6 sm:h-6" />
-          </button>
-          
-          {/* Dots indicator */}
-          <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-            {retrofitImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setRetrofitImageIndex(index)}
-                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all ${
-                  index === retrofitImageIndex ? 'bg-white' : 'bg-white/50'
-                }`}
-              />
-            ))}
+        <div className="bg-gray-100 py-16 sm:py-20 md:py-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-lg shadow-sm p-8 sm:p-10 md:p-12 -mt-32 sm:-mt-36 md:-mt-40 relative z-10">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">
+                <span className="text-pgnavy">PG Automotive</span>{' '}
+                <span className="text-pgblue">BRG</span>
+              </h1>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
+                Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
+                Aenean suscipit iaculis nulla, convallis volutpat enim suscipit nec. Fusce ac dui aliquet, aliquet risus vel, lacinia neque. Morbi accumsan sit amet ligula nec bibendum. Maecenas rhoncus elit non justo tincidunt blandit. Morbi turpis sapien, efficitur varius quam eu, sagittis rhoncus eros.
+              </p>
+            </div>
           </div>
-          
-          {/* Overlay text */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-2">
-              Retrofit Success Cases
-            </h3>
-            <p className="text-sm sm:text-base text-white/90 text-center max-w-2xl mx-auto">
-              Transforming existing vehicles with advanced ballistic protection solutions
-            </p>
+        </div>
+      </section>
+
+      {/* Two Column Layout - Retrofit and OEM Solutions */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+
+            {/* Retrofit Solutions */}
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8">
+                <span className="text-pgnavy">Retrofit</span>{' '}
+                <span className="text-pgblue">Solutions</span>
+              </h2>
+
+              {/* Retrofit Image */}
+              <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
+                <img
+                  src="/steelglassfotocarrusel0.jpg"
+                  alt="Retrofit Solutions"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Retrofit Description */}
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.
+              </p>
+
+              {/* Retrofit Features */}
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">Existing Vehicle Integration</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">Custom Solutions</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">Professional Installation</span>
+                </div>
+              </div>
+            </div>
+
+            {/* OEM Solutions */}
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8">
+                <span className="text-pgnavy">OEM</span>{' '}
+                <span className="text-pgblue">Solutions</span>
+              </h2>
+
+              {/* OEM Image */}
+              <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
+                <img
+                  src="/lovable-uploads/steelgalsslogopagev1.jpeg"
+                  alt="OEM Solutions"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* OEM Description */}
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.
+              </p>
+
+              {/* OEM Features */}
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">Factory Integration</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">Original Aesthetics</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">Quality Assurance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Cases Cards */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+            {/* Retrofit Success Cases Card */}
+            <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200">
+              <div className="flex justify-end mb-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20">
+                  <svg viewBox="0 0 100 100" className="w-full h-full text-pgnavy">
+                    <path fill="currentColor" d="M50 5L60 35H95L67 55L77 90L50 70L23 90L33 55L5 35H40L50 5Z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2">
+                Retrofit <span className="text-pgblue">Success Cases</span>
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-6">
+                Transforming existing vehicles with advanced ballistic protection solutions
+              </p>
+              <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
+                Conocer más
+              </button>
+            </div>
+
+            {/* OEM Success Cases Card */}
+            <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200">
+              <div className="flex justify-end mb-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20">
+                  <svg viewBox="0 0 100 100" className="w-full h-full text-pgnavy">
+                    <path fill="currentColor" d="M50 5L60 35H95L67 55L77 90L50 70L23 90L33 55L5 35H40L50 5Z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2">
+                OEM <span className="text-pgblue">Success Cases</span>
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-6">
+                Showcasing our successful partnerships with automotive manufacturers worldwide
+              </p>
+              <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
+                Conocer más
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Downloads Section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-pgnavy mb-8">
+            Archivos para descargar
+          </h2>
+
+          <div className="space-y-0">
+            {/* Divider line */}
+            <div className="border-t border-gray-200"></div>
+
+            {/* Download OEM */}
+            <div className="flex items-center justify-between py-6">
+              <span className="text-gray-700 text-sm sm:text-base">
+                Descargue nuestros Casos de éxito OEM
+              </span>
+              <button className="w-12 h-12 sm:w-14 sm:h-14 bg-pgnavy rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
+                <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </button>
+            </div>
+
+            {/* Divider line */}
+            <div className="border-t border-gray-200"></div>
+
+            {/* Download Retrofit */}
+            <div className="flex items-center justify-between py-6">
+              <span className="text-gray-700 text-sm sm:text-base">
+                Descargue nuestros Casos de éxito Retrofit
+              </span>
+              <button className="w-12 h-12 sm:w-14 sm:h-14 bg-pgnavy rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
+                <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </button>
+            </div>
+
+            {/* Divider line */}
+            <div className="border-t border-gray-200"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section
+        className="w-full py-16 lg:py-24 relative overflow-hidden"
+        style={{
+          backgroundImage: 'url(/bg_form_contact@2x.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '600px'
+        }}
+      >
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+            {/* Left Content */}
+            <div className="text-white">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Protegemos tu seguridad
+              </h2>
+              <p className="text-lg lg:text-xl leading-relaxed opacity-90">
+                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+              </p>
+            </div>
+
+            {/* Right Contact Form */}
+            <div className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div>
+                  <label className="block text-white text-base lg:text-lg font-medium mb-4">
+                    Nombre completo
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Introduzca su nombre"
+                    className="w-full px-6 py-4 bg-transparent border-2 border-white border-opacity-70 rounded-lg text-white placeholder-gray-200 focus:outline-none focus:border-white focus:border-opacity-100 text-base lg:text-lg"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white text-base lg:text-lg font-medium mb-4">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Introduzca su dirección de correo electrónico"
+                    className="w-full px-6 py-4 bg-transparent border-2 border-white border-opacity-70 rounded-lg text-white placeholder-gray-200 focus:outline-none focus:border-white focus:border-opacity-100 text-base lg:text-lg"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white text-base lg:text-lg font-medium mb-4">
+                    Mensaje
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Escriba aquí su mensaje"
+                    rows={5}
+                    className="w-full px-6 py-4 bg-transparent border-2 border-white border-opacity-70 rounded-lg text-white placeholder-gray-200 focus:outline-none focus:border-white focus:border-opacity-100 resize-none text-base lg:text-lg"
+                    required
+                  ></textarea>
+                </div>
+
+                <div className="flex gap-6 pt-6">
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ name: '', email: '', message: '' })}
+                    className="flex-1 py-4 px-8 bg-transparent border-2 border-white text-white rounded-lg font-medium text-base lg:text-lg hover:bg-white hover:text-black transition-all duration-300"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 py-4 px-8 bg-blue-600 text-white rounded-lg font-medium text-base lg:text-lg hover:bg-blue-700 transition-all duration-300"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            </div>
+
           </div>
         </div>
       </section>

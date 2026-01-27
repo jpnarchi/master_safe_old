@@ -47,7 +47,7 @@ const allProductCards = [
   }
 ];
 
-const AboutPGGlassPage = () => {
+const PGDNAPage = () => {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [currentProductSlide, setCurrentProductSlide] = useState(0);
   const [productApi, setProductApi] = useState<any>(null);
@@ -452,4 +452,4 @@ const AboutPGGlassPage = () => {
   );
 };
 
-export default AboutPGGlassPage;
+export default PGDNAPage;

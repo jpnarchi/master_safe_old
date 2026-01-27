@@ -15,10 +15,31 @@ const GlassGuardPage = () => {
 
   const tabs = ['PG Glass Guard', 'Composición', 'Tecnología', 'Especificaciones'];
 
+  const tabDescriptions = [
+    // Tab 1 - PG GLASSGUARD
+    `PG desarrolla soluciones de vidrio blindado para diferentes aplicaciones basadas en normas balísticas vigentes con formulaciones avanzadas en espesor y peso usando materiales de última generación que como resultado se consigue un producto duradero y con acabados premium. El portafolio incluye opciones para protección frente a armas cortas con espesores desde los 14mm hasta protección a armas largas y perforantes de más de 70mm.`,
+    // Tab 2 - COMPOSICIÓN
+    `La composición de GlassGuard se desarrolla con materiales certificados y procesos detallados para asegurar el ADN de PG; balística innovadora, geometría estable, óptica destacable y estética única. En línea a lo anterior variedad de colores y transmisiones de luz que complementan accesorios como redes desempañantes, antenas, orificios para limpiadores etc.`,
+    // Tab 3 - TECNOLOGÍA
+    `Todas las composiciones de GlassGuard de acuerdo a la tabla balística pueden ser complementados con los accesorios originales para cada modelo de vehículo y con características adicionales tales como: redes desempañantes, adaptaciones para cámaras y sensores, gunports, etc`,
+    // Tab 4 - ESPECIFICACIONES
+    `GlassGuard Atiende, entre otras, las siguientes normas de resistencia balística: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2006, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2007, NOM 142 SCFI 2000.
+
+El portafolio de PG Products se desarrolla bajo diversas normas y especificaciones además se evalúan regularmente en nuestro laboratorio y en laboratorios internacionales siguiendo rigurosos métodos, estándares y regulaciones:
+
+- ALEMANIA - Beschussamt - Mellrichstadt y ULM
+- ARGENTINA - RENAR
+- BRASIL - Campo de Provas Marambaia
+- EUA - OBL Oregon Ballistic Lab USA, Chesapeake laboratories
+- HOLANDA - TNO Automotive
+
+[NOTA: Incluir tabla balística aquí]`
+  ];
+
   const useCases = [
     {
-      title: 'Aplicaciones Gubernamentales',
-      description: 'Soluciones certificadas para vehículos oficiales y de gobierno con los más altos estándares de seguridad.',
+      title: 'Aplicaciones blindaje civil y Gubernamental',
+      description: 'Soluciones certificadas para protección de vehículos oficiales y de gobierno desde niveles de protección urbana de delincuencia común, como para organizada y terrorismo.',
       image: '/lovable-uploads/casos_de_uso_slider_3.png'
     },
     {
@@ -27,18 +48,18 @@ const GlassGuardPage = () => {
       image: '/lovable-uploads/casos_de_uso_slider_3.png'
     },
     {
-      title: 'Vehículos de Alta Seguridad',
-      description: 'Protección premium para vehículos ejecutivos y de alta gama que requieren máxima seguridad sin comprometer la estética.',
+      title: 'Botes y aplicaciones marítimas',
+      description: 'Protección para aplicaciones marítimas y de alta gama, yates y fragatas que requieren máxima seguridad sin comprometer la estética.',
       image: '/lovable-uploads/casos_de_uso_slider_3.png'
     }
   ];
 
   const keyBenefits = [
-    { label: 'Protección:', detail: 'Detiene balas y fragmentos de alta velocidad.' },
-    { label: 'Claridad:', detail: 'Visión clara y sin distorsiones.' },
-    { label: 'Durabilidad:', detail: 'Resiste impactos repetidos y condiciones climáticas extremas.' },
-    { label: 'Adaptabilidad:', detail: 'Se puede cortar, moldear y laminar para diversas aplicaciones.' },
-    { label: 'Seguridad:', detail: 'Brinda tranquilidad y protección en entornos de riesgo.' }
+    { label: 'Balística:', detail: 'Formulaciones diseñadas para soportar diferentes tipos de amenazas.' },
+    { label: 'Óptica:', detail: 'Visión clara y sin distorsiones.' },
+    { label: 'Durabilidad:', detail: 'Composición única enfocada a extender su vida útil.' },
+    { label: 'Originalidad:', detail: 'Adaptable a cualquier plataforma vehicular' },
+    { label: 'Seguridad:', detail: 'vidrios certificados según normas internacionales.' }
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,7 +116,7 @@ const GlassGuardPage = () => {
           <p className="text-white text-base md:text-lg lg:text-xl font-normal text-center max-w-3xl leading-relaxed font-montserrat">
             GlassGuard compone un portafolio de soluciones de blindaje
             transparente según normas locales e internacionales para
-            diferentes aplicaciones de alta especificación.
+            diferentes aplicaciones de alta especificación, además está formulado con materiales avanzados y procesos detallados. El producto PG cuenta con experiencia y gestión de calidad certificada ISO 9001.
           </p>
 
           {/* Navigation Dots */}
@@ -173,8 +194,8 @@ const GlassGuardPage = () => {
 
           {/* Tab Description */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat">
-              GlassGuard representa la máxima protección balística transparente, combinando resistencia balística certificada con durabilidad excepcional y claridad óptica.
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
+              {tabDescriptions[activeTab]}
             </p>
           </div>
         </div>

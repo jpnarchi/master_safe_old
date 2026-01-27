@@ -15,6 +15,31 @@ const UltraPage = () => {
 
   const tabs = ['PG Ultra', 'Composición', 'Tecnología', 'Especificaciones'];
 
+  const tabDescriptions = [
+    // Tab 1 - PG ULTRA
+    `Un cristal blindado que integra resistencia balística a armas cortas y en el mismo espesor resistencia para municiones de alto calibre.`,
+    // Tab 2 - COMPOSICIÓN
+    `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A
+
+Balística: Adicionalmente:
+- Cuatro Impactos Munición: 7,62x39mm FMJ a 30 cms
+- 1 Impacto Munición: 5,56x45 M193 en el centro`,
+    // Tab 3 - TECNOLOGÍA
+    `* Certificados balísticos disponibles
+* Pruebas realizadas en laboratorios reconocidos.
+
+PG SUPERSLIM SUPERIOR
+En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos
+
+*Consulte disponibilidad de producto en su región.`,
+    // Tab 4 - ESPECIFICACIONES
+    `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A
+
+Balística: Adicionalmente:
+- Cuatro Impactos Munición: 7,62x39mm FMJ a 30 cms
+- 1 Impacto Munición: 5,56x45 M193 en el centro`
+  ];
+
   const useCases = [
     {
       title: 'Aplicaciones Militares Extremas',
@@ -35,10 +60,10 @@ const UltraPage = () => {
 
   const keyBenefits = [
     { label: 'Máxima Resistencia:', detail: 'El nivel más alto de protección balística disponible en el mercado.' },
-    { label: 'Protección Extrema:', detail: 'Resiste amenazas balísticas de alto calibre y múltiples impactos.' },
+    { label: 'Protección Extrema:', detail: 'combina la Resistencia a amenazas balísticas de bajo y alto calibre además de múltiples impactos.' },
     { label: 'Tecnología Avanzada:', detail: 'Incorpora los últimos avances en materiales de protección balística.' },
     { label: 'Rendimiento Superior:', detail: 'Máxima durabilidad y resistencia en condiciones extremas.' },
-    { label: 'Certificación Elite:', detail: 'Cumple con los más estrictos estándares internacionales de seguridad.' }
+    { label: 'Producto Certificado:', detail: 'Cumple con los más estrictos estándares internacionales probado en los laboratorios más exigentes.' }
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -85,7 +110,7 @@ const UltraPage = () => {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
           <h1 className="text-white text-xl md:text-2xl font-normal text-center mb-4 font-montserrat">
-            Máxima protección balística con tecnología de vanguardia
+            Máxima protección balística con tecnología de vanguardia, Resistencia balística adicional a armas largas
           </h1>
 
           <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 font-montserrat">
@@ -93,9 +118,7 @@ const UltraPage = () => {
           </h2>
 
           <p className="text-white text-base md:text-lg lg:text-xl font-normal text-center max-w-3xl leading-relaxed font-montserrat">
-            ULTRA representa el máximo nivel de protección balística disponible,
-            combinando resistencia extrema con tecnología de vanguardia
-            para los entornos más exigentes.
+            PG ULTRA es un cristal blindado con todas las características de un nivel bajo, que suma una destacable resistencia balística a munición de nivel superior.
           </p>
 
           {/* Navigation Dots */}
@@ -173,8 +196,8 @@ const UltraPage = () => {
 
           {/* Tab Description */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat">
-              ULTRA representa la máxima protección balística disponible, diseñada para los entornos más exigentes donde la seguridad es crítica y no se pueden hacer compromisos.
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
+              {tabDescriptions[activeTab]}
             </p>
           </div>
         </div>

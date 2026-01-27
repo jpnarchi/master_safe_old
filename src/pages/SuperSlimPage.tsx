@@ -15,6 +15,33 @@ const SuperSlimPage = () => {
 
   const tabs = ['PG SuperSlim', 'Composición', 'Tecnología', 'Especificaciones'];
 
+  const tabDescriptions = [
+    // Tab 1 - PG SUPERSLIM
+    `Un cristal blindado que integra en la formulación un inserto de Acero en el contorno adicionando protección hasta el borde, Evita la instalación de Overlaps, Mantiene la originalidad del Vehículo, Acabado Premium, Acero inoxidable integrado.
+
+- Disponible en distintos niveles.
+- Acero Inoxidable de PG certificado además de protección brinda un acabado Premium
+- Su gran factor diferencial es proteger a los ocupantes del vehículo del punto vulnerable formado entre el bloque balístico del vidrio y la parte opaca.
+- El inserto de acero es desarrollado y patentado por PG Products`,
+    // Tab 2 - COMPOSICIÓN
+    `Conociendo la importancia del peso en un vehículo blindado y el papel del vidrio en la protección balística, PG crea un cristal con aproximadamente un 15% de reducción de peso y espesor como resultado de una formulación con materiales especiales y polímeros avanzados que se laminan en ciclos especiales, SuperSlim mantiene la resistencia balística de acuerdo a la norma pero con un espesor y peso menor que el vidrio balístico.
+
+Por ejemplo: En un vehículo SUV promedio el área de vidrio blindado es de aproximadamente 4,5m²:
+Reducción de peso por set: 30 kg aprox`,
+    // Tab 3 - TECNOLOGÍA
+    `PG SUPERSLIM URBAN
+Enfocado para niveles bajos, mejorando consumo de gasolina y menos modificaciones en el proceso de blindaje.
+
+PG SUPERSLIM SUPERIOR
+En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos
+
+*Consulte disponibilidad de producto en su región.`,
+    // Tab 4 - ESPECIFICACIONES
+    `SuperSlim se Enfoca para niveles bajos, mejorando consumo de gasolina y menos modificaciones en el proceso de blindaje, y En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos.
+
+SuperSlim Tiene soluciones para aplicaciones automotriz en usos civil y militar, vehículos de carga, vidrios para botes y fragatas, y cristales para uso arquitectónico.`
+  ];
+
   const useCases = [
     {
       title: 'Vehículos Deportivos',
@@ -34,7 +61,7 @@ const SuperSlimPage = () => {
   ];
 
   const keyBenefits = [
-    { label: 'Peso Reducido:', detail: 'Hasta 30% más liviano que vidrios blindados tradicionales.' },
+    { label: 'Peso Reducido:', detail: 'Hasta 15% más liviano que vidrios blindados tradicionales.' },
     { label: 'Máxima Transparencia:', detail: 'Claridad óptica superior sin distorsión.' },
     { label: 'Resistencia:', detail: 'Protección balística certificada en formato ultradelgado.' },
     { label: 'Versatilidad:', detail: 'Adaptable a múltiples aplicaciones y diseños.' },
@@ -93,9 +120,7 @@ const SuperSlimPage = () => {
           </h2>
 
           <p className="text-white text-base md:text-lg lg:text-xl font-normal text-center max-w-3xl leading-relaxed font-montserrat">
-            SuperSlim combina máxima protección con peso reducido,
-            ideal para aplicaciones donde cada gramo cuenta
-            sin comprometer la seguridad.
+            SuperSlim es un cristal blindado certificado que mantiene la resistencia balística pero con una formulación más delgada que asegura un 15% menos de peso y mayor vida útil.
           </p>
 
           {/* Navigation Dots */}
@@ -173,8 +198,8 @@ const SuperSlimPage = () => {
 
           {/* Tab Description */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat">
-              SuperSlim representa la evolución en vidrio blindado ultraliviano, combinando peso reducido con resistencia balística superior.
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
+              {tabDescriptions[activeTab]}
             </p>
           </div>
         </div>

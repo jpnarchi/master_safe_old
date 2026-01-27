@@ -15,15 +15,37 @@ const NeuPage = () => {
 
   const tabs = ['PG Neu', 'Composición', 'Tecnología', 'Especificaciones'];
 
+  const tabDescriptions = [
+    // Tab 1 - PG Neu
+    `PG Products trae toda la tecnología de un cristal blindado para mercado Europeo ahora disponible en México y otros mercados, Con el espesor de un vidrio de nivel IIIA conseguimos la resistencia balística para munición de arma larga: Menor espesor, Único desempeño Balístico.`,
+    // Tab 2 - Composición
+    `La composición única ofrece una mezcla de vidrio flotado de única especificación, polímeros especiales y policarbonato ultraliviano, que combinados desarrollan una fórmula de espesor de 22mm pero con resistencia para municiones más fuertes.
+
+Test Resistencia: 4 impactos
+Munición: 7,62x39mm FMJ (Doble triángulo 200mm)
+
+* Certificados balísticos disponibles
+* Pruebas realizadas en laboratorios reconocidos.`,
+    // Tab 3 - Tecnología
+    `Además de la parte balística, Neu ofrece Serigrafía Tipo Europeo: Pintura tipo Flat Painting, para Más visibilidad y discreción, también Steel Glass: Acabado único de acero inoxidable, estético y resistente.`,
+    // Tab 4 - Especificaciones
+    `Resistencia Balística NIJ III-A.
+
+Adicionalmente resistencia balística comprobada ante:
+- 4 impactos Munición: 7,62x39mm FMJ (Doble triángulo)
+  ó
+- 2 impactos Munición: 7,62x39 MSC`
+  ];
+
   const useCases = [
     {
-      title: 'Vehículos de Próxima Generación',
-      description: 'NEU representa la evolución en protección balística, ideal para vehículos de nueva generación que requieren tecnología de vanguardia y diseño innovador.',
+      title: 'Aplicaciones blindaje civil y Gubernamental',
+      description: 'Soluciones certificadas para protección de vehículos oficiales y de gobierno desde niveles de protección urbana de delincuencia común, como para organizada y terrorismo.',
       image: '/lovable-uploads/casos_de_uso_slider_1.png'
     },
     {
-      title: 'Instalaciones de Alta Tecnología',
-      description: 'Solución perfecta para instalaciones que buscan combinar máxima protección con los últimos avances tecnológicos en materiales balísticos.',
+      title: 'Vehículos de Lujo',
+      description: 'Solución perfecta para instalaciones que buscan combinar máxima protección con los últimos avances tecnológicos en materiales balísticos con el menor peso.',
       image: '/lovable-uploads/casos_de_uso_slider_1.png'
     },
     {
@@ -34,11 +56,11 @@ const NeuPage = () => {
   ];
 
   const keyBenefits = [
-    { label: 'Tecnología Avanzada:', detail: 'Incorpora nanocompuestos de última generación para máxima protección.' },
-    { label: 'Diseño Innovador:', detail: 'Arquitectura de protección revolucionaria que establece nuevos estándares.' },
-    { label: 'Máxima Protección:', detail: 'Resistencia balística superior con tecnología de vanguardia.' },
+    { label: 'Óptica Destacable:', detail: 'Incorpora nanocompuestos de última generación para máxima protección con visibilidad sin distorsión.' },
+    { label: 'Diseño Innovador:', detail: 'Mayor resistencia, balística comprobada' },
+    { label: 'Máxima originalidad:', detail: 'Calidad superior en geometría' },
     { label: 'Futuro del Blindaje:', detail: 'Representa la próxima generación en soluciones de protección balística.' },
-    { label: 'Durabilidad Superior:', detail: 'Mayor resistencia y vida útil que las soluciones tradicionales.' }
+    { label: 'Durabilidad Superior:', detail: 'Acabados Únicos' }
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -85,7 +107,7 @@ const NeuPage = () => {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
           <h1 className="text-white text-xl md:text-2xl font-normal text-center mb-4 font-montserrat">
-            La nueva generación de protección balística
+            Vidrio Blindado premium con resistencia balística Destacada
           </h1>
 
           <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 font-montserrat">
@@ -95,7 +117,7 @@ const NeuPage = () => {
           <p className="text-white text-base md:text-lg lg:text-xl font-normal text-center max-w-3xl leading-relaxed font-montserrat">
             NEU representa la evolución en protección balística con tecnología de
             vanguardia y diseño innovador que establece nuevos estándares
-            en el mercado de seguridad.
+            en el mercado de seguridad. Un cristal blindado automotriz diseñado y desarrollado con ingeniería Alemana, producido con las mejores materias primas disponibles bajo estándares de diseño Europeo.
           </p>
 
           {/* Navigation Dots */}
@@ -173,8 +195,8 @@ const NeuPage = () => {
 
           {/* Tab Description */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat">
-              NEU incorpora tecnología de nanocompuestos avanzados que proporcionan resistencia balística superior con peso reducido y mayor durabilidad que las soluciones tradicionales.
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
+              {tabDescriptions[activeTab]}
             </p>
           </div>
         </div>

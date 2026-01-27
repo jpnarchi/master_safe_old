@@ -19,7 +19,7 @@ import PGAutomotivePage from "./pages/PGAutomotivePage";
 import PGMilitaryPage from "./pages/PGMilitaryPage";
 import PGArchitecturalPage from "./pages/PGArchitecturalPage";
 import PGBallisticsPage from "./pages/PGBallisticsPage";
-import AboutPGGlassPage from "./pages/AboutPGGlassPage";
+import PGDNAPage from "./pages/PGDNAPage";
 
 // Component to handle page transitions and loading
 const PageContainer = () => {
@@ -46,7 +46,7 @@ const PageContainer = () => {
         <Route path="/pg-military" element={<PGMilitaryPage />} />
         <Route path="/pg-architectural" element={<PGArchitecturalPage />} />
         <Route path="/pg-ballistics" element={<PGBallisticsPage />} />
-        <Route path="/about-pg-glass" element={<AboutPGGlassPage />} />
+        <Route path="/pg-dna" element={<PGDNAPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

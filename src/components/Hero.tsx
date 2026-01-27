@@ -23,29 +23,29 @@ const allProductCards = [
     title: "SuperSlim",
     img: "/Superslim_card.png",
     logo: "/new-card-logo-PG-Superslim.svg",
-    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
+    description: "Vidrio Blindado premium: Más delgado, liviano y más durable",
     link: "/superslim"
   },
   {
     title: "SteelGlass",
     img: "/Steelglass_card.png",
     logo: "/new-card-logo-PG-SteelGlass.svg",
-    description: "Premium Ballistic Glass with Steel Frame",
+    description: "Vidrio Blindado con marco de acero",
     link: "/steelglass"
   },
   {
     title: "PG NEU",
     img: "/Neu_card.png",
     logo: "/PG Neu.svg",
-    description: "Premium ballistic glass with remarkable resistance",
-    link: "/pg-neu"
+    description: "Vidrio Blindado premium con resistencia balística destacada",
+    link: "/neu"
   },
   {
     title: "PG ULTRA",
     img: "/Ultra_card.png",
     logo: "/PG Ultra.svg",
-    description: "Premium Ballistic Glass: Thinner, lightweight and more durable",
-    link: "/pg-ultra"
+    description: "Vidrio Blindado más delgado con Balística Mejorada para Armas Largas",
+    link: "/ultra"
   }
 ];
 
@@ -143,14 +143,14 @@ const Hero = () => {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-center mb-8 md:mb-12 max-w-4xl px-4 leading-relaxed">
-                Un cristal blindado certificado que mantiene la resistencia balística pero con una formulación mas delgada que asegura un 15% menos de peso y mayor vida útil
+                Un cristal blindado certificado que mantiene la resistencia balística pero con una formulación más delgada que asegura un 15% menos de peso y mayor vida útil
               </p>
 
               <Link
-                to="/contacto"
+                to="/superslim"
                 className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
               >
-                Solicitar cotización
+                Conocer más
               </Link>
             </>
           )}
@@ -215,27 +215,27 @@ const Hero = () => {
 
               {/* CTA Button */}
               <Link
-                to="/contacto"
+                to="/pg-dna"
                 className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
               >
-                Solicitar cotización
+                Conocer más
               </Link>
             </>
           )}
 
-          {/* Slide 4: PG Materiales de última generación */}
+          {/* Slide 4: Procesos de Producción con estándares Internacionales */}
           {currentHero === 3 && (
             <>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12">
-                <span className="font-normal">PG Materiales</span> <span className="font-bold">de última generación</span>
+                <span className="font-normal">Procesos de Producción</span> <span className="font-bold">con estándares Internacionales</span>
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-center mb-8 md:mb-12 max-w-4xl px-4 leading-relaxed">
-                Un cristal blindado certificado que mantiene la resistencia balística pero con una formulación mas delgada que asegura un 15% menos de peso y mayor vida útil
+                Nuestro modelo de producción articula la incorporación de materiales e insumos premium con validaciones en cada fase productiva asegurando calidad total.
               </p>
 
               <Link
-                to="/contacto"
+                to="/pg-dna"
                 className="inline-flex items-center rounded-md px-6 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
               >
                 Conocer más
@@ -346,19 +346,19 @@ const Hero = () => {
             className="mx-auto mb-8 w-64 sm:w-72 md:w-80 lg:w-[420px] h-auto drop-shadow-xl"
           />
           <p className="text-lg md:text-xl lg:text-2xl mb-6 opacity-90">
-            Vidrios Blindados
+            Innovación continua
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Investigación & Desarrollo
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 max-w-4xl mx-auto">
-            PG Products, la nueva generación en protección
+            Desarrollamos Productos innovadores Funcionales y balísticamente certificados.
           </p>
           <Link
-            to="/about-pg-glass"
+            to="/pg-dna"
             className="inline-flex items-center rounded-xl px-8 py-4 text-lg font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy"
           >
-            Conocer mas
+            Conocer más
           </Link>
         </div>
       </section>
@@ -388,17 +388,17 @@ const Hero = () => {
                 {/* Text Content */}
                 <div className="max-w-lg pr-8">
                   <h2 className="text-2xl lg:text-4xl font-bold text-pgnavy mb-4">
-                    Formulación PG
+                    Formulación Exclusiva PG
                   </h2>
                   <p className="text-gray-700 text-base lg:text-lg leading-relaxed mb-6">
-                    La composición del vidrio permite que el proyectil al impacto disminuya su fuerza y el policarbonato absorba su energía cinética y se detenga quedando encapsulado y evitando así cualquier esquirla al interior del vehículo.
+                    La composición del vidrio permite que el proyectil al impacto disminuya su fuerza y el policarbonato absorba su energía cinética y se detenga quedando encapsulado, evitando así cualquier esquirla al interior del vehículo.
                   </p>
                 </div>
 
                 {/* Button - positioned to the right of text */}
                 <div className="flex-shrink-0">
                   <Link
-                    to="/about-pg-glass"
+                    to="/pg-dna"
                     className="inline-flex items-center rounded-xl px-8 py-3 text-base font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white"
                   >
                     Conocer más
@@ -412,7 +412,7 @@ const Hero = () => {
               {/* Header with Title - centered */}
               <div className="flex justify-center items-start mb-6">
                 <h2 className="text-2xl lg:text-4xl font-bold text-pgnavy text-center">
-                  Casos de éxito
+                  Conozca algunos proyectos en los que PG ha incorporado sus productos
                 </h2>
               </div>
 
