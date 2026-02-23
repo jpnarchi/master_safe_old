@@ -3,8 +3,29 @@ import { Check, Download } from 'lucide-react';
 import { toast } from "sonner";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const at = {
+  filesDownload: { es: 'Archivos para descargar', en: 'Files to Download', pt: 'Arquivos para Download' },
+  downloadOEM: { es: 'Descargue nuestros Casos de éxito OEM', en: 'Download our OEM Success Cases', pt: 'Baixe nossos Casos de Sucesso OEM' },
+  downloadRetrofit: { es: 'Descargue nuestros Casos de éxito Retrofit', en: 'Download our Retrofit Success Cases', pt: 'Baixe nossos Casos de Sucesso Retrofit' },
+  learnMore: { es: 'Conocer más', en: 'Learn more', pt: 'Saiba mais' },
+  protectSecurity: { es: 'Protegemos tu seguridad', en: 'We Protect Your Security', pt: 'Protegemos sua segurança' },
+  trustExperience: { es: 'Confía en la experiencia y calidad de un líder en seguridad automotriz.', en: 'Trust the experience and quality of a leader in automotive security.', pt: 'Confie na experiência e qualidade de um líder em segurança automotiva.' },
+  fullName: { es: 'Nombre completo', en: 'Full Name', pt: 'Nome completo' },
+  email: { es: 'Email', en: 'Email', pt: 'Email' },
+  message: { es: 'Mensaje', en: 'Message', pt: 'Mensagem' },
+  enterName: { es: 'Introduzca su nombre', en: 'Enter your name', pt: 'Digite seu nome' },
+  enterEmail: { es: 'Introduzca su dirección de correo electrónico', en: 'Enter your email address', pt: 'Digite seu endereço de e-mail' },
+  writeMessage: { es: 'Escriba aquí su mensaje', en: 'Write your message here', pt: 'Escreva sua mensagem aqui' },
+  cancel: { es: 'Cancel', en: 'Cancel', pt: 'Cancelar' },
+  send: { es: 'Enviar', en: 'Send', pt: 'Enviar' },
+};
 
 const PGAutomotivePage = () => {
+  const { language } = useLanguage();
+  const T = (obj: { es: string; en: string; pt: string }) => obj[language as 'es' | 'en' | 'pt'];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +40,13 @@ const PGAutomotivePage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    toast.success("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+    toast.success(
+      language === 'es'
+        ? 'Mensaje enviado correctamente. Nos pondremos en contacto pronto.'
+        : language === 'en'
+        ? 'Message sent successfully. We will contact you soon.'
+        : 'Mensagem enviada com sucesso. Entraremos em contato em breve.'
+    );
     setFormData({
       name: '',
       email: '',
@@ -186,7 +213,7 @@ const PGAutomotivePage = () => {
                 Transforming existing vehicles with advanced ballistic protection solutions
               </p>
               <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                Conocer más
+                {T(at.learnMore)}
               </button>
             </div>
 
@@ -206,7 +233,7 @@ const PGAutomotivePage = () => {
                 Showcasing our successful partnerships with automotive manufacturers worldwide
               </p>
               <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                Conocer más
+                {T(at.learnMore)}
               </button>
             </div>
           </div>
@@ -217,7 +244,7 @@ const PGAutomotivePage = () => {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-pgnavy mb-8">
-            Archivos para descargar
+            {T(at.filesDownload)}
           </h2>
 
           <div className="space-y-0">
@@ -227,7 +254,7 @@ const PGAutomotivePage = () => {
             {/* Download OEM */}
             <div className="flex items-center justify-between py-6">
               <span className="text-gray-700 text-sm sm:text-base">
-                Descargue nuestros Casos de éxito OEM
+                {T(at.downloadOEM)}
               </span>
               <button className="w-12 h-12 sm:w-14 sm:h-14 bg-pgnavy rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
                 <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -240,7 +267,7 @@ const PGAutomotivePage = () => {
             {/* Download Retrofit */}
             <div className="flex items-center justify-between py-6">
               <span className="text-gray-700 text-sm sm:text-base">
-                Descargue nuestros Casos de éxito Retrofit
+                {T(at.downloadRetrofit)}
               </span>
               <button className="w-12 h-12 sm:w-14 sm:h-14 bg-pgnavy rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
                 <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -270,10 +297,10 @@ const PGAutomotivePage = () => {
             {/* Left Content */}
             <div className="text-white">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Protegemos tu seguridad
+                {T(at.protectSecurity)}
               </h2>
               <p className="text-lg lg:text-xl leading-relaxed opacity-90">
-                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+                {T(at.trustExperience)}
               </p>
             </div>
 
@@ -282,14 +309,14 @@ const PGAutomotivePage = () => {
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
                   <label className="block text-white text-base lg:text-lg font-medium mb-4">
-                    Nombre completo
+                    {T(at.fullName)}
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Introduzca su nombre"
+                    placeholder={T(at.enterName)}
                     className="w-full px-6 py-4 bg-transparent border-2 border-white border-opacity-70 rounded-lg text-white placeholder-gray-200 focus:outline-none focus:border-white focus:border-opacity-100 text-base lg:text-lg"
                     required
                   />
@@ -297,14 +324,14 @@ const PGAutomotivePage = () => {
 
                 <div>
                   <label className="block text-white text-base lg:text-lg font-medium mb-4">
-                    Email
+                    {T(at.email)}
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Introduzca su dirección de correo electrónico"
+                    placeholder={T(at.enterEmail)}
                     className="w-full px-6 py-4 bg-transparent border-2 border-white border-opacity-70 rounded-lg text-white placeholder-gray-200 focus:outline-none focus:border-white focus:border-opacity-100 text-base lg:text-lg"
                     required
                   />
@@ -312,13 +339,13 @@ const PGAutomotivePage = () => {
 
                 <div>
                   <label className="block text-white text-base lg:text-lg font-medium mb-4">
-                    Mensaje
+                    {T(at.message)}
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Escriba aquí su mensaje"
+                    placeholder={T(at.writeMessage)}
                     rows={5}
                     className="w-full px-6 py-4 bg-transparent border-2 border-white border-opacity-70 rounded-lg text-white placeholder-gray-200 focus:outline-none focus:border-white focus:border-opacity-100 resize-none text-base lg:text-lg"
                     required
@@ -331,13 +358,13 @@ const PGAutomotivePage = () => {
                     onClick={() => setFormData({ name: '', email: '', message: '' })}
                     className="flex-1 py-4 px-8 bg-transparent border-2 border-white text-white rounded-lg font-medium text-base lg:text-lg hover:bg-white hover:text-black transition-all duration-300"
                   >
-                    Cancel
+                    {T(at.cancel)}
                   </button>
                   <button
                     type="submit"
                     className="flex-1 py-4 px-8 bg-blue-600 text-white rounded-lg font-medium text-base lg:text-lg hover:bg-blue-700 transition-all duration-300"
                   >
-                    Enviar
+                    {T(at.send)}
                   </button>
                 </div>
               </form>

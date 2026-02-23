@@ -3,8 +3,34 @@ import { Check, Download } from 'lucide-react';
 import { toast } from "sonner";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const at = {
+  thickness: { es: 'Espesor (mm)', en: 'Thickness (mm)', pt: 'Espessura (mm)' },
+  weight: { es: 'Peso (Kg/m2)', en: 'Weight (Kg/m2)', pt: 'Peso (Kg/m2)' },
+  ballisticStandard: { es: 'Standard Balístico', en: 'Ballistic Standard', pt: 'Padrão Balístico' },
+  arma: { es: 'ARMA', en: 'WEAPON', pt: 'ARMA' },
+  calibre: { es: 'CALIBRE', en: 'CALIBER', pt: 'CALIBRE' },
+  filesDownload: { es: 'Archivos para descargar', en: 'Files to Download', pt: 'Arquivos para Download' },
+  downloadOEM: { es: 'Descargue nuestros Casos de éxito OEM', en: 'Download our OEM Success Cases', pt: 'Baixe nossos Casos de Sucesso OEM' },
+  downloadRetrofit: { es: 'Descargue nuestros Casos de éxito Retrofit', en: 'Download our Retrofit Success Cases', pt: 'Baixe nossos Casos de Sucesso Retrofit' },
+  learnMore: { es: 'Conocer más', en: 'Learn more', pt: 'Saiba mais' },
+  protectSecurity: { es: 'Protegemos tu seguridad', en: 'We Protect Your Security', pt: 'Protegemos sua segurança' },
+  trustExperience: { es: 'Confía en la experiencia y calidad de un líder en seguridad automotriz.', en: 'Trust the experience and quality of a leader in automotive security.', pt: 'Confie na experiência e qualidade de um líder em segurança automotiva.' },
+  fullName: { es: 'Nombre completo', en: 'Full Name', pt: 'Nome completo' },
+  email: { es: 'Email', en: 'Email', pt: 'Email' },
+  message: { es: 'Mensaje', en: 'Message', pt: 'Mensagem' },
+  enterName: { es: 'Introduzca su nombre', en: 'Enter your name', pt: 'Digite seu nome' },
+  enterEmail: { es: 'Introduzca su dirección de correo electrónico', en: 'Enter your email address', pt: 'Digite seu endereço de e-mail' },
+  writeMessage: { es: 'Escriba aquí su mensaje', en: 'Write your message here', pt: 'Escreva sua mensagem aqui' },
+  cancel: { es: 'Cancel', en: 'Cancel', pt: 'Cancelar' },
+  send: { es: 'Enviar', en: 'Send', pt: 'Enviar' },
+};
 
 const PGArchitecturalPage = () => {
+  const { language } = useLanguage();
+  const T = (obj: { es: string; en: string; pt: string }) => obj[language as 'es' | 'en' | 'pt'];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +45,13 @@ const PGArchitecturalPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    toast.success("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+    toast.success(
+      language === 'es'
+        ? 'Mensaje enviado correctamente. Nos pondremos en contacto pronto.'
+        : language === 'en'
+        ? 'Message sent successfully. We will contact you soon.'
+        : 'Mensagem enviada com sucesso. Entraremos em contato em breve.'
+    );
     setFormData({
       name: '',
       email: '',
@@ -190,11 +222,11 @@ const PGArchitecturalPage = () => {
           {/* Chart Table */}
           <div className="overflow-x-auto">
             <table className="w-full min-w-[800px] border-collapse">
-              {/* Espesor Row */}
+              {/* Thickness Row */}
               <thead>
                 <tr>
                   <th className="bg-[#f2f4f6] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200 w-[200px]">
-                    Espesor (mm)
+                    {T(at.thickness)}
                   </th>
                   {ballisticData.headers.map((header, idx) => (
                     <th key={idx} className="bg-[#e7eaee] p-3 sm:p-4 text-center text-sm sm:text-base font-medium text-black border-b border-gray-200">
@@ -204,10 +236,10 @@ const PGArchitecturalPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Peso Row */}
+                {/* Weight Row */}
                 <tr>
                   <td className="bg-[#f2f4f6] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    Peso (Kg/m2)
+                    {T(at.weight)}
                   </td>
                   {ballisticData.weights.map((weight, idx) => (
                     <td key={idx} className="bg-[#e7eaee] p-3 sm:p-4 text-center text-sm sm:text-base font-medium text-black border-b border-gray-200">
@@ -225,7 +257,7 @@ const PGArchitecturalPage = () => {
                 {ballisticData.standards.map((standard, idx) => (
                   <tr key={idx}>
                     <td className="bg-[#f2f4f6] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200 relative">
-                      {/* Vertical "Standard Balístico" label for first row */}
+                      {/* Vertical "Ballistic Standard" label for first row */}
                       {idx === 0 && (
                         <div className="absolute left-0 top-0 h-[480px] w-12 bg-[#6e809c] flex items-center justify-center z-10">
                           <span
@@ -235,7 +267,7 @@ const PGArchitecturalPage = () => {
                               transform: 'rotate(180deg)'
                             }}
                           >
-                            Standard Balístico
+                            {T(at.ballisticStandard)}
                           </span>
                         </div>
                       )}
@@ -259,10 +291,10 @@ const PGArchitecturalPage = () => {
                   <td colSpan={6} className="bg-white h-4"></td>
                 </tr>
 
-                {/* ARMA Row */}
+                {/* ARMA/WEAPON Row */}
                 <tr>
                   <td className="bg-[#f2f4f6] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    <span className="pl-14">ARMA</span>
+                    <span className="pl-14">{T(at.arma)}</span>
                   </td>
                   {[0, 1, 2, 3, 4].map((idx) => (
                     <td key={idx} className="bg-[#e7eaee] p-3 sm:p-4 text-center border-b border-gray-200">
@@ -281,10 +313,10 @@ const PGArchitecturalPage = () => {
                   ))}
                 </tr>
 
-                {/* CALIBRE Row */}
+                {/* CALIBRE/CALIBER Row */}
                 <tr>
                   <td className="bg-[#f2f4f6] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    <span className="pl-14">CALIBRE</span>
+                    <span className="pl-14">{T(at.calibre)}</span>
                   </td>
                   <td className="bg-[#e7eaee] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
                     <p className="font-bold">5.56 x 45mm M855</p>
@@ -352,7 +384,7 @@ const PGArchitecturalPage = () => {
               Enhancing building security for safer environments
             </p>
             <button className="border-2 border-pgnavy text-pgnavy px-8 py-3 rounded-lg font-bold text-lg hover:bg-pgnavy hover:text-white transition-colors duration-300">
-              Conocer más
+              {T(at.learnMore)}
             </button>
           </div>
         </div>
@@ -362,7 +394,7 @@ const PGArchitecturalPage = () => {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-pgnavy mb-8">
-            Archivos para descargar
+            {T(at.filesDownload)}
           </h2>
 
           <div className="space-y-0">
@@ -372,7 +404,7 @@ const PGArchitecturalPage = () => {
             {/* Download OEM */}
             <div className="flex items-center justify-between py-6">
               <span className="text-gray-700 text-sm sm:text-base">
-                Descargue nuestros Casos de éxito OEM
+                {T(at.downloadOEM)}
               </span>
               <button className="w-12 h-12 sm:w-14 sm:h-14 bg-[#c5d5fe] rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
                 <Download className="w-5 h-5 sm:w-6 sm:h-6 text-pgnavy" />
@@ -385,7 +417,7 @@ const PGArchitecturalPage = () => {
             {/* Download Retrofit */}
             <div className="flex items-center justify-between py-6">
               <span className="text-gray-700 text-sm sm:text-base">
-                Descargue nuestros Casos de éxito Retrofit
+                {T(at.downloadRetrofit)}
               </span>
               <button className="w-12 h-12 sm:w-14 sm:h-14 bg-[#c5d5fe] rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
                 <Download className="w-5 h-5 sm:w-6 sm:h-6 text-pgnavy" />
@@ -415,27 +447,27 @@ const PGArchitecturalPage = () => {
 
             {/* Left Content */}
             <div className="text-white">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Protegemos tu seguridad
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                {T(at.protectSecurity)}
               </h2>
-              <p className="text-lg lg:text-xl leading-relaxed opacity-90">
-                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed opacity-90">
+                {T(at.trustExperience)}
               </p>
             </div>
 
             {/* Right Contact Form */}
-            <div className="p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    Nombre completo
+                    {T(at.fullName)}
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Introduzca su nombre"
+                    placeholder={T(at.enterName)}
                     className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white text-base"
                     required
                   />
@@ -443,14 +475,14 @@ const PGArchitecturalPage = () => {
 
                 <div>
                   <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    Email
+                    {T(at.email)}
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Introduzca su dirección de correo electrónico"
+                    placeholder={T(at.enterEmail)}
                     className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white text-base"
                     required
                   />
@@ -458,13 +490,13 @@ const PGArchitecturalPage = () => {
 
                 <div>
                   <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    Mensaje
+                    {T(at.message)}
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Escriba aquí su mensaje"
+                    placeholder={T(at.writeMessage)}
                     rows={4}
                     className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white resize-none text-base"
                     required
@@ -477,13 +509,13 @@ const PGArchitecturalPage = () => {
                     onClick={() => setFormData({ name: '', email: '', message: '' })}
                     className="flex-1 py-4 px-8 bg-transparent border-2 border-white text-white rounded-lg font-bold text-base hover:bg-white hover:text-black transition-all duration-300"
                   >
-                    Cancel
+                    {T(at.cancel)}
                   </button>
                   <button
                     type="submit"
                     className="flex-1 py-4 px-8 bg-pgnavy text-white rounded-lg font-bold text-base hover:bg-pgblue transition-all duration-300"
                   >
-                    Enviar
+                    {T(at.send)}
                   </button>
                 </div>
               </form>

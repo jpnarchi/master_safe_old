@@ -3,8 +3,75 @@ import { Download, Shield, Target, Thermometer } from 'lucide-react';
 import { toast } from "sonner";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const mt = {
+  thickness: { es: "Espesor (mm)", en: "Thickness (mm)", pt: "Espessura (mm)" },
+  weight: { es: "Peso (Kg/m2)", en: "Weight (Kg/m2)", pt: "Peso (Kg/m2)" },
+  ballisticStandard: { es: "Standard Balístico", en: "Ballistic Standard", pt: "Padrão Balístico" },
+  weapon: { es: "ARMA", en: "WEAPON", pt: "ARMA" },
+  caliber: { es: "CALIBRE", en: "CALIBER", pt: "CALIBRE" },
+  downloadsTitle: { es: "Archivos para descargar", en: "Files to Download", pt: "Arquivos para Download" },
+  downloadMilitary: {
+    es: "Descargue nuestros Casos de éxito Military grade",
+    en: "Download our Military grade Success Cases",
+    pt: "Baixe nossos Casos de sucesso Military grade"
+  },
+  protectTitle: { es: "Protegemos tu seguridad", en: "We Protect Your Security", pt: "Protegemos sua segurança" },
+  protectDesc: {
+    es: "Confía en la experiencia y calidad de un líder en seguridad automotriz.",
+    en: "Trust the experience and quality of a leader in automotive security.",
+    pt: "Confie na experiência e qualidade de um líder em segurança automotiva."
+  },
+  fullName: { es: "Nombre completo", en: "Full Name", pt: "Nome completo" },
+  email: { es: "Email", en: "Email", pt: "Email" },
+  message: { es: "Mensaje", en: "Message", pt: "Mensagem" },
+  namePlaceholder: { es: "Introduzca su nombre", en: "Enter your name", pt: "Digite seu nome" },
+  emailPlaceholder: {
+    es: "Introduzca su dirección de correo electrónico",
+    en: "Enter your email address",
+    pt: "Digite seu endereço de e-mail"
+  },
+  messagePlaceholder: { es: "Escriba aquí su mensaje", en: "Write your message here", pt: "Escreva sua mensagem aqui" },
+  cancel: { es: "Cancel", en: "Cancel", pt: "Cancelar" },
+  send: { es: "Enviar", en: "Send", pt: "Enviar" },
+  learnMore: { es: "Conocer más", en: "Learn more", pt: "Saiba mais" },
+  toastSuccess: {
+    es: "Mensaje enviado correctamente. Nos pondremos en contacto pronto.",
+    en: "Message sent successfully. We will contact you soon.",
+    pt: "Mensagem enviada com sucesso. Entraremos em contato em breve."
+  },
+  milGradeTitle: {
+    es: "Soluciones de Protección Militar",
+    en: "Military-Grade Protection Solutions",
+    pt: "Soluções de Proteção Militar"
+  },
+  milGradeDesc1: {
+    es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para el personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate, nuestras soluciones de vidrio balístico brindan protección superior manteniendo la efectividad operacional.",
+    en: "Our military applications deliver the highest levels of ballistic protection for defense personnel and equipment. Engineered to withstand extreme combat conditions, our ballistic glass solutions provide superior protection while maintaining operational effectiveness.",
+    pt: "Nossas aplicações militares oferecem os mais altos níveis de proteção balística para pessoal e equipamentos de defesa. Projetadas para suportar condições extremas de combate, nossas soluções de vidro balístico fornecem proteção superior mantendo a eficácia operacional."
+  },
+  milGradeDesc2: {
+    es: "De vehículos blindados a instalaciones militares, nuestros productos cumplen rigurosos estándares y especificaciones militares. Cada solución se diseña a medida para abordar niveles de amenaza específicos garantizando máxima durabilidad y rendimiento en los entornos más exigentes.",
+    en: "From armored vehicles to military installations, our products meet rigorous military standards and specifications. Each solution is custom-designed to address specific threat levels while ensuring maximum durability and performance in the most demanding environments.",
+    pt: "De veículos blindados a instalações militares, nossos produtos atendem a rigorosos padrões e especificações militares. Cada solução é personalizada para atender a níveis de ameaça específicos, garantindo máxima durabilidade e desempenho nos ambientes mais exigentes."
+  },
+  nijCertified: { es: "Protección Certificada NIJ", en: "NIJ Certified Protection", pt: "Proteção Certificada NIJ" },
+  multiHit: { es: "Resistencia Multi-Impacto", en: "Multi-Hit Resistance", pt: "Resistência Multi-Impacto" },
+  extremeEnv: { es: "Durabilidad en Ambiente Extremo", en: "Extreme Environment Durability", pt: "Durabilidade em Ambiente Extremo" },
+  successCasesTitle: { es: "Casos de Éxito Military-Grade", en: "Military-Grade Success Cases", pt: "Casos de Sucesso Military-Grade" },
+  successCasesDesc: {
+    es: "De vehículos blindados a instalaciones militares",
+    en: "From armored vehicles to military installations",
+    pt: "De veículos blindados a instalações militares"
+  },
+};
 
 const PGMilitaryPage = () => {
+  const { language } = useLanguage();
+  const lang = language as 'es' | 'en' | 'pt';
+  const T = (obj: { es: string; en: string; pt: string }) => obj[lang];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +86,7 @@ const PGMilitaryPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    toast.success("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+    toast.success(T(mt.toastSuccess));
     setFormData({
       name: '',
       email: '',
@@ -101,8 +168,7 @@ const PGMilitaryPage = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
-            <span className="text-pgnavy">Military-Grade Protection</span>{' '}
-            <span className="font-normal text-pgnavy">Solutions</span>
+            <span className="text-pgnavy">{T(mt.milGradeTitle)}</span>
           </h2>
 
           {/* Tank Image */}
@@ -117,10 +183,10 @@ const PGMilitaryPage = () => {
           {/* Description Text */}
           <div className="max-w-5xl mx-auto text-center mb-12">
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
-              Our military applications deliver the highest levels of ballistic protection for defense personnel and equipment. Engineered to withstand extreme combat conditions, our ballistic glass solutions provide superior protection while maintaining operational effectiveness.
+              {T(mt.milGradeDesc1)}
             </p>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              From armored vehicles to military installations, our products meet rigorous military standards and specifications. Each solution is custom-designed to address specific threat levels while ensuring maximum durability and performance in the most demanding environments.
+              {T(mt.milGradeDesc2)}
             </p>
           </div>
 
@@ -132,7 +198,7 @@ const PGMilitaryPage = () => {
                 <Shield className="w-12 h-12 sm:w-16 sm:h-16 text-pgnavy" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-pgnavy">
-                NIJ Certified Protection
+                {T(mt.nijCertified)}
               </h3>
             </div>
 
@@ -142,7 +208,7 @@ const PGMilitaryPage = () => {
                 <Target className="w-12 h-12 sm:w-16 sm:h-16 text-pgnavy" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-pgnavy">
-                Multi-Hit Resistance
+                {T(mt.multiHit)}
               </h3>
             </div>
 
@@ -152,7 +218,7 @@ const PGMilitaryPage = () => {
                 <Thermometer className="w-12 h-12 sm:w-16 sm:h-16 text-pgnavy" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-pgnavy">
-                Extreme Environment Durability
+                {T(mt.extremeEnv)}
               </h3>
             </div>
           </div>
@@ -183,7 +249,7 @@ const PGMilitaryPage = () => {
               <thead>
                 <tr>
                   <th className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200 w-[200px]">
-                    Espesor (mm)
+                    {T(mt.thickness)}
                   </th>
                   {ballisticData.headers.map((header, idx) => (
                     <th key={idx} className="bg-[rgba(39,59,8,0.15)] p-3 sm:p-4 text-center text-sm sm:text-base font-medium text-black border-b border-gray-200">
@@ -196,7 +262,7 @@ const PGMilitaryPage = () => {
                 {/* Peso Row */}
                 <tr>
                   <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    Peso (Kg/m2)
+                    {T(mt.weight)}
                   </td>
                   {ballisticData.weights.map((weight, idx) => (
                     <td key={idx} className="bg-[rgba(39,59,8,0.15)] p-3 sm:p-4 text-center text-sm sm:text-base font-medium text-black border-b border-gray-200">
@@ -224,7 +290,7 @@ const PGMilitaryPage = () => {
                               transform: 'rotate(180deg)'
                             }}
                           >
-                            Standard Balístico
+                            {T(mt.ballisticStandard)}
                           </span>
                         </div>
                       )}
@@ -251,7 +317,7 @@ const PGMilitaryPage = () => {
                 {/* ARMA Row */}
                 <tr>
                   <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    <span className="pl-14">ARMA</span>
+                    <span className="pl-14">{T(mt.weapon)}</span>
                   </td>
                   {[0, 1, 2, 3, 4].map((idx) => (
                     <td key={idx} className="bg-[#dfe2da] p-3 sm:p-4 text-center border-b border-gray-200">
@@ -273,7 +339,7 @@ const PGMilitaryPage = () => {
                 {/* CALIBRE Row */}
                 <tr>
                   <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    <span className="pl-14">CALIBRE</span>
+                    <span className="pl-14">{T(mt.caliber)}</span>
                   </td>
                   <td className="bg-[#dfe2da] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
                     <p className="font-bold">5.56 x 45mm M855</p>
@@ -335,13 +401,13 @@ const PGMilitaryPage = () => {
             </div>
 
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pgnavy mb-2">
-              Military-Grade <span className="font-normal">Success Cases</span>
+              {T(mt.successCasesTitle)}
             </h3>
             <p className="text-gray-600 text-lg sm:text-xl mb-8">
-              From armored vehicles to military installations
+              {T(mt.successCasesDesc)}
             </p>
             <button className="border-2 border-pgnavy text-pgnavy px-8 py-3 rounded-lg font-bold text-lg hover:bg-pgnavy hover:text-white transition-colors duration-300">
-              Conocer más
+              {T(mt.learnMore)}
             </button>
           </div>
         </div>
@@ -351,7 +417,7 @@ const PGMilitaryPage = () => {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-pgnavy mb-8">
-            Archivos para descargar
+            {T(mt.downloadsTitle)}
           </h2>
 
           <div className="space-y-0">
@@ -361,7 +427,7 @@ const PGMilitaryPage = () => {
             {/* Download Military grade */}
             <div className="flex items-center justify-between py-6">
               <span className="text-gray-700 text-sm sm:text-base">
-                Descargue nuestros Casos de éxito Military grade
+                {T(mt.downloadMilitary)}
               </span>
               <button className="w-12 h-12 sm:w-14 sm:h-14 bg-[#c5d5fe] rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
                 <Download className="w-5 h-5 sm:w-6 sm:h-6 text-pgnavy" />
@@ -392,10 +458,10 @@ const PGMilitaryPage = () => {
             {/* Left Content */}
             <div className="text-white">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Protegemos tu seguridad
+                {T(mt.protectTitle)}
               </h2>
               <p className="text-lg lg:text-xl leading-relaxed opacity-90">
-                Confía en la experiencia y calidad de un líder en seguridad automotriz.
+                {T(mt.protectDesc)}
               </p>
             </div>
 
@@ -404,14 +470,14 @@ const PGMilitaryPage = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    Nombre completo
+                    {T(mt.fullName)}
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Introduzca su nombre"
+                    placeholder={T(mt.namePlaceholder)}
                     className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white text-base"
                     required
                   />
@@ -419,14 +485,14 @@ const PGMilitaryPage = () => {
 
                 <div>
                   <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    Email
+                    {T(mt.email)}
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Introduzca su dirección de correo electrónico"
+                    placeholder={T(mt.emailPlaceholder)}
                     className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white text-base"
                     required
                   />
@@ -434,13 +500,13 @@ const PGMilitaryPage = () => {
 
                 <div>
                   <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    Mensaje
+                    {T(mt.message)}
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Escriba aquí su mensaje"
+                    placeholder={T(mt.messagePlaceholder)}
                     rows={4}
                     className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white resize-none text-base"
                     required
@@ -453,13 +519,13 @@ const PGMilitaryPage = () => {
                     onClick={() => setFormData({ name: '', email: '', message: '' })}
                     className="flex-1 py-4 px-8 bg-transparent border-2 border-white text-white rounded-lg font-bold text-base hover:bg-white hover:text-black transition-all duration-300"
                   >
-                    Cancel
+                    {T(mt.cancel)}
                   </button>
                   <button
                     type="submit"
                     className="flex-1 py-4 px-8 bg-pgnavy text-white rounded-lg font-bold text-base hover:bg-pgblue transition-all duration-300"
                   >
-                    Enviar
+                    {T(mt.send)}
                   </button>
                 </div>
               </form>

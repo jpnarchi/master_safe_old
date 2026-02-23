@@ -3,68 +3,36 @@ import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { toast } from "sonner";
+import { useLanguage } from '../contexts/LanguageContext';
+import { ultraTranslations as tr, commonTranslations as c, t } from '../translations';
 
 const UltraPage = () => {
+  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const tabs = ['PG Ultra', 'Composición', 'Tecnología', 'Especificaciones'];
+  const tabs = [
+    t(tr.tabName, language),
+    t(c.tabs.composition, language),
+    t(c.tabs.technology, language),
+    t(c.tabs.specs, language),
+  ];
 
   const tabDescriptions = [
-    // Tab 1 - PG ULTRA
-    `Un cristal blindado que integra resistencia balística a armas cortas y en el mismo espesor resistencia para municiones de alto calibre.`,
-    // Tab 2 - COMPOSICIÓN
-    `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A
-
-Balística: Adicionalmente:
-- Cuatro Impactos Munición: 7,62x39mm FMJ a 30 cms
-- 1 Impacto Munición: 5,56x45 M193 en el centro`,
-    // Tab 3 - TECNOLOGÍA
-    `* Certificados balísticos disponibles
-* Pruebas realizadas en laboratorios reconocidos.
-
-PG SUPERSLIM SUPERIOR
-En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos
-
-*Consulte disponibilidad de producto en su región.`,
-    // Tab 4 - ESPECIFICACIONES
-    `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A
-
-Balística: Adicionalmente:
-- Cuatro Impactos Munición: 7,62x39mm FMJ a 30 cms
-- 1 Impacto Munición: 5,56x45 M193 en el centro`
+    t(tr.tab1, language),
+    t(tr.tab2, language),
+    t(tr.tab3, language),
+    t(tr.tab4, language),
   ];
 
-  const useCases = [
-    {
-      title: 'Aplicaciones Militares Extremas',
-      description: 'ULTRA proporciona la máxima protección disponible para vehículos militares en zonas de alto riesgo, resistiendo amenazas balísticas extremas.',
-      image: '/lovable-uploads/ultrafotooverview.jpg'
-    },
-    {
-      title: 'Vehículos Presidenciales',
-      description: 'Protección de máximo nivel para dignatarios y funcionarios de alto rango con resistencia balística certificada contra múltiples amenazas.',
-      image: '/lovable-uploads/ultrafototechnology.jpg'
-    },
-    {
-      title: 'Instalaciones de Máxima Seguridad',
-      description: 'Solución ideal para instalaciones críticas que requieren el más alto nivel de protección balística disponible.',
-      image: '/lovable-uploads/ultrafotoapplication.jpeg'
-    }
+  const keyBenefits = tr.benefits[language];
+  const useCaseImages = [
+    '/lovable-uploads/ultrafotooverview.jpg',
+    '/lovable-uploads/ultrafototechnology.jpg',
+    '/lovable-uploads/ultrafotoapplication.jpeg',
   ];
-
-  const keyBenefits = [
-    { label: 'Máxima Resistencia:', detail: 'El nivel más alto de protección balística disponible en el mercado.' },
-    { label: 'Protección Extrema:', detail: 'combina la Resistencia a amenazas balísticas de bajo y alto calibre además de múltiples impactos.' },
-    { label: 'Tecnología Avanzada:', detail: 'Incorpora los últimos avances en materiales de protección balística.' },
-    { label: 'Rendimiento Superior:', detail: 'Máxima durabilidad y resistencia en condiciones extremas.' },
-    { label: 'Producto Certificado:', detail: 'Cumple con los más estrictos estándares internacionales probado en los laboratorios más exigentes.' }
-  ];
+  const useCases = tr.useCases[language];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -74,55 +42,40 @@ Balística: Adicionalmente:
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Por favor complete todos los campos requeridos");
+      toast.error(t(c.contact.toastRequired, language));
       return;
     }
-    console.log('Form submitted:', formData);
-    toast.success("Mensaje enviado correctamente. Nos pondremos en contacto pronto.");
+    toast.success(t(c.contact.toastSuccess, language));
     setFormData({ name: '', email: '', message: '' });
   };
 
   const handleCancel = () => {
     setFormData({ name: '', email: '', message: '' });
-    toast.info("Formulario cancelado");
+    toast.info(t(c.contact.toastCancelled, language));
   };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % useCases.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % useCases.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[740px] w-full overflow-hidden">
-        <img
-          src="/lovable-uploads/PGULTRASLIDE.jpeg"
-          alt="Ultra Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <section className="relative h-[500px] sm:h-[580px] md:h-[660px] lg:h-[740px] w-full overflow-hidden">
+        <img src="/lovable-uploads/PGULTRASLIDE.jpeg" alt="Ultra Background" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
-
-        <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 max-w-7xl mx-auto">
-          <h1 className="text-white text-xl md:text-2xl font-normal text-center mb-4 font-montserrat">
-            Máxima protección balística con tecnología de vanguardia, Resistencia balística adicional a armas largas
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 max-w-7xl mx-auto text-center">
+          <h1 className="text-white text-base sm:text-xl md:text-2xl font-normal mb-3 sm:mb-4 font-montserrat">
+            {t(tr.heroSubtitle, language)}
           </h1>
-
-          <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6 font-montserrat">
-            PG Ultra
+          <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-montserrat leading-tight">
+            {t(tr.heroTitle, language)}
           </h2>
-
-          <p className="text-white text-base md:text-lg lg:text-xl font-normal text-center max-w-3xl leading-relaxed font-montserrat">
-            PG ULTRA es un cristal blindado con todas las características de un nivel bajo, que suma una destacable resistencia balística a munición de nivel superior.
+          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-normal max-w-3xl leading-relaxed font-montserrat">
+            {t(tr.heroDescription, language)}
           </p>
-
-          {/* Navigation Dots */}
-          <div className="absolute bottom-12 flex gap-3">
+          <div className="absolute bottom-8 sm:bottom-12 flex gap-3">
             <div className="w-3 h-3 rounded-full bg-white/70"></div>
             <div className="w-3 h-3 rounded-full bg-white/70"></div>
             <div className="w-3 h-3 rounded-full bg-white/70"></div>
@@ -130,42 +83,22 @@ Balística: Adicionalmente:
         </div>
       </section>
 
-      {/* Key Benefits Section with Extended Blue Background */}
+      {/* Key Benefits */}
       <section className="relative" style={{background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 4.44%, rgba(4, 64, 161, 0.80) 108.12%)'}}>
         <div className="mx-auto flex flex-col items-center pb-64" style={{width: '1728px', maxWidth: '100%'}}>
-          {/* Premium Armor Glass Logo and Title */}
-          <div className="flex items-center justify-center gap-6 mb-12 mt-16" style={{
-            width: '1568px',
-            height: '146px',
-            maxWidth: '95%',
-            borderRadius: '23px',
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12 mt-10 sm:mt-16 mx-4 sm:mx-auto px-6 py-5 sm:py-0 h-auto sm:h-[146px] w-full sm:w-[95%] max-w-[1568px]" style={{
+            borderRadius: '23px', background: 'rgba(255, 255, 255, 0.25)', backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255, 255, 255, 0.3)', boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
           }}>
-            <img
-              src="/lovable-uploads/Ultralogo.png"
-              alt="Ultra Logo"
-              style={{width: '389px', height: '50px'}}
-              className="object-contain"
-            />
-            <h2 className="font-normal text-black font-montserrat" style={{width: '265px', height: '36px', fontSize: '36px', lineHeight: '36px'}}>
-              Key Benefits
-            </h2>
+            <img src="/lovable-uploads/Ultralogo.png" alt="Ultra Logo" className="object-contain w-[180px] sm:w-[280px] md:w-[389px] h-auto" />
+            <h2 className="font-normal text-black font-montserrat text-2xl sm:text-3xl md:text-4xl">{t(c.keyBenefits, language)}</h2>
           </div>
 
-          {/* Benefits List */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
             <div className="space-y-2">
               {keyBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start justify-start gap-4">
-                  <img
-                    src="/lovable-uploads/checkmark_bullet.png"
-                    alt="Checkmark"
-                    className="w-8 h-8 flex-shrink-0 mt-1 object-contain"
-                  />
+                  <img src="/lovable-uploads/checkmark_bullet.png" alt="Checkmark" className="w-8 h-8 flex-shrink-0 mt-1 object-contain" />
                   <p className="text-lg md:text-xl font-montserrat">
                     <span className="font-bold">{benefit.label}</span>{' '}
                     <span className="font-normal">{benefit.detail}</span>
@@ -175,209 +108,114 @@ Balística: Adicionalmente:
             </div>
           </div>
 
-          {/* Tabs Navigation */}
           <div className="mb-8 w-full px-4">
-            <div className="flex justify-between items-center border-b border-black pb-4 overflow-x-auto gap-8 max-w-7xl mx-auto">
+            <div className="flex justify-between items-center border-b border-black pb-4 overflow-x-auto gap-2 sm:gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
               {tabs.map((tab, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`text-2xl md:text-3xl font-normal whitespace-nowrap transition-all font-montserrat ${
-                    activeTab === index
-                      ? 'text-black'
-                      : 'text-black/50 hover:text-black/75'
-                  }`}
-                >
+                <button key={index} onClick={() => setActiveTab(index)}
+                  className={`text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-normal whitespace-nowrap transition-all font-montserrat flex-shrink-0 ${activeTab === index ? 'text-black' : 'text-black/50 hover:text-black/75'}`}>
                   {tab}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Tab Description */}
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
-              {tabDescriptions[activeTab]}
-            </p>
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">{tabDescriptions[activeTab]}</p>
           </div>
         </div>
 
-        {/* Image that overflows out of blue background */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex justify-center" style={{bottom: '-271px'}}>
-          <img
-            src="/lovable-uploads/img_tab_1_pg_ultra.png"
-            alt="Ultra Product"
-            style={{width: '1526px', height: '543px', maxWidth: '95vw'}}
-            className="object-contain"
-          />
+        <div className="absolute left-1/2 -translate-x-1/2 flex justify-center -bottom-16 sm:-bottom-28 md:-bottom-36 lg:-bottom-44 xl:-bottom-56 2xl:-bottom-[271px]">
+          <img src="/lovable-uploads/img_tab_1_pg_ultra.png" alt="Ultra Product" className="object-contain w-[95vw] max-w-[1526px] h-auto" />
         </div>
       </section>
 
-      {/* Spacer for overflowing image */}
-      <div style={{height: '271px'}}></div>
+      <div className="h-16 sm:h-28 md:h-36 lg:h-44 xl:h-56 2xl:h-[271px]"></div>
 
-      {/* Use Cases and Applications */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      {/* Use Cases */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#05204B] text-center mb-16 font-montserrat">
-            Casos de uso y Aplicaciones
-          </h2>
-
+          <h2 className="text-4xl md:text-5xl font-bold text-[#05204B] text-center mb-16 font-montserrat">{t(c.useCasesTitle, language)}</h2>
           <div className="relative">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-xl h-[500px]">
-                <img
-                  src={useCases[currentSlide].image}
-                  alt={useCases[currentSlide].title}
-                  className="w-full h-full object-cover"
-                />
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl h-[260px] sm:h-[360px] md:h-[500px]">
+                <img src={useCaseImages[currentSlide]} alt={useCases[currentSlide].title} className="w-full h-full object-cover" />
               </div>
-
-              {/* Content */}
-              <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-bold text-[#05204B] text-center md:text-left font-montserrat">
-                  {useCases[currentSlide].title}
-                </h3>
-                <p className="text-xl md:text-2xl text-[#3E3E3E] text-center md:text-left font-montserrat">
-                  {useCases[currentSlide].description}
-                </p>
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#05204B] text-center md:text-left font-montserrat">{useCases[currentSlide].title}</h3>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#3E3E3E] text-center md:text-left font-montserrat leading-relaxed">{useCases[currentSlide].description}</p>
               </div>
             </div>
-
-            {/* Carousel Controls */}
-            <div className="flex justify-center md:justify-end gap-4 mt-12">
-              <button
-                onClick={prevSlide}
-                className="w-20 h-20 rounded-full bg-gray-200/50 hover:bg-gray-300/50 flex items-center justify-center transition-colors"
-              >
-                <ChevronLeft className="w-8 h-8 text-[#05204B]" strokeWidth={3} />
+            <div className="flex justify-center md:justify-end gap-4 mt-8 sm:mt-12">
+              <button onClick={prevSlide} className="w-20 h-20 rounded-full bg-gray-200/50 hover:bg-gray-300/50 flex items-center justify-center transition-colors">
+                <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-[#05204B]" strokeWidth={3} />
               </button>
-              <button
-                onClick={nextSlide}
-                className="w-20 h-20 rounded-full bg-gray-200/50 hover:bg-gray-300/50 flex items-center justify-center transition-colors border-4 border-[#00CCFF]"
-              >
-                <ChevronRight className="w-8 h-8 text-[#05204B]" strokeWidth={3} />
+              <button onClick={nextSlide} className="w-20 h-20 rounded-full bg-gray-200/50 hover:bg-gray-300/50 flex items-center justify-center transition-colors border-4 border-[#00CCFF]">
+                <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-[#05204B]" strokeWidth={3} />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Brochures and Downloads */}
-      <section className="py-16 md:py-20 bg-white">
+      {/* Brochures */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#05204B] text-center mb-16 font-montserrat">
-            Brochures y Descargas
-          </h2>
-
-          <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-between p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <span className="text-xl md:text-2xl text-[#3E3E3E] font-montserrat">
-                Brochure de producto PG Ultra.pdf
-              </span>
-              <button className="w-20 h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
-                <Download className="w-10 h-10 text-black" />
+          <h2 className="text-4xl md:text-5xl font-bold text-[#05204B] text-center mb-16 font-montserrat">{t(c.brochuresTitle, language)}</h2>
+          <div className="space-y-4 sm:space-y-8 max-w-4xl mx-auto">
+            <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure1, language)}</span>
+              <button className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+                <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
               </button>
             </div>
-
-            <div className="flex items-center justify-between p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <span className="text-xl md:text-2xl text-[#3E3E3E] font-montserrat">
-                Tabla balística para PG Ultra.pdf
-              </span>
-              <button className="w-20 h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
-                <Download className="w-10 h-10 text-black" />
+            <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure2, language)}</span>
+              <button className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+                <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="relative py-20 overflow-hidden">
-        <img
-          src="/bg_form_contact@2x.png"
-          alt="Contact Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      {/* Contact Form */}
+      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
+        <img src="/bg_form_contact@2x.png" alt="Contact Background" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/35" />
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left Side - Text */}
-            <div className="text-white space-y-6">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-montserrat">
-                Protegemos tu seguridad
-              </h2>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-snug font-montserrat">
-                Confía en la experiencia y calidad de un líder en seguridad automotriz.
-              </p>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="text-white space-y-4 sm:space-y-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-montserrat">{t(c.contact.headline, language)}</h2>
+              <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-light leading-snug font-montserrat">{t(c.contact.subheadline, language)}</p>
             </div>
-
-            {/* Right Side - Form */}
-            <div className="space-y-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-white text-lg font-bold mb-1 font-montserrat">
-                    Nombre completo
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat"
-                    placeholder="Introduzca su nombre"
-                    required
-                  />
+                  <label htmlFor="name" className="block text-white text-sm sm:text-base lg:text-lg font-bold mb-1 font-montserrat">{t(c.contact.labelName, language)}</label>
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}
+                    className="w-full px-3 py-2 sm:py-3 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat text-sm sm:text-base"
+                    placeholder={t(c.contact.placeholderName, language)} required />
                 </div>
-
                 <div>
-                  <label htmlFor="email" className="block text-white text-lg font-bold mb-1 font-montserrat">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat"
-                    placeholder="Introduzca su dirección de correo electrónico"
-                    required
-                  />
+                  <label htmlFor="email" className="block text-white text-sm sm:text-base lg:text-lg font-bold mb-1 font-montserrat">{t(c.contact.labelEmail, language)}</label>
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}
+                    className="w-full px-3 py-2 sm:py-3 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat text-sm sm:text-base"
+                    placeholder={t(c.contact.placeholderEmail, language)} required />
                 </div>
-
                 <div>
-                  <label htmlFor="message" className="block text-white text-lg font-bold mb-1 font-montserrat">
-                    Mensaje
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-3 py-2 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat resize-none"
-                    placeholder="Escriba aquí su mensaje"
-                    required
-                  />
+                  <label htmlFor="message" className="block text-white text-sm sm:text-base lg:text-lg font-bold mb-1 font-montserrat">{t(c.contact.labelMessage, language)}</label>
+                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4}
+                    className="w-full px-3 py-2 sm:py-3 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat resize-none text-sm sm:text-base"
+                    placeholder={t(c.contact.placeholderMessage, language)} required />
                 </div>
-
-                <div className="flex gap-5 flex-wrap">
-                  <button
-                    type="button"
-                    onClick={handleCancel}
-                    className="flex-1 min-w-[240px] px-3 py-4 bg-transparent border-2 border-white rounded-lg text-white text-lg font-bold hover:bg-white/10 transition-colors font-montserrat"
-                  >
-                    Cancel
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 pt-2">
+                  <button type="button" onClick={handleCancel}
+                    className="w-full sm:flex-1 px-3 py-3 sm:py-4 bg-transparent border-2 border-white rounded-lg text-white text-sm sm:text-base lg:text-lg font-bold hover:bg-white/10 transition-colors font-montserrat">
+                    {t(c.contact.cancel, language)}
                   </button>
-                  <button
-                    type="submit"
-                    className="flex-1 min-w-[240px] px-3 py-4 bg-[#08254C] rounded-lg text-white text-lg font-bold hover:bg-[#0a2d5c] transition-colors font-montserrat"
-                  >
-                    Enviar
+                  <button type="submit"
+                    className="w-full sm:flex-1 px-3 py-3 sm:py-4 bg-[#08254C] rounded-lg text-white text-sm sm:text-base lg:text-lg font-bold hover:bg-[#0a2d5c] transition-colors font-montserrat">
+                    {t(c.contact.send, language)}
                   </button>
                 </div>
               </form>
@@ -386,10 +224,7 @@ Balística: Adicionalmente:
         </div>
       </section>
 
-      {/* Footer with black background */}
-      <div className="bg-black">
-        <Footer />
-      </div>
+      <div className="bg-black"><Footer /></div>
     </div>
   );
 };
