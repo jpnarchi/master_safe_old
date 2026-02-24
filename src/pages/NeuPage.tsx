@@ -26,11 +26,18 @@ const NeuPage = () => {
     t(tr.tab4, language),
   ];
 
+  const tabImages = [
+    '',
+    '/composicionPGNeu.jpg',
+    '',
+    '/especificacionesPGNeu.jpg',
+  ];
+
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/lovable-uploads/casos_de_uso_slider_1.png',
-    '/lovable-uploads/casos_de_uso_slider_1.png',
-    '/lovable-uploads/casos_de_uso_slider_1.png',
+    '/casosdeusoPGNeu.jpg',
+    '/casosdeusoPGNeu.jpg',
+    '/casosdeusoPGNeu.jpg',
   ];
   const useCases = tr.useCases[language];
 
@@ -64,7 +71,7 @@ const NeuPage = () => {
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[580px] md:h-[660px] lg:h-[740px] w-full overflow-hidden">
         <img
-          src="/Hero_img_PG_Neu_1.png"
+          src="/heroheaderPGNeu.png"
           alt="Neu Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -131,18 +138,21 @@ const NeuPage = () => {
           </div>
 
           <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">
+            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line mb-8">
               {tabDescriptions[activeTab]}
             </p>
+            {tabImages[activeTab] && (
+              <div className="relative rounded-3xl overflow-hidden shadow-xl h-[260px] sm:h-[360px] md:h-[500px]">
+                <img
+                  src={tabImages[activeTab]}
+                  alt={tabs[activeTab]}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
-
-        <div className="absolute left-1/2 -translate-x-1/2 flex justify-center -bottom-16 sm:-bottom-28 md:-bottom-36 lg:-bottom-44 xl:-bottom-56 2xl:-bottom-[271px]">
-          <img src="/lovable-uploads/img_tab_1_pg_neu.png" alt="Neu Product" className="object-contain w-[95vw] max-w-[1526px] h-auto" />
-        </div>
       </section>
-
-      <div className="h-16 sm:h-28 md:h-36 lg:h-44 xl:h-56 2xl:h-[271px]"></div>
 
       {/* Use Cases */}
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">

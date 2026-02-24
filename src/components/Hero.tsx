@@ -82,9 +82,9 @@ const ht = {
     pt: 'A composição do vidro permite que o projétil reduza sua força no impacto e o policarbonato absorva sua energia cinética, parando e ficando encapsulado — evitando qualquer estilhaço no interior do veículo.',
   },
   casosTitle: {
-    es: 'Conozca algunos proyectos en los que PG ha incorporado sus productos',
-    en: 'Discover some projects where PG has incorporated its products',
-    pt: 'Conheça alguns projetos nos quais a PG incorporou seus produtos',
+    es: 'Conozca nuestros casos de éxito',
+    en: 'Discover our success stories',
+    pt: 'Conheça nossos casos de sucesso',
   },
   // ADN section
   adnTitle1: { es: 'Nuestro ADN es la protección:', en: 'Our DNA is protection:', pt: 'Nosso DNA é a proteção:' },
@@ -395,16 +395,22 @@ const Hero = () => {
             </div>
 
             {/* Casos de éxito */}
-            <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
-              <div className="flex justify-center items-start mb-6">
-                <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-pgnavy text-center">{T(ht.casosTitle)}</h2>
+            <div className="bg-gray-50 rounded-3xl overflow-hidden flex flex-col">
+              <div className="p-8 lg:p-12 pb-4">
+                <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-pgnavy text-center">
+                  {T(ht.casosTitle)}
+                </h2>
               </div>
-              <div className="flex justify-center mb-6">
-                <div className="w-full h-44 sm:h-56 lg:h-72 rounded-2xl"
-                  style={{ backgroundImage: 'url(/casos_rombos@2x.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+              <div className="flex-1 relative" style={{ minHeight: '360px' }}>
+                <img
+                  src="/conocemasHOME.png"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                  style={{ mixBlendMode: 'multiply', objectPosition: 'right center' }}
+                />
               </div>
-              <div className="flex justify-center">
-                <Link to="/pg-automotive" className="inline-flex items-center rounded-xl px-6 py-3 sm:px-8 text-sm sm:text-base font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white">
+              <div className="p-6 flex justify-center">
+                <Link to="/pg-automotive" className="inline-flex items-center rounded-xl px-6 py-3 sm:px-8 text-sm sm:text-base font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white whitespace-nowrap">
                   {T(ht.learnMore)}
                 </Link>
               </div>

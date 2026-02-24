@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const dt = {
-  heroTitle: { es: "Conoce más de PG Glass", en: "Learn more about PG Glass", pt: "Conheça mais sobre PG Glass" },
+  heroTitle: { es: "Conoce más de PG Products", en: "Learn more about PG Products", pt: "Conheça mais sobre PG Products" },
   heroDesc: {
     es: "Nuestros productos conservan una identidad que nos permite ofrecer ademas de seguridad, calidad total, es así como poseemos un ADN propio PG que traslada características diferenciadas en cada aspecto.",
     en: "Our products maintain an identity that allows us to offer, in addition to security, total quality. This is how we possess our own PG DNA that transfers differentiated characteristics in every aspect.",

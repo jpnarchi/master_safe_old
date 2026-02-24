@@ -26,11 +26,18 @@ const GlassGuardPage = () => {
     t(tr.tab4, language),
   ];
 
+  const tabImages = [
+    '/lovable-uploads/img_tab_1_pg_glassguard.png',
+    '/lovable-uploads/img_tab_1_pg_glassguard.png',
+    '/lovable-uploads/img_tab_1_pg_glassguard.png',
+    '/especificacionsPGGlassguard.jpg',
+  ];
+
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/lovable-uploads/casos_de_uso_slider_3.png',
-    '/lovable-uploads/casos_de_uso_slider_3.png',
-    '/lovable-uploads/casos_de_uso_slider_3.png',
+    '/casosdeusoPGGlassguard.jpg',
+    '/casosdeusoPGGlassguard.jpg',
+    '/casosdeusoPGGlassguard.jpg',
   ];
   const useCases = tr.useCases[language];
 
@@ -153,22 +160,20 @@ const GlassGuardPage = () => {
           </div>
 
           <div className="mb-8 sm:mb-12 w-full px-4 sm:px-8" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-sm sm:text-base md:text-lg font-montserrat whitespace-pre-line leading-relaxed">
+            <p className="text-center text-sm sm:text-base md:text-lg font-montserrat whitespace-pre-line leading-relaxed mb-8">
               {tabDescriptions[activeTab]}
             </p>
+            <div className="relative rounded-3xl overflow-hidden shadow-xl h-[260px] sm:h-[360px] md:h-[500px]">
+              <img
+                src={tabImages[activeTab]}
+                alt={tabs[activeTab]}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="absolute left-1/2 -translate-x-1/2 flex justify-center -bottom-16 sm:-bottom-28 md:-bottom-36 lg:-bottom-44 xl:-bottom-56 2xl:-bottom-[271px]">
-          <img
-            src="/lovable-uploads/img_tab_1_pg_glassguard.png"
-            alt="GlassGuard Product"
-            className="object-contain w-[95vw] max-w-[1526px] h-auto"
-          />
-        </div>
       </section>
-
-      <div className="h-16 sm:h-28 md:h-36 lg:h-44 xl:h-56 2xl:h-[271px]"></div>
 
       {/* ── USE CASES ── */}
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
