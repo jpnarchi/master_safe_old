@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -10,7 +10,21 @@ const GlassGuardPage = () => {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroSlide, setHeroSlide] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const heroImages = [
+    '/HeroGlassGuard-1.png',
+    '/HeroGlassGuard-2.png',
+    '/HeroGlassGuard-3.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const tabs = [
     t(tr.tabName, language),
@@ -27,17 +41,17 @@ const GlassGuardPage = () => {
   ];
 
   const tabImages = [
-    '/lovable-uploads/img_tab_1_pg_glassguard.png',
-    '/lovable-uploads/img_tab_1_pg_glassguard.png',
-    '/lovable-uploads/img_tab_1_pg_glassguard.png',
-    '/especificacionsPGGlassguard.jpg',
+    '/Tab1PGGlasGuard.png',
+    '/Tab2PGGlassguardComposicion.png',
+    '/Tab3PGGlassguardTecnologia.png',
+    '/Tab4PGGlassguardEspecificaciones.png',
   ];
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/casosdeusoPGGlassguard.jpg',
-    '/casosdeusoPGGlassguard.jpg',
-    '/casosdeusoPGGlassguard.jpg',
+    '/PGGlassguardCasosdeUso-1.png',
+    '/PGGlassguardCasosdeUso-2.png',
+    '/PGGlassguardCasosdeUso-3.png',
   ];
   const useCases = tr.useCases[language];
 
@@ -71,11 +85,14 @@ const GlassGuardPage = () => {
 
       {/* ── HERO ── */}
       <section className="relative h-[500px] sm:h-[580px] md:h-[660px] lg:h-[740px] w-full overflow-hidden">
-        <img
-          src="/Hero_img_PG_Glassguard_1.png"
-          alt="GlassGuard Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {heroImages.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`GlassGuard Background ${i + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === heroSlide ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 max-w-7xl mx-auto text-center">
@@ -92,9 +109,13 @@ const GlassGuardPage = () => {
           </p>
 
           <div className="absolute bottom-8 sm:bottom-12 flex gap-3">
-            <div className="w-3 h-3 rounded-full bg-[#7F8CAD]"></div>
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setHeroSlide(i)}
+                className={`w-3 h-3 rounded-full transition-colors ${i === heroSlide ? 'bg-[#7F8CAD]' : 'bg-white/70'}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -142,7 +163,7 @@ const GlassGuardPage = () => {
 
           {/* Tabs navigation */}
           <div className="mb-6 sm:mb-8 w-full px-4 sm:px-8">
-            <div className="flex items-center border-b border-black pb-3 sm:pb-4 overflow-x-auto gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto scrollbar-hide">
+            <div className="flex items-center justify-center border-b border-black pb-3 sm:pb-4 overflow-x-auto gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto scrollbar-hide">
               {tabs.map((tab, index) => (
                 <button
                   key={index}
