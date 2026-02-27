@@ -4,9 +4,9 @@ import { toast } from 'sonner';
 import { useLanguage, Language } from '../contexts/LanguageContext';
 
 const languages: { code: Language; label: string; native: string; flag: string }[] = [
-  { code: 'es', label: 'Spanish',    native: 'Español',   flag: '🇪🇸' },
-  { code: 'en', label: 'English',    native: 'English',   flag: '🇺🇸' },
-  { code: 'pt', label: 'Portuguese', native: 'Português', flag: '🇧🇷' },
+  { code: 'es', label: 'Spanish',    native: 'Español',   flag: '/flags/ES.svg' },
+  { code: 'en', label: 'English',    native: 'English',   flag: '/flags/US.svg' },
+  { code: 'pt', label: 'Portuguese', native: 'Português', flag: '/flags/BR.png' },
 ];
 
 const LanguageSelector: React.FC = () => {
@@ -63,7 +63,13 @@ const LanguageSelector: React.FC = () => {
                   : 'border-gray-100 bg-gray-50 hover:border-[#05204B] hover:bg-[#05204B]/5'
               }`}
             >
-              <span className="text-3xl leading-none">{lang.flag}</span>
+              <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full">
+                <img
+                  src={lang.flag}
+                  alt={`${lang.label} flag`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <div>
                 <p className="text-base font-bold text-[#05204B] font-montserrat">{lang.native}</p>
                 <p className="text-xs text-gray-400 font-montserrat">{lang.label}</p>

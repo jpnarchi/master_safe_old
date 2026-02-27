@@ -1,12 +1,13 @@
 
-import { ChevronRight } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage, Language } from '../contexts/LanguageContext';
 
-const languages: { code: Language; flag: string; label: string }[] = [
-  { code: 'es', flag: '🇪🇸', label: 'ES' },
-  { code: 'en', flag: '🇺🇸', label: 'EN' },
-  { code: 'pt', flag: '🇧🇷', label: 'PT' },
+const languages: { code: Language; flag: string; label: string; native: string }[] = [
+  { code: 'es', flag: '/flags/ES.svg', label: 'ES', native: 'Español' },
+  { code: 'en', flag: '/flags/US.svg', label: 'EN', native: 'English' },
+  { code: 'pt', flag: '/flags/BR.png', label: 'PT', native: 'Português' },
 ];
 
 const ft = {
@@ -55,6 +56,19 @@ const ft = {
 const Footer = () => {
   const { language, setLanguage } = useLanguage();
   const T = (obj: { es: string; en: string; pt: string }) => obj[language];
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const currentLang = languages.find((l) => l.code === language) || languages[0];
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.parentElement?.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <footer className="bg-pgnavy text-white">
@@ -116,28 +130,57 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} PG Products. {T(ft.rights)}
           </p>
 
-          {/* Language switcher */}
-          <div className="flex items-center gap-3">
-            <span className="text-white/50 text-xs font-montserrat">{T(ft.langLabel)}</span>
-            <div className="flex gap-2">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => {
-                    setLanguage(lang.code);
-                    toast.success(lang.code === 'es' ? 'Idioma: Español' : lang.code === 'en' ? 'Language: English' : 'Idioma: Português');
-                  }}
-                  className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium border transition-colors font-montserrat ${
-                    language === lang.code
-                      ? 'border-white bg-white text-pgnavy'
-                      : 'border-white/30 text-white/70 hover:border-white hover:text-white'
-                  }`}
-                >
-                  <span className="text-base leading-none">{lang.flag}</span>
-                  <span>{lang.label}</span>
-                </button>
-              ))}
-            </div>
+          {/* Language dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium border border-white/30 text-white hover:border-white transition-colors font-montserrat"
+            >
+              <div className="h-5 w-5 overflow-hidden rounded-full flex-shrink-0">
+                <img
+                  src={currentLang.flag}
+                  alt={currentLang.label}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <span>{currentLang.label}</span>
+              <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {dropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className="absolute bottom-full mb-2 right-0 min-w-[160px] rounded-lg border border-white/20 bg-pgnavy shadow-xl overflow-hidden"
+              >
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setDropdownOpen(false);
+                      toast.success(lang.code === 'es' ? 'Idioma: Español' : lang.code === 'en' ? 'Language: English' : 'Idioma: Português');
+                    }}
+                    className={`flex items-center gap-3 w-full px-4 py-2.5 text-left text-sm font-montserrat transition-colors ${
+                      language === lang.code
+                        ? 'bg-white/15 text-white'
+                        : 'text-white/70 hover:bg-white/10 hover:text-white'
+                    }`}
+                  >
+                    <div className="h-6 w-6 overflow-hidden rounded-full flex-shrink-0">
+                      <img
+                        src={lang.flag}
+                        alt={lang.label}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <span>{lang.native}</span>
+                    {language === lang.code && (
+                      <span className="ml-auto text-white font-bold">✓</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex space-x-6">

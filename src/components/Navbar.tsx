@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const langFlags: Record<string, string> = { es: '🇪🇸', en: '🇺🇸', pt: '🇧🇷' };
+const langFlags: Record<string, string> = { es: '/flags/ES.svg', en: '/flags/US.svg', pt: '/flags/BR.png' };
 
 type Lang = 'es' | 'en' | 'pt';
 
@@ -326,8 +326,10 @@ const Navbar = () => {
                     : 'bg-transparent text-white border-white hover:bg-white hover:text-pgnavy')
               }`}
             >
-              <Globe size={15} />
-              <span>{langFlags[language]} {language.toUpperCase()}</span>
+              <div className="h-5 w-5 overflow-hidden rounded-full flex-shrink-0">
+                <img src={langFlags[language]} alt={language} className="h-full w-full object-cover" />
+              </div>
+              <span>{language.toUpperCase()}</span>
             </button>
             <Link
               to="/contacto"
@@ -651,7 +653,9 @@ const Navbar = () => {
                         : 'border-gray-200 text-pgnavy hover:border-pgnavy'
                     }`}
                   >
-                    <span>{langFlags[l]}</span>
+                    <div className="h-5 w-5 overflow-hidden rounded-full flex-shrink-0">
+                      <img src={langFlags[l]} alt={l} className="h-full w-full object-cover" />
+                    </div>
                     <span>{l.toUpperCase()}</span>
                   </button>
                 ))}
