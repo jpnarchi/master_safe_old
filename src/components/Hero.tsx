@@ -422,14 +422,8 @@ const Hero = () => {
       {/* FULL SCREEN VIDEO SECTION */}
       <section className="w-full h-screen relative overflow-hidden flex items-center justify-center">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/video.mp4" type="video/mp4" />
+          <source src="/PGREDUCEDVID.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="text-white text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold opacity-20 rotate-[-30deg] select-none text-center px-4"
-            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
-            ESTE NO ES EL VIDEO FINAL
-          </div>
-        </div>
       </section>
 
       {/* NUESTRO ADN SECTION */}

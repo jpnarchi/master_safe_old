@@ -4,9 +4,9 @@ import { toast } from 'sonner';
 import { useLanguage, Language } from '../contexts/LanguageContext';
 
 const languages: { code: Language; label: string; native: string; flag: string }[] = [
-  { code: 'es', label: 'Spanish',    native: 'Español',   flag: '/flags/ES.svg' },
-  { code: 'en', label: 'English',    native: 'English',   flag: '/flags/US.svg' },
   { code: 'pt', label: 'Portuguese', native: 'Português', flag: '/flags/BR.png' },
+  { code: 'en', label: 'English',    native: 'English',   flag: '/flags/US.svg' },
+  { code: 'es', label: 'Spanish',    native: 'Español',   flag: '/flags/ES.svg' },
 ];
 
 const LanguageSelector: React.FC = () => {

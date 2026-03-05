@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -10,7 +10,24 @@ const UltraPage = () => {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroSlide, setHeroSlide] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const heroImages = [
+    '/HeroPGUltra-1.png',
+    '/HeroPGUltra-2.png',
+    '/HeroPGUltra-3.png',
+    '/HeroPGUltra-4.png',
+    '/HeroPGUltra-5.png',
+    '/HeroPGUltra-6.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const tabs = [
     t(tr.tabName, language),
@@ -26,11 +43,18 @@ const UltraPage = () => {
     t(tr.tab4, language),
   ];
 
+  const tabImages = [
+    '/TabsPGUltra-1.png',
+    '/TabsComposicionPGUltra-2.png',
+    '/TabsTecnologiaPGUltra-3.png',
+    '/TabsEspecificacionesPGUltra-4.png',
+  ];
+
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/lovable-uploads/ultrafotooverview.jpg',
-    '/lovable-uploads/ultrafototechnology.jpg',
-    '/lovable-uploads/ultrafotoapplication.jpeg',
+    '/CasosdeUsoPGUltra-1.png',
+    '/CasosdeUsoPGUltra-2.png',
+    '/CasosdeUsoPGUltra-3.png',
   ];
   const useCases = tr.useCases[language];
 
@@ -63,7 +87,14 @@ const UltraPage = () => {
 
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[580px] md:h-[660px] lg:h-[740px] w-full overflow-hidden">
-        <img src="/lovable-uploads/PGULTRASLIDE.jpeg" alt="Ultra Background" className="absolute inset-0 w-full h-full object-cover" />
+        {heroImages.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`Ultra Background ${i + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === heroSlide ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 max-w-7xl mx-auto text-center">
           <h1 className="text-white text-base sm:text-xl md:text-2xl font-normal mb-3 sm:mb-4 font-montserrat">
@@ -76,9 +107,13 @@ const UltraPage = () => {
             {t(tr.heroDescription, language)}
           </p>
           <div className="absolute bottom-8 sm:bottom-12 flex gap-3">
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setHeroSlide(i)}
+                className={`w-3 h-3 rounded-full transition-colors ${i === heroSlide ? 'bg-[#7F8CAD]' : 'bg-white/70'}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -119,17 +154,18 @@ const UltraPage = () => {
             </div>
           </div>
 
-          <div className="mb-12 w-full px-4" style={{maxWidth: '1200px'}}>
-            <p className="text-center text-base md:text-lg font-montserrat whitespace-pre-line">{tabDescriptions[activeTab]}</p>
+          <div className="mb-8 sm:mb-12 w-full px-4 sm:px-8" style={{maxWidth: '1200px'}}>
+            <p className="text-center text-sm sm:text-base md:text-lg font-montserrat whitespace-pre-line leading-relaxed mb-8">{tabDescriptions[activeTab]}</p>
+            <div className="relative rounded-3xl overflow-hidden shadow-xl h-[260px] sm:h-[360px] md:h-[500px]">
+              <img
+                src={tabImages[activeTab]}
+                alt={tabs[activeTab]}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
-
-        <div className="absolute left-1/2 -translate-x-1/2 flex justify-center -bottom-16 sm:-bottom-28 md:-bottom-36 lg:-bottom-44 xl:-bottom-56 2xl:-bottom-[271px]">
-          <img src="/lovable-uploads/img_tab_1_pg_ultra.png" alt="Ultra Product" className="object-contain w-[95vw] max-w-[1526px] h-auto" />
-        </div>
       </section>
-
-      <div className="h-16 sm:h-28 md:h-36 lg:h-44 xl:h-56 2xl:h-[271px]"></div>
 
       {/* Use Cases */}
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
@@ -157,6 +193,19 @@ const UltraPage = () => {
         </div>
       </section>
 
+      {/* ── TABLA BALÍSTICA ── */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="w-full px-4 sm:px-8">
+          <div className="flex justify-center overflow-x-auto">
+            <img
+              src={`/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              alt="Tabla Balística PG 2025"
+              className="w-full rounded-2xl shadow-xl max-h-none"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Brochures */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -164,9 +213,9 @@ const UltraPage = () => {
           <div className="space-y-4 sm:space-y-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure1, language)}</span>
-              <button className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+              <a href="/BrochurePGUltra-ES.pdf" download className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
                 <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
-              </button>
+              </a>
             </div>
             <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure2, language)}</span>

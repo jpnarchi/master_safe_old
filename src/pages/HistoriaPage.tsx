@@ -329,24 +329,6 @@ const HistoriaPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Card México */}
-            <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-              <div className="relative h-64">
-                <img
-                  src={plantMxImages[currentMxSlide]}
-                  alt="Mexico Plant"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pgnavy/80"></div>
-              </div>
-              <div className="p-4 sm:p-6 md:p-8">
-                <h3 className="text-3xl font-bold text-pgnavy mb-4">México</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  {T(ht.mexicoDesc)}
-                </p>
-              </div>
-            </div>
-
             {/* Card Brasil */}
             <div className="bg-white rounded-lg shadow-xl overflow-hidden">
               <div className="relative h-64">
@@ -361,6 +343,24 @@ const HistoriaPage = () => {
                 <h3 className="text-3xl font-bold text-pgnavy mb-4">Brasil</h3>
                 <p className="text-gray-700 leading-relaxed">
                   {T(ht.brasilDesc)}
+                </p>
+              </div>
+            </div>
+
+            {/* Card México */}
+            <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+              <div className="relative h-64">
+                <img
+                  src={plantMxImages[currentMxSlide]}
+                  alt="Mexico Plant"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pgnavy/80"></div>
+              </div>
+              <div className="p-4 sm:p-6 md:p-8">
+                <h3 className="text-3xl font-bold text-pgnavy mb-4">México</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {T(ht.mexicoDesc)}
                 </p>
               </div>
             </div>

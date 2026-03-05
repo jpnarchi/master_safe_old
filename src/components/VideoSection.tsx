@@ -10,7 +10,7 @@ interface VideoSectionProps {
 const VideoSection: React.FC<VideoSectionProps> = ({ 
   title, 
   subtitle,
-  videoSrc = "/lovable-uploads/PGREDUCEDVID.mp4" // Usar video local
+  videoSrc = "/PGREDUCEDVID.mp4"
 }) => {
   return (
     <section className="relative w-full h-screen min-h-[500px] max-h-[800px] overflow-hidden mb-0">

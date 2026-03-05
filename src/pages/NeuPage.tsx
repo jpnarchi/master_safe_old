@@ -186,6 +186,19 @@ const NeuPage = () => {
         </div>
       </section>
 
+      {/* ── TABLA BALÍSTICA ── */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="w-full px-4 sm:px-8">
+          <div className="flex justify-center overflow-x-auto">
+            <img
+              src={`/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              alt="Tabla Balística PG 2025"
+              className="w-full rounded-2xl shadow-xl max-h-none"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Brochures */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -195,9 +208,9 @@ const NeuPage = () => {
           <div className="space-y-4 sm:space-y-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure1, language)}</span>
-              <button className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+              <a href="/BrochurePGNeu-ES.pdf" download className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
                 <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
-              </button>
+              </a>
             </div>
             <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure2, language)}</span>

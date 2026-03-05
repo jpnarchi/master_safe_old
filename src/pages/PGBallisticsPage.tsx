@@ -205,97 +205,13 @@ const PGBallisticsPage = () => {
 
       {/* Ballistic Chart Table */}
       <section className="py-10 sm:py-16 bg-white">
-        <div className="max-w-[1450px] mx-auto px-4">
-          {/* Scrollable table wrapper */}
-          <div className="overflow-x-auto">
-            <div style={{ minWidth: '600px' }}>
-              {/* Table Header */}
-              <div className="bg-[#3e567b] py-4 sm:py-6 flex items-center justify-center gap-3 sm:gap-4 rounded-t-lg">
-                <img
-                  src="/LogoPGPRODUCTSPGBLUE.png"
-                  alt="PG Logo"
-                  className="h-7 sm:h-8 md:h-[39px] brightness-0 invert"
-                />
-                <span className="text-base sm:text-xl md:text-2xl font-bold text-white" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  BALLISTIC CHART
-                </span>
-              </div>
-
-              {/* Table Body */}
-              <div>
-                {/* Header Row with levels */}
-                <div className="grid grid-cols-6">
-                  <div className="bg-[#f2f4f6] py-3 sm:py-4 md:h-[80px] flex items-center justify-center"></div>
-                  {ballisticTable.headers.slice(1).map((header, idx) => (
-                    <div key={idx} className="bg-[#e7eaee] py-3 sm:py-4 md:h-[80px] flex items-center justify-center">
-                      <span className="text-sm sm:text-base md:text-xl font-bold text-black" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                        {header}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Data Rows */}
-                {ballisticTable.data.map((row, rowIdx) => (
-                  <div key={rowIdx} className="grid grid-cols-6">
-                    {/* Label Cell */}
-                    <div className="bg-[#f2f4f6] py-3 sm:py-4 md:h-[80px] flex items-center justify-center px-2 sm:px-4">
-                      <span className="text-xs sm:text-sm md:text-base lg:text-xl font-bold text-black text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                        {row.label}
-                      </span>
-                    </div>
-                    {/* Value Cells */}
-                    {row.values.map((value, colIdx) => (
-                      <div key={colIdx} className="bg-[#e7eaee] py-3 sm:py-4 md:h-[80px] flex items-center justify-center">
-                        <span
-                          className={`text-sm sm:text-base md:text-xl font-medium text-center ${value === '–' ? 'text-white' : 'text-black'}`}
-                          style={{ fontFamily: 'Montserrat, sans-serif' }}
-                        >
-                          {value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-
-                {/* ARMA Row */}
-                <div className="grid grid-cols-6">
-                  <div className="bg-[#f2f4f6] py-4 sm:py-6 md:h-[157px] flex items-center justify-center">
-                    <span className="text-xs sm:text-sm md:text-xl font-bold text-black" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      {T(bt.weapon)}
-                    </span>
-                  </div>
-                  {weaponCaliberData.map((_, idx) => (
-                    <div key={idx} className="bg-[#e7eaee] py-4 sm:py-6 md:h-[157px] flex flex-col items-center justify-center p-1 sm:p-2">
-                      <div className="w-16 sm:w-24 md:w-[127px] h-12 sm:h-16 md:h-[90px] bg-gray-300 rounded flex items-center justify-center mb-1 sm:mb-2">
-                        <img src="/placeholder.svg" alt="Weapon" className="w-12 h-10 sm:w-16 sm:h-12 md:w-20 md:h-16 object-contain opacity-50" />
-                      </div>
-                      <div className="w-14 sm:w-20 md:w-[120px] h-2 sm:h-3 md:h-[14px] bg-gray-400 rounded"></div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CALIBRE Row */}
-                <div className="grid grid-cols-6">
-                  <div className="bg-[#f2f4f6] py-4 sm:py-6 md:h-[250px] flex items-center justify-center rounded-bl-lg">
-                    <span className="text-xs sm:text-sm md:text-xl font-bold text-black" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      {T(bt.caliber)}
-                    </span>
-                  </div>
-                  {weaponCaliberData.map((item, idx) => (
-                    <div key={idx} className={`bg-[#e7eaee] py-4 sm:py-6 md:h-[250px] flex items-center justify-center p-2 sm:p-4 ${idx === 4 ? 'rounded-br-lg' : ''}`}>
-                      <div className="text-center text-[10px] sm:text-xs md:text-sm lg:text-base tracking-[-0.5px] sm:tracking-[-0.8px] leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                        {item.caliber.map((line, lineIdx) => (
-                          <p key={lineIdx} className={`${line.startsWith('(') || line === '' ? 'font-normal' : 'font-bold'} text-black`}>
-                            {line || '\u00A0'}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="w-full px-4 sm:px-8">
+          <div className="flex justify-center overflow-x-auto">
+            <img
+              src={`/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              alt="Tabla Balística PG 2025"
+              className="w-full rounded-2xl shadow-xl max-h-none"
+            />
           </div>
         </div>
       </section>
