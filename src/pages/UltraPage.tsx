@@ -217,12 +217,6 @@ const UltraPage = () => {
                 <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
               </a>
             </div>
-            <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure2, language)}</span>
-              <button className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
-                <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
-              </button>
-            </div>
           </div>
         </div>
       </section>

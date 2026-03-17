@@ -367,17 +367,17 @@ export const steelglassTranslations = {
     es: [
       { title: 'Aplicaciones blindaje civil y Gubernamental', description: 'Soluciones certificadas para protección de vehículos oficiales y de gobierno desde niveles de protección urbana de delincuencia común, como para organizada y terrorismo.' },
       { title: 'Aplicaciones Militares', description: 'El inserto de acero integrado proporciona refuerzo estructural superior para aplicaciones de alta exigencia y máxima protección.' },
-      { title: 'Protección Marina', description: 'Resistencia hasta el borde para cristales con protección balística y refuerzo estructural.' },
+      { title: 'Resistencia y performance', description: 'Resistencia hasta el borde para cristales con protección balística y refuerzo estructural, que además aporta mayor performance y elegancia al blindaje automotriz.' },
     ],
     en: [
       { title: 'Civil and Governmental Armoring Applications', description: 'Certified solutions for the protection of official and government vehicles, ranging from urban defense against common crime to organized crime and terrorism.' },
       { title: 'Military Applications', description: 'The integrated steel insert provides superior structural reinforcement for high-demand applications requiring maximum protection.' },
-      { title: 'Marine Protection', description: 'Edge-to-edge resistance for glass with ballistic protection and structural reinforcement.' },
+      { title: 'Resistance and performance', description: 'Edge-to-edge resistance for glass with ballistic protection and structural reinforcement, while also delivering greater performance and elegance to automotive armoring.' },
     ],
     pt: [
       { title: 'Aplicações de Blindagem Civil e Governamental', description: 'Soluções certificadas para a proteção de veículos oficiais e governamentais, abrangendo desde níveis de proteção urbana contra a criminalidade comum até o crime organizado e o terrorismo.' },
       { title: 'Aplicações Militares', description: 'O inserto de aço integrado proporciona reforço estrutural superior para aplicações de alta exigência e máxima proteção.' },
-      { title: 'Proteção Marítima', description: 'Resistência até a borda para vidros com proteção balística e reforço estrutural.' },
+      { title: 'Resistência e performance', description: 'Resistência até a borda para vidros com proteção balística e reforço estrutural, que além disso agrega maior performance e elegância ao blindamento automotivo.' },
     ],
   },
   brochure1: { es: 'Brochure de producto PG SteelGlass.pdf', en: 'PG SteelGlass Product Brochure.pdf', pt: 'Brochure do Produto PG SteelGlass.pdf' },

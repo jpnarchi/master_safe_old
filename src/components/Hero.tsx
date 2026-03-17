@@ -128,13 +128,6 @@ const ht = {
   send: { es: 'Enviar', en: 'Send', pt: 'Enviar' },
 };
 
-const allProductCards = [
-  { title: "GlassGuard", img: "/Glassguard_card.png", logo: "/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
-  { title: "SuperSlim",  img: "/Superslim_card.png",  logo: "/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
-  { title: "SteelGlass", img: "/Steelglass_card.png", logo: "/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
-  { title: "PG NEU",     img: "/Neu_card.png",        logo: "/PG Neu.svg",                      link: "/neu" },
-  { title: "PG ULTRA",   img: "/Ultra_card.png",      logo: "/PG Ultra.svg",                    link: "/ultra" },
-];
 
 const Hero = () => {
   const { language } = useLanguage();
@@ -145,6 +138,14 @@ const Hero = () => {
   const [productApi, setProductApi] = useState<any>(null);
 
   const cardDescriptions = ht.cards[language];
+
+  const allProductCards = [
+    { title: "GlassGuard", img: `/pg_glassguard_${language}.png`, logo: "/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
+    { title: "SuperSlim",  img: `/pg_superslim_${language}.png`,  logo: "/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
+    { title: "SteelGlass", img: `/pg_steelglass_${language}.png`, logo: "/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
+    { title: "PG NEU",     img: `/pg_neu_${language}.png`,        logo: "/PG Neu.svg",                      link: "/neu" },
+    { title: "PG ULTRA",   img: `/pg_ultra_${language}.png`,      logo: "/PG Ultra.svg",                    link: "/ultra" },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
