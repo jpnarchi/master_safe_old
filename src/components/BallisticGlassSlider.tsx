@@ -21,15 +21,15 @@ const BallisticGlassSlider = () => {
 
   const slides: SlideItem[] = [
     {
-      imageUrl: "/lovable-uploads/c55693d5-aada-4a4c-8c5b-1d29642483b9.png",
+      imageUrl: "/automotive/c55693d5-aada-4a4c-8c5b-1d29642483b9.png",
       title: "Aplicación Militar"
     },
     {
-      imageUrl: "/lovable-uploads/d055ab5c-b090-4146-a85b-e23c97ee1645.png",
+      imageUrl: "/automotive/d055ab5c-b090-4146-a85b-e23c97ee1645.png",
       title: "Vehiculos"
     },
     {
-      imageUrl: "/lovable-uploads/82e0c0e3-aaad-4d7f-aa32-398f7c44bafe.png",
+      imageUrl: "/automotive/82e0c0e3-aaad-4d7f-aa32-398f7c44bafe.png",
       title: "Embarcaciones de Lujo"
     }
   ];

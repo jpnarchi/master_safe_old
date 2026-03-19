@@ -28,16 +28,16 @@ const NeuPage = () => {
 
   const tabImages = [
     '',
-    '/composicionPGNeu.jpg',
+    '/products/neu/composicionPGNeu.jpg',
     '',
-    '/especificacionesPGNeu.jpg',
+    '/products/neu/especificacionesPGNeu.jpg',
   ];
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/casosdeusoPGNeu.jpg',
-    '/casosdeusoPGNeu.jpg',
-    '/casosdeusoPGNeu.jpg',
+    '/products/neu/casosdeusoPGNeu.jpg',
+    '/products/neu/casosdeusoPGNeu.jpg',
+    '/products/neu/casosdeusoPGNeu.jpg',
   ];
   const useCases = tr.useCases[language];
 
@@ -71,7 +71,7 @@ const NeuPage = () => {
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[580px] md:h-[660px] lg:h-[740px] w-full overflow-hidden">
         <img
-          src="/heroheaderPGNeu.png"
+          src="/products/neu/heroheaderPGNeu.png"
           alt="Neu Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -106,7 +106,7 @@ const NeuPage = () => {
             border: '1px solid rgba(255, 255, 255, 0.3)',
             boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
           }}>
-            <img src="/lovable-uploads/Neulogo.png" alt="Neu Logo" className="object-contain w-[180px] sm:w-[280px] md:w-[389px] h-auto" />
+            <img src="/shared/logos/Neulogo.png" alt="Neu Logo" className="object-contain w-[180px] sm:w-[280px] md:w-[389px] h-auto" />
             <h2 className="font-normal text-black font-montserrat text-2xl sm:text-3xl md:text-4xl">
               {t(c.keyBenefits, language)}
             </h2>
@@ -116,7 +116,7 @@ const NeuPage = () => {
             <div className="space-y-2">
               {keyBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start justify-start gap-4">
-                  <img src="/lovable-uploads/checkmark_bullet.png" alt="Checkmark" className="w-8 h-8 flex-shrink-0 mt-1 object-contain" />
+                  <img src="/shared/icons/checkmark_bullet.png" alt="Checkmark" className="w-8 h-8 flex-shrink-0 mt-1 object-contain" />
                   <p className="text-lg md:text-xl font-montserrat">
                     <span className="font-bold">{benefit.label}</span>{' '}
                     <span className="font-normal">{benefit.detail}</span>
@@ -191,7 +191,7 @@ const NeuPage = () => {
         <div className="w-full px-4 sm:px-8">
           <div className="flex justify-center overflow-x-auto">
             <img
-              src={`/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
               alt="Tabla Balística PG 2025"
               className="w-full rounded-2xl shadow-xl max-h-none"
             />
@@ -208,7 +208,7 @@ const NeuPage = () => {
           <div className="space-y-4 sm:space-y-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-between gap-4 p-4 sm:p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">{t(tr.brochure1, language)}</span>
-              <a href="/BrochurePGNeu-ES.pdf" download className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+              <a href="/brochures/BrochurePGNeu-ES.pdf" download className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
                 <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
               </a>
             </div>
@@ -218,7 +218,7 @@ const NeuPage = () => {
 
       {/* Contact Form */}
       <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
-        <img src="/bg_form_contact@2x.png" alt="Contact Background" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/contact/bg_form_contact@2x.png" alt="Contact Background" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/35" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">

@@ -74,7 +74,7 @@ const PageLayout = ({
           ) : (
             <div className="absolute inset-0">
               <img 
-                src="/lovable-uploads/dab51236-9306-4c50-b326-1e2f347360ca.png"
+                src="/about/dab51236-9306-4c50-b326-1e2f347360ca.png"
                 alt="Background pattern"
                 className={`w-full h-full object-cover ${darkMode ? 'opacity-30' : 'opacity-10'}`}
               />

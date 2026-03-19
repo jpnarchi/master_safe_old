@@ -142,19 +142,19 @@ O portfólio de PG Products é desenvolvido sob diversas normas e especificaçõ
   },
   useCases: {
     es: [
-      { title: 'Aplicaciones blindaje civil y Gubernamental', description: 'Soluciones certificadas para protección de vehículos oficiales y de gobierno desde niveles de protección urbana de delincuencia común, como para organizada y terrorismo.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
-      { title: 'Transporte de valores', description: 'En un entorno de alta seguridad, la protección es primordial. Descubra cómo GlassGuard ofrece soluciones de blindaje personalizadas para vehículos de transporte de valores.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
-      { title: 'Botes y aplicaciones marítimas', description: 'Protección para aplicaciones marítimas y de alta gama, yates y fragatas que requieren máxima seguridad sin comprometer la estética.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
+      { title: 'Aplicaciones blindaje civil y Gubernamental', description: 'Soluciones certificadas para protección de vehículos oficiales y de gobierno desde niveles de protección urbana de delincuencia común, como para organizada y terrorismo.', image: '/military/casos_de_uso_slider_3.png' },
+      { title: 'Transporte de valores', description: 'En un entorno de alta seguridad, la protección es primordial. Descubra cómo GlassGuard ofrece soluciones de blindaje personalizadas para vehículos de transporte de valores.', image: '/military/casos_de_uso_slider_3.png' },
+      { title: 'Botes y aplicaciones marítimas', description: 'Protección para aplicaciones marítimas y de alta gama, yates y fragatas que requieren máxima seguridad sin comprometer la estética.', image: '/military/casos_de_uso_slider_3.png' },
     ],
     en: [
-      { title: 'Civil and Governmental Armoring Applications', description: 'Certified solutions for the protection of official and government vehicles, ranging from urban defense against common crime to organized crime and terrorism.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
-      { title: 'Cash-in-Transit', description: 'In high-security environments, protection is paramount. Discover how GlassGuard provides customized armoring solutions for cash-in-transit vehicles.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
-      { title: 'Boats and Maritime Applications', description: 'Protection for high-end maritime applications, yachts, and frigates that demand maximum security without compromising aesthetics.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
+      { title: 'Civil and Governmental Armoring Applications', description: 'Certified solutions for the protection of official and government vehicles, ranging from urban defense against common crime to organized crime and terrorism.', image: '/military/casos_de_uso_slider_3.png' },
+      { title: 'Cash-in-Transit', description: 'In high-security environments, protection is paramount. Discover how GlassGuard provides customized armoring solutions for cash-in-transit vehicles.', image: '/military/casos_de_uso_slider_3.png' },
+      { title: 'Boats and Maritime Applications', description: 'Protection for high-end maritime applications, yachts, and frigates that demand maximum security without compromising aesthetics.', image: '/military/casos_de_uso_slider_3.png' },
     ],
     pt: [
-      { title: 'Aplicações de Blindagem Civil e Governamental', description: 'Soluções certificadas para a proteção de veículos oficiais e governamentais, abrangendo desde níveis de proteção urbana contra a criminalidade comum até o crime organizado e o terrorismo.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
-      { title: 'Transporte de Valores', description: 'Em ambientes de alta segurança, a proteção é fundamental. Conheça como o GlassGuard oferece soluções de blindagem personalizadas para veículos de transporte de valores.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
-      { title: 'Embarcações e Aplicações Marítimas', description: 'Proteção para aplicações marítimas de alto padrão, iates e fragatas que exigem máxima segurança sem comprometer a estética.', image: '/lovable-uploads/casos_de_uso_slider_3.png' },
+      { title: 'Aplicações de Blindagem Civil e Governamental', description: 'Soluções certificadas para a proteção de veículos oficiais e governamentais, abrangendo desde níveis de proteção urbana contra a criminalidade comum até o crime organizado e o terrorismo.', image: '/military/casos_de_uso_slider_3.png' },
+      { title: 'Transporte de Valores', description: 'Em ambientes de alta segurança, a proteção é fundamental. Conheça como o GlassGuard oferece soluções de blindagem personalizadas para veículos de transporte de valores.', image: '/military/casos_de_uso_slider_3.png' },
+      { title: 'Embarcações e Aplicações Marítimas', description: 'Proteção para aplicações marítimas de alto padrão, iates e fragatas que exigem máxima segurança sem comprometer a estética.', image: '/military/casos_de_uso_slider_3.png' },
     ],
   },
   brochure1: { es: 'Brochure de producto PG GlassGuard.pdf', en: 'PG GlassGuard Product Brochure.pdf', pt: 'Brochure do Produto PG GlassGuard.pdf' },

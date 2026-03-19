@@ -2,19 +2,19 @@ import { Shield, Target, Eye, Users, Award, Star } from 'lucide-react';
 import { useState } from 'react';
 import React from 'react';
 
-const aboutUsVideo = "/lovable-uploads/PGREDUCEDVID.mp4";
-const aboutUsImage = "/lovable-uploads/IMG_4473.jpg";
+const aboutUsVideo = "/videos/PGREDUCEDVID.mp4";
+const aboutUsImage = "/about/IMG_4473.jpg";
 const carouselSlides = [
   {
-    img: "/lovable-uploads/IMG_4544.jpg",
+    img: "/about/IMG_4544.jpg",
     text: "Innovación y calidad en cada proyecto."
   },
   {
-    img: "/lovable-uploads/IMG_4421.jpg",
+    img: "/about/IMG_4421.jpg",
     text: "Protección y tecnología europea."
   },
   {
-    img: "/lovable-uploads/IMG_4473.jpg",
+    img: "/about/IMG_4473.jpg",
     text: "Equipo experto y procesos certificados."
   }
 ];

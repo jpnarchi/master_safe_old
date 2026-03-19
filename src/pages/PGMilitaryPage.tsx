@@ -134,34 +134,30 @@ const PGMilitaryPage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section - Full width image with overlay */}
-      <section className="relative h-[350px] sm:h-[400px] md:h-[442px]">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/steelglassfototechnology.jpg"
+            src="/products/steelglass/steelglassfototechnology.jpg"
             alt="PG Military Applications"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="relative">
-        <div className="bg-[rgba(147,157,131,0.15)] py-16 sm:py-20 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-lg shadow-sm p-8 sm:p-10 md:p-12 -mt-32 sm:-mt-36 md:-mt-40 relative z-10">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
-                <span className="font-bold text-pgnavy">PG Military</span>{' '}
-                <span className="font-normal text-pgnavy">Applications</span>
-              </h1>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-                Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
-              </p>
-            </div>
-          </div>
+      {/* Title Card */}
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
+            <span className="font-bold text-pgnavy">PG Military</span>{' '}
+            <span className="font-normal text-pgnavy">Applications</span>
+          </h1>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
+            Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* Military-Grade Protection Solutions Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
@@ -174,7 +170,7 @@ const PGMilitaryPage = () => {
           {/* Tank Image */}
           <div className="rounded-2xl overflow-hidden mb-8 sm:mb-12 h-[300px] sm:h-[400px] md:h-[508px]">
             <img
-              src="/lovable-uploads/IMG_4421.jpg"
+              src="/about/IMG_4421.jpg"
               alt="Military Tank Protection"
               className="w-full h-full object-cover"
             />
@@ -232,7 +228,7 @@ const PGMilitaryPage = () => {
           <div className="bg-[#526239] rounded-t-lg py-4 sm:py-6 px-4 sm:px-8">
             <div className="flex items-center justify-center gap-4">
               <img
-                src="/LogoPGPRODUCTSPGBLUE.png"
+                src="/shared/logos/LogoPGPRODUCTSPGBLUE.png"
                 alt="PG Products"
                 className="h-8 sm:h-10 brightness-0 invert"
               />
@@ -323,7 +319,7 @@ const PGMilitaryPage = () => {
                     <td key={idx} className="bg-[#dfe2da] p-3 sm:p-4 text-center border-b border-gray-200">
                       <div className="h-20 sm:h-24 flex items-center justify-center">
                         <img
-                          src={`/lovable-uploads/weapon_${idx + 1}.png`}
+                          src={`/military/weapon_${idx + 1}.png`}
                           alt={`Weapon ${idx + 1}`}
                           className="max-h-full max-w-full object-contain"
                           onError={(e) => {
@@ -444,7 +440,7 @@ const PGMilitaryPage = () => {
       <section
         className="w-full py-16 lg:py-24 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/bg_form_contact@2x.png)',
+          backgroundImage: 'url(/contact/bg_form_contact@2x.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

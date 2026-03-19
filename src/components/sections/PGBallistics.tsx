@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const images = [
-  "/lovable-uploads/vidrio_disparos.avif",
-  "/lovable-uploads/empresa-vidrios-pedido-cristales-posee.jpg"
+  "/military/vidrio_disparos.avif",
+  "/about/empresa-vidrios-pedido-cristales-posee.jpg"
 ];
 
 const PGBallistics = () => {

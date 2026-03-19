@@ -133,37 +133,29 @@ const PGBallisticsPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/lovable-uploads/vidrio_disparos.avif"
+            src="/military/vidrio_disparos.avif"
             alt="PG Ballistics"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
+      </section>
 
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-            PG Ballistics
+      {/* Title Card */}
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <span className="text-pgnavy">PG</span>{' '}
+            <span className="text-pgblue">Ballistics</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium max-w-xl sm:max-w-2xl md:max-w-[842px] leading-normal" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             {T(bt.heroSubtitle)}
           </p>
         </div>
-
-        {/* Slider dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-          {[0, 1, 2, 3].map((index) => (
-            <button
-              key={index}
-              className={`w-3.5 h-3.5 rounded-full transition-all ${
-                index === 0 ? 'bg-white' : 'bg-white/50'
-              }`}
-            />
-          ))}
-        </div>
-      </section>
+      </div>
 
       {/* Advanced Ballistic Solutions */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
@@ -208,7 +200,7 @@ const PGBallisticsPage = () => {
         <div className="w-full px-4 sm:px-8">
           <div className="flex justify-center overflow-x-auto">
             <img
-              src={`/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
               alt="Tabla Balística PG 2025"
               className="w-full rounded-2xl shadow-xl max-h-none"
             />

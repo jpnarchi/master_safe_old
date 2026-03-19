@@ -5,10 +5,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const carouselImages = [
-  '/Hero1_img_pattern@2xx.png',
-  '/Hero_img_PG_SuperSlim_1.png',
-  '/Hero-PORSCHE_img_pattern@2x.png',
-  '/Hero4_img_pattern@2x.png',
+  '/home/Hero1_img_pattern@2xx.png',
+  '/products/superslim/Hero_img_PG_SuperSlim_1.png',
+  '/automotive/Hero-PORSCHE_img_pattern@2x.png',
+  '/home/Hero4_img_pattern@2x.png',
 ];
 
 // Translations for Hero component
@@ -140,11 +140,11 @@ const Hero = () => {
   const cardDescriptions = ht.cards[language];
 
   const allProductCards = [
-    { title: "GlassGuard", img: `/pg_glassguard_${language}.png`, logo: "/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
-    { title: "SuperSlim",  img: `/pg_superslim_${language}.png`,  logo: "/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
-    { title: "SteelGlass", img: `/pg_steelglass_${language}.png`, logo: "/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
-    { title: "PG NEU",     img: `/pg_neu_${language}.png`,        logo: "/PG Neu.svg",                      link: "/neu" },
-    { title: "PG ULTRA",   img: `/pg_ultra_${language}.png`,      logo: "/PG Ultra.svg",                    link: "/ultra" },
+    { title: "GlassGuard", img: `/home/pg_glassguard_${language}.png`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
+    { title: "SuperSlim",  img: `/home/pg_superslim_${language}.png`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
+    { title: "SteelGlass", img: `/home/pg_steelglass_${language}.png`, logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
+    { title: "PG NEU",     img: `/home/pg_neu_${language}.png`,        logo: "/shared/logos/PG Neu.svg",                      link: "/neu" },
+    { title: "PG ULTRA",   img: `/home/pg_ultra_${language}.png`,      logo: "/shared/logos/PG Ultra.svg",                    link: "/ultra" },
   ];
 
   useEffect(() => {
@@ -227,19 +227,19 @@ const Hero = () => {
                 {/* Mobile */}
                 <div className="grid grid-cols-2 gap-4 sm:hidden">
                   <div className="flex flex-col items-center text-center">
-                    <img src="/bullet_ico 1.svg" alt="Ballistics" className="w-12 h-12 mb-2" />
+                    <img src="/shared/icons/bullet_ico 1.svg" alt="Ballistics" className="w-12 h-12 mb-2" />
                     <span className="text-xs font-medium">{T(ht.feat1)}</span>
                   </div>
                   <div className="flex flex-col items-center text-center">
-                    <img src="/geometry_ico 1.svg" alt="Geometry" className="w-10 h-10 mb-2" />
+                    <img src="/shared/icons/geometry_ico 1.svg" alt="Geometry" className="w-10 h-10 mb-2" />
                     <span className="text-xs font-medium">{T(ht.feat2)}</span>
                   </div>
                   <div className="flex flex-col items-center text-center">
-                    <img src="/finish_ico 1.svg" alt="Finish" className="w-10 h-10 mb-2" />
+                    <img src="/shared/icons/finish_ico 1.svg" alt="Finish" className="w-10 h-10 mb-2" />
                     <span className="text-xs font-medium">{T(ht.feat3)}</span>
                   </div>
                   <div className="flex flex-col items-center text-center">
-                    <img src="/optics_ico 1.svg" alt="Optics" className="w-10 h-10 mb-2" />
+                    <img src="/shared/icons/optics_ico 1.svg" alt="Optics" className="w-10 h-10 mb-2" />
                     <span className="text-xs font-medium">{T(ht.feat4)}</span>
                   </div>
                 </div>
@@ -248,28 +248,28 @@ const Hero = () => {
                 <div className="hidden sm:flex items-center justify-center">
                   <div className="flex flex-col items-center text-center">
                     <div className="flex items-center justify-center mb-3">
-                      <img src="/bullet_ico 1.svg" alt="Ballistics" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" />
+                      <img src="/shared/icons/bullet_ico 1.svg" alt="Ballistics" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" />
                     </div>
                     <span className="text-xs sm:text-sm md:text-base font-medium">{T(ht.feat1)}</span>
                   </div>
                   <div className="mx-4 md:mx-8 lg:mx-10"><div className="w-2 h-2 bg-white rounded-full"></div></div>
                   <div className="flex flex-col items-center text-center">
                     <div className="flex items-center justify-center mb-3">
-                      <img src="/geometry_ico 1.svg" alt="Geometry" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                      <img src="/shared/icons/geometry_ico 1.svg" alt="Geometry" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
                     </div>
                     <span className="text-xs sm:text-sm md:text-base font-medium">{T(ht.feat2)}</span>
                   </div>
                   <div className="mx-4 md:mx-8 lg:mx-10"><div className="w-2 h-2 bg-white rounded-full"></div></div>
                   <div className="flex flex-col items-center text-center">
                     <div className="flex items-center justify-center mb-3">
-                      <img src="/finish_ico 1.svg" alt="Finish" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                      <img src="/shared/icons/finish_ico 1.svg" alt="Finish" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
                     </div>
                     <span className="text-xs sm:text-sm md:text-base font-medium">{T(ht.feat3)}</span>
                   </div>
                   <div className="mx-4 md:mx-8 lg:mx-10"><div className="w-2 h-2 bg-white rounded-full"></div></div>
                   <div className="flex flex-col items-center text-center">
                     <div className="flex items-center justify-center mb-3">
-                      <img src="/optics_ico 1.svg" alt="Optics" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                      <img src="/shared/icons/optics_ico 1.svg" alt="Optics" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
                     </div>
                     <span className="text-xs sm:text-sm md:text-base font-medium">{T(ht.feat4)}</span>
                   </div>
@@ -323,12 +323,7 @@ const Hero = () => {
                         className="relative overflow-hidden flex flex-col p-4 sm:p-6 bg-no-repeat bg-top bg-[length:100%_auto] min-h-[480px] md:bg-cover md:bg-center md:min-h-0 md:h-[520px]"
                         style={{ backgroundImage: `url(${card.img})`, borderRadius: '28px' }}
                       >
-                        <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
-                          <img src={card.logo} alt={card.title} className="max-w-[220px] sm:max-w-[280px] w-full h-auto mb-4 sm:mb-6" />
-                          <p className="text-base sm:text-lg font-medium leading-relaxed px-2">
-                            {cardDescriptions[index].description}
-                          </p>
-                        </div>
+                        <div className="flex-1" />
                         <div className="text-center mt-auto mb-2 sm:mb-4">
                           <Link to={card.link} className="inline-flex items-center rounded-xl px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy">
                             {T(ht.learnMore)}
@@ -358,10 +353,10 @@ const Hero = () => {
       {/* INVESTIGACIÓN & DESARROLLO SECTION */}
       <section
         className="w-full py-16 sm:py-24 md:py-32 lg:py-48 relative overflow-hidden flex items-center justify-center min-h-[400px] md:min-h-[600px] lg:min-h-[800px]"
-        style={{ backgroundImage: 'url(/RnD_image@2x.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: 'url(/about/RnD_image@2x.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="text-center text-white z-10 px-4">
-          <img src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png" alt="PG Products Logo"
+          <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.png" alt="PG Products Logo"
             className="mx-auto mb-6 sm:mb-8 w-48 sm:w-64 md:w-80 lg:w-[420px] h-auto drop-shadow-xl" />
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90">{T(ht.rdSub)}</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">{T(ht.rdTitle)}</h2>
@@ -380,7 +375,7 @@ const Hero = () => {
             <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
               <div className="flex justify-center lg:justify-end mb-6">
                 <div className="w-full h-44 sm:h-56 lg:h-72 rounded-2xl"
-                  style={{ backgroundImage: 'url(/formulacion-home.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+                  style={{ backgroundImage: 'url(/home/formulacion-home.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
                 <div className="sm:max-w-sm lg:max-w-lg">
@@ -404,7 +399,7 @@ const Hero = () => {
               </div>
               <div className="flex-1 relative" style={{ minHeight: '360px' }}>
                 <img
-                  src="/conocemasHOME.png"
+                  src="/home/conocemasHOME.png"
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   style={{ mixBlendMode: 'multiply', objectPosition: 'right center' }}
@@ -423,7 +418,7 @@ const Hero = () => {
       {/* FULL SCREEN VIDEO SECTION */}
       <section className="w-full h-screen relative overflow-hidden flex items-center justify-center">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/PGREDUCEDVID.mp4" type="video/mp4" />
+          <source src="/videos/PGREDUCEDVID.mp4" type="video/mp4" />
         </video>
       </section>
 
@@ -440,31 +435,31 @@ const Hero = () => {
             <div className="flex-1 max-w-[340px]">
               <div className="flex justify-center mb-8">
                 <div className="relative w-[180px] h-[180px] bg-gray-200 rounded-[45px] rotate-45 flex items-center justify-center">
-                  <img src="/balistica_ico_beneficio.svg" alt="Ballistic protection" className="-rotate-45 w-[90px] h-[90px]" />
+                  <img src="/shared/icons/balistica_ico_beneficio.svg" alt="Ballistic protection" className="-rotate-45 w-[90px] h-[90px]" />
                 </div>
               </div>
               <h3 className="text-center mb-6 text-[#1E3A5F] text-xl font-bold font-montserrat leading-snug whitespace-pre-line">{T(ht.ben1title)}</h3>
               <p className="text-center text-[#1A202C] text-sm leading-relaxed">{T(ht.ben1desc)}</p>
             </div>
             <div className="flex items-center" style={{ marginTop: '90px' }}>
-              <img src="/linea_pasos@2x.png" alt="" className="w-[180px] h-auto" />
+              <img src="/shared/icons/linea_pasos@2x.png" alt="" className="w-[180px] h-auto" />
             </div>
             <div className="flex-1 max-w-[340px]">
               <div className="flex justify-center mb-8">
                 <div className="relative w-[180px] h-[180px] bg-gray-200 rounded-[45px] rotate-45 flex items-center justify-center">
-                  <img src="/innovacion_ico_beneficio.svg" alt="Innovation" className="-rotate-45 w-[90px] h-[90px]" />
+                  <img src="/shared/icons/innovacion_ico_beneficio.svg" alt="Innovation" className="-rotate-45 w-[90px] h-[90px]" />
                 </div>
               </div>
               <h3 className="text-center mb-6 text-[#1E3A5F] text-xl font-bold font-montserrat leading-snug whitespace-pre-line">{T(ht.ben2title)}</h3>
               <p className="text-center text-[#1A202C] text-sm leading-relaxed">{T(ht.ben2desc)}</p>
             </div>
             <div className="flex items-center" style={{ marginTop: '90px' }}>
-              <img src="/linea_pasos@2x.png" alt="" className="w-[180px] h-auto" />
+              <img src="/shared/icons/linea_pasos@2x.png" alt="" className="w-[180px] h-auto" />
             </div>
             <div className="flex-1 max-w-[340px]">
               <div className="flex justify-center mb-8">
                 <div className="relative w-[180px] h-[180px] bg-gray-200 rounded-[45px] rotate-45 flex items-center justify-center">
-                  <img src="/calidad_ico_beneficio.svg" alt="Quality" className="-rotate-45 w-[90px] h-[90px]" />
+                  <img src="/shared/icons/calidad_ico_beneficio.svg" alt="Quality" className="-rotate-45 w-[90px] h-[90px]" />
                 </div>
               </div>
               <h3 className="text-center mb-6 text-[#1E3A5F] text-xl font-bold font-montserrat leading-snug whitespace-pre-line">{T(ht.ben3title)}</h3>
@@ -477,7 +472,7 @@ const Hero = () => {
             <div className="text-center">
               <div className="flex justify-center mb-5 sm:mb-6">
                 <div className="relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] bg-gray-200 rounded-[30px] sm:rounded-[35px] rotate-45 flex items-center justify-center">
-                  <img src="/balistica_ico_beneficio.svg" alt="Ballistic" className="-rotate-45 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]" />
+                  <img src="/shared/icons/balistica_ico_beneficio.svg" alt="Ballistic" className="-rotate-45 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]" />
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#1E3A5F] mb-3 sm:mb-4 px-4 whitespace-pre-line">{T(ht.ben1title)}</h3>
@@ -486,7 +481,7 @@ const Hero = () => {
             <div className="text-center">
               <div className="flex justify-center mb-5 sm:mb-6">
                 <div className="relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] bg-gray-200 rounded-[30px] sm:rounded-[35px] rotate-45 flex items-center justify-center">
-                  <img src="/innovacion_ico_beneficio.svg" alt="Innovation" className="-rotate-45 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]" />
+                  <img src="/shared/icons/innovacion_ico_beneficio.svg" alt="Innovation" className="-rotate-45 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]" />
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#1E3A5F] mb-3 sm:mb-4 px-4 whitespace-pre-line">{T(ht.ben2title)}</h3>
@@ -495,7 +490,7 @@ const Hero = () => {
             <div className="text-center">
               <div className="flex justify-center mb-5 sm:mb-6">
                 <div className="relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] bg-gray-200 rounded-[30px] sm:rounded-[35px] rotate-45 flex items-center justify-center">
-                  <img src="/calidad_ico_beneficio.svg" alt="Quality" className="-rotate-45 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]" />
+                  <img src="/shared/icons/calidad_ico_beneficio.svg" alt="Quality" className="-rotate-45 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]" />
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#1E3A5F] mb-3 sm:mb-4 px-4 whitespace-pre-line">{T(ht.ben3title)}</h3>
@@ -508,7 +503,7 @@ const Hero = () => {
       {/* CONTACT SECTION */}
       <section
         className="w-full py-12 sm:py-16 lg:py-24 relative overflow-hidden"
-        style={{ backgroundImage: 'url(/bg_form_contact@2x.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '500px' }}
+        style={{ backgroundImage: 'url(/contact/bg_form_contact@2x.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '500px' }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">

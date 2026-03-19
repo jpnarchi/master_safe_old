@@ -77,34 +77,30 @@ const PGArchitecturalPage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section - Full width image with overlay */}
-      <section className="relative h-[350px] sm:h-[400px] md:h-[442px]">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/lovable-uploads/IMG_4473.jpg"
+            src="/about/IMG_4473.jpg"
             alt="PG Architectural Applications"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="relative">
-        <div className="bg-[rgba(0,0,0,0.05)] py-16 sm:py-20 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-lg shadow-sm p-8 sm:p-10 md:p-12 -mt-32 sm:-mt-36 md:-mt-40 relative z-10">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
-                <span className="font-bold text-pgnavy">PG Architectural</span>{' '}
-                <span className="font-normal text-pgnavy">Applications</span>
-              </h1>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-                Elevate security without compromising design. Our architectural ballistic glass solutions transform any building, from government facilities to corporate headquarters, into a secure, high-performance environment. Seamlessly integrating protection with modern aesthetics, we deliver security glazing that meets the highest standards of safety and style.
-              </p>
-            </div>
-          </div>
+      {/* Title Card */}
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
+            <span className="font-bold text-pgnavy">PG Architectural</span>{' '}
+            <span className="font-normal text-pgnavy">Applications</span>
+          </h1>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
+            Elevate security without compromising design. Our architectural ballistic glass solutions transform any building, from government facilities to corporate headquarters, into a secure, high-performance environment. Seamlessly integrating protection with modern aesthetics, we deliver security glazing that meets the highest standards of safety and style.
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* Two Column Layout - Government Buildings and Corporate Facilities */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
@@ -121,7 +117,7 @@ const PGArchitecturalPage = () => {
               {/* Government Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[400px] lg:h-[508px]">
                 <img
-                  src="/lovable-uploads/IMG_4544.jpg"
+                  src="/about/IMG_4544.jpg"
                   alt="Government Buildings"
                   className="w-full h-full object-cover"
                 />
@@ -165,7 +161,7 @@ const PGArchitecturalPage = () => {
               {/* Corporate Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[400px] lg:h-[508px]">
                 <img
-                  src="/lovable-uploads/IMG_4421.jpg"
+                  src="/about/IMG_4421.jpg"
                   alt="Corporate Facilities"
                   className="w-full h-full object-cover"
                 />
@@ -300,7 +296,7 @@ const PGArchitecturalPage = () => {
                     <td key={idx} className="bg-[#e7eaee] p-3 sm:p-4 text-center border-b border-gray-200">
                       <div className="h-20 sm:h-24 flex items-center justify-center">
                         <img
-                          src={`/lovable-uploads/weapon_${idx + 1}.png`}
+                          src={`/military/weapon_${idx + 1}.png`}
                           alt={`Weapon ${idx + 1}`}
                           className="max-h-full max-w-full object-contain"
                           onError={(e) => {

@@ -77,7 +77,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <img
-              src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png"
+              src="/about/8edefffc-7a49-492b-acc8-65267634f930.png"
               alt="PG Products Logo"
               className="h-12 mb-4"
             />

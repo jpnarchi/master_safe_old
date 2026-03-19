@@ -1,7 +1,7 @@
 import React from "react";
 
-const teslaRed = "/lovable-uploads/vidrios-home.png";
-const teslaGray = "/lovable-uploads/vidrio_disparos.avif";
+const teslaRed = "/home/vidrios-home.png";
+const teslaGray = "/military/vidrio_disparos.avif";
 
 const CompareTeslaSection = () => {
   return (

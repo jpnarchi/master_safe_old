@@ -14,9 +14,9 @@ const GlassGuardPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const heroImages = [
-    '/HeroPGGlassGuardefecto-1.png',
-    '/HeroPGGlassGuardefecto-2.png',
-    '/HeroPGGlassGuardefecto-3.png',
+    '/products/glassguard/HeroPGGlassGuardefecto-1.png',
+    '/products/glassguard/HeroPGGlassGuardefecto-2.png',
+    '/products/glassguard/HeroPGGlassGuardefecto-3.png',
   ];
 
   useEffect(() => {
@@ -41,17 +41,17 @@ const GlassGuardPage = () => {
   ];
 
   const tabImages = [
-    '/Tab1PGGlasGuard.png',
-    '/Tab2PGGlassguardComposicion.png',
-    '/Tab3PGGlassguardTecnologia.png',
-    '/Tab4PGGlassguardEspecificaciones.png',
+    '/products/glassguard/Tab1PGGlasGuard.png',
+    '/products/glassguard/Tab2PGGlassguardComposicion.png',
+    '/products/glassguard/Tab3PGGlassguardTecnologia.png',
+    '/products/glassguard/Tab4PGGlassguardEspecificaciones.png',
   ];
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/PGGlassguardCasosdeUso-1.png',
-    '/PGGlassguardCasosdeUso-2.png',
-    '/PGGlassguardCasosdeUso-3.png',
+    '/products/glassguard/PGGlassguardCasosdeUso-1.png',
+    '/products/glassguard/PGGlassguardCasosdeUso-2.png',
+    '/products/glassguard/PGGlassguardCasosdeUso-3.png',
   ];
   const useCases = tr.useCases[language];
 
@@ -134,7 +134,7 @@ const GlassGuardPage = () => {
               boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
             }}>
             <img
-              src="/btn_pg_glassguard.png"
+              src="/home/btn_pg_glassguard.png"
               alt="GlassGuard Logo"
               className="object-contain w-[200px] sm:w-[280px] md:w-[389px] h-auto"
             />
@@ -148,7 +148,7 @@ const GlassGuardPage = () => {
               {keyBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start justify-start gap-3 sm:gap-4">
                   <img
-                    src="/lovable-uploads/checkmark_bullet.png"
+                    src="/shared/icons/checkmark_bullet.png"
                     alt="Checkmark"
                     className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 mt-1 object-contain"
                   />
@@ -246,7 +246,7 @@ const GlassGuardPage = () => {
         <div className="w-full px-4 sm:px-8">
           <div className="flex justify-center overflow-x-auto">
             <img
-              src={`/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
               alt="Tabla Balística PG 2025"
               className="w-full rounded-2xl shadow-xl max-h-none"
             />
@@ -266,7 +266,7 @@ const GlassGuardPage = () => {
               <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-[#3E3E3E] font-montserrat leading-snug">
                 {t(tr.brochure1, language)}
               </span>
-              <a href="/BrochurePGGlassGuard-ES.pdf" download className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
+              <a href="/brochures/BrochurePGGlassGuard-ES.pdf" download className="flex-shrink-0 w-14 h-14 sm:w-20 sm:h-20 bg-[#C5D5FE] hover:bg-[#B0C5F0] rounded-lg flex items-center justify-center transition-colors">
                 <Download className="w-7 h-7 sm:w-10 sm:h-10 text-black" />
               </a>
             </div>
@@ -277,7 +277,7 @@ const GlassGuardPage = () => {
       {/* ── CONTACT FORM ── */}
       <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
         <img
-          src="/bg_form_contact@2x.png"
+          src="/contact/bg_form_contact@2x.png"
           alt="Contact Background"
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -34,7 +34,7 @@ const LanguageSelector: React.FC = () => {
         {/* Logo */}
         <div className="mb-6 flex justify-center">
           <img
-            src="/lovable-uploads/PG_logo_blue.png"
+            src="/shared/logos/LogoPGPRODUCTSPGBLUE.png"
             alt="PG Glass Logo"
             className="h-12 w-auto object-contain"
             onError={(e) => {

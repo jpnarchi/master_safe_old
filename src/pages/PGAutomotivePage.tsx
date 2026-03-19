@@ -58,11 +58,11 @@ const PGAutomotivePage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section - Full width image with gradient overlay */}
-      <section className="relative h-[350px] sm:h-[400px] md:h-[442px]">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/steelglassfotocarrusel0.jpg"
+            src="/products/steelglass/steelglassfotocarrusel0.jpg"
             alt="PG Automotive BRG"
             className="w-full h-full object-cover"
           />
@@ -70,25 +70,21 @@ const PGAutomotivePage = () => {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="relative">
-        <div className="bg-gray-100 py-16 sm:py-20 md:py-24">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-lg shadow-sm p-8 sm:p-10 md:p-12 -mt-32 sm:-mt-36 md:-mt-40 relative z-10">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">
-                <span className="text-pgnavy">PG Automotive</span>{' '}
-                <span className="text-pgblue">BRG</span>
-              </h1>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
-                Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
-              </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-                Aenean suscipit iaculis nulla, convallis volutpat enim suscipit nec. Fusce ac dui aliquet, aliquet risus vel, lacinia neque. Morbi accumsan sit amet ligula nec bibendum. Maecenas rhoncus elit non justo tincidunt blandit. Morbi turpis sapien, efficitur varius quam eu, sagittis rhoncus eros.
-              </p>
-            </div>
-          </div>
+      {/* Title Card - overlapping hero and next section */}
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">
+            <span className="text-pgnavy">PG Automotive</span>{' '}
+            <span className="text-pgblue">BRG</span>
+          </h1>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
+            Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
+          </p>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
+            Aenean suscipit iaculis nulla, convallis volutpat enim suscipit nec. Fusce ac dui aliquet, aliquet risus vel, lacinia neque. Morbi accumsan sit amet ligula nec bibendum. Maecenas rhoncus elit non justo tincidunt blandit. Morbi turpis sapien, efficitur varius quam eu, sagittis rhoncus eros.
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* Two Column Layout - Retrofit and OEM Solutions */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
@@ -105,7 +101,7 @@ const PGAutomotivePage = () => {
               {/* Retrofit Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
                 <img
-                  src="/steelglassfotocarrusel0.jpg"
+                  src="/products/steelglass/steelglassfotocarrusel0.jpg"
                   alt="Retrofit Solutions"
                   className="w-full h-full object-cover"
                 />
@@ -152,7 +148,7 @@ const PGAutomotivePage = () => {
               {/* OEM Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
                 <img
-                  src="/lovable-uploads/steelgalsslogopagev1.jpeg"
+                  src="/products/steelglass/steelglassfotocarrusel0.jpg"
                   alt="OEM Solutions"
                   className="w-full h-full object-cover"
                 />
@@ -284,7 +280,7 @@ const PGAutomotivePage = () => {
       <section
         className="w-full py-16 lg:py-24 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/bg_form_contact@2x.png)',
+          backgroundImage: 'url(/contact/bg_form_contact@2x.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

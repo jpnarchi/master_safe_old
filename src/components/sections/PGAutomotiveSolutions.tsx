@@ -22,27 +22,27 @@ const PGAutomotiveSolutions = () => {
     id: "glassguard",
     title: "PG Glass Guard",
     description: "Protección balística con visión perfecta",
-    image: "/lovable-uploads/44604513-e2f1-4816-b14b-13ac8e66c935.png"
+    image: "/automotive/44604513-e2f1-4816-b14b-13ac8e66c935.png"
   }, {
     id: "superslim",
     title: "PG Super Slim",
     description: "15% más liviano sin comprometer seguridad",
-    image: "/lovable-uploads/f54c4665-4e79-445e-b553-2cefc763c386.png"
+    image: "/automotive/f54c4665-4e79-445e-b553-2cefc763c386.png"
   }, {
     id: "steelglass",
     title: "PG Steel Glass",
     description: "Protección reforzada con acero integrado",
-    image: "/lovable-uploads/c6b082b9-872f-4a46-a317-6f3b708396c8.png"
+    image: "/automotive/c6b082b9-872f-4a46-a317-6f3b708396c8.png"
   }, {
     id: "ultra",
     title: "PG Ultra",
     description: "Máxima protección para amenazas extremas",
-    image: "/lovable-uploads/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png"
+    image: "/automotive/8cd08f36-dc67-46f9-99b5-b79a9a5caf2a.png"
   }, {
     id: "neu",
     title: "PG Neu",
     description: "Nueva generación de vidrio blindado premium",
-    image: "/lovable-uploads/neu.png"
+    image: "/products/neu/neu.png"
   }];
   
   return <section id="automotive" className="py-20 bg-white relative">

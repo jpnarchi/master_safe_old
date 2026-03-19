@@ -26,31 +26,31 @@ const getProductItems = (lang: Lang): ProductItem[] => [
     name: "GlassGuard",
     path: "/glassguard",
     description: { es: "Calidad y Durabilidad", en: "Quality and Durability", pt: "Qualidade e Durabilidade" }[lang],
-    img: "/btn_pg_glassguard.png"
+    img: "/home/btn_pg_glassguard.png"
   },
   {
     name: "SteelGlass",
     path: "/steelglass",
     description: { es: "Resistente hasta el Borde", en: "Resistant to the Edge", pt: "Resistente até a Borda" }[lang],
-    img: "/btn_pg_steelglass.png"
+    img: "/home/btn_pg_steelglass.png"
   },
   {
     name: "SuperSlim",
     path: "/superslim",
     description: { es: "Liviano y Resistente", en: "Lightweight and Resistant", pt: "Leve e Resistente" }[lang],
-    img: "/btn_pg_superslim.png"
+    img: "/home/btn_pg_superslim.png"
   },
   {
     name: "Ultra",
     path: "/ultra",
     description: { es: "Desempeño Balístico Superior", en: "Superior Ballistic Performance", pt: "Desempenho Balístico Superior" }[lang],
-    img: "/btn_pg_ultra.png"
+    img: "/home/btn_pg_ultra.png"
   },
   {
     name: "Neu",
     path: "/neu",
     description: { es: "Próxima Generación", en: "Next Generation", pt: "Próxima Geração" }[lang],
-    img: "/btn_pg_neu.png"
+    img: "/home/btn_pg_neu.png"
   }
 ];
 
@@ -59,19 +59,19 @@ const getSegmentItems = (lang: Lang): SegmentItem[] => [
     name: "PG Automotive BRG",
     path: "/pg-automotive",
     description: { es: "Soluciones Automotrices", en: "Automotive Solutions", pt: "Soluções Automotivas" }[lang],
-    img: "/placeholder.svg"
+    img: "/shared/icons/placeholder.svg"
   },
   {
     name: "PG Military Applications",
     path: "/pg-military",
     description: { es: "Aplicaciones Militares", en: "Military Applications", pt: "Aplicações Militares" }[lang],
-    img: "/placeholder.svg"
+    img: "/shared/icons/placeholder.svg"
   },
   {
     name: "PG Architectural Solutions",
     path: "/pg-architectural",
     description: { es: "Soluciones Arquitectónicas", en: "Architectural Solutions", pt: "Soluções Arquitetônicas" }[lang],
-    img: "/placeholder.svg"
+    img: "/shared/icons/placeholder.svg"
   }
 ];
 
@@ -92,8 +92,8 @@ const Navbar = () => {
   const productItems = getProductItems(lang);
   const segmentItems = getSegmentItems(lang);
 
-  const whiteLogo = "/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png";
-  const blueLogo = "/LogoPGPRODUCTSPGBLUE.png";
+  const whiteLogo = "/about/8edefffc-7a49-492b-acc8-65267634f930.png";
+  const blueLogo = "/shared/logos/LogoPGPRODUCTSPGBLUE.png";
 
   // Páginas que necesitan navbar siempre visible (fondo blanco)
   // Product pages removed - they now use transparent navbar like home
