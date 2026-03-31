@@ -19,7 +19,7 @@ import ContactPage from "./pages/ContactPage";
 import HistoriaPage from "./pages/HistoriaPage";
 import PGAutomotivePage from "./pages/PGAutomotivePage";
 import PGMilitaryPage from "./pages/PGMilitaryPage";
-import PGArchitecturalPage from "./pages/PGArchitecturalPage";
+
 import PGBallisticsPage from "./pages/PGBallisticsPage";
 import PGDNAPage from "./pages/PGDNAPage";
 
