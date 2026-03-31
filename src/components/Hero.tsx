@@ -374,8 +374,8 @@ const Hero = () => {
             {/* Formulación PG */}
             <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
               <div className="flex justify-center lg:justify-end mb-6">
-                <div className="w-full h-44 sm:h-56 lg:h-72 rounded-2xl"
-                  style={{ backgroundImage: 'url(/home/formulacion-home.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+              <div className="w-full h-64 sm:h-80 lg:h-[420px] rounded-2xl"
+                  style={{ backgroundImage: 'url(/home/FORMULACION-PG-ES-2.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
                 <div className="sm:max-w-sm lg:max-w-lg">
