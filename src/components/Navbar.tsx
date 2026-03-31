@@ -441,10 +441,7 @@ const Navbar = () => {
             }, 150);
           }}
         >
-          <div className="container mx-auto py-8 px-4 sm:px-8">
-            <div className="flex justify-center mb-6">
-              <img src="/shared/icons/transport_solutions.png" alt="PG Transport Solutions" className="h-16 object-contain" />
-            </div>
+          <div className="container mx-auto py-12 px-4 sm:px-8">
             <div className="flex flex-wrap justify-center gap-8">
               {segmentItems.map((item) => {
                 console.log(`Setting up segment link for ${item.name} -> ${item.path}`);
