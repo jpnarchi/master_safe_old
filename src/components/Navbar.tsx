@@ -67,12 +67,6 @@ const getSegmentItems = (lang: Lang): SegmentItem[] => [
     description: { es: "Aplicaciones Militares", en: "Military Applications", pt: "Aplicações Militares" }[lang],
     img: "/shared/icons/placeholder.svg"
   },
-  {
-    name: "PG Architectural Solutions",
-    path: "/pg-architectural",
-    description: { es: "Soluciones Arquitectónicas", en: "Architectural Solutions", pt: "Soluções Arquitetônicas" }[lang],
-    img: "/shared/icons/placeholder.svg"
-  }
 ];
 
 const Navbar = () => {
