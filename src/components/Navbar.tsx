@@ -442,7 +442,7 @@ const Navbar = () => {
           }}
         >
           <div className="container mx-auto py-12 px-4 sm:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+            <div className="flex flex-wrap justify-center gap-8">
               {segmentItems.map((item) => {
                 console.log(`Setting up segment link for ${item.name} -> ${item.path}`);
 
