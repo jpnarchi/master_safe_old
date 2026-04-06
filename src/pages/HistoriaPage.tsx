@@ -9,49 +9,49 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   {
     year: 1998,
     title: { es: "Se Funda PG Products Barueri (SP)", en: "PG Products Barueri (SP) Founded", pt: "Fundação da PG Products Barueri (SP)" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-1.png",
     description: { es: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño.", en: "Start of operations in São Paulo, Brazil. Establishment of the first production plant with cutting-edge technology for the Brazilian market.", pt: "Início das operações em São Paulo, Brasil. Estabelecimento da primeira planta de produção com tecnologia de ponta para o mercado brasileiro." }[lang]
   },
   {
     year: 2000,
     title: { es: "Expansión Regional", en: "Regional Expansion", pt: "Expansão Regional" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-2.png",
     description: { es: "Crecimiento en el mercado latinoamericano con nuevos clientes y certificaciones.", en: "Growth in the Latin American market with new clients and certifications.", pt: "Crescimento no mercado latino-americano com novos clientes e certificações." }[lang]
   },
   {
     year: 2004,
     title: { es: "Miembro Fundador Brasil", en: "Founding Member Brazil", pt: "Membro Fundador Brasil" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-3.png",
     description: { es: "Participación activa en la industria brasileña como miembro fundador de la asociación de blindadores del país.", en: "Active participation in the Brazilian industry as a founding member of the country's armoring association.", pt: "Participação ativa na indústria brasileira como membro fundador da associação de blindadores do país." }[lang]
   },
   {
     year: 2006,
     title: { es: "Certificación NATO STANAG I y II", en: "NATO STANAG I and II Certification", pt: "Certificação NATO STANAG I e II" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-4.png",
     description: { es: "Obtención de certificación militar de alta seguridad bajo los estándares internacionales NATO STANAG niveles I y II.", en: "Obtaining high-security military certification under the international NATO STANAG standards levels I and II.", pt: "Obtenção de certificação militar de alta segurança sob os padrões internacionais NATO STANAG níveis I e II." }[lang]
   },
   {
     year: 2009,
     title: { es: "Planta México en Toluca", en: "Mexico Plant in Toluca", pt: "Planta México em Toluca" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-5.png",
     description: { es: "Expansión internacional con la apertura de la planta no.3 PG Products México en Toluca, fortaleciendo presencia en Norteamérica.", en: "International expansion with the opening of plant no.3 PG Products Mexico in Toluca, strengthening presence in North America.", pt: "Expansão internacional com a abertura da planta nº 3 PG Products México em Toluca, fortalecendo a presença na América do Norte." }[lang]
   },
   {
     year: 2012,
     title: { es: "Certificado BRG Brasil", en: "BRG Brazil Certification", pt: "Certificado BRG Brasil" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-6.png",
     description: { es: "Certificación nacional brasileña ABNT NBR 15000, consolidando el liderazgo en el mercado de blindaje nacional.", en: "Brazilian national certification ABNT NBR 15000, consolidating leadership in the national armoring market.", pt: "Certificação nacional brasileira ABNT NBR 15000, consolidando a liderança no mercado nacional de blindagem." }[lang]
   },
   {
     year: 2015,
     title: { es: "Exportación Internacional", en: "International Export", pt: "Exportação Internacional" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-7.png",
     description: { es: "Inicio de exportaciones a Argentina, Francia e Israel, expandiendo la presencia global de PG Products.", en: "Start of exports to Argentina, France and Israel, expanding the global presence of PG Products.", pt: "Início de exportações para Argentina, França e Israel, expandindo a presença global da PG Products." }[lang]
   },
   {
     year: 2019,
     title: { es: "QMS ISO 9001:2015", en: "QMS ISO 9001:2015", pt: "QMS ISO 9001:2015" }[lang],
-    image: "/about/tchelao05_RJ.jpg",
+    image: "/about/NuestroRecorrido-8.png",
     description: { es: "Actualización de certificaciones ISO 9001:2015, manteniendo los más altos estándares.", en: "Update of ISO 9001:2015 certifications, maintaining the highest standards.", pt: "Atualização das certificações ISO 9001:2015, mantendo os mais altos padrões." }[lang]
   }
 ];
@@ -89,20 +89,20 @@ const TimelineCarousel = () => {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="relative overflow-hidden rounded-lg mb-8">
-          <img
-            src={currentItem.image}
-            alt={currentItem.title}
-            className="w-full h-[200px] sm:h-[270px] md:h-[334px] object-cover"
-          />
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {/* Left side - Image */}
+          <div className="relative overflow-hidden rounded-lg">
+            <img
+              src={currentItem.image}
+              alt={currentItem.title}
+              className="w-full h-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px] object-cover"
+            />
+          </div>
 
-        <div className="relative">
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-pgnavy"></div>
-
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div className="flex flex-col sm:flex-row sm:items-start gap-6 flex-1">
-              <div className="flex items-center gap-4">
+          {/* Right side - Content */}
+          <div className="flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
                 <button
                   onClick={goToPrevious}
                   className="text-pgnavy hover:text-pgblue transition-colors p-1"
@@ -111,7 +111,7 @@ const TimelineCarousel = () => {
                   <ChevronLeft size={32} />
                 </button>
 
-                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-pgnavy">
+                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-pgnavy">
                   {currentItem.year}
                 </div>
 
@@ -124,25 +124,26 @@ const TimelineCarousel = () => {
                 </button>
               </div>
 
-              <div className="pt-2 flex-1">
-                <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
-                  {currentItem.title}
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {currentItem.description}
-                </p>
-              </div>
+              <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
+                {currentItem.title}
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                {currentItem.description}
+              </p>
             </div>
 
-            <div className="flex justify-center lg:justify-end gap-4 sm:gap-6 md:gap-8 lg:gap-12 overflow-x-auto">
-              {getVisibleYears().slice(1).map((year, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-lg md:text-xl font-light text-gray-400 mb-2">
-                    {year}
+            <div className="relative mt-8 pt-4">
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-pgnavy"></div>
+              <div className="flex justify-between gap-4 overflow-x-auto pb-4">
+                {getVisibleYears().slice(1).map((year, index) => (
+                  <div key={index} className="text-center flex-shrink-0">
+                    <div className="text-lg md:text-xl font-light text-gray-400 mb-2">
+                      {year}
+                    </div>
+                    <div className="w-px h-3 bg-gray-400 mx-auto"></div>
                   </div>
-                  <div className="w-px h-3 bg-gray-400 mx-auto"></div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -217,8 +218,7 @@ const ht = {
     pt: "Uma jornada de dedicação, inovação contínua e compromisso com a excelência"
   },
   downloadsTitle: { es: "Archivos para descargar", en: "Files to Download", pt: "Arquivos para Download" },
-  download1: { es: "Brochure de productos PG Products", en: "PG Products Product Brochure", pt: "Catálogo de produtos PG Products" },
-  download2: { es: "Descargue nuestro último informe anual", en: "Download our latest annual report", pt: "Baixe nosso último relatório anual" },
+  download1: { es: "Catálogo de Productos", en: "Products Catalogue", pt: "Catálogo de Produtos" },
   formTitle: { es: "Protegemos tu seguridad", en: "We Protect Your Security", pt: "Protegemos sua segurança" },
   formSubtitle: {
     es: "Confía en la experiencia y calidad de un líder en seguridad automotriz.",
@@ -257,7 +257,7 @@ const HistoriaPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const plantBrImages = ['/about/ourplantbr_1.jpg', '/about/ourplantbr_2.jpg', '/about/ourplantbr_3.jpg'];
+  const plantBrImages = ['/about/ourplantbr-1.png', '/about/ourplantbr-2.png', '/about/ourplantbr-3.png'];
   const [currentBrSlide, setCurrentBrSlide] = useState(0);
 
   useEffect(() => {
@@ -274,7 +274,7 @@ const HistoriaPage = () => {
       {/* Hero Section */}
       <section className="relative w-full">
         <img
-          src="/about/header_about_2026.png"
+          src="/about/HeroImage-Aboutuspage.png"
           alt="PG Products as a Company"
           className="w-full h-auto"
         />
@@ -448,21 +448,6 @@ const HistoriaPage = () => {
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-pgnavy">
                   {T(ht.download1)}
-                </h3>
-              </div>
-              <button className="flex items-center justify-center w-16 h-16 bg-pgblue hover:bg-pgblue/90 rounded-lg transition-colors">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <polyline points="7 10 12 15 17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-
-            <div className="flex items-center justify-between border-t border-gray-300 pt-8">
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-pgnavy">
-                  {T(ht.download2)}
                 </h3>
               </div>
               <button className="flex items-center justify-center w-16 h-16 bg-pgblue hover:bg-pgblue/90 rounded-lg transition-colors">

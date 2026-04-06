@@ -139,6 +139,12 @@ const Hero = () => {
 
   const cardDescriptions = ht.cards[language];
 
+  const formulacionImg: Record<string, string> = {
+    es: '/home/Vidrio-FORMULACION-PG ES.png',
+    en: '/home/Vidrio-FORMULACION PG-EN.png',
+    pt: '/home/Vidrio-FORMULACION-PG-PT.png',
+  };
+
   const allProductCards = [
     { title: "GlassGuard", img: `/home/pg_glassguard_${language}.png`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
     { title: "SuperSlim",  img: `/home/pg_superslim_${language}.png`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
@@ -353,7 +359,7 @@ const Hero = () => {
       {/* INVESTIGACIÓN & DESARROLLO SECTION */}
       <section
         className="w-full py-16 sm:py-24 md:py-32 lg:py-48 relative overflow-hidden flex items-center justify-center min-h-[400px] md:min-h-[600px] lg:min-h-[800px]"
-        style={{ backgroundImage: 'url(/about/RnD_image@2x.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: 'url(/home/BracketHome.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="text-center text-white z-10 px-4">
           <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.png" alt="PG Products Logo"
@@ -372,21 +378,19 @@ const Hero = () => {
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Formulación PG */}
-            <div className="bg-gray-50 rounded-3xl p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
-              <div className="flex justify-center lg:justify-end mb-6">
-              <div className="w-full h-64 sm:h-80 lg:h-[420px] rounded-2xl"
-                  style={{ backgroundImage: 'url(/home/FORMULACION-PG-ES-2.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+            <div className="bg-gray-50 rounded-3xl overflow-hidden flex flex-col">
+              <div className="p-6 sm:p-8 lg:p-12">
+                <div className="w-full h-[220px] sm:h-[280px] lg:h-[360px] rounded-2xl"
+                  style={{ backgroundImage: `url('${formulacionImg[language]}')`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at center, black 40%, transparent 88%)', maskImage: 'radial-gradient(ellipse 80% 80% at center, black 40%, transparent 88%)' }} />
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
-                <div className="sm:max-w-sm lg:max-w-lg">
-                  <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-pgnavy mb-3 sm:mb-4">{T(ht.formTitle)}</h2>
-                  <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">{T(ht.formDesc)}</p>
-                </div>
-                <div className="flex-shrink-0">
-                  <Link to="/pg-dna" className="inline-flex items-center rounded-xl px-6 py-3 sm:px-8 text-sm sm:text-base font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white whitespace-nowrap">
-                    {T(ht.learnMore)}
-                  </Link>
-                </div>
+              <div className="flex-1 px-6 sm:px-8 lg:px-12 pb-6">
+                <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-pgnavy mb-3 sm:mb-4">{T(ht.formTitle)}</h2>
+                <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">{T(ht.formDesc)}</p>
+              </div>
+              <div className="p-6 flex justify-center">
+                <Link to="/pg-dna" className="inline-flex items-center rounded-xl px-6 py-3 sm:px-8 text-sm sm:text-base font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-pgnavy border-pgnavy hover:bg-pgnavy hover:text-white whitespace-nowrap">
+                  {T(ht.learnMore)}
+                </Link>
               </div>
             </div>
 

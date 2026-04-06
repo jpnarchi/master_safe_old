@@ -208,6 +208,19 @@ const PGBallisticsPage = () => {
         </div>
       </section>
 
+      {/* Ballistics Video */}
+      <section className="relative w-full h-screen overflow-hidden">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/ballistics/PG-Ballistics-Vid.mp4" type="video/mp4" />
+        </video>
+      </section>
+
       {/* Testing & Certification Gallery */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-[1519px] mx-auto px-4">

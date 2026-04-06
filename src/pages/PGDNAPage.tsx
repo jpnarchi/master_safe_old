@@ -100,6 +100,12 @@ const PGDNAPage = () => {
   const T = (obj: { es: string; en: string; pt: string }) => obj[lang];
   const allProductCards = getProductCards(lang);
 
+  const formulacionImg: Record<string, string> = {
+    es: '/home/Vidrio-FORMULACION-PG ES.png',
+    en: '/home/Vidrio-FORMULACION PG-EN.png',
+    pt: '/home/Vidrio-FORMULACION-PG-PT.png',
+  };
+
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [currentProductSlide, setCurrentProductSlide] = useState(0);
   const [productApi, setProductApi] = useState<any>(null);
@@ -207,9 +213,9 @@ const PGDNAPage = () => {
       </section>
 
       {/* Formulación PG Section */}
-      <section className="relative overflow-hidden">
-        <img src="/about/bg_formulacion_pg@2x.png" alt="Formulación PG" className="w-full h-auto" />
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+      <section className="relative">
+        <img src={formulacionImg[language]} alt="Formulación PG" className="w-full h-auto" style={{ WebkitMaskImage: 'radial-gradient(ellipse 81% 81% at center, black 48%, transparent 88%)', maskImage: 'radial-gradient(ellipse 81% 81% at center, black 48%, transparent 88%)' }} />
+        <div className="absolute left-0 right-0 p-8 md:p-16" style={{ bottom: '-21%' }}>
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl">
               <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-6">{T(dt.formulacionTitle)}</h2>
@@ -220,7 +226,7 @@ const PGDNAPage = () => {
       </section>
 
       {/* Producto, Ingeniería & Desarrollo Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white mt-56">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.rdTitle)}</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
