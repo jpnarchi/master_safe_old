@@ -14,9 +14,9 @@ const GlassGuardPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const heroImages = [
-    '/products/glassguard/HeroPGGlassGuardefecto-1.png',
-    '/products/glassguard/HeroPGGlassGuardefecto-2.png',
-    '/products/glassguard/HeroPGGlassGuardefecto-3.png',
+    '/products/glassguard/HeroPGGlassGuardefecto-1.webp',
+    '/products/glassguard/HeroPGGlassGuardefecto-2.webp',
+    '/products/glassguard/HeroPGGlassGuardefecto-3.webp',
   ];
 
   useEffect(() => {
@@ -41,17 +41,17 @@ const GlassGuardPage = () => {
   ];
 
   const tabImages = [
-    '/products/glassguard/Tab1PGGlasGuard.png',
-    '/products/glassguard/Tab2PGGlassguardComposicion.png',
-    '/products/glassguard/Tab3PGGlassguardTecnologia.png',
-    '/products/glassguard/Tab4PGGlassguardEspecificaciones.png',
+    '/products/glassguard/Tab1PGGlasGuard.webp',
+    '/products/glassguard/Tab2PGGlassguardComposicion.webp',
+    '/products/glassguard/Tab3PGGlassguardTecnologia.webp',
+    '/products/glassguard/Tab4PGGlassguardEspecificaciones.webp',
   ];
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/products/glassguard/PGGlassguardCasosdeUso-1.png',
-    '/products/glassguard/PGGlassguardCasosdeUso-2.png',
-    '/products/glassguard/PGGlassguardCasosdeUso-3.png',
+    '/products/glassguard/PGGlassguardCasosdeUso-1.webp',
+    '/products/glassguard/PGGlassguardCasosdeUso-2.webp',
+    '/products/glassguard/PGGlassguardCasosdeUso-3.webp',
   ];
   const useCases = tr.useCases[language];
 
@@ -134,7 +134,7 @@ const GlassGuardPage = () => {
               boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
             }}>
             <img
-              src="/home/btn_pg_glassguard.png"
+              src="/home/btn_pg_glassguard.webp"
               alt="GlassGuard Logo"
               className="object-contain w-[200px] sm:w-[280px] md:w-[389px] h-auto"
             />
@@ -148,7 +148,7 @@ const GlassGuardPage = () => {
               {keyBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start justify-start gap-3 sm:gap-4">
                   <img
-                    src="/shared/icons/checkmark_bullet.png"
+                    src="/shared/icons/checkmark_bullet.webp"
                     alt="Checkmark"
                     className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 mt-1 object-contain"
                   />
@@ -246,7 +246,7 @@ const GlassGuardPage = () => {
         <div className="w-full px-4 sm:px-8">
           <div className="flex justify-center overflow-x-auto">
             <img
-              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.webp`}
               alt="Tabla Balística PG 2025"
               className="w-full rounded-2xl shadow-xl max-h-none"
             />
@@ -277,7 +277,7 @@ const GlassGuardPage = () => {
       {/* ── CONTACT FORM ── */}
       <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
         <img
-          src="/contact/bg_form_contact@2x.png"
+          src="/contact/bg_form_contact@2x.webp"
           alt="Contact Background"
           className="absolute inset-0 w-full h-full object-cover"
         />

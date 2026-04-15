@@ -14,10 +14,10 @@ const SuperSlimPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const heroImages = [
-    '/products/superslim/HeroPGSuperSlim-1.png',
-    '/products/superslim/HeroPGSuperSlim-2.png',
-    '/products/superslim/HeroPGSuperSlim-3.png',
-    '/products/superslim/HeroPGSuperSlim-4.png',
+    '/products/superslim/HeroPGSuperSlim-1.webp',
+    '/products/superslim/HeroPGSuperSlim-2.webp',
+    '/products/superslim/HeroPGSuperSlim-3.webp',
+    '/products/superslim/HeroPGSuperSlim-4.webp',
   ];
 
   useEffect(() => {
@@ -42,17 +42,17 @@ const SuperSlimPage = () => {
   ];
 
   const tabImages = [
-    '/products/superslim/TabsPGSuperSlim-1.png',
-    '/products/superslim/TabsComposicionPGSuperSlim-2.png',
-    '/products/superslim/TabsTecnologiaPGSuperSlim-3.png',
-    '/products/superslim/TabsEspecificacionesPGSuperSlim-4png.png',
+    '/products/superslim/TabsPGSuperSlim-1.webp',
+    '/products/superslim/TabsComposicionPGSuperSlim-2.webp',
+    '/products/superslim/TabsTecnologiaPGSuperSlim-3.webp',
+    '/products/superslim/TabsEspecificacionesPGSuperSlim-4png.webp',
   ];
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/products/superslim/CasosdeUsoPGSuperSlim-1.png',
-    '/products/superslim/CasosdeUsoPGSuperSlim-2.png',
-    '/products/superslim/CasosdeUsoPGSuperSlim-3.png',
+    '/products/superslim/CasosdeUsoPGSuperSlim-1.webp',
+    '/products/superslim/CasosdeUsoPGSuperSlim-2.webp',
+    '/products/superslim/CasosdeUsoPGSuperSlim-3.webp',
   ];
   const useCases = tr.useCases[language];
 
@@ -123,7 +123,7 @@ const SuperSlimPage = () => {
             borderRadius: '23px', background: 'rgba(255, 255, 255, 0.25)', backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255, 255, 255, 0.3)', boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'
           }}>
-            <img src="/shared/logos/SuperSlimlogo.png" alt="SuperSlim Logo" className="object-contain w-[180px] sm:w-[280px] md:w-[389px] h-auto" />
+            <img src="/shared/logos/SuperSlimlogo.webp" alt="SuperSlim Logo" className="object-contain w-[180px] sm:w-[280px] md:w-[389px] h-auto" />
             <h2 className="font-normal text-black font-montserrat text-2xl sm:text-3xl md:text-4xl">{t(c.keyBenefits, language)}</h2>
           </div>
 
@@ -131,7 +131,7 @@ const SuperSlimPage = () => {
             <div className="space-y-2">
               {keyBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start justify-start gap-4">
-                  <img src="/shared/icons/checkmark_bullet.png" alt="Checkmark" className="w-8 h-8 flex-shrink-0 mt-1 object-contain" />
+                  <img src="/shared/icons/checkmark_bullet.webp" alt="Checkmark" className="w-8 h-8 flex-shrink-0 mt-1 object-contain" />
                   <p className="text-lg md:text-xl font-montserrat">
                     <span className="font-bold">{benefit.label}</span>{' '}
                     <span className="font-normal">{benefit.detail}</span>
@@ -196,7 +196,7 @@ const SuperSlimPage = () => {
         <div className="w-full px-4 sm:px-8">
           <div className="flex justify-center overflow-x-auto">
             <img
-              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.webp`}
               alt="Tabla Balística PG 2025"
               className="w-full rounded-2xl shadow-xl max-h-none"
             />
@@ -221,7 +221,7 @@ const SuperSlimPage = () => {
 
       {/* Contact Form */}
       <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
-        <img src="/contact/bg_form_contact@2x.png" alt="Contact Background" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/contact/bg_form_contact@2x.webp" alt="Contact Background" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/35" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">

@@ -23,7 +23,7 @@ const CTASection: React.FC<CTASectionProps> = ({
       {/* Background pattern overlay */}
       <div className="absolute inset-0">
         <img 
-          src="/about/dab51236-9306-4c50-b326-1e2f347360ca.png"
+          src="/about/dab51236-9306-4c50-b326-1e2f347360ca.webp"
           alt="Background pattern"
           className="w-full h-full object-cover opacity-30"
         />

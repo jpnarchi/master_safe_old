@@ -3,7 +3,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const langFlags: Record<string, string> = { es: '/flags/ES.svg', en: '/flags/US.svg', pt: '/flags/BR.png' };
+const langFlags: Record<string, string> = { es: '/flags/ES.svg', en: '/flags/US.svg', pt: '/flags/BR.webp' };
 
 type Lang = 'es' | 'en' | 'pt';
 
@@ -26,31 +26,31 @@ const getProductItems = (lang: Lang): ProductItem[] => [
     name: "GlassGuard",
     path: "/glassguard",
     description: { es: "Calidad y Durabilidad", en: "Quality and Durability", pt: "Qualidade e Durabilidade" }[lang],
-    img: "/home/btn_pg_glassguard.png"
+    img: "/home/btn_pg_glassguard.webp"
   },
   {
     name: "SteelGlass",
     path: "/steelglass",
     description: { es: "Resistente hasta el Borde", en: "Resistant to the Edge", pt: "Resistente até a Borda" }[lang],
-    img: "/home/btn_pg_steelglass.png"
+    img: "/home/btn_pg_steelglass.webp"
   },
   {
     name: "SuperSlim",
     path: "/superslim",
     description: { es: "Liviano y Resistente", en: "Lightweight and Resistant", pt: "Leve e Resistente" }[lang],
-    img: "/home/btn_pg_superslim.png"
+    img: "/home/btn_pg_superslim.webp"
   },
   {
     name: "Ultra",
     path: "/ultra",
     description: { es: "Desempeño Balístico Superior", en: "Superior Ballistic Performance", pt: "Desempenho Balístico Superior" }[lang],
-    img: "/home/btn_pg_ultra.png"
+    img: "/home/btn_pg_ultra.webp"
   },
   {
     name: "Neu",
     path: "/neu",
     description: { es: "Próxima Generación", en: "Next Generation", pt: "Próxima Geração" }[lang],
-    img: "/home/btn_pg_neu.png"
+    img: "/home/btn_pg_neu.webp"
   }
 ];
 
@@ -86,8 +86,8 @@ const Navbar = () => {
   const productItems = getProductItems(lang);
   const segmentItems = getSegmentItems(lang);
 
-  const whiteLogo = "/about/8edefffc-7a49-492b-acc8-65267634f930.png";
-  const blueLogo = "/shared/logos/LogoPGPRODUCTSPGBLUE.png";
+  const whiteLogo = "/about/8edefffc-7a49-492b-acc8-65267634f930.webp";
+  const blueLogo = "/shared/logos/LogoPGPRODUCTSPGBLUE.webp";
 
   // Páginas que necesitan navbar siempre visible (fondo blanco)
   // Product pages removed - they now use transparent navbar like home

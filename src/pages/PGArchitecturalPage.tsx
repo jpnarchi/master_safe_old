@@ -108,7 +108,7 @@ const PGArchitecturalPage = () => {
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/about/IMG_4473.jpg"
+            src="/about/IMG_4473.webp"
             alt="PG Architectural Applications"
             className="w-full h-full object-cover"
           />
@@ -142,7 +142,7 @@ const PGArchitecturalPage = () => {
               {/* Government Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[400px] lg:h-[508px]">
                 <img
-                  src="/about/IMG_4544.jpg"
+                  src="/about/IMG_4544.webp"
                   alt="Government Buildings"
                   className="w-full h-full object-cover"
                 />
@@ -185,7 +185,7 @@ const PGArchitecturalPage = () => {
               {/* Corporate Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[400px] lg:h-[508px]">
                 <img
-                  src="/about/IMG_4421.jpg"
+                  src="/about/IMG_4421.webp"
                   alt="Corporate Facilities"
                   className="w-full h-full object-cover"
                 />
@@ -229,7 +229,7 @@ const PGArchitecturalPage = () => {
           <div className="bg-[#3e567b] rounded-t-lg py-4 sm:py-6 px-4 sm:px-8">
             <div className="flex items-center justify-center gap-4">
               <img
-                src="/LogoPGPRODUCTSPGBLUE.png"
+                src="/shared/logos/LogoPGPRODUCTSPGBLUE.webp"
                 alt="PG Products"
                 className="h-8 sm:h-10 brightness-0 invert"
               />
@@ -320,7 +320,7 @@ const PGArchitecturalPage = () => {
                     <td key={idx} className="bg-[#e7eaee] p-3 sm:p-4 text-center border-b border-gray-200">
                       <div className="h-20 sm:h-24 flex items-center justify-center">
                         <img
-                          src={`/military/weapon_${idx + 1}.png`}
+                          src={`/military/weapon_${idx + 1}.webp`}
                           alt={`Weapon ${idx + 1}`}
                           className="max-h-full max-w-full object-contain"
                           onError={(e) => {
@@ -454,7 +454,7 @@ const PGArchitecturalPage = () => {
       <section
         className="w-full py-16 lg:py-24 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/bg_form_contact@2x.png)',
+          backgroundImage: 'url(/contact/bg_form_contact@2x.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

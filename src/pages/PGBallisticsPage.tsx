@@ -86,8 +86,8 @@ const PGBallisticsPage = () => {
 
   const galleryImages = [
     "/lovable-uploads/vidrio_disparos.avif",
-    "/steelglassfotocarrusel0.jpg",
-    "/steelglassfototechnology.jpg"
+    "/products/steelglass/steelglassfotocarrusel0.webp",
+    "/products/steelglass/steelglassfototechnology.webp"
   ];
 
   // Ballistic Chart Data - exactly as in Figma
@@ -200,7 +200,7 @@ const PGBallisticsPage = () => {
         <div className="w-full px-4 sm:px-8">
           <div className="flex justify-center overflow-x-auto">
             <img
-              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.png`}
+              src={`/ballistics/Tabla_Balistica_PG_2025-${language.toUpperCase()}.webp`}
               alt="Tabla Balística PG 2025"
               className="w-full rounded-2xl shadow-xl max-h-none"
             />
@@ -453,7 +453,7 @@ const PGBallisticsPage = () => {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
           <img
-            src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.png"
+            src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.webp"
             alt="PG Products Logo"
             className="w-40 sm:w-64 md:w-80 lg:w-[479px] h-auto mb-6 sm:mb-8 drop-shadow-lg"
           />

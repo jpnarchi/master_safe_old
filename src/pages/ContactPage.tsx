@@ -81,7 +81,7 @@ const ContactPage = () => {
         <div className="absolute inset-0 bg-pgnavy z-0 overflow-hidden">
           <div className="absolute w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] rounded-full bg-gradient-to-r from-pgblue/20 to-transparent top-[-200px] sm:top-[-300px] md:top-[-400px] left-[-100px] sm:left-[-150px] md:left-[-200px] blur-3xl"></div>
           <div className="absolute w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] rounded-full bg-gradient-to-l from-pgblue/20 to-transparent bottom-[-150px] sm:bottom-[-225px] md:bottom-[-300px] right-[-50px] sm:right-[-75px] md:right-[-100px] blur-3xl"></div>
-          <div className="absolute inset-0 bg-[url('/contact/contact-pattern.jpg')] bg-cover bg-center opacity-10"></div>
+          <div className="absolute inset-0 bg-[url('/contact/contact-pattern.webp')] bg-cover bg-center opacity-10"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -372,7 +372,7 @@ const ContactPage = () => {
         {/* Background pattern */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/about/dab51236-9306-4c50-b326-1e2f347360ca.png"
+            src="/about/dab51236-9306-4c50-b326-1e2f347360ca.webp"
             alt="Background pattern"
             className="w-full h-full object-cover opacity-20"
           />

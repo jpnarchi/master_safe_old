@@ -59,35 +59,35 @@ const dt = {
 const getProductCards = (lang: 'es' | 'en' | 'pt') => [
   {
     title: "GlassGuard",
-    img: "/Glassguard_card.png",
+    img: "/Glassguard_card.webp",
     logo: "/shared/logos/new-card-logoPG-GlassGuard.svg",
     description: { es: "Vidrio premium de resistencia balística certificada", en: "Premium glass with certified ballistic resistance", pt: "Vidro premium de resistência balística certificada" }[lang],
     link: "/glassguard"
   },
   {
     title: "SuperSlim",
-    img: "/Superslim_card.png",
+    img: "/Superslim_card.webp",
     logo: "/shared/logos/new-card-logo-PG-Superslim.svg",
     description: { es: "Vidrio balístico premium: más delgado, liviano y duradero", en: "Premium Ballistic Glass: Thinner, lightweight and more durable", pt: "Vidro balístico premium: mais fino, leve e durável" }[lang],
     link: "/superslim"
   },
   {
     title: "SteelGlass",
-    img: "/Steelglass_card.png",
+    img: "/Steelglass_card.webp",
     logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg",
     description: { es: "Vidrio balístico premium con marco de acero", en: "Premium Ballistic Glass with Steel Frame", pt: "Vidro balístico premium com estrutura de aço" }[lang],
     link: "/steelglass"
   },
   {
     title: "PG NEU",
-    img: "/Neu_card.png",
+    img: "/Neu_card.webp",
     logo: "/shared/logos/PG Neu.svg",
     description: { es: "Vidrio balístico premium con resistencia extraordinaria", en: "Premium ballistic glass with remarkable resistance", pt: "Vidro balístico premium com resistência notável" }[lang],
     link: "/neu"
   },
   {
     title: "PG ULTRA",
-    img: "/Ultra_card.png",
+    img: "/Ultra_card.webp",
     logo: "/shared/logos/PG Ultra.svg",
     description: { es: "Vidrio balístico premium: más delgado, liviano y duradero", en: "Premium Ballistic Glass: Thinner, lightweight and more durable", pt: "Vidro balístico premium: mais fino, leve e durável" }[lang],
     link: "/ultra"
@@ -101,9 +101,9 @@ const PGDNAPage = () => {
   const allProductCards = getProductCards(lang);
 
   const formulacionImg: Record<string, string> = {
-    es: '/home/Vidrio-FORMULACION-PG ES.png',
-    en: '/home/Vidrio-FORMULACION PG-EN.png',
-    pt: '/home/Vidrio-FORMULACION-PG-PT.png',
+    es: '/home/Vidrio-FORMULACION-PG ES.webp',
+    en: '/home/Vidrio-FORMULACION PG-EN.webp',
+    pt: '/home/Vidrio-FORMULACION-PG-PT.webp',
   };
 
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
@@ -114,7 +114,7 @@ const PGDNAPage = () => {
     {
       title: T(dt.heroTitle),
       description: T(dt.heroDesc),
-      image: "/about/hero_about_pg_glass@2x.png"
+      image: "/about/hero_about_pg_glass@2x.webp"
     }
   ];
 
@@ -168,7 +168,7 @@ const PGDNAPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="flex items-center justify-center">
-              <img src="/about/Adn_pg@2x.png" alt="ADN PG Visualization" className="w-auto h-auto max-w-full" />
+              <img src="/about/Adn_pg@2x.webp" alt="ADN PG Visualization" className="w-auto h-auto max-w-full" />
             </div>
             <div className="space-y-12">
               <div className="flex gap-6 items-start">
@@ -231,7 +231,7 @@ const PGDNAPage = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.rdTitle)}</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
             <div>
-              <img src="/about/RnD_image@2x.png" alt="Product Development" className="w-full h-auto rounded-lg shadow-lg" />
+              <img src="/about/RnD_image@2x.webp" alt="Product Development" className="w-full h-auto rounded-lg shadow-lg" />
             </div>
             <div>
               <p className="text-lg text-gray-700 leading-relaxed">{T(dt.rdDesc)}</p>
@@ -290,7 +290,7 @@ const PGDNAPage = () => {
       {/* Contact Form Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/contact/bg_form_contact@2x.png" alt="Contact Background" className="w-full h-full object-cover" />
+          <img src="/contact/bg_form_contact@2x.webp" alt="Contact Background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-pgnavy/70"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4">

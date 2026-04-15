@@ -114,23 +114,23 @@ const PGMilitaryPage = () => {
     ],
     weapons: [
       {
-        img: '/military_weapon_1.png',
+        img: '/military/weapon_1.webp',
         calibers: ['5.56 x 45mm M855', '(950+/-10m/s)', '', '7.62 x 39mm FMJ/PB', '(720+/-10m/s)']
       },
       {
-        img: '/military_weapon_2.png',
+        img: '/military/weapon_2.webp',
         calibers: ['7.62 x 51mm M80 Ball', '(838+/-15m/s)', '', '7.62 x 51mm M80 Ball', '(830+/-15m/s)', '', '5.56 x 45mm SS 109', '(950+/-10m/s)']
       },
       {
-        img: '/military_weapon_3.png',
+        img: '/military/weapon_3.webp',
         calibers: ['30-06 AP M2', '(868+/-15m/s)', '', '7.62 x 39mm API BZ', '(950+/-20m/s)']
       },
       {
-        img: '/military_weapon_4.png',
+        img: '/military/weapon_4.webp',
         calibers: ['7.62 x 51mm M61 AP', '(820+/-10m/s)', '', '7.62 x 51mm', 'P80/FMJ/PB/HC', '(820+/-10m/s)']
       },
       {
-        img: '/military_weapon_5.png',
+        img: '/military/weapon_5.webp',
         calibers: ['7.62 x 51mm', 'P80/FMJ/PB/HC', '(820+/-10m/s)', '', '7.62 x 54 R B32', '(860+/-10m/s)']
       },
     ]
@@ -144,7 +144,7 @@ const PGMilitaryPage = () => {
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/products/steelglass/steelglassfototechnology.jpg"
+            src="/products/steelglass/steelglassfototechnology.webp"
             alt="PG Military Applications"
             className="w-full h-full object-cover"
           />
@@ -176,7 +176,7 @@ const PGMilitaryPage = () => {
           {/* Tank Image */}
           <div className="rounded-2xl overflow-hidden mb-8 sm:mb-12 h-[300px] sm:h-[400px] md:h-[508px]">
             <img
-              src="/about/IMG_4421.jpg"
+              src="/about/IMG_4421.webp"
               alt="Military Tank Protection"
               className="w-full h-full object-cover"
             />
@@ -234,7 +234,7 @@ const PGMilitaryPage = () => {
           <div className="bg-[#526239] rounded-t-lg py-4 sm:py-6 px-4 sm:px-8">
             <div className="flex items-center justify-center gap-4">
               <img
-                src="/shared/logos/LogoPGPRODUCTSPGBLUE.png"
+                src="/shared/logos/LogoPGPRODUCTSPGBLUE.webp"
                 alt="PG Products"
                 className="h-8 sm:h-10 brightness-0 invert"
               />
@@ -325,7 +325,7 @@ const PGMilitaryPage = () => {
                     <td key={idx} className="bg-[#dfe2da] p-3 sm:p-4 text-center border-b border-gray-200">
                       <div className="h-20 sm:h-24 flex items-center justify-center">
                         <img
-                          src={`/military/weapon_${idx + 1}.png`}
+                          src={`/military/weapon_${idx + 1}.webp`}
                           alt={`Weapon ${idx + 1}`}
                           className="max-h-full max-w-full object-contain"
                           onError={(e) => {
@@ -446,7 +446,7 @@ const PGMilitaryPage = () => {
       <section
         className="w-full py-16 lg:py-24 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/contact/bg_form_contact@2x.png)',
+          backgroundImage: 'url(/contact/bg_form_contact@2x.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 import { useLanguage, Language } from '../contexts/LanguageContext';
 
 const languages: { code: Language; label: string; native: string; flag: string }[] = [
-  { code: 'pt', label: 'Portuguese', native: 'Português', flag: '/flags/BR.png' },
+  { code: 'pt', label: 'Portuguese', native: 'Português', flag: '/flags/BR.webp' },
   { code: 'en', label: 'English',    native: 'English',   flag: '/flags/US.svg' },
   { code: 'es', label: 'Spanish',    native: 'Español',   flag: '/flags/ES.svg' },
 ];
@@ -34,7 +34,7 @@ const LanguageSelector: React.FC = () => {
         {/* Logo */}
         <div className="mb-6 flex justify-center">
           <img
-            src="/shared/logos/LogoPGPRODUCTSPGBLUE.png"
+            src="/shared/logos/LogoPGPRODUCTSPGBLUE.webp"
             alt="PG Glass Logo"
             className="h-12 w-auto object-contain"
             onError={(e) => {

@@ -3,18 +3,18 @@ import { useState } from 'react';
 import React from 'react';
 
 const aboutUsVideo = "/videos/PGREDUCEDVID.mp4";
-const aboutUsImage = "/about/IMG_4473.jpg";
+const aboutUsImage = "/about/IMG_4473.webp";
 const carouselSlides = [
   {
-    img: "/about/IMG_4544.jpg",
+    img: "/about/IMG_4544.webp",
     text: "Innovación y calidad en cada proyecto."
   },
   {
-    img: "/about/IMG_4421.jpg",
+    img: "/about/IMG_4421.webp",
     text: "Protección y tecnología europea."
   },
   {
-    img: "/about/IMG_4473.jpg",
+    img: "/about/IMG_4473.webp",
     text: "Equipo experto y procesos certificados."
   }
 ];

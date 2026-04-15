@@ -7,7 +7,7 @@ import { useLanguage, Language } from '../contexts/LanguageContext';
 const languages: { code: Language; flag: string; label: string; native: string }[] = [
   { code: 'es', flag: '/flags/ES.svg', label: 'ES', native: 'Español' },
   { code: 'en', flag: '/flags/US.svg', label: 'EN', native: 'English' },
-  { code: 'pt', flag: '/flags/BR.png', label: 'PT', native: 'Português' },
+  { code: 'pt', flag: '/flags/BR.webp', label: 'PT', native: 'Português' },
 ];
 
 const ft = {
@@ -77,7 +77,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <img
-              src="/about/8edefffc-7a49-492b-acc8-65267634f930.png"
+              src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp"
               alt="PG Products Logo"
               className="h-12 mb-4"
             />

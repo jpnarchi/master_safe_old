@@ -5,10 +5,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const carouselImages = [
-  '/home/Hero1_img_pattern@2xx.png',
-  '/products/superslim/Hero_img_PG_SuperSlim_1.png',
-  '/automotive/Hero-PORSCHE_img_pattern@2x.png',
-  '/home/Hero4_img_pattern@2x.png',
+  '/home/Hero1_img_pattern@2xx.webp',
+  '/products/superslim/Hero_img_PG_SuperSlim_1.webp',
+  '/automotive/Hero-PORSCHE_img_pattern@2x.webp',
+  '/home/Hero4_img_pattern@2x.webp',
 ];
 
 // Translations for Hero component
@@ -140,17 +140,17 @@ const Hero = () => {
   const cardDescriptions = ht.cards[language];
 
   const formulacionImg: Record<string, string> = {
-    es: '/home/Vidrio-FORMULACION-PG ES.png',
-    en: '/home/Vidrio-FORMULACION PG-EN.png',
-    pt: '/home/Vidrio-FORMULACION-PG-PT.png',
+    es: '/home/Vidrio-FORMULACION-PG ES.webp',
+    en: '/home/Vidrio-FORMULACION PG-EN.webp',
+    pt: '/home/Vidrio-FORMULACION-PG-PT.webp',
   };
 
   const allProductCards = [
-    { title: "GlassGuard", img: `/home/pg_glassguard_${language}.png`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
-    { title: "SuperSlim",  img: `/home/pg_superslim_${language}.png`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
-    { title: "SteelGlass", img: `/home/pg_steelglass_${language}.png`, logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
-    { title: "PG NEU",     img: `/home/pg_neu_${language}.png`,        logo: "/shared/logos/PG Neu.svg",                      link: "/neu" },
-    { title: "PG ULTRA",   img: `/home/pg_ultra_${language}.png`,      logo: "/shared/logos/PG Ultra.svg",                    link: "/ultra" },
+    { title: "GlassGuard", img: `/home/pg_glassguard_${language}.webp`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
+    { title: "SuperSlim",  img: `/home/pg_superslim_${language}.webp`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
+    { title: "SteelGlass", img: `/home/pg_steelglass_${language}.webp`, logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
+    { title: "PG NEU",     img: `/home/pg_neu_${language}.webp`,        logo: "/shared/logos/PG Neu.svg",                      link: "/neu" },
+    { title: "PG ULTRA",   img: `/home/pg_ultra_${language}.webp`,      logo: "/shared/logos/PG Ultra.svg",                    link: "/ultra" },
   ];
 
   useEffect(() => {
@@ -359,10 +359,10 @@ const Hero = () => {
       {/* INVESTIGACIÓN & DESARROLLO SECTION */}
       <section
         className="w-full py-16 sm:py-24 md:py-32 lg:py-48 relative overflow-hidden flex items-center justify-center min-h-[400px] md:min-h-[600px] lg:min-h-[800px]"
-        style={{ backgroundImage: 'url(/home/BracketHome.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: 'url(/home/BracketHome.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="text-center text-white z-10 px-4">
-          <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.png" alt="PG Products Logo"
+          <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp" alt="PG Products Logo"
             className="mx-auto mb-6 sm:mb-8 w-48 sm:w-64 md:w-80 lg:w-[420px] h-auto drop-shadow-xl" />
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90">{T(ht.rdSub)}</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">{T(ht.rdTitle)}</h2>
@@ -403,7 +403,7 @@ const Hero = () => {
               </div>
               <div className="flex-1 relative" style={{ minHeight: '360px' }}>
                 <img
-                  src="/home/conocemasHOME.png"
+                  src="/home/conocemasHOME.webp"
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   style={{ mixBlendMode: 'multiply', objectPosition: 'right center' }}
@@ -446,7 +446,7 @@ const Hero = () => {
               <p className="text-center text-[#1A202C] text-sm leading-relaxed">{T(ht.ben1desc)}</p>
             </div>
             <div className="flex items-center" style={{ marginTop: '90px' }}>
-              <img src="/shared/icons/linea_pasos@2x.png" alt="" className="w-[180px] h-auto" />
+              <img src="/shared/icons/linea_pasos@2x.webp" alt="" className="w-[180px] h-auto" />
             </div>
             <div className="flex-1 max-w-[340px]">
               <div className="flex justify-center mb-8">
@@ -458,7 +458,7 @@ const Hero = () => {
               <p className="text-center text-[#1A202C] text-sm leading-relaxed">{T(ht.ben2desc)}</p>
             </div>
             <div className="flex items-center" style={{ marginTop: '90px' }}>
-              <img src="/shared/icons/linea_pasos@2x.png" alt="" className="w-[180px] h-auto" />
+              <img src="/shared/icons/linea_pasos@2x.webp" alt="" className="w-[180px] h-auto" />
             </div>
             <div className="flex-1 max-w-[340px]">
               <div className="flex justify-center mb-8">
@@ -507,7 +507,7 @@ const Hero = () => {
       {/* CONTACT SECTION */}
       <section
         className="w-full py-12 sm:py-16 lg:py-24 relative overflow-hidden"
-        style={{ backgroundImage: 'url(/contact/bg_form_contact@2x.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '500px' }}
+        style={{ backgroundImage: 'url(/contact/bg_form_contact@2x.webp)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '500px' }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">

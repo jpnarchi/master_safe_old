@@ -1,4 +1,4 @@
-const teslaRed = "/home/vidrios-home.png";
+const teslaRed = "/home/vidrios-home.webp";
 const teslaGray = "/military/vidrio_disparos.avif";
 
 const AboutPGGlass = () => {

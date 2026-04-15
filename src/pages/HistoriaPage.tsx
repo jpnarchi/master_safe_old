@@ -9,49 +9,49 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   {
     year: 1998,
     title: { es: "Se Funda PG Products Barueri (SP)", en: "PG Products Barueri (SP) Founded", pt: "Fundação da PG Products Barueri (SP)" }[lang],
-    image: "/about/NuestroRecorrido-1.png",
+    image: "/about/NuestroRecorrido-1.webp",
     description: { es: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño.", en: "Start of operations in São Paulo, Brazil. Establishment of the first production plant with cutting-edge technology for the Brazilian market.", pt: "Início das operações em São Paulo, Brasil. Estabelecimento da primeira planta de produção com tecnologia de ponta para o mercado brasileiro." }[lang]
   },
   {
     year: 2000,
     title: { es: "Expansión Regional", en: "Regional Expansion", pt: "Expansão Regional" }[lang],
-    image: "/about/NuestroRecorrido-2.png",
+    image: "/about/NuestroRecorrido-2.webp",
     description: { es: "Crecimiento en el mercado latinoamericano con nuevos clientes y certificaciones.", en: "Growth in the Latin American market with new clients and certifications.", pt: "Crescimento no mercado latino-americano com novos clientes e certificações." }[lang]
   },
   {
     year: 2004,
     title: { es: "Miembro Fundador Brasil", en: "Founding Member Brazil", pt: "Membro Fundador Brasil" }[lang],
-    image: "/about/NuestroRecorrido-3.png",
+    image: "/about/NuestroRecorrido-3.webp",
     description: { es: "Participación activa en la industria brasileña como miembro fundador de la asociación de blindadores del país.", en: "Active participation in the Brazilian industry as a founding member of the country's armoring association.", pt: "Participação ativa na indústria brasileira como membro fundador da associação de blindadores do país." }[lang]
   },
   {
     year: 2006,
     title: { es: "Certificación NATO STANAG I y II", en: "NATO STANAG I and II Certification", pt: "Certificação NATO STANAG I e II" }[lang],
-    image: "/about/NuestroRecorrido-4.png",
+    image: "/about/NuestroRecorrido-4.webp",
     description: { es: "Obtención de certificación militar de alta seguridad bajo los estándares internacionales NATO STANAG niveles I y II.", en: "Obtaining high-security military certification under the international NATO STANAG standards levels I and II.", pt: "Obtenção de certificação militar de alta segurança sob os padrões internacionais NATO STANAG níveis I e II." }[lang]
   },
   {
     year: 2009,
     title: { es: "Planta México en Toluca", en: "Mexico Plant in Toluca", pt: "Planta México em Toluca" }[lang],
-    image: "/about/NuestroRecorrido-5.png",
+    image: "/about/NuestroRecorrido-5.webp",
     description: { es: "Expansión internacional con la apertura de la planta no.3 PG Products México en Toluca, fortaleciendo presencia en Norteamérica.", en: "International expansion with the opening of plant no.3 PG Products Mexico in Toluca, strengthening presence in North America.", pt: "Expansão internacional com a abertura da planta nº 3 PG Products México em Toluca, fortalecendo a presença na América do Norte." }[lang]
   },
   {
     year: 2012,
     title: { es: "Certificado BRG Brasil", en: "BRG Brazil Certification", pt: "Certificado BRG Brasil" }[lang],
-    image: "/about/NuestroRecorrido-6.png",
+    image: "/about/NuestroRecorrido-6.webp",
     description: { es: "Certificación nacional brasileña ABNT NBR 15000, consolidando el liderazgo en el mercado de blindaje nacional.", en: "Brazilian national certification ABNT NBR 15000, consolidating leadership in the national armoring market.", pt: "Certificação nacional brasileira ABNT NBR 15000, consolidando a liderança no mercado nacional de blindagem." }[lang]
   },
   {
     year: 2015,
     title: { es: "Exportación Internacional", en: "International Export", pt: "Exportação Internacional" }[lang],
-    image: "/about/NuestroRecorrido-7.png",
+    image: "/about/NuestroRecorrido-7.webp",
     description: { es: "Inicio de exportaciones a Argentina, Francia e Israel, expandiendo la presencia global de PG Products.", en: "Start of exports to Argentina, France and Israel, expanding the global presence of PG Products.", pt: "Início de exportações para Argentina, França e Israel, expandindo a presença global da PG Products." }[lang]
   },
   {
     year: 2019,
     title: { es: "SGQ ISO 9001:2015", en: "QMS ISO 9001:2015", pt: "SGQ ISO 9001:2015" }[lang],
-    image: "/about/NuestroRecorrido-8.png",
+    image: "/about/NuestroRecorrido-8.webp",
     description: { es: "Actualización de certificaciones ISO 9001:2015, manteniendo los más altos estándares.", en: "Update of ISO 9001:2015 certifications, maintaining the highest standards.", pt: "Atualização das certificações ISO 9001:2015, mantendo os mais altos padrões." }[lang]
   }
 ];
@@ -247,7 +247,7 @@ const HistoriaPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const plantMxImages = ['/about/ourplantmx_1.jpg', '/about/ourplantmx_2.jpg', '/about/ourplantmx_3.jpg'];
+  const plantMxImages = ['/about/ourplantmx_1.webp', '/about/ourplantmx_2.webp', '/about/ourplantmx_3.webp'];
   const [currentMxSlide, setCurrentMxSlide] = useState(0);
 
   useEffect(() => {
@@ -257,7 +257,7 @@ const HistoriaPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const plantBrImages = ['/about/ourplantbr-1.png', '/about/ourplantbr-2.png', '/about/ourplantbr-3.png'];
+  const plantBrImages = ['/about/ourplantbr-1.webp', '/about/ourplantbr-2.webp', '/about/ourplantbr-3.webp'];
   const [currentBrSlide, setCurrentBrSlide] = useState(0);
 
   useEffect(() => {
@@ -274,7 +274,7 @@ const HistoriaPage = () => {
       {/* Hero Section */}
       <section className="relative w-full">
         <img
-          src="/about/HeroImage-Aboutuspage.png"
+          src="/about/HeroImage-Aboutuspage.webp"
           alt="PG Products as a Company"
           className="w-full h-auto"
         />
@@ -379,10 +379,10 @@ const HistoriaPage = () => {
             <div>
               {(() => {
                 const peopleImages = [
-                  '/about/ourpeople_1.jpg',
-                  '/about/ourpeople_2.jpeg',
-                  '/about/ourpeople_3.jpg',
-                  '/about/ourpeople_4.jpg',
+                  '/about/ourpeople_1.webp',
+                  '/about/ourpeople_2.webp',
+                  '/about/ourpeople_3.webp',
+                  '/about/ourpeople_4.webp',
                 ];
                 return (
                   <>
@@ -468,7 +468,7 @@ const HistoriaPage = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/contact/bg_form_contact@2x.png"
+            src="/contact/bg_form_contact@2x.webp"
             alt="Contact Background"
             className="w-full h-full object-cover"
           />

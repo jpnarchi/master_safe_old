@@ -104,7 +104,7 @@ const PGAutomotivePage = () => {
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/products/steelglass/steelglassfotocarrusel0.jpg"
+            src="/products/steelglass/steelglassfotocarrusel0.webp"
             alt="PG Automotive BRG"
             className="w-full h-full object-cover"
           />
@@ -142,7 +142,7 @@ const PGAutomotivePage = () => {
               {/* Retrofit Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
                 <img
-                  src="/products/steelglass/steelglassfotocarrusel0.jpg"
+                  src="/products/steelglass/steelglassfotocarrusel0.webp"
                   alt="Retrofit Solutions"
                   className="w-full h-full object-cover"
                 />
@@ -188,7 +188,7 @@ const PGAutomotivePage = () => {
               {/* OEM Image */}
               <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
                 <img
-                  src="/products/steelglass/steelglassfotocarrusel0.jpg"
+                  src="/products/steelglass/steelglassfotocarrusel0.webp"
                   alt="OEM Solutions"
                   className="w-full h-full object-cover"
                 />
@@ -320,7 +320,7 @@ const PGAutomotivePage = () => {
       <section
         className="w-full py-16 lg:py-24 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/contact/bg_form_contact@2x.png)',
+          backgroundImage: 'url(/contact/bg_form_contact@2x.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
