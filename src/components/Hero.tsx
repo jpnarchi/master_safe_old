@@ -16,9 +16,9 @@ const ht = {
   learnMore: { es: 'Conocer más', en: 'Learn more', pt: 'Saiba mais' },
   // Slide 1
   s1desc: {
-    es: 'Un cristal blindado automotriz diseñado y desarrollado con ingeniería alemana, producido con las mejores materias primas bajo estándares de diseño europeo.',
-    en: 'An automotive armored glass designed and developed with German engineering, manufactured with the finest raw materials under European design standards.',
-    pt: 'Um vidro blindado automotivo projetado e desenvolvido com engenharia alemã, produzido com as melhores matérias-primas sob padrões de design europeu.',
+    es: 'Desarrollado bajo los rigurosos requisitos de la ingeniería alemana, con control de calidad en cada fase productiva y materias primas seleccionadas bajo estándares europeos — para garantizar resistencia balística certificada y precisión óptica excepcional.',
+    en: 'Engineered to meet Germany\'s stringent manufacturing requirements, with quality control at every production stage and raw materials selected under European standards — delivering certified ballistic resistance and exceptional optical precision.',
+    pt: 'Desenvolvido segundo os rígidos requisitos da engenharia alemã, com controle de qualidade em cada etapa produtiva e matérias-primas selecionadas sob padrões europeus — para garantir resistência balística certificada e precisão ótica excepcional.',
   },
   // Slide 2
   s2desc: {
@@ -77,9 +77,9 @@ const ht = {
   // Formulación section
   formTitle: { es: 'Formulación Exclusiva PG', en: 'Exclusive PG Formulation', pt: 'Formulação Exclusiva PG' },
   formDesc: {
-    es: 'La composición del vidrio permite que el proyectil al impacto disminuya su fuerza y el policarbonato absorba su energía cinética y se detenga quedando encapsulado, evitando así cualquier esquirla al interior del vehículo.',
-    en: 'The glass composition allows the projectile to decrease its force upon impact while the polycarbonate absorbs its kinetic energy, stopping and encapsulating it — preventing any fragments from reaching the vehicle interior.',
-    pt: 'A composição do vidro permite que o projétil reduza sua força no impacto e o policarbonato absorva sua energia cinética, parando e ficando encapsulado — evitando qualquer estilhaço no interior do veículo.',
+    es: 'La composición del vidrio permite que el proyectil al impacto disminuya su fuerza y el policarbonato absorba su energía cinética. El proyectil se detiene y cae, sin penetrar al interior del vehículo ni generar esquirlas.',
+    en: 'The glass composition allows the projectile to decrease its force upon impact while the polycarbonate absorbs its kinetic energy. The projectile stops and falls away — without penetrating the vehicle interior or generating fragments.',
+    pt: 'A composição do vidro permite que o projétil reduza sua força no impacto e o policarbonato absorva sua energia cinética. O projétil para e cai, sem penetrar no interior do veículo nem gerar estilhaços.',
   },
   casosTitle: {
     es: 'Conozca nuestros casos de éxito',
@@ -101,15 +101,15 @@ const ht = {
   },
   ben2title: { es: 'Innovación en diseño\ny tecnología', en: 'Innovation in design\nand technology', pt: 'Inovação em design\ne tecnologia' },
   ben2desc: {
-    es: 'Integramos ciencia de materiales avanzada, geometrías de precisión y procesos automatizados que optimizan el desempeño balístico sin sacrificar la estética del vehículo o estructura. PG Products redefine el blindaje al fusionar protección, ligereza y elegancia en una sola solución.',
-    en: 'We integrate advanced materials science, precision geometries and automated processes that optimize ballistic performance without sacrificing vehicle or structural aesthetics. PG Products redefines armoring by fusing protection, lightness and elegance into one solution.',
-    pt: 'Integramos ciência de materiais avançada, geometrias de precisão e processos automatizados que otimizam o desempenho balístico sem sacrificar a estética do veículo ou estrutura. A PG Products redefine o blindamento ao fundir proteção, leveza e elegância em uma única solução.',
+    es: 'Integramos ciencia de materiales avanzada, geometrías de precisión y procesos automatizados que optimizan el desempeño balístico sin comprometer la estética del vehículo o estructura. PG Products redefine el blindaje al fusionar protección, ligereza y elegancia en una sola solución.',
+    en: 'We integrate advanced materials science, precision geometries and automated processes that optimize ballistic performance without compromising vehicle or structural aesthetics. PG Products redefines armoring by fusing protection, lightness and elegance into one solution.',
+    pt: 'Integramos ciência de materiais avançada, geometrias de precisão e processos automatizados que otimizam o desempenho balístico sem comprometer a estética do veículo ou estrutura. A PG Products redefine o blindamento ao fundir proteção, leveza e elegância em uma única solução.',
   },
   ben3title: { es: 'Calidad certificada\ny experiencia global', en: 'Certified quality\nand global experience', pt: 'Qualidade certificada\ne experiência global' },
   ben3desc: {
-    es: 'Con más de dos décadas de trayectoria en la industria del vidrio blindado, PG Products combina experiencia, investigación y control de calidad ISO 9001:2015 para ofrecer productos con acabados únicos, claridad óptica excepcional y una instalación de alto rendimiento respaldada por expertos internacionales.',
-    en: 'With over two decades of experience in the armored glass industry, PG Products combines expertise, research and ISO 9001:2015 quality control to deliver products with unique finishes, exceptional optical clarity and high-performance installation backed by international experts.',
-    pt: 'Com mais de duas décadas de trajetória na indústria do vidro blindado, a PG Products combina experiência, pesquisa e controle de qualidade ISO 9001:2015 para oferecer produtos com acabamentos únicos, clareza ótica excepcional e instalação de alto desempenho respaldada por especialistas internacionais.',
+    es: 'Con más de dos décadas de trayectoria en la industria del vidrio blindado, PG Products combina experiencia, investigación y un Sistema de Gestión de Calidad certificado bajo ISO 9001:2015 — una distinción que no todas las empresas del sector poseen — para ofrecer productos con acabados únicos, claridad óptica excepcional y una instalación de alto rendimiento respaldada por expertos internacionales.',
+    en: 'With over two decades of experience in the armored glass industry, PG Products combines expertise, research and an ISO 9001:2015 certified Quality Management System (QMS) — a distinction not all companies in the sector hold — to deliver products with unique finishes, exceptional optical clarity and high-performance installation backed by international experts.',
+    pt: 'Com mais de duas décadas de trajetória na indústria do vidro blindado, a PG Products combina experiência, pesquisa e um Sistema de Gestão da Qualidade certificado pela ISO 9001:2015 — uma distinção que nem todas as empresas do setor possuem — para oferecer produtos com acabamentos únicos, clareza ótica excepcional e instalação de alto desempenho respaldada por especialistas internacionais.',
   },
   // Contact section
   contactTitle: { es: 'Protegemos tu seguridad', en: 'We Protect Your Safety', pt: 'Protegemos a Sua Segurança' },
@@ -156,7 +156,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHero((prev) => (prev + 1) % carouselImages.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
@@ -172,7 +172,7 @@ const Hero = () => {
     if (!productApi) return;
     const interval = setInterval(() => {
       if (productApi.canScrollNext()) { productApi.scrollNext(); } else { productApi.scrollTo(0); }
-    }, 4000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [productApi]);
 

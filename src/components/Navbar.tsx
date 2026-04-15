@@ -245,7 +245,7 @@ const Navbar = () => {
                   : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
-              About Us
+              {T({ es: "Quiénes Somos", en: "About Us", pt: "Quem Somos" })}
             </Link>
 
             <div className="relative">
@@ -258,7 +258,7 @@ const Navbar = () => {
                     : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
-                PG Automotive Solutions
+                {T({ es: "PG Soluciones Automotrices", en: "PG Automotive Solutions", pt: "PG Soluções Automotivas" })}
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-300 ${activeMenu === 'products' ? 'rotate-180' : ''}`}
@@ -276,7 +276,7 @@ const Navbar = () => {
                     : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
-                Segments
+                {T({ es: "Segmentos", en: "Segments", pt: "Segmentos" })}
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-300 ${activeMenu === 'segments' ? 'rotate-180' : ''}`}
@@ -292,7 +292,7 @@ const Navbar = () => {
                   : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
-              PG Ballistics
+              {T({ es: "PG Balística", en: "PG Ballistics", pt: "PG Balística" })}
             </Link>
 
             <Link
@@ -513,7 +513,7 @@ const Navbar = () => {
               className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
               onClick={closeMobileMenu}
             >
-              About Us
+              {T({ es: "Quiénes Somos", en: "About Us", pt: "Quem Somos" })}
             </Link>
 
             <div className="block font-medium text-pgnavy">
@@ -521,7 +521,7 @@ const Navbar = () => {
                 className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               >
-                <span>PG Automotive Solutions</span>
+                <span>{T({ es: "PG Soluciones Automotrices", en: "PG Automotive Solutions", pt: "PG Soluções Automotivas" })}</span>
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-300 ${
@@ -567,7 +567,7 @@ const Navbar = () => {
                 className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
                 onClick={() => setMobileSegmentsOpen(!mobileSegmentsOpen)}
               >
-                <span>Segments</span>
+                <span>{T({ es: "Segmentos", en: "Segments", pt: "Segmentos" })}</span>
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-300 ${
@@ -616,7 +616,7 @@ const Navbar = () => {
               className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
               onClick={closeMobileMenu}
             >
-              PG Ballistics
+              {T({ es: "PG Balística", en: "PG Ballistics", pt: "PG Balística" })}
             </Link>
             <Link
               to="/pg-dna"

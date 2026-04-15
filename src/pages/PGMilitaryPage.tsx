@@ -36,6 +36,12 @@ const mt = {
   cancel: { es: "Cancel", en: "Cancel", pt: "Cancelar" },
   send: { es: "Enviar", en: "Send", pt: "Enviar" },
   learnMore: { es: "Conocer más", en: "Learn more", pt: "Saiba mais" },
+  chartTitle: { es: "GRÁFICA BALÍSTICA — SOLUCIONES MILITARES", en: "MILITARY SOLUTIONS BALLISTIC CHART", pt: "GRÁFICO BALÍSTICO — SOLUÇÕES MILITARES" },
+  milIntroDesc: {
+    es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate, nuestras soluciones de vidrio balístico brindan protección superior manteniendo la efectividad operacional.",
+    en: "Our military applications deliver the highest levels of ballistic protection for defense personnel and equipment. Designed to withstand extreme combat conditions, our ballistic glass solutions provide superior protection while maintaining operational effectiveness.",
+    pt: "Nossas aplicações militares oferecem os mais altos níveis de proteção balística para pessoal e equipamentos de defesa. Projetadas para resistir a condições extremas de combate, nossas soluções de vidro balístico oferecem proteção superior mantendo a efetividade operacional.",
+  },
   toastSuccess: {
     es: "Mensaje enviado correctamente. Nos pondremos en contacto pronto.",
     en: "Message sent successfully. We will contact you soon.",
@@ -154,7 +160,7 @@ const PGMilitaryPage = () => {
             <span className="font-normal text-pgnavy">Applications</span>
           </h1>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-            Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
+            {T(mt.milIntroDesc)}
           </p>
         </div>
       </div>
@@ -233,7 +239,7 @@ const PGMilitaryPage = () => {
                 className="h-8 sm:h-10 brightness-0 invert"
               />
               <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
-                MILITARY SOLUTIONS BALLISTIC CHART
+                {T(mt.chartTitle)}
               </h3>
             </div>
           </div>

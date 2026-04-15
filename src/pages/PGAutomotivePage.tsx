@@ -20,6 +20,48 @@ const at = {
   writeMessage: { es: 'Escriba aquí su mensaje', en: 'Write your message here', pt: 'Escreva sua mensagem aqui' },
   cancel: { es: 'Cancel', en: 'Cancel', pt: 'Cancelar' },
   send: { es: 'Enviar', en: 'Send', pt: 'Enviar' },
+  pgBrgDesc1: {
+    es: 'Somos especialistas en soluciones de vidrio balístico automotriz, desarrolladas bajo los más estrictos estándares internacionales. Nuestros productos combinan tecnología de punta con ingeniería de precisión para ofrecer protección superior sin comprometer la estética ni el rendimiento del vehículo.',
+    en: 'We specialize in automotive ballistic glass solutions, developed under the strictest international standards. Our products combine cutting-edge technology with precision engineering to deliver superior protection without compromising vehicle aesthetics or performance.',
+    pt: 'Somos especialistas em soluções de vidro balístico automotivo, desenvolvidas sob os mais rígidos padrões internacionais. Nossos produtos combinam tecnologia de ponta com engenharia de precisão para oferecer proteção superior sem comprometer a estética ou o desempenho do veículo.',
+  },
+  pgBrgDesc2: {
+    es: 'Con presencia en México y Brasil, y una red de distribución internacional, acompañamos a nuestros clientes desde la especificación técnica hasta la instalación final, garantizando calidad total en cada proyecto.',
+    en: 'With operations in Mexico and Brazil and an international distribution network, we support our clients from technical specification to final installation, ensuring total quality in every project.',
+    pt: 'Com operações no México e Brasil e uma rede de distribuição internacional, acompanhamos nossos clientes desde a especificação técnica até a instalação final, garantindo qualidade total em cada projeto.',
+  },
+  retrofitTitle: { es: 'Soluciones Retrofit', en: 'Retrofit Solutions', pt: 'Soluções Retrofit' },
+  retrofitDesc1: {
+    es: 'Nuestras soluciones retrofit permiten integrar protección balística avanzada en vehículos existentes. Ya sea para mejorar flotas o proteger objetivos de alto valor, nuestros sistemas retrofit mantienen la funcionalidad del vehículo mientras añaden características de seguridad superiores.',
+    en: 'Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.',
+    pt: 'Nossas soluções retrofit permitem integrar proteção balística avançada em veículos existentes. Seja para melhorar frotas ou proteger alvos de alto valor, nossos sistemas retrofit mantêm a funcionalidade do veículo enquanto adicionam recursos de segurança superiores.',
+  },
+  retrofitDesc2: {
+    es: 'Con amplia experiencia en instalaciones posventa, brindamos servicios integrales que incluyen evaluación, diseño, fabricación e instalación profesional. Nuestras soluciones se adaptan a niveles de amenaza y requisitos operacionales específicos.',
+    en: 'With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.',
+    pt: 'Com vasta experiência em instalações pós-venda, oferecemos serviços completos que incluem avaliação, design, fabricação e instalação profissional. Nossas soluções são adaptadas para atender a níveis de ameaça e requisitos operacionais específicos.',
+  },
+  retrofitFeat1: { es: 'Integración en vehículos existentes', en: 'Existing Vehicle Integration', pt: 'Integração em veículos existentes' },
+  retrofitFeat2: { es: 'Soluciones personalizadas', en: 'Custom Solutions', pt: 'Soluções personalizadas' },
+  retrofitFeat3: { es: 'Instalación profesional', en: 'Professional Installation', pt: 'Instalação profissional' },
+  oemTitle: { es: 'Soluciones OEM', en: 'OEM Solutions', pt: 'Soluções OEM' },
+  oemDesc1: {
+    es: 'Nuestras soluciones OEM (Fabricante de Equipos Originales) ofrecen sistemas integrales de protección balística diseñados específicamente para fabricantes de vehículos. Trabajamos directamente con empresas automotrices para integrar nuestras tecnologías de vidrio balístico durante el proceso de fabricación.',
+    en: 'Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.',
+    pt: 'Nossas soluções OEM (Fabricante de Equipamentos Originais) oferecem sistemas abrangentes de proteção balística projetados especificamente para fabricantes de veículos. Trabalhamos diretamente com empresas automotivas para integrar nossas tecnologias de vidro balístico durante o processo de fabricação.',
+  },
+  oemDesc2: {
+    es: 'Nuestras alianzas OEM garantizan una integración perfecta, manteniendo la estética original del vehículo con protección superior. Desde la consultoría inicial hasta la producción final, apoyamos a los fabricantes con soluciones balísticas de vanguardia que cumplen los más altos estándares de seguridad.',
+    en: 'Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.',
+    pt: 'Nossas parcerias OEM garantem integração perfeita, mantendo a estética original do veículo com proteção superior. Desde a consultoria de design inicial até a produção final, apoiamos os fabricantes com soluções balísticas de ponta que atendem aos mais altos padrões de segurança.',
+  },
+  oemFeat1: { es: 'Integración en fábrica', en: 'Factory Integration', pt: 'Integração em fábrica' },
+  oemFeat2: { es: 'Estética original preservada', en: 'Original Aesthetics', pt: 'Estética original preservada' },
+  oemFeat3: { es: 'Control de calidad', en: 'Quality Assurance', pt: 'Controle de qualidade' },
+  retrofitCasesTitle: { es: 'Casos de Éxito Retrofit', en: 'Retrofit Success Cases', pt: 'Casos de Sucesso Retrofit' },
+  retrofitCasesDesc: { es: 'Transformando vehículos existentes con soluciones avanzadas de protección balística', en: 'Transforming existing vehicles with advanced ballistic protection solutions', pt: 'Transformando veículos existentes com soluções avançadas de proteção balística' },
+  oemCasesTitle: { es: 'Casos de Éxito OEM', en: 'OEM Success Cases', pt: 'Casos de Sucesso OEM' },
+  oemCasesDesc: { es: 'Destacando nuestras alianzas exitosas con fabricantes automotrices a nivel mundial', en: 'Showcasing our successful partnerships with automotive manufacturers worldwide', pt: 'Destacando nossas parcerias de sucesso com fabricantes automotivos em todo o mundo' },
 };
 
 const PGAutomotivePage = () => {
@@ -78,10 +120,10 @@ const PGAutomotivePage = () => {
             <span className="text-pgblue">BRG</span>
           </h1>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
-            Ut neque lacus, lobortis rhoncus gravida eu, ornare in sem. Donec molestie id orci quis bibendum. Fusce sollicitudin vitae lectus a ultricies. Praesent augue nibh, consequat sit amet interdum nec, dapibus non sapien. Sed nunc nisi, aliquam eget purus eget, blandit pulvinar orci. Maecenas nec risus blandit, auctor leo vitae, maximus nisi.
+            {T(at.pgBrgDesc1)}
           </p>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-            Aenean suscipit iaculis nulla, convallis volutpat enim suscipit nec. Fusce ac dui aliquet, aliquet risus vel, lacinia neque. Morbi accumsan sit amet ligula nec bibendum. Maecenas rhoncus elit non justo tincidunt blandit. Morbi turpis sapien, efficitur varius quam eu, sagittis rhoncus eros.
+            {T(at.pgBrgDesc2)}
           </p>
         </div>
       </div>
@@ -94,8 +136,7 @@ const PGAutomotivePage = () => {
             {/* Retrofit Solutions */}
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8">
-                <span className="text-pgnavy">Retrofit</span>{' '}
-                <span className="text-pgblue">Solutions</span>
+                <span className="text-pgnavy">{T(at.retrofitTitle)}</span>
               </h2>
 
               {/* Retrofit Image */}
@@ -109,10 +150,10 @@ const PGAutomotivePage = () => {
 
               {/* Retrofit Description */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.
+                {T(at.retrofitDesc1)}
               </p>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.
+                {T(at.retrofitDesc2)}
               </p>
 
               {/* Retrofit Features */}
@@ -121,19 +162,19 @@ const PGAutomotivePage = () => {
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">Existing Vehicle Integration</span>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.retrofitFeat1)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">Custom Solutions</span>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.retrofitFeat2)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">Professional Installation</span>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.retrofitFeat3)}</span>
                 </div>
               </div>
             </div>
@@ -141,8 +182,7 @@ const PGAutomotivePage = () => {
             {/* OEM Solutions */}
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8">
-                <span className="text-pgnavy">OEM</span>{' '}
-                <span className="text-pgblue">Solutions</span>
+                <span className="text-pgnavy">{T(at.oemTitle)}</span>
               </h2>
 
               {/* OEM Image */}
@@ -156,10 +196,10 @@ const PGAutomotivePage = () => {
 
               {/* OEM Description */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.
+                {T(at.oemDesc1)}
               </p>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.
+                {T(at.oemDesc2)}
               </p>
 
               {/* OEM Features */}
@@ -168,19 +208,19 @@ const PGAutomotivePage = () => {
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">Factory Integration</span>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.oemFeat1)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">Original Aesthetics</span>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.oemFeat2)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">Quality Assurance</span>
+                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.oemFeat3)}</span>
                 </div>
               </div>
             </div>
@@ -203,10 +243,10 @@ const PGAutomotivePage = () => {
                 </div>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2">
-                Retrofit <span className="text-pgblue">Success Cases</span>
+                {T(at.retrofitCasesTitle)}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-6">
-                Transforming existing vehicles with advanced ballistic protection solutions
+                {T(at.retrofitCasesDesc)}
               </p>
               <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
                 {T(at.learnMore)}
@@ -223,10 +263,10 @@ const PGAutomotivePage = () => {
                 </div>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2">
-                OEM <span className="text-pgblue">Success Cases</span>
+                {T(at.oemCasesTitle)}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-6">
-                Showcasing our successful partnerships with automotive manufacturers worldwide
+                {T(at.oemCasesDesc)}
               </p>
               <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
                 {T(at.learnMore)}

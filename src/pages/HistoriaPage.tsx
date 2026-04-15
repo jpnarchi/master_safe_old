@@ -50,7 +50,7 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   },
   {
     year: 2019,
-    title: { es: "QMS ISO 9001:2015", en: "QMS ISO 9001:2015", pt: "QMS ISO 9001:2015" }[lang],
+    title: { es: "SGQ ISO 9001:2015", en: "QMS ISO 9001:2015", pt: "SGQ ISO 9001:2015" }[lang],
     image: "/about/NuestroRecorrido-8.png",
     description: { es: "Actualización de certificaciones ISO 9001:2015, manteniendo los más altos estándares.", en: "Update of ISO 9001:2015 certifications, maintaining the highest standards.", pt: "Atualização das certificações ISO 9001:2015, mantendo os mais altos padrões." }[lang]
   }
@@ -186,9 +186,9 @@ const ht = {
     pt: "Inovação que une continentes, precisão que define nossa excelência."
   },
   plantsDesc: {
-    es: "En PG Products desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y control de calidad bajo normas ISO 9001:2015 y NIJ Level III-A/III.",
-    en: "At PG Products we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and quality control under ISO 9001:2015 and NIJ Level III-A/III standards.",
-    pt: "Na PG Products desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e controle de qualidade sob normas ISO 9001:2015 e NIJ Level III-A/III."
+    es: "En PG Products desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015 y NIJ Level III-A/III.",
+    en: "At PG Products we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 and NIJ Level III-A/III standards.",
+    pt: "Na PG Products desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015 e NIJ Level III-A/III."
   },
   mexicoDesc: {
     es: "Centro de producción y ensayos balísticos para el mercado norte y centroamericano. Tecnología avanzada, manufactura certificada y soporte técnico especializado.",

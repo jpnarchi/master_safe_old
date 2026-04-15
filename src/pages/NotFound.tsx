@@ -2,9 +2,18 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const nf = {
+  title: { es: 'Página no encontrada', en: 'Page not found', pt: 'Página não encontrada' },
+  desc: { es: 'La página que buscas no existe o ha sido movida.', en: 'The page you are looking for does not exist or has been moved.', pt: 'A página que você está procurando não existe ou foi movida.' },
+  back: { es: 'Regresar al Inicio', en: 'Back to Home', pt: 'Voltar ao Início' },
+};
 
 const NotFound = () => {
   const location = useLocation();
+  const { language } = useLanguage();
+  const T = (obj: { es: string; en: string; pt: string }) => obj[language as 'es' | 'en' | 'pt'];
 
   useEffect(() => {
     console.error(
@@ -19,13 +28,13 @@ const NotFound = () => {
       <div className="flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8" style={{ minHeight: 'calc(100vh - 200px)' }}>
         <div className="text-center max-w-md sm:max-w-lg md:max-w-xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 text-gray-900">404</h1>
-          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">Oops! Página no encontrada</p>
-          <p className="text-sm sm:text-base text-gray-500 mb-6 sm:mb-8 px-4 sm:px-0 leading-relaxed">La página que buscas no existe o ha sido movida.</p>
-          <a 
-            href="/" 
+          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">{T(nf.title)}</p>
+          <p className="text-sm sm:text-base text-gray-500 mb-6 sm:mb-8 px-4 sm:px-0 leading-relaxed">{T(nf.desc)}</p>
+          <a
+            href="/"
             className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-md sm:rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
           >
-            Regresar al Inicio
+            {T(nf.back)}
           </a>
         </div>
       </div>

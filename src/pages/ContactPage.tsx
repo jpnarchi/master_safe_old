@@ -223,7 +223,7 @@ const ContactPage = () => {
                       className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pgblue focus:border-transparent"
                     >
                       <option value="Todos">{T({ es: "Todos los productos", en: "All products", pt: "Todos os produtos" })}</option>
-                      <option value="NEU">NEU Premium Ballistic Glass</option>
+                      <option value="NEU">{T({ es: "NEU Vidrio Balístico Premium", en: "NEU Premium Ballistic Glass", pt: "NEU Vidro Balístico Premium" })}</option>
                       <option value="GlassGuard">GlassGuard</option>
                       <option value="SteelGlass">SteelGlass</option>
                       <option value="SuperSlim">SuperSlim</option>

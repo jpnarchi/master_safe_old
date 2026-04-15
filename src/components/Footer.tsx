@@ -12,9 +12,9 @@ const languages: { code: Language; flag: string; label: string; native: string }
 
 const ft = {
   description: {
-    es: 'Líder en la producción de vidrio blindado premium con tecnología europea y estándares de calidad internacional.',
-    en: 'Leader in the production of premium armored glass with European technology and international quality standards.',
-    pt: 'Líder na produção de vidro blindado premium com tecnologia europeia e padrões internacionais de qualidade.',
+    es: 'Líder en la producción de vidrios blindados con tecnología europea y estándares de calidad internacional.',
+    en: 'Leader in the production of armored glass with European technology and international quality standards.',
+    pt: 'Líder na produção de vidros blindados com tecnologia europeia e padrões internacionais de qualidade.',
   },
   products: {
     es: 'Productos',

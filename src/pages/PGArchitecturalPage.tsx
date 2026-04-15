@@ -25,6 +25,33 @@ const at = {
   writeMessage: { es: 'Escriba aquí su mensaje', en: 'Write your message here', pt: 'Escreva sua mensagem aqui' },
   cancel: { es: 'Cancel', en: 'Cancel', pt: 'Cancelar' },
   send: { es: 'Enviar', en: 'Send', pt: 'Enviar' },
+  appTitle: { es: 'Aplicaciones Arquitectónicas PG', en: 'PG Architectural Applications', pt: 'Aplicações Arquitetônicas PG' },
+  appDesc: {
+    es: 'Elevamos la seguridad sin comprometer el diseño. Nuestras soluciones de vidrio balístico arquitectónico transforman cualquier edificio — desde instalaciones gubernamentales hasta sedes corporativas — en un entorno seguro y de alto rendimiento. Integramos protección y estética moderna para entregar acristalamiento de seguridad con los más altos estándares de protección y estilo.',
+    en: 'Elevate security without compromising design. Our architectural ballistic glass solutions transform any building, from government facilities to corporate headquarters, into a secure, high-performance environment. Seamlessly integrating protection with modern aesthetics, we deliver security glazing that meets the highest standards of safety and style.',
+    pt: 'Elevamos a segurança sem comprometer o design. Nossas soluções de vidro balístico arquitetônico transformam qualquer edifício — de instalações governamentais a sedes corporativas — em um ambiente seguro e de alto desempenho. Integramos proteção e estética moderna para entregar vidraças de segurança com os mais altos padrões de proteção e estilo.',
+  },
+  govTitle: { es: 'Edificios Gubernamentales', en: 'Government Buildings', pt: 'Edifícios Governamentais' },
+  govDesc: {
+    es: 'Soluciones de vidrio balístico de alta seguridad para instalaciones gubernamentales, embajadas e infraestructura crítica que requieren máxima protección contra distintos niveles de amenaza.',
+    en: 'High-security ballistic glazing solutions for government facilities, embassies, and critical infrastructure requiring maximum protection against various threat levels.',
+    pt: 'Soluções de vidraça balística de alta segurança para instalações governamentais, embaixadas e infraestrutura crítica que requerem máxima proteção contra diferentes níveis de ameaça.',
+  },
+  govFeat1: { es: 'Capacidad de resistencia a explosiones', en: 'Blast-resistant capabilities', pt: 'Capacidade de resistência a explosões' },
+  govFeat2: { es: 'Protección multinivel contra amenazas', en: 'Multi-level threat protection', pt: 'Proteção multinível contra ameaças' },
+  govFeat3: { es: 'Tamaños personalizados disponibles', en: 'Custom sizing available', pt: 'Tamanhos personalizados disponíveis' },
+  corpTitle: { es: 'Instalaciones Corporativas', en: 'Corporate Facilities', pt: 'Instalações Corporativas' },
+  corpDesc: {
+    es: 'Soluciones sofisticadas de vidrio balístico para entornos corporativos que priorizan tanto la seguridad como la integridad del diseño arquitectónico.',
+    en: 'Sophisticated ballistic glass solutions for corporate environments that prioritize both security and architectural design integrity.',
+    pt: 'Soluções sofisticadas de vidro balístico para ambientes corporativos que priorizam tanto a segurança quanto a integridade do design arquitetônico.',
+  },
+  corpFeat1: { es: 'Integración estética', en: 'Aesthetic integration', pt: 'Integração estética' },
+  corpFeat2: { es: 'Opciones de eficiencia energética', en: 'Energy-efficient options', pt: 'Opções de eficiência energética' },
+  corpFeat3: { es: 'Propiedades de reducción de ruido', en: 'Sound reduction properties', pt: 'Propriedades de redução de ruído' },
+  chartTitle: { es: 'GRÁFICA BALÍSTICA — SOLUCIONES ARQUITECTÓNICAS', en: 'ARCHITECTURAL SOLUTIONS BALLISTIC CHART', pt: 'GRÁFICO BALÍSTICO — SOLUÇÕES ARQUITETÔNICAS' },
+  archCasesTitle: { es: 'Casos de Éxito Arquitectónicos', en: 'Architectural Success Cases', pt: 'Casos de Sucesso Arquitetônicos' },
+  archCasesDesc: { es: 'Mejorando la seguridad de edificios para entornos más seguros', en: 'Enhancing building security for safer environments', pt: 'Aprimorando a segurança de edifícios para ambientes mais seguros' },
 };
 
 const PGArchitecturalPage = () => {
@@ -93,11 +120,10 @@ const PGArchitecturalPage = () => {
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
         <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
-            <span className="font-bold text-pgnavy">PG Architectural</span>{' '}
-            <span className="font-normal text-pgnavy">Applications</span>
+            <span className="font-bold text-pgnavy">{T(at.appTitle)}</span>
           </h1>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-            Elevate security without compromising design. Our architectural ballistic glass solutions transform any building, from government facilities to corporate headquarters, into a secure, high-performance environment. Seamlessly integrating protection with modern aesthetics, we deliver security glazing that meets the highest standards of safety and style.
+            {T(at.appDesc)}
           </p>
         </div>
       </div>
@@ -110,8 +136,7 @@ const PGArchitecturalPage = () => {
             {/* Government Buildings */}
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8">
-                <span className="text-pgnavy">Government</span>{' '}
-                <span className="font-normal text-pgnavy">Buildings</span>
+                <span className="text-pgnavy">{T(at.govTitle)}</span>
               </h2>
 
               {/* Government Image */}
@@ -125,7 +150,7 @@ const PGArchitecturalPage = () => {
 
               {/* Government Description */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 text-justify">
-                High-security ballistic glazing solutions for government facilities, embassies, and critical infrastructure requiring maximum protection against various threat levels.
+                {T(at.govDesc)}
               </p>
 
               {/* Government Features */}
@@ -134,19 +159,19 @@ const PGArchitecturalPage = () => {
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">Blast-resistant capabilities</span>
+                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">{T(at.govFeat1)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">Multi-level threat protection</span>
+                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">{T(at.govFeat2)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">Custom sizing available</span>
+                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">{T(at.govFeat3)}</span>
                 </div>
               </div>
             </div>
@@ -154,8 +179,7 @@ const PGArchitecturalPage = () => {
             {/* Corporate Facilities */}
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8">
-                <span className="text-pgnavy">Corporate</span>{' '}
-                <span className="font-normal text-pgnavy">Facilities</span>
+                <span className="text-pgnavy">{T(at.corpTitle)}</span>
               </h2>
 
               {/* Corporate Image */}
@@ -169,7 +193,7 @@ const PGArchitecturalPage = () => {
 
               {/* Corporate Description */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 text-justify">
-                Sophisticated ballistic glass solutions for corporate environments that prioritize both security and architectural design integrity.
+                {T(at.corpDesc)}
               </p>
 
               {/* Corporate Features */}
@@ -178,19 +202,19 @@ const PGArchitecturalPage = () => {
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">Aesthetic integration</span>
+                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">{T(at.corpFeat1)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">Energy-efficient options</span>
+                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">{T(at.corpFeat2)}</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">Sound reduction properties</span>
+                  <span className="text-pgnavy font-semibold text-sm sm:text-base lg:text-xl">{T(at.corpFeat3)}</span>
                 </div>
               </div>
             </div>
@@ -210,7 +234,7 @@ const PGArchitecturalPage = () => {
                 className="h-8 sm:h-10 brightness-0 invert"
               />
               <h3 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wide">
-                ARCHITECTURAL SOLUTIONS BALLISTIC CHART
+                {T(at.chartTitle)}
               </h3>
             </div>
           </div>
@@ -374,10 +398,10 @@ const PGArchitecturalPage = () => {
             </div>
 
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pgnavy mb-2">
-              Architectural <span className="font-normal">Success Cases</span>
+              {T(at.archCasesTitle)}
             </h3>
             <p className="text-gray-600 text-lg sm:text-xl mb-8">
-              Enhancing building security for safer environments
+              {T(at.archCasesDesc)}
             </p>
             <button className="border-2 border-pgnavy text-pgnavy px-8 py-3 rounded-lg font-bold text-lg hover:bg-pgnavy hover:text-white transition-colors duration-300">
               {T(at.learnMore)}
