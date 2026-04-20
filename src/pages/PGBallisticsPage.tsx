@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Target, Zap, Award, Download, ChevronLeft, ChevronRight, Pause } from 'lucide-react';
+import { Shield, Target, Zap, Award, Download } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -74,6 +74,12 @@ const bt = {
   download2: { es: "Descargue nuestro último informe anual", en: "Download our latest annual report", pt: "Baixe nosso último relatório anual" },
 };
 
+const heroImages = [
+  "/ballistics/HeroPGBallistics-1.webp",
+  "/ballistics/HeroPGBallistics-2.webp",
+  "/ballistics/HeroPGBallistics-3.webp",
+];
+
 const PGBallisticsPage = () => {
   const { language } = useLanguage();
   const lang = language as 'es' | 'en' | 'pt';
@@ -81,13 +87,27 @@ const PGBallisticsPage = () => {
 
   const [activeTab, setActiveTab] = useState(0);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex(prev => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentGalleryIndex(prev => (prev + 1) % galleryImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const tabs = [T(bt.tabStandards), T(bt.tabTesting), T(bt.tabCertifications), T(bt.tabApplications)];
 
   const galleryImages = [
-    "/lovable-uploads/vidrio_disparos.avif",
-    "/products/steelglass/steelglassfotocarrusel0.webp",
-    "/products/steelglass/steelglassfototechnology.webp"
+    "/ballistics/PGBallisticsTests-1.webp",
+    "/ballistics/PGBallisticsTests-2.webp",
   ];
 
   // Ballistic Chart Data - exactly as in Figma
@@ -135,11 +155,14 @@ const PGBallisticsPage = () => {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/military/vidrio_disparos.avif"
-            alt="PG Ballistics"
-            className="w-full h-full object-cover"
-          />
+          {heroImages.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={`PG Ballistics ${i + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === currentHeroIndex ? 'opacity-100' : 'opacity-0'}`}
+            />
+          ))}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
       </section>
@@ -234,25 +257,28 @@ const PGBallisticsPage = () => {
           </div>
 
           {/* Gallery Content */}
-          <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
-            {/* Left - Image */}
-            <div className="w-full lg:w-[732px] h-[260px] sm:h-[360px] md:h-[440px] lg:h-[508px] rounded-[20px] sm:rounded-[30px] overflow-hidden shadow-[-10px_10px_20px_0px_rgba(0,0,0,0.15)] flex-shrink-0">
-              <img
-                src={galleryImages[currentGalleryIndex]}
-                alt="Testing Gallery"
-                className="w-full h-full object-cover"
-              />
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+            {/* Left - Image Carousel */}
+            <div className="relative w-full lg:w-[732px] h-[260px] sm:h-[360px] md:h-[440px] lg:h-[508px] rounded-[20px] sm:rounded-[30px] overflow-hidden shadow-[-10px_10px_20px_0px_rgba(0,0,0,0.15)] flex-shrink-0">
+              {galleryImages.map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Testing Gallery ${i + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === currentGalleryIndex ? 'opacity-100' : 'opacity-0'}`}
+                />
+              ))}
             </div>
 
             {/* Right - Content */}
-            <div className="flex-1 pt-0 sm:pt-4 md:pt-8">
+            <div className="flex-1 pt-0 sm:pt-4 md:pt-8 text-center">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#05204b] mb-4 sm:mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 {T(bt.gallerySubtitle)}
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-[#3e3e3e] mb-6 sm:mb-8 leading-relaxed" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 {T(bt.galleryBody)}
               </p>
-              <ul className="text-sm sm:text-base md:text-lg text-[#3e3e3e] space-y-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <ul className="text-sm sm:text-base md:text-lg text-[#3e3e3e] space-y-2 text-left" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-[#3b82f6] rounded-full flex-shrink-0"></span>
                   NIJ Level III-A
@@ -266,30 +292,6 @@ const PGBallisticsPage = () => {
                   Temperature Tested
                 </li>
               </ul>
-
-              {/* Play/Pause Controls */}
-              <div className="flex gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
-                <button
-                  onClick={() => setCurrentGalleryIndex(prev => prev > 0 ? prev - 1 : galleryImages.length - 1)}
-                  className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-[#05204b] flex items-center justify-center hover:bg-[#05204b] hover:text-white transition-colors text-[#05204b]"
-                >
-                  <ChevronLeft size={24} className="sm:hidden" />
-                  <ChevronLeft size={32} className="hidden sm:block" />
-                </button>
-                <button
-                  className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-[#05204b] flex items-center justify-center hover:bg-[#05204b] hover:text-white transition-colors text-[#05204b]"
-                >
-                  <Pause size={22} className="sm:hidden" />
-                  <Pause size={28} className="hidden sm:block" />
-                </button>
-                <button
-                  onClick={() => setCurrentGalleryIndex(prev => (prev + 1) % galleryImages.length)}
-                  className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-[#05204b] flex items-center justify-center hover:bg-[#05204b] hover:text-white transition-colors text-[#05204b]"
-                >
-                  <ChevronRight size={24} className="sm:hidden" />
-                  <ChevronRight size={32} className="hidden sm:block" />
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -439,21 +441,17 @@ const PGBallisticsPage = () => {
       {/* Video Section - Investigación & Desarrollo */}
       <section className="relative h-[400px] sm:h-[550px] md:h-[700px] lg:h-[863px] overflow-hidden">
         <div className="absolute inset-0">
-          <video
+          <img
+            src="/ballistics/R&DPGBallistics.webp"
+            alt="PG Ballistics R&D"
             className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/video.mp4" type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
           <img
-            src="/lovable-uploads/8edefffc-7a49-492b-acc8-65267634f930.webp"
+            src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp"
             alt="PG Products Logo"
             className="w-40 sm:w-64 md:w-80 lg:w-[479px] h-auto mb-6 sm:mb-8 drop-shadow-lg"
           />
