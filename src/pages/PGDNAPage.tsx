@@ -108,9 +108,12 @@ const PGDNAPage = () => {
 
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [currentProductSlide, setCurrentProductSlide] = useState(0);
+  const [productVisible, setProductVisible] = useState(true);
   const [productApi, setProductApi] = useState<any>(null);
   const [portfolioSlide, setPortfolioSlide] = useState(0);
   const [portfolioVisible, setPortfolioVisible] = useState(true);
+
+  const pidImages = ['/pg-dna/pid-1.webp', '/pg-dna/pid-2.webp', '/pg-dna/pid-3.webp'];
 
   const portfolioImages = Array.from({ length: 13 }, (_, i) => `/pg-dna/Portafolio_Productos-${i + 1}.webp`);
 
@@ -122,21 +125,17 @@ const PGDNAPage = () => {
     }
   ];
 
-  useEffect(() => {
-    if (!productApi) return;
-    const onSelect = () => { setCurrentProductSlide(productApi.selectedScrollSnap()); };
-    productApi.on('select', onSelect);
-    onSelect();
-    return () => { productApi.off('select', onSelect); };
-  }, [productApi]);
 
   useEffect(() => {
-    if (!productApi) return;
     const interval = setInterval(() => {
-      if (productApi.canScrollNext()) { productApi.scrollNext(); } else { productApi.scrollTo(0); }
-    }, 4000);
+      setProductVisible(false);
+      setTimeout(() => {
+        setCurrentProductSlide(prev => (prev + 1) % pidImages.length);
+        setProductVisible(true);
+      }, 350);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [productApi]);
+  }, [pidImages.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -246,7 +245,11 @@ const PGDNAPage = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.rdTitle)}</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
             <div>
-              <img src="/about/RnD_image@2x.webp" alt="Product Development" className="w-full h-auto rounded-lg shadow-lg" />
+              <img
+                src={pidImages[currentProductSlide]}
+                alt="Product Development"
+                className={`w-full h-auto rounded-lg shadow-lg transition-opacity duration-350 ${productVisible ? 'opacity-100' : 'opacity-0'}`}
+              />
             </div>
             <div>
               <p className="text-lg text-gray-700 leading-relaxed">{T(dt.rdDesc)}</p>

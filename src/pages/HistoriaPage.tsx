@@ -272,11 +272,11 @@ const HistoriaPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative w-full">
+      <section className="relative w-full h-[75vh]">
         <img
-          src="/about/HeroImage-Aboutuspage.webp"
+          src="/about/HeaderAboutUs.webp"
           alt="PG Products as a Company"
-          className="w-full h-auto"
+          className="w-full h-full object-cover"
         />
       </section>
 
