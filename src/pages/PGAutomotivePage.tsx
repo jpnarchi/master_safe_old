@@ -116,8 +116,8 @@ const PGAutomotivePage = () => {
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
         <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">
-            <span className="text-pgnavy">PG Automotive</span>{' '}
-            <span className="text-pgblue">BRG</span>
+            <span className="text-pgnavy">PG Transport</span>{' '}
+            <span className="text-pgblue">Solutions</span>
           </h1>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
             {T(at.pgBrgDesc1)}
@@ -228,51 +228,57 @@ const PGAutomotivePage = () => {
         </div>
       </section>
 
-      {/* Success Cases Cards */}
-      <section className="py-12 sm:py-16 bg-white">
+      {/* Success Cases 50/50 Sections */}
+      <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
-            {/* Retrofit Success Cases Card */}
-            <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200">
-              <div className="flex justify-end mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20">
-                  <svg viewBox="0 0 100 100" className="w-full h-full text-pgnavy">
-                    <path fill="currentColor" d="M50 5L60 35H95L67 55L77 90L50 70L23 90L33 55L5 35H40L50 5Z"/>
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2">
+          {/* First 50/50: Image Left, Text Right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
+            <div className="w-full md:w-1/2">
+              <img
+                src="/automotive/44604513-e2f1-4816-b14b-13ac8e66c935.webp"
+                alt="Retrofit Success Case"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
                 {T(at.retrofitCasesTitle)}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base mb-6">
-                {T(at.retrofitCasesDesc)}
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
               </p>
-              <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                {T(at.learnMore)}
-              </button>
-            </div>
-
-            {/* OEM Success Cases Card */}
-            <div className="bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-200">
-              <div className="flex justify-end mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20">
-                  <svg viewBox="0 0 100 100" className="w-full h-full text-pgnavy">
-                    <path fill="currentColor" d="M50 5L60 35H95L67 55L77 90L50 70L23 90L33 55L5 35H40L50 5Z"/>
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2">
-                {T(at.oemCasesTitle)}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base mb-6">
-                {T(at.oemCasesDesc)}
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
               </p>
-              <button className="border-2 border-pgnavy text-pgnavy px-6 py-2.5 rounded-full font-medium hover:bg-pgnavy hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                {T(at.learnMore)}
-              </button>
             </div>
           </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-200"></div>
+
+          {/* Second 50/50: Text Left, Image Right */}
+          <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
+                {T(at.oemCasesTitle)}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2">
+              <img
+                src="/automotive/82e0c0e3-aaad-4d7f-aa32-398f7c44bafe.webp"
+                alt="OEM Success Case"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 

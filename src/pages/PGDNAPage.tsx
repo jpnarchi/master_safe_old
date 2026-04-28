@@ -109,6 +109,10 @@ const PGDNAPage = () => {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [currentProductSlide, setCurrentProductSlide] = useState(0);
   const [productApi, setProductApi] = useState<any>(null);
+  const [portfolioSlide, setPortfolioSlide] = useState(0);
+  const [portfolioVisible, setPortfolioVisible] = useState(true);
+
+  const portfolioImages = Array.from({ length: 13 }, (_, i) => `/pg-dna/Portafolio_Productos-${i + 1}.webp`);
 
   const heroSlides = [
     {
@@ -133,6 +137,17 @@ const PGDNAPage = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, [productApi]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPortfolioVisible(false);
+      setTimeout(() => {
+        setPortfolioSlide(prev => (prev + 1) % portfolioImages.length);
+        setPortfolioVisible(true);
+      }, 350);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [portfolioImages.length]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -248,41 +263,20 @@ const PGDNAPage = () => {
       </section>
 
       {/* Portafolio de Productos Section */}
-      <section className="w-full bg-white py-12 md:py-16 relative">
+      <section className="w-full bg-white py-12 md:py-16">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.portfolioTitle)}</h2>
-          <p className="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-16 leading-relaxed">{T(dt.portfolioDesc)}</p>
-          <Carousel setApi={setProductApi} opts={{ align: "start", loop: true }} className="w-full">
-            <CarouselContent className="-ml-4">
-              {allProductCards.map((card, index) => (
-                <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                  <Card className="border-0 shadow-none bg-transparent">
-                    <CardContent className="p-0">
-                      <div className="relative overflow-hidden flex flex-col p-6"
-                        style={{ backgroundImage: `url(${card.img})`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '38px', height: '600px' }}>
-                        <div className="flex-1 flex flex-col items-center justify-center text-center text-white">
-                          <img src={card.logo} alt={card.title} className="max-w-[280px] w-full h-auto mb-6" />
-                          <p className="text-lg font-medium leading-relaxed">{card.description}</p>
-                        </div>
-                        <div className="text-center mt-auto mb-4">
-                          <Link to={card.link} className="inline-flex items-center rounded-xl px-8 py-3 font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy">
-                            {T(dt.learnMore)}
-                          </Link>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-          <div className="flex justify-center gap-2 mt-8">
-            {allProductCards.map((_, index) => (
-              <button key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentProductSlide === index ? 'bg-pgnavy scale-110' : 'bg-gray-300 hover:bg-gray-400'}`}
-                onClick={() => productApi?.scrollTo(index)}
-                aria-label={`Go to slide ${index + 1}`} />
-            ))}
+          <p className="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-12 leading-relaxed">{T(dt.portfolioDesc)}</p>
+
+          {/* Single-image carousel */}
+          <div className="max-w-[920px] mx-auto">
+            <div className="w-full aspect-video overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={portfolioImages[portfolioSlide]}
+                alt={`Portfolio ${portfolioSlide + 1}`}
+                className={`w-full h-full object-cover transition-opacity duration-350 ${portfolioVisible ? 'opacity-100' : 'opacity-0'}`}
+              />
+            </div>
           </div>
         </div>
       </section>

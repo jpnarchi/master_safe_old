@@ -56,16 +56,16 @@ const getProductItems = (lang: Lang): ProductItem[] => [
 
 const getSegmentItems = (lang: Lang): SegmentItem[] => [
   {
-    name: "PG Automotive BRG",
+    name: "PG Transport Solutions",
     path: "/pg-automotive",
     description: { es: "Soluciones Automotrices", en: "Automotive Solutions", pt: "Soluções Automotivas" }[lang],
-    img: "/shared/icons/placeholder.svg"
+    img: "/Transport-Solution-Logo.webp"
   },
   {
     name: "PG Military Applications",
     path: "/pg-military",
     description: { es: "Aplicaciones Militares", en: "Military Applications", pt: "Aplicações Militares" }[lang],
-    img: "/shared/icons/placeholder.svg"
+    img: "/Military-Solutions-Logo.webp"
   },
 ];
 
@@ -258,7 +258,7 @@ const Navbar = () => {
                     : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
-                {T({ es: "PG Soluciones Automotrices", en: "PG Automotive Solutions", pt: "PG Soluções Automotivas" })}
+                {T({ es: "PG Transport Solutions", en: "PG Transport Solutions", pt: "PG Transport Solutions" })}
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-300 ${activeMenu === 'products' ? 'rotate-180' : ''}`}
@@ -449,8 +449,8 @@ const Navbar = () => {
                 // Estilos específicos para segments (todos uniformes por ahora)
                 const getSegmentImageStyles = () => {
                   return {
-                    width: '160px',
-                    height: '100px',
+                    width: '320px',
+                    height: '80px',
                     objectFit: 'contain' as const
                   };
                 };
@@ -478,7 +478,7 @@ const Navbar = () => {
                       e.stopPropagation();
                     }}
                   >
-                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-28 flex items-center justify-center">
+                    <div className="mb-4 overflow-visible rounded-none bg-transparent p-0 cursor-pointer w-full h-24 flex items-center justify-center">
                       <img
                         src={item.img}
                         alt={item.name}
@@ -521,7 +521,7 @@ const Navbar = () => {
                 className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               >
-                <span>{T({ es: "PG Soluciones Automotrices", en: "PG Automotive Solutions", pt: "PG Soluções Automotivas" })}</span>
+                <span>{T({ es: "PG Transport Solutions", en: "PG Transport Solutions", pt: "PG Transport Solutions" })}</span>
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-300 ${

@@ -384,34 +384,57 @@ const PGMilitaryPage = () => {
         </div>
       </section>
 
-      {/* Military Success Cases Card */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="rounded-3xl p-8 sm:p-10 md:p-12 text-center"
-            style={{
-              background: 'linear-gradient(to bottom, #939d83, #f4f5f3)'
-            }}
-          >
-            {/* Icon */}
-            <div className="flex justify-end mb-4">
-              <div className="w-20 h-20 sm:w-24 sm:h-24">
-                <svg viewBox="0 0 100 100" className="w-full h-full text-pgnavy transform rotate-45">
-                  <path fill="currentColor" d="M50 5L60 35H95L67 55L77 90L50 70L23 90L33 55L5 35H40L50 5Z"/>
-                </svg>
-              </div>
-            </div>
+      {/* Success Cases 50/50 Sections */}
+      <section className="py-4 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pgnavy mb-2">
-              {T(mt.successCasesTitle)}
-            </h3>
-            <p className="text-gray-600 text-lg sm:text-xl mb-8">
-              {T(mt.successCasesDesc)}
-            </p>
-            <button className="border-2 border-pgnavy text-pgnavy px-8 py-3 rounded-lg font-bold text-lg hover:bg-pgnavy hover:text-white transition-colors duration-300">
-              {T(mt.learnMore)}
-            </button>
+          {/* First 50/50: Image Left, Text Right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
+            <div className="w-full md:w-1/2">
+              <img
+                src="/military/casos_de_uso_slider_1.png"
+                alt="Military Success Case 1"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
+                {T(mt.successCasesTitle)}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              </p>
+            </div>
           </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-200"></div>
+
+          {/* Second 50/50: Text Left, Image Right */}
+          <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
+                {T(mt.successCasesTitle)}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2">
+              <img
+                src="/military/casos_de_uso_slider_2.png"
+                alt="Military Success Case 2"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
