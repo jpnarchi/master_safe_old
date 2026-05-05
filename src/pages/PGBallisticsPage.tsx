@@ -391,24 +391,33 @@ const PGBallisticsPage = () => {
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#05204b] mb-6 sm:mb-8" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 {T(bt.certTitle)}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 text-left max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 text-center max-w-4xl mx-auto">
                 <div>
                   <h4 className="text-xl font-semibold text-[#05204b] mb-4">{T(bt.govCert)}</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• U.S. Department of Justice NIJ</li>
-                    <li>• European CEN Standards</li>
-                    <li>• Military Specification Compliance</li>
-                    <li>• NATO STANAG Approved</li>
+                    <li>U.S. Department of Justice NIJ</li>
+                    <li>European CEN Standards</li>
+                    <li>Military Specification Compliance</li>
+                    <li>NATO STANAG Approved</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-[#05204b] mb-4">{T(bt.qualCert)}</h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• ISO 9001:2015 Quality Management</li>
-                    <li>• ISO 14001 Environmental Standards</li>
-                    <li>• Third-party Laboratory Verified</li>
+                    <li>ISO 9001:2015 Quality Management</li>
+                    <li>ISO 14001 Environmental Standards</li>
+                    <li>Third-party Laboratory Verified</li>
                   </ul>
                 </div>
+              </div>
+
+              {/* Certifications logos */}
+              <div className="mt-10 flex justify-center">
+                <img
+                  src="/ballistics/PGBALLISTICSLOGOS-CERTIFICACIONES.svg"
+                  alt="Certification Logos"
+                  className="w-full max-w-[864px] object-contain"
+                />
               </div>
             </div>
           )}

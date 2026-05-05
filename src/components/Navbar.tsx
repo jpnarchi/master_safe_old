@@ -56,7 +56,7 @@ const getProductItems = (lang: Lang): ProductItem[] => [
 
 const getSegmentItems = (lang: Lang): SegmentItem[] => [
   {
-    name: "PG Transport Solutions",
+    name: "PG Automotive Solutions",
     path: "/pg-automotive",
     description: { es: "Soluciones Automotrices", en: "Automotive Solutions", pt: "Soluções Automotivas" }[lang],
     img: "/Transport-Solution-Logo.webp"
@@ -258,7 +258,7 @@ const Navbar = () => {
                     : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
-                {T({ es: "PG Transport Solutions", en: "PG Transport Solutions", pt: "PG Transport Solutions" })}
+                {T({ es: "PG Automotive Solutions", en: "PG Automotive Solutions", pt: "PG Automotive Solutions" })}
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-300 ${activeMenu === 'products' ? 'rotate-180' : ''}`}
@@ -521,7 +521,7 @@ const Navbar = () => {
                 className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               >
-                <span>{T({ es: "PG Transport Solutions", en: "PG Transport Solutions", pt: "PG Transport Solutions" })}</span>
+                <span>{T({ es: "PG Automotive Solutions", en: "PG Automotive Solutions", pt: "PG Automotive Solutions" })}</span>
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-300 ${

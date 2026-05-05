@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Download, Shield, Target, Thermometer } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Download } from 'lucide-react';
 import { toast } from "sonner";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -11,11 +11,11 @@ const mt = {
   ballisticStandard: { es: "Standard Balístico", en: "Ballistic Standard", pt: "Padrão Balístico" },
   weapon: { es: "ARMA", en: "WEAPON", pt: "ARMA" },
   caliber: { es: "CALIBRE", en: "CALIBER", pt: "CALIBRE" },
-  downloadsTitle: { es: "Archivos para descargar", en: "Files to Download", pt: "Arquivos para Download" },
+  downloadsTitle: { es: "Descubre nuestras soluciones Military-Grade", en: "Explore our Military-Grade solutions", pt: "Descubra nossas soluções Military-Grade" },
   downloadMilitary: {
-    es: "Descargue nuestros Casos de éxito Military grade",
-    en: "Download our Military grade Success Cases",
-    pt: "Baixe nossos Casos de sucesso Military grade"
+    es: "Descarga el folleto",
+    en: "Download the brochure",
+    pt: "Baixe o folheto"
   },
   protectTitle: { es: "Protegemos tu seguridad", en: "We Protect Your Security", pt: "Protegemos sua segurança" },
   protectDesc: {
@@ -49,27 +49,74 @@ const mt = {
   },
   milGradeTitle: {
     es: "Soluciones de Protección Militar",
-    en: "Military-Grade Protection Solutions",
+    en: "Military Protection Solutions",
     pt: "Soluções de Proteção Militar"
   },
   milGradeDesc1: {
-    es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para el personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate, nuestras soluciones de vidrio balístico brindan protección superior manteniendo la efectividad operacional.",
-    en: "Our military applications deliver the highest levels of ballistic protection for defense personnel and equipment. Engineered to withstand extreme combat conditions, our ballistic glass solutions provide superior protection while maintaining operational effectiveness.",
-    pt: "Nossas aplicações militares oferecem os mais altos níveis de proteção balística para pessoal e equipamentos de defesa. Projetadas para suportar condições extremas de combate, nossas soluções de vidro balístico fornecem proteção superior mantendo a eficácia operacional."
+    es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para el personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate.",
+    en: "Our military applications offer the highest levels of ballistic protection for defense personnel and equipment. Designed to withstand extreme combat conditions.",
+    pt: "Nossas aplicações militares oferecem os mais altos níveis de proteção balística para pessoal e equipamentos de defesa."
   },
   milGradeDesc2: {
-    es: "De vehículos blindados a instalaciones militares, nuestros productos cumplen rigurosos estándares y especificaciones militares. Cada solución se diseña a medida para abordar niveles de amenaza específicos garantizando máxima durabilidad y rendimiento en los entornos más exigentes.",
-    en: "From armored vehicles to military installations, our products meet rigorous military standards and specifications. Each solution is custom-designed to address specific threat levels while ensuring maximum durability and performance in the most demanding environments.",
-    pt: "De veículos blindados a instalações militares, nossos produtos atendem a rigorosos padrões e especificações militares. Cada solução é personalizada para atender a níveis de ameaça específicos, garantindo máxima durabilidade e desempenho nos ambientes mais exigentes."
+    es: "De vehículos blindados a instalaciones militares, nuestros productos cumplen rigurosos estándares y especificaciones militares. Cada solución se diseña a medida para abordar niveles de amenaza específicos.",
+    en: "From armored vehicles to military facilities, our products meet rigorous military standards and specifications. Each solution is custom-designed for specific threat levels.",
+    pt: "De veículos blindados a instalações militares, nossos produtos atendem a rigorosos padrões militares."
   },
   nijCertified: { es: "Protección Certificada NIJ", en: "NIJ Certified Protection", pt: "Proteção Certificada NIJ" },
-  multiHit: { es: "Resistencia Multi-Impacto", en: "Multi-Hit Resistance", pt: "Resistência Multi-Impacto" },
-  extremeEnv: { es: "Durabilidad en Ambiente Extremo", en: "Extreme Environment Durability", pt: "Durabilidade em Ambiente Extremo" },
-  successCasesTitle: { es: "Casos de Éxito Military-Grade", en: "Military-Grade Success Cases", pt: "Casos de Sucesso Military-Grade" },
-  successCasesDesc: {
-    es: "De vehículos blindados a instalaciones militares",
-    en: "From armored vehicles to military installations",
-    pt: "De veículos blindados a instalações militares"
+  multiHit: { es: "Resistencia Multi-Impacto", en: "Multi-Impact Resistance", pt: "Resistência Multi-Impacto" },
+  extremeEnv: { es: "Durabilidad en Ambiente Extremo", en: "Durability in Extreme Environments", pt: "Durabilidade em Ambiente Extremo" },
+  successCase1Title: {
+    es: "Proyecto: Astros II (Rocket Launcher)",
+    en: "Project: Astros II (Rocket Launcher)",
+    pt: "Projeto: Astros II (Rocket Launcher)"
+  },
+  successCase1Details: {
+    es: "Nivel: NATO STANAG 4569 Nivel I\nPaís: Brasil\nCliente: AVIBRAS Aeroespacial\nPlanta: PG Brasil\nProducto: PG 011-00\nEspesor: 40 mm",
+    en: "Level: NATO STANAG 4569 Level I\nCountry: Brazil\nClient: AVIBRAS Aeroespacial\nPlant: PG Brasil\nProduct: PG 011-00\nThickness: 40 mm",
+    pt: "Nível: NATO STANAG 4569 Nível I\nPaís: Brasil\nCliente: AVIBRAS Aeroespacial\nPlanta: PG Brasil\nProduto: PG 011-00\nEspessura: 40 mm"
+  },
+  successCase2Title: {
+    es: "Proyecto: Bloques de visión en torreta blindada",
+    en: "Project: Vision Blocks in Armored Turret",
+    pt: "Projeto: Blocos de visão em torre blindada"
+  },
+  successCase2Details: {
+    es: "Vehículo: IVECO Guarani VBTP 6x6\nNivel: CEN 1063 Nivel B7\nPaís: Brasil\nCliente: ARES Aeroespacial\nPlanta: PG Brasil\nProducto: PG 013-00\nEspesor: 75 mm",
+    en: "Vehicle: IVECO Guarani VBTP 6x6\nLevel: CEN 1063 Level B7\nCountry: Brazil\nClient: ARES Aeroespacial\nPlant: PG Brasil\nProduct: PG 013-00\nThickness: 75 mm",
+    pt: "Veículo: IVECO Guarani VBTP 6x6\nNível: CEN 1063 Nível B7\nPaís: Brasil\nCliente: ARES Aeroespacial\nPlanta: PG Brasil\nProduto: PG 013-00\nEspessura: 75 mm"
+  },
+  specializedTitle: { es: "Soluciones especializadas", en: "Specialized solutions", pt: "Soluções especializadas" },
+  aeroTitle: { es: "Aeronáutico", en: "Aeronautical", pt: "Aeronáutico" },
+  aeroPara1: {
+    es: "Desarrollamos cristales blindados de alta tecnología diseñados específicamente para la industria aeronáutica, adaptados a los requerimientos técnicos y operativos de cada cliente.",
+    en: "We develop high-performance armored glass solutions specifically engineered for the aeronautical industry, tailored to meet each client's technical and operational requirements.",
+    pt: "Desenvolvemos cristais blindados de alta tecnologia projetados especificamente para a indústria aeronáutica, adaptados às necessidades técnicas e operacionais de cada cliente."
+  },
+  aeroPara2: {
+    es: "Nuestras soluciones combinan resistencia balística, ligereza y precisión estructural, garantizando el máximo desempeño en condiciones exigentes.",
+    en: "Our products combine ballistic resistance, lightweight performance, and structural precision, ensuring optimal performance under demanding conditions.",
+    pt: "Nossas soluções combinam resistência balística, leveza e precisão estrutural, garantindo alto desempenho em condições exigentes."
+  },
+  aeroPara3: {
+    es: "Trabajamos de la mano con fabricantes y especialistas del sector para diseñar, fabricar e integrar soluciones a medida, cumpliendo con los más altos estándares de seguridad, calidad y certificación aeronáutica.",
+    en: "We collaborate closely with manufacturers and industry specialists to design, produce, and integrate custom solutions that meet the highest standards of safety, quality, and aeronautical certification.",
+    pt: "Trabalhamos em conjunto com fabricantes e especialistas do setor para desenvolver, produzir e integrar soluções sob medida, atendendo aos mais altos padrões de segurança, qualidade e certificação aeronáutica."
+  },
+  nauticTitle: { es: "Sector Náutico", en: "Nautical Sector", pt: "Setor Náutico" },
+  nauticPara1: {
+    es: "Diseñamos soluciones transparentes blindadas pensadas para entornos marítimos, donde la resistencia, la visibilidad y la durabilidad son clave.",
+    en: "We design armored transparent solutions built for marine environments, where strength, visibility, and durability are essential.",
+    pt: "Projetamos soluções transparentes blindadas desenvolvidas para ambientes marítimos, onde resistência, visibilidade e durabilidade são fundamentais."
+  },
+  nauticPara2: {
+    es: "Nuestros desarrollos están preparados para enfrentar condiciones extremas como impacto, presión, salinidad y exposición constante al ambiente, sin comprometer el rendimiento ni la estética.",
+    en: "Our systems are engineered to withstand extreme conditions such as impact, pressure, salinity, and continuous environmental exposure, without compromising performance or aesthetics.",
+    pt: "Nossos sistemas são preparados para enfrentar condições extremas como impacto, pressão, salinidade e exposição contínua ao ambiente, sem comprometer o desempenho ou a estética."
+  },
+  nauticPara3: {
+    es: "Cada proyecto se adapta a las necesidades específicas de la embarcación, integrando materiales de alto desempeño que garantizan seguridad, confiabilidad y larga vida útil en operación.",
+    en: "Each solution is tailored to the vessel's specific requirements, integrating high-performance materials that ensure safety, reliability, and long-term operation.",
+    pt: "Cada solução é adaptada às necessidades específicas da embarcação, utilizando materiais de alto desempenho que garantem segurança, confiabilidade e longa vida útil."
   },
 };
 
@@ -77,6 +124,46 @@ const PGMilitaryPage = () => {
   const { language } = useLanguage();
   const lang = language as 'es' | 'en' | 'pt';
   const T = (obj: { es: string; en: string; pt: string }) => obj[lang];
+
+  const torretaImages = [
+    '/military/torreta-blindada-1.webp',
+    '/military/torreta-blindada-2.webp',
+    '/military/torreta-blindada-3.webp',
+  ];
+  const [torretaIndex, setTorretaIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTorretaIndex(prev => (prev + 1) % torretaImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const astrosImages = [
+    '/military/astros-ii-1.webp',
+    '/military/astros-ii-2.webp',
+  ];
+  const [astrosIndex, setAstrosIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAstrosIndex(prev => (prev + 1) % astrosImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const heroImages = [
+    '/military/herosegmentsmilitary-1.webp',
+    '/military/herosegmentsmilitary-2.webp',
+  ];
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex(prev => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -142,23 +229,45 @@ const PGMilitaryPage = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/products/steelglass/steelglassfototechnology.webp"
-            alt="PG Military Applications"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
+        {heroImages.map((src, idx) => (
+          <div
+            key={src}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{ opacity: idx === heroIndex ? 1 : 0 }}
+          >
+            <img
+              src={src}
+              alt={`PG Military Applications ${idx + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+        ))}
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setHeroIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                idx === heroIndex ? 'bg-white scale-125' : 'bg-white/50'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
       {/* Title Card */}
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-[122px] sm:-mt-[152px] md:-mt-[182px] mb-0">
         <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
-            <span className="font-bold text-pgnavy">PG Military</span>{' '}
-            <span className="font-normal text-pgnavy">Applications</span>
-          </h1>
+          <div className="flex justify-center mb-6">
+            <img
+              src="/Military-Solutions-Logo.webp"
+              alt="PG Military Solutions"
+              className="h-16 sm:h-20 md:h-24 object-contain"
+            />
+          </div>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
             {T(mt.milIntroDesc)}
           </p>
@@ -173,12 +282,12 @@ const PGMilitaryPage = () => {
             <span className="text-pgnavy">{T(mt.milGradeTitle)}</span>
           </h2>
 
-          {/* Tank Image */}
-          <div className="rounded-2xl overflow-hidden mb-8 sm:mb-12 h-[300px] sm:h-[400px] md:h-[508px]">
+          {/* Tab Segments Image */}
+          <div className="w-full mb-8 sm:mb-12">
             <img
-              src="/about/IMG_4421.webp"
-              alt="Military Tank Protection"
-              className="w-full h-full object-cover"
+              src="/military/Tab-SegmentsMilitary.webp"
+              alt="Military Segments"
+              className="w-full object-cover rounded-xl"
             />
           </div>
 
@@ -197,19 +306,19 @@ const PGMilitaryPage = () => {
             {/* NIJ Certified Protection */}
             <div className="text-center">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 flex items-center justify-center">
-                <Shield className="w-12 h-12 sm:w-16 sm:h-16 text-pgnavy" strokeWidth={1.5} />
+                <img src="/military/protec.svg" alt="Protección Certificada NIJ" className="w-12 h-12 sm:w-16 sm:h-16" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-pgnavy">
+              <h3 className="text-lg sm:text-xl font-semibold" style={{ color: '#526239' }}>
                 {T(mt.nijCertified)}
               </h3>
             </div>
 
-            {/* Multi-Hit Resistance */}
+            {/* Multi-Impact Resistance */}
             <div className="text-center">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 flex items-center justify-center">
-                <Target className="w-12 h-12 sm:w-16 sm:h-16 text-pgnavy" strokeWidth={1.5} />
+                <img src="/military/sec.svg" alt="Resistencia Multi-Impacto" className="w-12 h-12 sm:w-16 sm:h-16" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-pgnavy">
+              <h3 className="text-lg sm:text-xl font-semibold" style={{ color: '#526239' }}>
                 {T(mt.multiHit)}
               </h3>
             </div>
@@ -217,9 +326,9 @@ const PGMilitaryPage = () => {
             {/* Extreme Environment Durability */}
             <div className="text-center">
               <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 flex items-center justify-center">
-                <Thermometer className="w-12 h-12 sm:w-16 sm:h-16 text-pgnavy" strokeWidth={1.5} />
+                <img src="/military/term.svg" alt="Durabilidad en Ambiente Extremo" className="w-12 h-12 sm:w-16 sm:h-16" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-pgnavy">
+              <h3 className="text-lg sm:text-xl font-semibold" style={{ color: '#526239' }}>
                 {T(mt.extremeEnv)}
               </h3>
             </div>
@@ -390,23 +499,36 @@ const PGMilitaryPage = () => {
 
           {/* First 50/50: Image Left, Text Right */}
           <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
-            <div className="w-full md:w-1/2">
-              <img
-                src="/military/casos_de_uso_slider_1.png"
-                alt="Military Success Case 1"
-                className="w-full rounded-2xl shadow-lg object-cover"
-              />
+            <div className="w-full md:w-1/2 relative overflow-hidden rounded-2xl shadow-lg">
+              {astrosImages.map((src, idx) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Astros II ${idx + 1}`}
+                  className="w-full object-cover transition-opacity duration-1000 absolute inset-0"
+                  style={{ opacity: idx === astrosIndex ? 1 : 0, position: idx === 0 ? 'relative' : 'absolute' }}
+                />
+              ))}
+              {/* Dot indicators */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {astrosImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setAstrosIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === astrosIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                  />
+                ))}
+              </div>
             </div>
             <div className="w-full md:w-1/2">
               <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
-                {T(mt.successCasesTitle)}
+                {T(mt.successCase1Title)}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              </p>
+              {T(mt.successCase1Details).split('\n').map((line, i) => (
+                <p key={i} className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  {line}
+                </p>
+              ))}
             </div>
           </div>
 
@@ -417,24 +539,98 @@ const PGMilitaryPage = () => {
           <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
             <div className="w-full md:w-1/2">
               <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
-                {T(mt.successCasesTitle)}
+                {T(mt.successCase2Title)}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              {T(mt.successCase2Details).split('\n').map((line, i) => (
+                <p key={i} className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="w-full md:w-1/2 relative overflow-hidden rounded-2xl shadow-lg">
+              {torretaImages.map((src, idx) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Torreta Blindada ${idx + 1}`}
+                  className="w-full object-cover transition-opacity duration-1000 absolute inset-0"
+                  style={{ opacity: idx === torretaIndex ? 1 : 0, position: idx === 0 ? 'relative' : 'absolute' }}
+                />
+              ))}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {torretaImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setTorretaIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === torretaIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Specialized Solutions Section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-pgnavy mb-12 sm:mb-16">
+            {T(mt.specializedTitle)}
+          </h2>
+
+          {/* Aeronáutico — image left, text right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 py-8">
+            <div className="w-full md:w-1/2">
+              <img
+                src="/military/maritimo.webp"
+                alt="Aeronáutico"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-6">
+                {T(mt.aeroTitle)}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                {T(mt.aeroPara1)}
               </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                {T(mt.aeroPara2)}
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                {T(mt.aeroPara3)}
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-200 my-8"></div>
+
+          {/* Sector Náutico — text left, image right */}
+          <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16 py-8">
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-6">
+                {T(mt.nauticTitle)}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                {T(mt.nauticPara1)}
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                {T(mt.nauticPara2)}
+              </p>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                {T(mt.nauticPara3)}
               </p>
             </div>
             <div className="w-full md:w-1/2">
               <img
-                src="/military/casos_de_uso_slider_2.png"
-                alt="Military Success Case 2"
+                src="/military/aeronautico.webp"
+                alt="Sector Náutico"
                 className="w-full rounded-2xl shadow-lg object-cover"
               />
             </div>
           </div>
-
         </div>
       </section>
 

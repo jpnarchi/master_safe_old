@@ -113,12 +113,15 @@ const PGAutomotivePage = () => {
       </section>
 
       {/* Title Card - overlapping hero and next section */}
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-24 sm:-mt-28 md:-mt-32 mb-0">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-8 -mt-[122px] sm:-mt-[152px] md:-mt-[182px] mb-0">
         <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">
-            <span className="text-pgnavy">PG Transport</span>{' '}
-            <span className="text-pgblue">Solutions</span>
-          </h1>
+          <div className="flex justify-center mb-6">
+            <img
+              src="/Transport-Solution-Logo.webp"
+              alt="PG Automotive Solutions"
+              className="h-16 sm:h-20 md:h-24 object-contain"
+            />
+          </div>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
             {T(at.pgBrgDesc1)}
           </p>

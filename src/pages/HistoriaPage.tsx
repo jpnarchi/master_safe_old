@@ -9,7 +9,7 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   {
     year: 1998,
     title: { es: "Se Funda PG Products Barueri (SP)", en: "PG Products Barueri (SP) Founded", pt: "Fundação da PG Products Barueri (SP)" }[lang],
-    image: "/about/NuestroRecorrido-1.webp",
+    image: "/about/ourplantbr-1.webp",
     description: { es: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño.", en: "Start of operations in São Paulo, Brazil. Establishment of the first production plant with cutting-edge technology for the Brazilian market.", pt: "Início das operações em São Paulo, Brasil. Estabelecimento da primeira planta de produção com tecnologia de ponta para o mercado brasileiro." }[lang]
   },
   {
