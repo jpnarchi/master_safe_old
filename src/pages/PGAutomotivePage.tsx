@@ -1,15 +1,64 @@
-import React, { useState } from 'react';
-import { Check, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Check } from 'lucide-react';
 import { toast } from "sonner";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const at = {
-  filesDownload: { es: 'Archivos para descargar', en: 'Files to Download', pt: 'Arquivos para Download' },
-  downloadOEM: { es: 'Descargue nuestros Casos de éxito OEM', en: 'Download our OEM Success Cases', pt: 'Baixe nossos Casos de Sucesso OEM' },
-  downloadRetrofit: { es: 'Descargue nuestros Casos de éxito Retrofit', en: 'Download our Retrofit Success Cases', pt: 'Baixe nossos Casos de Sucesso Retrofit' },
-  learnMore: { es: 'Conocer más', en: 'Learn more', pt: 'Saiba mais' },
+  heroTitle: { es: 'PG Transport Applications', en: 'PG Transport Applications', pt: 'PG Transport Applications' },
+  mainTitle: {
+    es: 'Vidrio balístico para vehículos civiles y comerciales.',
+    en: 'Ballistic glass for civilian and commercial vehicles',
+    pt: 'Vidro balístico para veículos civis e comerciais',
+  },
+  mainDesc1: {
+    es: 'En PG Transport Solutions, desarrollamos soluciones avanzadas de vidrio balístico diseñadas para proteger vehículos en entornos urbanos y operaciones de alto riesgo.',
+    en: 'In PG Transport Solutions, we develop advanced ballistic glass solutions engineered to protect vehicles operating in urban environments and high-risk scenarios.',
+    pt: 'Na PG Transport Solutions, desenvolvemos soluções avançadas em vidro balístico projetadas para proteger veículos que operam em ambientes urbanos e cenários de alto risco.',
+  },
+  mainDesc2: {
+    es: 'Atendemos sectores como transporte de valores, transporte público, vehículos ejecutivos, vans y proyectos de blindaje personalizado, ofreciendo una combinación perfecta entre seguridad, visibilidad y estética.',
+    en: 'We serve industries such as cash-in-transit, public transportation, executive vehicles, vans, and custom armored projects—delivering the perfect balance between security, visibility, and design.',
+    pt: 'Atendemos setores como transporte de valores, transporte público, veículos executivos, vans e projetos de blindagem personalizada, oferecendo o equilíbrio ideal entre segurança, visibilidade e design.',
+  },
+  mainDesc3: {
+    es: 'Nuestras soluciones están diseñadas bajo estándares internacionales, integrando tecnología de punta con ingeniería de precisión para garantizar máxima protección sin comprometer el rendimiento del vehículo.',
+    en: 'Our solutions are developed under international standards, combining cutting-edge technology with precision engineering to ensure maximum protection without compromising vehicle performance.',
+    pt: 'Nossas soluções seguem rigorosos padrões internacionais, combinando tecnologia de ponta com engenharia de precisão para garantir máxima proteção sem comprometer o desempenho do veículo.',
+  },
+  feat1: { es: 'Protección balística certificada', en: 'Certified ballistic protection', pt: 'Proteção balística certificada' },
+  feat2: { es: 'Integración en vehículos nuevos y retrofit', en: 'Integration in new and retrofit vehicles', pt: 'Integração em veículos novos e retrofit' },
+  feat3: { es: 'Soluciones personalizadas por nivel de amenaza', en: 'Customized solutions based on threat level', pt: 'Soluções personalizadas por nível de ameaça' },
+  feat4: {
+    es: 'Compatibilidad con múltiples plataformas (vans, buses, SUV, etc.)',
+    en: 'Compatibility across multiple platforms (vans, buses, SUVs, etc.)',
+    pt: 'Compatibilidade com múltiplas plataformas (vans, ônibus, SUVs, etc.)',
+  },
+  cargoTitle: { es: 'Soluciones para transporte de carga', en: 'Solutions for Cargo Transport', pt: 'Soluções para transporte de carga' },
+  cargoDesc: {
+    es: 'Nuestras soluciones para transporte de carga están diseñadas para proteger operadores y activos en entornos de alto riesgo, integrando vidrio balístico de alto desempeño en cabinas de tractocamiones y unidades de largo recorrido. Trabajamos con fabricantes y operadores logísticos para desarrollar soluciones que mantienen la funcionalidad, visibilidad y ergonomía del vehículo, sin comprometer la seguridad. Desde la ingeniería inicial hasta la implementación, garantizamos sistemas confiables que cumplen con los más altos estándares internacionales.',
+    en: 'Our cargo transport solutions are designed to protect drivers and assets in high-risk environments by integrating high-performance ballistic glass into truck cabins and long-haul vehicles. We focus on driver cabin protection, enabling both OEM and retrofit integration while ensuring durability for high-risk routes. Each solution is engineered with an optimized design for maximum visibility, maintaining operational efficiency without compromising safety.',
+    pt: 'Nossas soluções para transporte de carga são desenvolvidas para proteger operadores e ativos em ambientes de alto risco, integrando vidro balístico de alto desempenho em cabines de caminhões e veículos de longa distância. Priorizamos a proteção da cabine do operador, com integração OEM e retrofit, garantindo resistência em rotas críticas. Cada solução é projetada com design otimizado para visibilidade, mantendo eficiência operacional sem comprometer a segurança.',
+  },
+  citTitle: { es: 'Soluciones para transporte de valores', en: 'Cash-in-Transit Solutions', pt: 'Soluções para transporte de valores' },
+  citDesc: {
+    es: 'Desarrollamos sistemas especializados de vidrio balístico para vehículos de transporte de valores, diseñados para ofrecer máxima protección en operaciones críticas. Nuestras soluciones brindan protección balística certificada, asegurando compatibilidad total con sistemas de seguridad existentes y manteniendo máxima visibilidad operativa. Están diseñadas para cumplir con estrictos estándares del sector, garantizando operaciones seguras y confiables.',
+    en: 'We develop specialized ballistic glass systems for cash-in-transit vehicles, engineered to deliver maximum protection in critical operations. Our solutions provide certified ballistic resistance, ensuring full compatibility with existing security systems while maintaining maximum operational visibility. Designed to meet strict industry standards, they support secure and reliable operations in high-risk scenarios.',
+    pt: 'Desenvolvemos sistemas especializados de vidro balístico para veículos de transporte de valores, projetados para oferecer máxima proteção em operações críticas. Nossas soluções garantem proteção balística certificada, com total compatibilidade com sistemas de segurança e alta visibilidade operacional. São desenvolvidas para atender às exigentes normas do setor, assegurando operações seguras e confiáveis.',
+  },
+  passengerTitle: { es: 'Soluciones para transporte de pasajeros', en: 'Passenger Transport Solutions', pt: 'Soluções para transporte de passageiros' },
+  passengerDesc: {
+    es: 'Ofrecemos soluciones de vidrio balístico para autobuses diseñadas para proteger a pasajeros y operadores en entornos urbanos y rutas de alto riesgo. Nuestra tecnología garantiza protección para pasajeros y conductores, manteniendo alta transparencia y confort visual, sin afectar la experiencia del usuario. Estas soluciones se integran de forma eficiente en flotas nuevas y existentes, siendo ideales para sistemas de transporte moderno.',
+    en: 'We offer ballistic glass solutions for buses designed to protect passengers and drivers in urban environments and high-risk routes. Our technology ensures passenger and driver protection while maintaining high transparency and visual comfort, preserving the overall travel experience. These solutions integrate seamlessly into both new and existing fleets, making them ideal for modern urban transport systems.',
+    pt: 'Oferecemos soluções de vidro balístico para ônibus, desenvolvidas para proteger passageiros e operadores em ambientes urbanos e rotas de alto risco. Nossas tecnologias garantem proteção para passageiros e motoristas, mantendo alta transparência e conforto visual, sem comprometer a experiência do usuário. São ideais para integração em frotas novas e existentes em sistemas de transporte urbano.',
+  },
+  vanTitle: { es: 'Soluciones para vans ejecutivas y de lujo', en: 'Executive and Luxury Van Solutions', pt: 'Soluções para vans executivas e de luxo' },
+  vanDesc: {
+    es: 'Desarrollamos soluciones de vidrio balístico para vans ejecutivas y vehículos de lujo, enfocadas en ofrecer máxima protección sin comprometer el diseño ni el confort. Nuestros sistemas brindan protección discreta de alto nivel, preservando la estética premium del vehículo e integrándose perfectamente en proyectos personalizados. Cada solución se desarrolla con máxima calidad y precisión, cumpliendo con los estándares más exigentes.',
+    en: 'We develop ballistic glass solutions for executive vans and luxury vehicles, focused on delivering maximum protection without compromising design or comfort. Our systems provide discreet high-level protection while preserving premium vehicle aesthetics, ensuring a seamless integration in bespoke and high-end projects. Each solution is crafted with maximum precision and quality, meeting the expectations of luxury mobility.',
+    pt: 'Desenvolvemos soluções de vidro balístico para vans executivas e veículos de luxo, focadas em oferecer máxima proteção sem comprometer o design ou o conforto. Nossos sistemas garantem proteção discreta de alto nível, preservando a estética premium do veículo e permitindo integração perfeita em projetos personalizados. Cada solução é desenvolvida com máxima qualidade e precisão, atendendo aos mais altos padrões.',
+  },
   protectSecurity: { es: 'Protegemos tu seguridad', en: 'We Protect Your Security', pt: 'Protegemos sua segurança' },
   trustExperience: { es: 'Confía en la experiencia y calidad de un líder en seguridad automotriz.', en: 'Trust the experience and quality of a leader in automotive security.', pt: 'Confie na experiência e qualidade de um líder em segurança automotiva.' },
   fullName: { es: 'Nombre completo', en: 'Full Name', pt: 'Nome completo' },
@@ -20,53 +69,24 @@ const at = {
   writeMessage: { es: 'Escriba aquí su mensaje', en: 'Write your message here', pt: 'Escreva sua mensagem aqui' },
   cancel: { es: 'Cancel', en: 'Cancel', pt: 'Cancelar' },
   send: { es: 'Enviar', en: 'Send', pt: 'Enviar' },
-  pgBrgDesc1: {
-    es: 'Somos especialistas en soluciones de vidrio balístico automotriz, desarrolladas bajo los más estrictos estándares internacionales. Nuestros productos combinan tecnología de punta con ingeniería de precisión para ofrecer protección superior sin comprometer la estética ni el rendimiento del vehículo.',
-    en: 'We specialize in automotive ballistic glass solutions, developed under the strictest international standards. Our products combine cutting-edge technology with precision engineering to deliver superior protection without compromising vehicle aesthetics or performance.',
-    pt: 'Somos especialistas em soluções de vidro balístico automotivo, desenvolvidas sob os mais rígidos padrões internacionais. Nossos produtos combinam tecnologia de ponta com engenharia de precisão para oferecer proteção superior sem comprometer a estética ou o desempenho do veículo.',
-  },
-  pgBrgDesc2: {
-    es: 'Con presencia en México y Brasil, y una red de distribución internacional, acompañamos a nuestros clientes desde la especificación técnica hasta la instalación final, garantizando calidad total en cada proyecto.',
-    en: 'With operations in Mexico and Brazil and an international distribution network, we support our clients from technical specification to final installation, ensuring total quality in every project.',
-    pt: 'Com operações no México e Brasil e uma rede de distribuição internacional, acompanhamos nossos clientes desde a especificação técnica até a instalação final, garantindo qualidade total em cada projeto.',
-  },
-  retrofitTitle: { es: 'Soluciones Retrofit', en: 'Retrofit Solutions', pt: 'Soluções Retrofit' },
-  retrofitDesc1: {
-    es: 'Nuestras soluciones retrofit permiten integrar protección balística avanzada en vehículos existentes. Ya sea para mejorar flotas o proteger objetivos de alto valor, nuestros sistemas retrofit mantienen la funcionalidad del vehículo mientras añaden características de seguridad superiores.',
-    en: 'Our retrofit solutions enable the integration of advanced ballistic protection into existing vehicles. Whether upgrading fleet vehicles or providing protection for high-value targets, our retrofit systems maintain vehicle functionality while adding superior security features.',
-    pt: 'Nossas soluções retrofit permitem integrar proteção balística avançada em veículos existentes. Seja para melhorar frotas ou proteger alvos de alto valor, nossos sistemas retrofit mantêm a funcionalidade do veículo enquanto adicionam recursos de segurança superiores.',
-  },
-  retrofitDesc2: {
-    es: 'Con amplia experiencia en instalaciones posventa, brindamos servicios integrales que incluyen evaluación, diseño, fabricación e instalación profesional. Nuestras soluciones se adaptan a niveles de amenaza y requisitos operacionales específicos.',
-    en: 'With extensive experience in aftermarket installations, we provide comprehensive retrofit services that include assessment, design, manufacturing, and professional installation. Our solutions are tailored to meet specific threat levels and operational requirements.',
-    pt: 'Com vasta experiência em instalações pós-venda, oferecemos serviços completos que incluem avaliação, design, fabricação e instalação profissional. Nossas soluções são adaptadas para atender a níveis de ameaça e requisitos operacionais específicos.',
-  },
-  retrofitFeat1: { es: 'Integración en vehículos existentes', en: 'Existing Vehicle Integration', pt: 'Integração em veículos existentes' },
-  retrofitFeat2: { es: 'Soluciones personalizadas', en: 'Custom Solutions', pt: 'Soluções personalizadas' },
-  retrofitFeat3: { es: 'Instalación profesional', en: 'Professional Installation', pt: 'Instalação profissional' },
-  oemTitle: { es: 'Soluciones OEM', en: 'OEM Solutions', pt: 'Soluções OEM' },
-  oemDesc1: {
-    es: 'Nuestras soluciones OEM (Fabricante de Equipos Originales) ofrecen sistemas integrales de protección balística diseñados específicamente para fabricantes de vehículos. Trabajamos directamente con empresas automotrices para integrar nuestras tecnologías de vidrio balístico durante el proceso de fabricación.',
-    en: 'Our OEM (Original Equipment Manufacturer) solutions provide comprehensive ballistic protection systems designed specifically for vehicle manufacturers. We work directly with automotive companies to integrate our advanced ballistic glass technologies during the manufacturing process.',
-    pt: 'Nossas soluções OEM (Fabricante de Equipamentos Originais) oferecem sistemas abrangentes de proteção balística projetados especificamente para fabricantes de veículos. Trabalhamos diretamente com empresas automotivas para integrar nossas tecnologias de vidro balístico durante o processo de fabricação.',
-  },
-  oemDesc2: {
-    es: 'Nuestras alianzas OEM garantizan una integración perfecta, manteniendo la estética original del vehículo con protección superior. Desde la consultoría inicial hasta la producción final, apoyamos a los fabricantes con soluciones balísticas de vanguardia que cumplen los más altos estándares de seguridad.',
-    en: 'Our OEM partnerships ensure seamless integration, maintaining the original vehicle aesthetics while providing superior protection. From initial design consultation to final production, we support manufacturers with cutting-edge ballistic solutions that meet the highest safety standards.',
-    pt: 'Nossas parcerias OEM garantem integração perfeita, mantendo a estética original do veículo com proteção superior. Desde a consultoria de design inicial até a produção final, apoiamos os fabricantes com soluções balísticas de ponta que atendem aos mais altos padrões de segurança.',
-  },
-  oemFeat1: { es: 'Integración en fábrica', en: 'Factory Integration', pt: 'Integração em fábrica' },
-  oemFeat2: { es: 'Estética original preservada', en: 'Original Aesthetics', pt: 'Estética original preservada' },
-  oemFeat3: { es: 'Control de calidad', en: 'Quality Assurance', pt: 'Controle de qualidade' },
-  retrofitCasesTitle: { es: 'Casos de Éxito Retrofit', en: 'Retrofit Success Cases', pt: 'Casos de Sucesso Retrofit' },
-  retrofitCasesDesc: { es: 'Transformando vehículos existentes con soluciones avanzadas de protección balística', en: 'Transforming existing vehicles with advanced ballistic protection solutions', pt: 'Transformando veículos existentes com soluções avançadas de proteção balística' },
-  oemCasesTitle: { es: 'Casos de Éxito OEM', en: 'OEM Success Cases', pt: 'Casos de Sucesso OEM' },
-  oemCasesDesc: { es: 'Destacando nuestras alianzas exitosas con fabricantes automotrices a nivel mundial', en: 'Showcasing our successful partnerships with automotive manufacturers worldwide', pt: 'Destacando nossas parcerias de sucesso com fabricantes automotivos em todo o mundo' },
 };
 
 const PGAutomotivePage = () => {
   const { language } = useLanguage();
   const T = (obj: { es: string; en: string; pt: string }) => obj[language as 'es' | 'en' | 'pt'];
+
+  const heroImages = [
+    '/transport/HeroTransport-1.webp',
+    '/transport/HeroTransport-2.webp',
+  ];
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex(prev => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -102,13 +122,32 @@ const PGAutomotivePage = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/products/steelglass/steelglassfotocarrusel0.webp"
-            alt="PG Automotive BRG"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-pgblue/80 to-pgnavy/60"></div>
+        {heroImages.map((src, idx) => (
+          <div
+            key={src}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{ opacity: idx === heroIndex ? 1 : 0 }}
+          >
+            <img
+              src={src}
+              alt={`PG Transport Solutions ${idx + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+        ))}
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setHeroIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                idx === heroIndex ? 'bg-white scale-125' : 'bg-white/50'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -118,210 +157,105 @@ const PGAutomotivePage = () => {
           <div className="flex justify-center mb-6">
             <img
               src="/Transport-Solution-Logo.webp"
-              alt="PG Automotive Solutions"
+              alt="PG Transport Solutions"
               className="h-16 sm:h-20 md:h-24 object-contain"
             />
           </div>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto mb-4">
-            {T(at.pgBrgDesc1)}
+          <h2 className="text-xl sm:text-2xl font-bold text-pgnavy text-center mb-6">
+            {T(at.mainTitle)}
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-justify mb-4">
+            {T(at.mainDesc1)}
           </p>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-center max-w-4xl mx-auto">
-            {T(at.pgBrgDesc2)}
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-justify mb-4">
+            {T(at.mainDesc2)}
           </p>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-justify mb-8">
+            {T(at.mainDesc3)}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+            {[at.feat1, at.feat2, at.feat3, at.feat4].map((feat, i) => (
+              <div key={i} className="flex items-center">
+                <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-pgnavy font-medium text-sm sm:text-base">{T(feat)}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Two Column Layout - Retrofit and OEM Solutions */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-
-            {/* Retrofit Solutions */}
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8">
-                <span className="text-pgnavy">{T(at.retrofitTitle)}</span>
-              </h2>
-
-              {/* Retrofit Image */}
-              <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
-                <img
-                  src="/products/steelglass/steelglassfotocarrusel0.webp"
-                  alt="Retrofit Solutions"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Retrofit Description */}
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                {T(at.retrofitDesc1)}
-              </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                {T(at.retrofitDesc2)}
-              </p>
-
-              {/* Retrofit Features */}
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.retrofitFeat1)}</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.retrofitFeat2)}</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.retrofitFeat3)}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* OEM Solutions */}
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8">
-                <span className="text-pgnavy">{T(at.oemTitle)}</span>
-              </h2>
-
-              {/* OEM Image */}
-              <div className="rounded-lg overflow-hidden mb-6 h-[280px] sm:h-[320px] md:h-[360px]">
-                <img
-                  src="/products/steelglass/steelglassfotocarrusel0.webp"
-                  alt="OEM Solutions"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* OEM Description */}
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
-                {T(at.oemDesc1)}
-              </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                {T(at.oemDesc2)}
-              </p>
-
-              {/* OEM Features */}
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.oemFeat1)}</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.oemFeat2)}</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-pgblue flex items-center justify-center mr-3 flex-shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-pgnavy font-medium text-sm sm:text-base">{T(at.oemFeat3)}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Success Cases 50/50 Sections */}
+      {/* Transport Solution Sections — 50/50 */}
       <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* First 50/50: Image Left, Text Right */}
+          {/* Cargo Transport — Image Left, Text Right */}
           <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
             <div className="w-full md:w-1/2">
               <img
-                src="/automotive/44604513-e2f1-4816-b14b-13ac8e66c935.webp"
-                alt="Retrofit Success Case"
+                src="/transport/Solucionesblin-1.webp"
+                alt="Cargo Transport"
                 className="w-full rounded-2xl shadow-lg object-cover"
               />
             </div>
             <div className="w-full md:w-1/2">
-              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
-                {T(at.retrofitCasesTitle)}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              </p>
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">{T(at.cargoTitle)}</h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{T(at.cargoDesc)}</p>
             </div>
           </div>
 
-          {/* Divider */}
           <div className="border-t border-gray-200"></div>
 
-          {/* Second 50/50: Text Left, Image Right */}
+          {/* Cash-in-Transit — Text Left, Image Right */}
           <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
             <div className="w-full md:w-1/2">
-              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">
-                {T(at.oemCasesTitle)}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </p>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              </p>
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">{T(at.citTitle)}</h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{T(at.citDesc)}</p>
             </div>
             <div className="w-full md:w-1/2">
               <img
-                src="/automotive/82e0c0e3-aaad-4d7f-aa32-398f7c44bafe.webp"
-                alt="OEM Success Case"
+                src="/transport/Solucionesblin-2.webp"
+                alt="Cash-in-Transit"
                 className="w-full rounded-2xl shadow-lg object-cover"
               />
             </div>
           </div>
 
-        </div>
-      </section>
+          <div className="border-t border-gray-200"></div>
 
-      {/* Downloads Section */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-pgnavy mb-8">
-            {T(at.filesDownload)}
-          </h2>
-
-          <div className="space-y-0">
-            {/* Divider line */}
-            <div className="border-t border-gray-200"></div>
-
-            {/* Download OEM */}
-            <div className="flex items-center justify-between py-6">
-              <span className="text-gray-700 text-sm sm:text-base">
-                {T(at.downloadOEM)}
-              </span>
-              <button className="w-12 h-12 sm:w-14 sm:h-14 bg-pgnavy rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
-                <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </button>
+          {/* Passenger Transport — Image Left, Text Right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
+            <div className="w-full md:w-1/2">
+              <img
+                src="/transport/Solucionesblin-3.webp"
+                alt="Passenger Transport"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
             </div>
-
-            {/* Divider line */}
-            <div className="border-t border-gray-200"></div>
-
-            {/* Download Retrofit */}
-            <div className="flex items-center justify-between py-6">
-              <span className="text-gray-700 text-sm sm:text-base">
-                {T(at.downloadRetrofit)}
-              </span>
-              <button className="w-12 h-12 sm:w-14 sm:h-14 bg-pgnavy rounded-lg flex items-center justify-center hover:bg-pgblue transition-colors duration-300">
-                <Download className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </button>
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">{T(at.passengerTitle)}</h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{T(at.passengerDesc)}</p>
             </div>
-
-            {/* Divider line */}
-            <div className="border-t border-gray-200"></div>
           </div>
+
+          <div className="border-t border-gray-200"></div>
+
+          {/* Executive & Luxury Vans — Text Left, Image Right */}
+          <div className="flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16 py-12 sm:py-16">
+            <div className="w-full md:w-1/2">
+              <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-4">{T(at.vanTitle)}</h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{T(at.vanDesc)}</p>
+            </div>
+            <div className="w-full md:w-1/2">
+              <img
+                src="/transport/Solucionesblin-4.webp"
+                alt="Executive and Luxury Vans"
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 

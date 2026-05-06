@@ -52,9 +52,9 @@ const UltraPage = () => {
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/products/ultra/CasosdeUsoPGUltra-1.webp',
-    '/products/ultra/CasosdeUsoPGUltra-2.webp',
     '/products/ultra/CasosdeUsoPGUltra-3.webp',
+    '/products/ultra/CasosdeUsoPGUltra-2.webp',
+    '/products/ultra/CasosdeUsoPGUltra-1.webp',
   ];
   const useCases = tr.useCases[language];
 
