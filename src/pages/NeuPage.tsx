@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -27,17 +27,17 @@ const NeuPage = () => {
   ];
 
   const tabImages = [
-    '',
+    '/products/neu/TabsPGNeu1.webp',
     '/products/neu/composicionPGNeu.webp',
-    '',
-    '/products/neu/especificacionesPGNeu.webp',
+    '/products/neu/TabsTecnologiaPGNeu-3.webp',
+    '/products/neu/TabsEspecificascionesPGNeu-4.webp',
   ];
 
   const keyBenefits = tr.benefits[language];
   const useCaseImages = [
-    '/products/neu/casosdeusoPGNeu.webp',
-    '/products/neu/casosdeusoPGNeu.webp',
-    '/products/neu/casosdeusoPGNeu.webp',
+    '/products/neu/CasosdeUsoPGNeu-2.webp',
+    '/products/neu/CasosdeUsoPGNeu-1.webp',
+    '/products/neu/CasosdeUsoPGNeu-3.webp',
   ];
   const useCases = tr.useCases[language];
 
@@ -64,18 +64,35 @@ const NeuPage = () => {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % useCases.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
 
+  const heroImages = [
+    '/products/neu/HeroPGNeu-1.webp',
+    '/products/neu/HeroPGNeu-2.webp',
+    '/products/neu/HeroPGNeu-3.webp',
+  ];
+  const [heroIndex, setHeroIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex(prev => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[580px] md:h-[660px] lg:h-[740px] w-full overflow-hidden">
-        <img
-          src="/products/neu/heroheaderPGNeu.webp"
-          alt="Neu Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+        {heroImages.map((src, idx) => (
+          <div
+            key={src}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{ opacity: idx === heroIndex ? 1 : 0 }}
+          >
+            <img src={src} alt={`PG Neu ${idx + 1}`} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+          </div>
+        ))}
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 max-w-7xl mx-auto text-center">
           <h1 className="text-white text-base sm:text-xl md:text-2xl font-normal mb-3 sm:mb-4 font-montserrat">
@@ -87,11 +104,16 @@ const NeuPage = () => {
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-normal max-w-3xl leading-relaxed font-montserrat">
             {t(tr.heroDescription, language)}
           </p>
-          <div className="absolute bottom-8 sm:bottom-12 flex gap-3">
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
-            <div className="w-3 h-3 rounded-full bg-white/70"></div>
-          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setHeroIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === heroIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+            />
+          ))}
         </div>
       </section>
 

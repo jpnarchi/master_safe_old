@@ -6,11 +6,6 @@ import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const mt = {
-  thickness: { es: "Espesor (mm)", en: "Thickness (mm)", pt: "Espessura (mm)" },
-  weight: { es: "Peso (Kg/m2)", en: "Weight (Kg/m2)", pt: "Peso (Kg/m2)" },
-  ballisticStandard: { es: "Standard Balístico", en: "Ballistic Standard", pt: "Padrão Balístico" },
-  weapon: { es: "ARMA", en: "WEAPON", pt: "ARMA" },
-  caliber: { es: "CALIBRE", en: "CALIBER", pt: "CALIBRE" },
   downloadsTitle: { es: "Descubre nuestras soluciones Military-Grade", en: "Explore our Military-Grade solutions", pt: "Descubra nossas soluções Military-Grade" },
   downloadMilitary: {
     es: "Descarga el folleto",
@@ -36,7 +31,6 @@ const mt = {
   cancel: { es: "Cancel", en: "Cancel", pt: "Cancelar" },
   send: { es: "Enviar", en: "Send", pt: "Enviar" },
   learnMore: { es: "Conocer más", en: "Learn more", pt: "Saiba mais" },
-  chartTitle: { es: "GRÁFICA BALÍSTICA — SOLUCIONES MILITARES", en: "MILITARY SOLUTIONS BALLISTIC CHART", pt: "GRÁFICO BALÍSTICO — SOLUÇÕES MILITARES" },
   milIntroDesc: {
     es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate, nuestras soluciones de vidrio balístico brindan protección superior manteniendo la efectividad operacional.",
     en: "Our military applications deliver the highest levels of ballistic protection for defense personnel and equipment. Designed to withstand extreme combat conditions, our ballistic glass solutions provide superior protection while maintaining operational effectiveness.",
@@ -187,42 +181,6 @@ const PGMilitaryPage = () => {
     });
   };
 
-  // Ballistic chart data
-  const ballisticData = {
-    headers: ['30.4', '39.4', '58.4', '79.6', '79.6'],
-    weights: ['58.8', '79.8', '122.8', '164.8', '164.8'],
-    standards: [
-      { name: 'NIJ 0108.01', values: ['–', 'III', 'IV', '–', '–'] },
-      { name: 'CEN 1063', values: ['BR5', 'BR6', '–', 'BR7', '–'] },
-      { name: 'VPAM', values: ['L6', 'L7', 'L8', 'L9', 'L10'] },
-      { name: 'STANAG 4569', values: ['–', 'I', 'III', '–', '–'] },
-      { name: 'RENAR', values: ['RB4', '–', '–', '–', '–'] },
-      { name: 'ABNT NBR 15000', values: ['–', 'II', 'IV', '–', '–'] },
-    ],
-    weapons: [
-      {
-        img: '/military/weapon_1.webp',
-        calibers: ['5.56 x 45mm M855', '(950+/-10m/s)', '', '7.62 x 39mm FMJ/PB', '(720+/-10m/s)']
-      },
-      {
-        img: '/military/weapon_2.webp',
-        calibers: ['7.62 x 51mm M80 Ball', '(838+/-15m/s)', '', '7.62 x 51mm M80 Ball', '(830+/-15m/s)', '', '5.56 x 45mm SS 109', '(950+/-10m/s)']
-      },
-      {
-        img: '/military/weapon_3.webp',
-        calibers: ['30-06 AP M2', '(868+/-15m/s)', '', '7.62 x 39mm API BZ', '(950+/-20m/s)']
-      },
-      {
-        img: '/military/weapon_4.webp',
-        calibers: ['7.62 x 51mm M61 AP', '(820+/-10m/s)', '', '7.62 x 51mm', 'P80/FMJ/PB/HC', '(820+/-10m/s)']
-      },
-      {
-        img: '/military/weapon_5.webp',
-        calibers: ['7.62 x 51mm', 'P80/FMJ/PB/HC', '(820+/-10m/s)', '', '7.62 x 54 R B32', '(860+/-10m/s)']
-      },
-    ]
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -338,157 +296,13 @@ const PGMilitaryPage = () => {
 
       {/* Ballistic Chart Section */}
       <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Chart Header */}
-          <div className="bg-[#526239] rounded-t-lg py-4 sm:py-6 px-4 sm:px-8">
-            <div className="flex items-center justify-center gap-4">
-              <img
-                src="/shared/logos/LogoPGPRODUCTSPGBLUE.webp"
-                alt="PG Products"
-                className="h-8 sm:h-10 brightness-0 invert"
-              />
-              <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
-                {T(mt.chartTitle)}
-              </h3>
-            </div>
-          </div>
-
-          {/* Chart Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[800px] border-collapse">
-              {/* Espesor Row */}
-              <thead>
-                <tr>
-                  <th className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200 w-[200px]">
-                    {T(mt.thickness)}
-                  </th>
-                  {ballisticData.headers.map((header, idx) => (
-                    <th key={idx} className="bg-[rgba(39,59,8,0.15)] p-3 sm:p-4 text-center text-sm sm:text-base font-medium text-black border-b border-gray-200">
-                      {header}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {/* Peso Row */}
-                <tr>
-                  <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    {T(mt.weight)}
-                  </td>
-                  {ballisticData.weights.map((weight, idx) => (
-                    <td key={idx} className="bg-[rgba(39,59,8,0.15)] p-3 sm:p-4 text-center text-sm sm:text-base font-medium text-black border-b border-gray-200">
-                      {weight}
-                    </td>
-                  ))}
-                </tr>
-
-                {/* Separator Row for Standards */}
-                <tr>
-                  <td colSpan={6} className="bg-white h-2"></td>
-                </tr>
-
-                {/* Standard Rows with Vertical Label */}
-                {ballisticData.standards.map((standard, idx) => (
-                  <tr key={idx}>
-                    <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200 relative">
-                      {/* Vertical "Standard Balístico" label for first row */}
-                      {idx === 0 && (
-                        <div className="absolute left-0 top-0 h-[480px] w-12 bg-[#939d83] flex items-center justify-center z-10">
-                          <span
-                            className="text-white font-bold text-sm tracking-widest whitespace-nowrap"
-                            style={{
-                              writingMode: 'vertical-rl',
-                              transform: 'rotate(180deg)'
-                            }}
-                          >
-                            {T(mt.ballisticStandard)}
-                          </span>
-                        </div>
-                      )}
-                      <span className="pl-14">{standard.name}</span>
-                    </td>
-                    {standard.values.map((value, vIdx) => (
-                      <td
-                        key={vIdx}
-                        className={`p-3 sm:p-4 text-center text-sm sm:text-base font-medium border-b border-gray-200 ${
-                          value === '–' ? 'bg-[#dfe2da] text-gray-400' : 'bg-[#dfe2da] text-black'
-                        }`}
-                      >
-                        {value}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-
-                {/* Separator Row for Weapons */}
-                <tr>
-                  <td colSpan={6} className="bg-white h-4"></td>
-                </tr>
-
-                {/* ARMA Row */}
-                <tr>
-                  <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    <span className="pl-14">{T(mt.weapon)}</span>
-                  </td>
-                  {[0, 1, 2, 3, 4].map((idx) => (
-                    <td key={idx} className="bg-[#dfe2da] p-3 sm:p-4 text-center border-b border-gray-200">
-                      <div className="h-20 sm:h-24 flex items-center justify-center">
-                        <img
-                          src={`/military/weapon_${idx + 1}.webp`}
-                          alt={`Weapon ${idx + 1}`}
-                          className="max-h-full max-w-full object-contain"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                          }}
-                        />
-                      </div>
-                    </td>
-                  ))}
-                </tr>
-
-                {/* CALIBRE Row */}
-                <tr>
-                  <td className="bg-[rgba(39,59,8,0.05)] p-3 sm:p-4 text-left text-sm sm:text-base font-bold text-black border-b border-gray-200">
-                    <span className="pl-14">{T(mt.caliber)}</span>
-                  </td>
-                  <td className="bg-[#dfe2da] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
-                    <p className="font-bold">5.56 x 45mm M855</p>
-                    <p className="font-normal">(950+/-10m/s)</p>
-                    <p className="mt-2 font-bold">7.62 x 39mm FMJ/PB</p>
-                    <p className="font-normal">(720+/-10m/s)</p>
-                  </td>
-                  <td className="bg-[#dfe2da] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
-                    <p className="font-bold">7.62 x 51mm M80 Ball</p>
-                    <p className="font-normal">(838+/-15m/s)</p>
-                    <p className="mt-2 font-bold">7.62 x 51mm M80 Ball</p>
-                    <p className="font-normal">(830+/-15m/s)</p>
-                    <p className="mt-2 font-bold">5.56 x 45mm SS 109</p>
-                    <p className="font-normal">(950+/-10m/s)</p>
-                  </td>
-                  <td className="bg-[#dfe2da] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
-                    <p className="font-bold">30-06 AP M2</p>
-                    <p className="font-normal">(868+/-15m/s)</p>
-                    <p className="mt-2 font-bold">7.62 x 39mm API BZ</p>
-                    <p className="font-normal">(950+/-20m/s)</p>
-                  </td>
-                  <td className="bg-[#dfe2da] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
-                    <p className="font-bold">7.62 x 51mm M61 AP</p>
-                    <p className="font-normal">(820+/-10m/s)</p>
-                    <p className="mt-2 font-bold">7.62 x 51mm</p>
-                    <p className="font-bold">P80/FMJ/PB/HC</p>
-                    <p className="font-normal">(820+/-10m/s)</p>
-                  </td>
-                  <td className="bg-[#dfe2da] p-3 sm:p-4 text-center text-xs sm:text-sm border-b border-gray-200">
-                    <p className="font-bold">7.62 x 51mm</p>
-                    <p className="font-bold">P80/FMJ/PB/HC</p>
-                    <p className="font-normal">(820+/-10m/s)</p>
-                    <p className="mt-2 font-bold">7.62 x 54 R B32</p>
-                    <p className="font-normal">(860+/-10m/s)</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div className="w-full px-4 sm:px-8">
+          <div className="flex justify-center overflow-x-auto">
+            <img
+              src={`/military/tabla-balistica-military-${lang}.webp`}
+              alt="Tabla Balística Military"
+              className="w-full rounded-2xl shadow-xl max-h-none"
+            />
           </div>
         </div>
       </section>

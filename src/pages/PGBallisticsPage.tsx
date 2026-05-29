@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import VideoControls from '../components/VideoControls';
 import { Link } from 'react-router-dom';
 import { Shield, Target, Zap, Award, Download } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -88,6 +89,7 @@ const PGBallisticsPage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const ballisticsVideoRef = useRef<HTMLVideoElement>(null);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -234,6 +236,7 @@ const PGBallisticsPage = () => {
       {/* Ballistics Video */}
       <section className="relative w-full h-screen overflow-hidden">
         <video
+          ref={ballisticsVideoRef}
           className="w-full h-full object-cover"
           autoPlay
           muted
@@ -242,6 +245,7 @@ const PGBallisticsPage = () => {
         >
           <source src="/ballistics/PG-Ballistics-Vid.mp4" type="video/mp4" />
         </video>
+        <VideoControls videoRef={ballisticsVideoRef} />
       </section>
 
       {/* Testing & Certification Gallery */}

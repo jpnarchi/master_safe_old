@@ -274,7 +274,7 @@ const HistoriaPage = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[75vh]">
         <img
-          src="/about/HeaderAboutUs.webp"
+          src="/about/finalheroaboutuspage.webp"
           alt="PG Products as a Company"
           className="w-full h-full object-cover"
         />

@@ -1,6 +1,7 @@
 import { Shield, Target, Eye, Users, Award, Star } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import React from 'react';
+import VideoControls from '../VideoControls';
 
 const aboutUsVideo = "/videos/PGREDUCEDVID.mp4";
 const aboutUsImage = "/about/IMG_4473.webp";
@@ -68,12 +69,14 @@ const AboutUs = () => {
   const goTo = idx => setCurrent(idx);
   const next = () => setCurrent((prev) => (prev < carouselSlides.length - 1 ? prev + 1 : 0));
   const prev = () => setCurrent((prev) => (prev > 0 ? prev - 1 : carouselSlides.length - 1));
+  const aboutVideoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <section id="about-us" className="w-full min-h-screen bg-pglight relative flex flex-col gap-0">
       {/* Video Container con título */}
       <div className="relative w-full h-[60vh] flex flex-col items-center justify-center bg-black">
-        <video 
+        <video
+          ref={aboutVideoRef}
           src={aboutUsVideo}
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           autoPlay
@@ -85,6 +88,7 @@ const AboutUs = () => {
           <h2 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg mb-4">About Us</h2>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent" />
+        <VideoControls videoRef={aboutVideoRef} />
       </div>
 
       {/* Imagen full screen con descripción */}
