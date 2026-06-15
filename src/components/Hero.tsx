@@ -36,12 +36,12 @@ const ht = {
   feat3: { es: 'Acabado único', en: 'Unique finish', pt: 'Acabamento único' },
   feat4: { es: 'Óptica excepcional', en: 'Exceptional optics', pt: 'Ótica excepcional' },
   // Slide 4
-  s4title1: { es: 'Procesos de Producción', en: 'Production Processes', pt: 'Processos de Produção' },
-  s4title2: { es: 'con estándares Internacionales', en: 'with International Standards', pt: 'com Padrões Internacionais' },
+  s4title1: { es: 'Producción de', en: 'World-Class', pt: 'Produção de' },
+  s4title2: { es: 'Clase Mundial', en: 'Manufacturing', pt: 'Classe Mundial' },
   s4desc: {
-    es: 'Nuestro modelo de producción articula la incorporación de materiales e insumos premium con validaciones en cada fase productiva asegurando calidad total.',
-    en: 'Our production model integrates premium materials and inputs with validations at every production phase, ensuring total quality.',
-    pt: 'Nosso modelo de produção articula a incorporação de materiais e insumos premium com validações em cada fase produtiva, assegurando qualidade total.',
+    es: 'Nuestro modelo de producción incorpora materiales e insumos premium, junto con validaciones en cada fase del proceso para garantizar la máxima calidad.',
+    en: 'Our manufacturing model incorporates premium materials and components, with validation at every stage to ensure the highest quality standards.',
+    pt: 'Nosso modelo de produção incorpora materiais e insumos premium, aliados a validações em cada etapa do processo para garantir a máxima qualidade.',
   },
   // Product cards
   cards: {
@@ -94,23 +94,23 @@ const ht = {
     en: 'technology, design and trust in every layer.',
     pt: 'tecnologia, design e confiança em cada camada.',
   },
-  ben1title: { es: 'Protección balística\nsin compromisos', en: 'Ballistic protection\nwithout compromise', pt: 'Proteção balística\nsem compromissos' },
+  ben1title: { es: 'Protección balística\ncomprobada', en: 'Proven Ballistic\nProtection', pt: 'Proteção balística\ncomprovada' },
   ben1desc: {
     es: 'Cada producto PG Products está diseñado y probado bajo los más altos estándares internacionales (NIJ, EN, STANAG), garantizando resistencia comprobada ante múltiples amenazas. Nuestra ingeniería multicapa ofrece una defensa superior con el máximo nivel de seguridad, transparencia y durabilidad.',
     en: 'Every PG Products item is designed and tested under the highest international standards (NIJ, EN, STANAG), ensuring proven resistance against multiple threats. Our multilayer engineering delivers superior defense with the highest level of safety, transparency and durability.',
     pt: 'Cada produto PG Products é projetado e testado sob os mais altos padrões internacionais (NIJ, EN, STANAG), garantindo resistência comprovada contra múltiplas ameaças. Nossa engenharia multicamada oferece uma defesa superior com o máximo nível de segurança, transparência e durabilidade.',
   },
-  ben2title: { es: 'Innovación en diseño\ny tecnología', en: 'Innovation in design\nand technology', pt: 'Inovação em design\ne tecnologia' },
+  ben2title: { es: 'Innovación en diseño\ny tecnología', en: 'Innovation in Design\nand Technology', pt: 'Inovação em design\ne tecnologia' },
   ben2desc: {
-    es: 'Integramos ciencia de materiales avanzada, geometrías de precisión y procesos automatizados que optimizan el desempeño balístico sin comprometer la estética del vehículo o estructura. PG Products redefine el blindaje al fusionar protección, ligereza y elegancia en una sola solución.',
-    en: 'We integrate advanced materials science, precision geometries and automated processes that optimize ballistic performance without compromising vehicle or structural aesthetics. PG Products redefines armoring by fusing protection, lightness and elegance into one solution.',
-    pt: 'Integramos ciência de materiais avançada, geometrias de precisão e processos automatizados que otimizam o desempenho balístico sem comprometer a estética do veículo ou estrutura. A PG Products redefine o blindamento ao fundir proteção, leveza e elegância em uma única solução.',
+    es: 'Fusionamos ingeniería de materiales avanzada, geometrías de precisión y procesos automatizados para optimizar el desempeño balístico sin comprometer la estética del vehículo o la estructura. PG Products integra protección, ligereza y elegancia en una sola solución.',
+    en: 'We combine advanced materials engineering, precision geometries, and automated processes to optimize ballistic performance without compromising the aesthetics of the vehicle or structure. PG Products integrates protection, lightweight performance, and elegance into a single solution.',
+    pt: 'Combinamos engenharia avançada de materiais, geometrias de precisão e processos automatizados para otimizar o desempenho balístico sem comprometer a estética do veículo ou da estrutura. A PG Products integra proteção, leveza e elegância em uma única solução.',
   },
-  ben3title: { es: 'Calidad certificada\ny experiencia global', en: 'Certified quality\nand global experience', pt: 'Qualidade certificada\ne experiência global' },
+  ben3title: { es: 'Calidad certificada\ny experiencia global', en: 'Certified Quality\nand Global Experience', pt: 'Qualidade certificada\ne experiência global' },
   ben3desc: {
-    es: 'Con más de dos décadas de trayectoria en la industria del vidrio blindado, PG Products combina experiencia, investigación y un Sistema de Gestión de Calidad certificado bajo ISO 9001:2015 — una distinción que no todas las empresas del sector poseen — para ofrecer productos con acabados únicos, claridad óptica excepcional y una instalación de alto rendimiento respaldada por expertos internacionales.',
-    en: 'With over two decades of experience in the armored glass industry, PG Products combines expertise, research and an ISO 9001:2015 certified Quality Management System (QMS) — a distinction not all companies in the sector hold — to deliver products with unique finishes, exceptional optical clarity and high-performance installation backed by international experts.',
-    pt: 'Com mais de duas décadas de trajetória na indústria do vidro blindado, a PG Products combina experiência, pesquisa e um Sistema de Gestão da Qualidade certificado pela ISO 9001:2015 — uma distinção que nem todas as empresas do setor possuem — para oferecer produtos com acabamentos únicos, clareza ótica excepcional e instalação de alto desempenho respaldada por especialistas internacionais.',
+    es: 'Con más de dos décadas de experiencia en la industria del vidrio blindado, PG Products combina conocimiento especializado, innovación continua y un Sistema de Gestión de Calidad certificado bajo ISO 9001. Este compromiso con la excelencia se refleja en productos con acabados superiores, claridad óptica excepcional y un desempeño confiable respaldado por estándares internacionales.',
+    en: 'With more than two decades of experience in the armored glass industry, PG Products combines specialized expertise, continuous innovation, and an ISO 9001-certified Quality Management System. This commitment to excellence is reflected in products that deliver superior finishes, exceptional optical clarity, and reliable performance supported by international standards.',
+    pt: 'Com mais de duas décadas de experiência na indústria de vidros blindados, a PG Products combina conhecimento especializado, inovação contínua e um Sistema de Gestão da Qualidade certificado pela ISO 9001. Esse compromisso com a excelência se reflete em produtos com acabamento superior, clareza óptica excepcional e desempenho confiável respaldado por padrões internacionais.',
   },
   // Contact section
   contactTitle: { es: 'Protegemos tu seguridad', en: 'We Protect Your Safety', pt: 'Protegemos a Sua Segurança' },

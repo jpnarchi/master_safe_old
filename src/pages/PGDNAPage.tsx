@@ -14,7 +14,7 @@ const dt = {
   heroDesc: {
     es: "Nuestros productos conservan una identidad que nos permite ofrecer ademas de seguridad, calidad total, es así como poseemos un ADN propio PG que traslada características diferenciadas en cada aspecto.",
     en: "Our products maintain an identity that allows us to offer, in addition to security, total quality. This is how we possess our own PG DNA that transfers differentiated characteristics in every aspect.",
-    pt: "Nossos produtos conservam uma identidade que nos permite oferecer além de segurança, qualidade total. É assim que possuímos um DNA PG próprio que transfere características diferenciadas em cada aspecto."
+    pt: "Nossos produtos conservam uma identidade que nos permite oferecer além de segurança, qualidade total. É assim que possuímos um ADN PG próprio que transfere características diferenciadas em cada aspecto."
   },
   feat1Title: { es: "Ingeniería Balística Innovadora", en: "Innovative Ballistic Engineering", pt: "Engenharia Balística Inovadora" },
   feat1Desc: { es: "Creamos formulas de cristal blindado de avanzada", en: "We create advanced armored glass formulas", pt: "Criamos fórmulas avançadas de vidro blindado" },
@@ -22,7 +22,7 @@ const dt = {
   feat2Desc: { es: "Producción bajo procesos de ingeniería 3D y CAD CAM de ultima generación.", en: "Production under 3D engineering and latest generation CAD CAM processes.", pt: "Produção sob processos de engenharia 3D e CAD CAM de última geração." },
   feat3Title: { es: "Estética Única", en: "Unique Aesthetics", pt: "Estética Única" },
   feat3Desc: { es: "Acabados de alta calidad acordes a las exigencias y evolución de los mercados.", en: "High quality finishes in line with market demands and evolution.", pt: "Acabamentos de alta qualidade de acordo com as exigências e evolução dos mercados." },
-  feat4Title: { es: "Óptica Destacable", en: "Outstanding Optics", pt: "Óptica Destacável" },
+  feat4Title: { es: "Óptica Diferenciada", en: "Differentiated Optics", pt: "Óptica Diferenciada" },
   feat4Desc: { es: "Consistente a las reglas internacionales.", en: "Consistent with international rules.", pt: "Consistente com as regras internacionais." },
   formulacionTitle: { es: "Formulación PG", en: "PG Formulation", pt: "Formulação PG" },
   formulacionDesc: {

@@ -301,7 +301,7 @@ const PGMilitaryPage = () => {
             <img
               src={`/military/tabla-balistica-military-${lang}.webp`}
               alt="Tabla Balística Military"
-              className="w-full rounded-2xl shadow-xl max-h-none"
+              className="w-full max-w-3xl rounded-2xl shadow-xl"
             />
           </div>
         </div>

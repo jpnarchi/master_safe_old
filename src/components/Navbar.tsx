@@ -303,7 +303,7 @@ const Navbar = () => {
                   : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
               }`}
             >
-              PG DNA
+              {T({ es: "PG ADN", en: "PG DNA", pt: "PG ADN" })}
             </Link>
           </nav>
 
@@ -623,7 +623,7 @@ const Navbar = () => {
               className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
               onClick={closeMobileMenu}
             >
-              PG DNA
+              {T({ es: "PG ADN", en: "PG DNA", pt: "PG ADN" })}
             </Link>
             <Link
               to="/contacto"

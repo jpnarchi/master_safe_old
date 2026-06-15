@@ -9,37 +9,37 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   {
     year: 1998,
     title: { es: "Se Funda PG Products Barueri (SP)", en: "PG Products Barueri (SP) Founded", pt: "Fundação da PG Products Barueri (SP)" }[lang],
-    image: "/about/ourplantbr-1.webp",
+    image: "/about/recorrido-1998.webp",
     description: { es: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño.", en: "Start of operations in São Paulo, Brazil. Establishment of the first production plant with cutting-edge technology for the Brazilian market.", pt: "Início das operações em São Paulo, Brasil. Estabelecimento da primeira planta de produção com tecnologia de ponta para o mercado brasileiro." }[lang]
   },
   {
     year: 2000,
     title: { es: "Expansión Regional", en: "Regional Expansion", pt: "Expansão Regional" }[lang],
-    image: "/about/NuestroRecorrido-2.webp",
+    image: "/about/recorrido-2000.webp",
     description: { es: "Crecimiento en el mercado latinoamericano con nuevos clientes y certificaciones.", en: "Growth in the Latin American market with new clients and certifications.", pt: "Crescimento no mercado latino-americano com novos clientes e certificações." }[lang]
   },
   {
     year: 2004,
     title: { es: "Miembro Fundador Brasil", en: "Founding Member Brazil", pt: "Membro Fundador Brasil" }[lang],
-    image: "/about/NuestroRecorrido-3.webp",
+    image: "/about/recorrido-2004.webp",
     description: { es: "Participación activa en la industria brasileña como miembro fundador de la asociación de blindadores del país.", en: "Active participation in the Brazilian industry as a founding member of the country's armoring association.", pt: "Participação ativa na indústria brasileira como membro fundador da associação de blindadores do país." }[lang]
   },
   {
     year: 2006,
     title: { es: "Certificación NATO STANAG I y II", en: "NATO STANAG I and II Certification", pt: "Certificação NATO STANAG I e II" }[lang],
-    image: "/about/NuestroRecorrido-4.webp",
+    image: "/about/recorrido-2006.webp",
     description: { es: "Obtención de certificación militar de alta seguridad bajo los estándares internacionales NATO STANAG niveles I y II.", en: "Obtaining high-security military certification under the international NATO STANAG standards levels I and II.", pt: "Obtenção de certificação militar de alta segurança sob os padrões internacionais NATO STANAG níveis I e II." }[lang]
   },
   {
     year: 2009,
     title: { es: "Planta México en Toluca", en: "Mexico Plant in Toluca", pt: "Planta México em Toluca" }[lang],
-    image: "/about/NuestroRecorrido-5.webp",
+    image: "/about/recorrido-2009.webp",
     description: { es: "Expansión internacional con la apertura de la planta no.3 PG Products México en Toluca, fortaleciendo presencia en Norteamérica.", en: "International expansion with the opening of plant no.3 PG Products Mexico in Toluca, strengthening presence in North America.", pt: "Expansão internacional com a abertura da planta nº 3 PG Products México em Toluca, fortalecendo a presença na América do Norte." }[lang]
   },
   {
     year: 2012,
     title: { es: "Certificado BRG Brasil", en: "BRG Brazil Certification", pt: "Certificado BRG Brasil" }[lang],
-    image: "/about/NuestroRecorrido-6.webp",
+    image: "/about/recorrido-2012.webp",
     description: { es: "Certificación nacional brasileña ABNT NBR 15000, consolidando el liderazgo en el mercado de blindaje nacional.", en: "Brazilian national certification ABNT NBR 15000, consolidating leadership in the national armoring market.", pt: "Certificação nacional brasileira ABNT NBR 15000, consolidando a liderança no mercado nacional de blindagem." }[lang]
   },
   {
@@ -155,19 +155,19 @@ const TimelineCarousel = () => {
 const ht = {
   companyTitle: { es: "PG Products como compañía", en: "PG Products as a Company", pt: "PG Products como empresa" },
   companyP1: {
-    es: "Fundada en 1998 en São Paulo, PG Products® es uno de los líderes mundiales en la fabricación de cristales de protección balística con diversas aplicaciones. Ha creado la tecnología patentada SteelGlass®, un cristal laminado blindado con inserción de acero inoxidable.",
-    en: "Founded in 1998 in São Paulo, PG Products® is one of the world leaders in the manufacture of ballistic protection glass with various applications. It has created the patented SteelGlass® technology, an armored laminated glass with stainless steel insertion.",
-    pt: "Fundada em 1998 em São Paulo, a PG Products® é uma das líderes mundiais na fabricação de vidros de proteção balística com diversas aplicações. Criou a tecnologia patenteada SteelGlass®, um vidro laminado blindado com inserção de aço inoxidável."
+    es: "Fundada en Brasil en 1998, PG Products® es una de las compañías líderes en el desarrollo y fabricación de vidrios de protección balística para múltiples aplicaciones. Su trayectoria de innovación dio origen a la tecnología patentada SteelGlass®, una solución de cristal laminado blindado con inserción de acero inoxidable.",
+    en: "Founded in Brazil in 1998, PG Products® is a global leader in the development and manufacturing of ballistic glass solutions for a wide range of applications. Its commitment to innovation led to the creation of the patented SteelGlass® technology, a laminated armored glass solution with a stainless-steel insert.",
+    pt: "Fundada no Brasil em 1998, a PG Products® é uma das empresas líderes no desenvolvimento e na fabricação de vidros de proteção balística para diversas aplicações. Sua trajetória de inovação resultou na tecnologia patenteada SteelGlass®, uma solução de vidro laminado blindado com inserção de aço inoxidável."
   },
   companyP2: {
-    es: "En 2007, la empresa pasó a formar parte del selecto grupo de cuatro proveedores globales de vidrios blindados para automóviles de los principales fabricantes alemanes. En 2008 inauguró su planta de fabricación en Norteamérica, en la ciudad de Toluca, México, para satisfacer la demanda local y la de los fabricantes alemanes.",
-    en: "In 2007, the company became part of the select group of four global suppliers of armored glass for automobiles from major German manufacturers. In 2008, it opened its manufacturing plant in North America, in the city of Toluca, Mexico, to meet local demand and that of German manufacturers.",
-    pt: "Em 2007, a empresa passou a fazer parte do seleto grupo de quatro fornecedores globais de vidros blindados para automóveis dos principais fabricantes alemães. Em 2008, inaugurou sua planta de fabricação na América do Norte, na cidade de Toluca, México, para atender à demanda local e à dos fabricantes alemães."
+    es: "Como proveedor global de la industria automotriz, PG Products forma parte de una selecta red de fabricantes que abastecen a marcas internacionales de primer nivel. Con operaciones en Brasil y México, la compañía atiende mercados estratégicos en América y el resto del mundo.",
+    en: "As a trusted supplier to the automotive industry, PG Products is part of a select group of manufacturers serving leading international vehicle brands. With operations in Brazil and Mexico, the company supports strategic markets across the Americas and beyond.",
+    pt: "Como fornecedora global da indústria automotiva, a PG Products integra um seleto grupo de fabricantes que atendem marcas internacionais de referência. Com operações no Brasil e no México, a empresa atende mercados estratégicos nas Américas e em outras regiões do mundo."
   },
   companyP3: {
-    es: "Actualmente, la empresa cuenta con una completa cartera de soluciones en vidrios blindados y ha alcanzado un alto nivel en tecnología, investigando y desarrollando nuevos materiales, procesos y sistemas, y atiende, además de los segmentos automovilístico y militar, proyectos para la industria aeronáutica, naval y arquitectónica.",
-    en: "Currently, the company has a complete portfolio of armored glass solutions and has reached a high level in technology, researching and developing new materials, processes and systems, serving, in addition to the automotive and military segments, projects for the aeronautical, naval and architectural industry.",
-    pt: "Atualmente, a empresa conta com um portfólio completo de soluções em vidros blindados e alcançou um alto nível em tecnologia, pesquisando e desenvolvendo novos materiais, processos e sistemas, e atende, além dos segmentos automotivo e militar, projetos para a indústria aeronáutica, naval e arquitetônica."
+    es: "Actualmente, PG Products ofrece un portafolio integral de soluciones en vidrio blindado, respaldado por investigación continua, desarrollo tecnológico y altos estándares de calidad. Sus productos y sistemas están presentes en los sectores automotriz, militar, aeronáutico, naval y arquitectónico.",
+    en: "Today, PG Products offers a comprehensive portfolio of ballistic glass solutions backed by continuous research, technological innovation, and rigorous quality standards. Its products and systems serve the automotive, military, aerospace, marine, and architectural sectors worldwide.",
+    pt: "Atualmente, a PG Products oferece um portfólio completo de soluções em vidros blindados, respaldado por pesquisa contínua, desenvolvimento tecnológico e elevados padrões de qualidade. Seus produtos e sistemas estão presentes nos setores automotivo, militar, aeronáutico, naval e arquitetônico."
   },
   companyP4: {
     es: "Para satisfacer las demandas y exigencias del mercado global, la empresa cuenta con una fábrica de vidrios blindados en São Paulo, en el municipio de Cotia, uno de los principales polos industriales de la capital. Diseñada con un layout que favorece una alta eficiencia en los flujos internos y en el consumo de energía, la planta de 6.200 m² está situada a 3 km de la Rodoanel, una importante vía de distribución de la producción industrial del estado de São Paulo. En el continente americano, ubicada en la ciudad de Toluca, PG Products® cuenta con otra fábrica, PG México, creada para satisfacer las demandas locales y de los fabricantes europeos.",
@@ -283,10 +283,7 @@ const HistoriaPage = () => {
       {/* PG Products como compañía Section */}
       <section className="relative py-20 bg-gradient-to-b from-gray-100 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 rounded-lg p-6 sm:p-8 md:p-12 shadow-lg">
-            <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-8">
-              {T(ht.companyTitle)}
-            </h2>
+          <div className="bg-gray-100 rounded-lg p-6 sm:p-8 md:p-12 shadow-lg text-center">
             <p className="text-lg text-gray-700 leading-relaxed">
               {T(ht.companyP1)}
             </p>
@@ -296,19 +293,6 @@ const HistoriaPage = () => {
             <p className="text-lg text-gray-700 leading-relaxed mt-6">
               {T(ht.companyP3)}
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 mt-16">
-            <div>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {T(ht.companyP4)}
-              </p>
-            </div>
-            <div>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {T(ht.companyP5)}
-              </p>
-            </div>
           </div>
         </div>
       </section>
