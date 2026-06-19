@@ -11,7 +11,7 @@ const CompareTeslaSection = () => {
         <div className="w-full md:w-1/2 bg-gray-200 rounded-lg shadow p-8">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <div className="w-full md:w-1/2">
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">GlassGuard</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">GlassGuard®</h3>
               <p className="text-gray-600 mb-4">Find the Tesla vehicle that's right for you</p>
               <button className="w-full md:w-auto px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold rounded transition">Compare Models</button>
             </div>

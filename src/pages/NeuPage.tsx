@@ -95,12 +95,14 @@ const NeuPage = () => {
         ))}
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 max-w-7xl mx-auto text-center">
-          <h1 className="text-white text-base sm:text-xl md:text-2xl font-normal mb-3 sm:mb-4 font-montserrat">
+          <img
+            src="/shared/logos/mainlogoprdpagePGNeu.png"
+            alt="PG NEU®"
+            className="w-full max-w-[401px] h-auto object-contain mb-3 sm:mb-4"
+          />
+          <h1 className="text-white text-base sm:text-xl md:text-2xl font-normal mb-4 sm:mb-6 font-montserrat">
             {t(tr.heroSubtitle, language)}
           </h1>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-montserrat leading-tight">
-            {t(tr.heroTitle, language)}
-          </h2>
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-normal max-w-3xl leading-relaxed font-montserrat">
             {t(tr.heroDescription, language)}
           </p>

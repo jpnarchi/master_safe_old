@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const dt = {
-  heroTitle: { es: "Conoce más de PG Products", en: "Learn more about PG Products", pt: "Conheça mais sobre PG Products" },
+  heroTitle: { es: "Conoce más de PG Products®", en: "Learn more about PG Products®", pt: "Conheça mais sobre PG Products®" },
   heroDesc: {
     es: "Nuestros productos conservan una identidad que nos permite ofrecer ademas de seguridad, calidad total, es así como poseemos un ADN propio PG que traslada características diferenciadas en cada aspecto.",
     en: "Our products maintain an identity that allows us to offer, in addition to security, total quality. This is how we possess our own PG DNA that transfers differentiated characteristics in every aspect.",
@@ -32,9 +32,9 @@ const dt = {
   },
   rdTitle: { es: "Producto, Ingenieria & Desarrollo", en: "Product, Engineering & Development", pt: "Produto, Engenharia & Desenvolvimento" },
   rdDesc: {
-    es: "En PG Products contamos con un equipo humano capacitado y experimentado en investigación y desarrollo de producto que adelanta diseño continuo de soluciones a nivel de formulación balística, nuevos materiales, mejora de procesos y composiciones para aplicaciones especiales, ademas proyectos en conjunto con reconocidos institutos y universidades.",
-    en: "At PG Products we have a trained and experienced human team in product research and development that advances continuous design of solutions at the level of ballistic formulation, new materials, process improvement and compositions for special applications, as well as joint projects with renowned institutes and universities.",
-    pt: "Na PG Products contamos com uma equipe capacitada e experiente em pesquisa e desenvolvimento de produto que avança no design contínuo de soluções em nível de formulação balística, novos materiais, melhoria de processos e composições para aplicações especiais, além de projetos em conjunto com renomados institutos e universidades."
+    es: "En PG Products® contamos con un equipo humano capacitado y experimentado en investigación y desarrollo de producto que adelanta diseño continuo de soluciones a nivel de formulación balística, nuevos materiales, mejora de procesos y composiciones para aplicaciones especiales, ademas proyectos en conjunto con reconocidos institutos y universidades.",
+    en: "At PG Products® we have a trained and experienced human team in product research and development that advances continuous design of solutions at the level of ballistic formulation, new materials, process improvement and compositions for special applications, as well as joint projects with renowned institutes and universities.",
+    pt: "Na PG Products® contamos com uma equipe capacitada e experiente em pesquisa e desenvolvimento de produto que avança no design contínuo de soluções em nível de formulação balística, novos materiais, melhoria de processos e composições para aplicações especiais, além de projetos em conjunto com renomados institutos e universidades."
   },
   portfolioTitle: { es: "Portafolio de Productos", en: "Product Portfolio", pt: "Portfólio de Produtos" },
   portfolioDesc: {
@@ -58,35 +58,35 @@ const dt = {
 
 const getProductCards = (lang: 'es' | 'en' | 'pt') => [
   {
-    title: "GlassGuard",
+    title: "GlassGuard®",
     img: "/Glassguard_card.webp",
     logo: "/shared/logos/new-card-logoPG-GlassGuard.svg",
     description: { es: "Vidrio premium de resistencia balística certificada", en: "Premium glass with certified ballistic resistance", pt: "Vidro premium de resistência balística certificada" }[lang],
     link: "/glassguard"
   },
   {
-    title: "SuperSlim",
+    title: "SuperSlim®",
     img: "/Superslim_card.webp",
     logo: "/shared/logos/new-card-logo-PG-Superslim.svg",
     description: { es: "Vidrio balístico premium: más delgado, liviano y duradero", en: "Premium Ballistic Glass: Thinner, lightweight and more durable", pt: "Vidro balístico premium: mais fino, leve e durável" }[lang],
     link: "/superslim"
   },
   {
-    title: "SteelGlass",
+    title: "SteelGlass®",
     img: "/Steelglass_card.webp",
     logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg",
     description: { es: "Vidrio balístico premium con marco de acero", en: "Premium Ballistic Glass with Steel Frame", pt: "Vidro balístico premium com estrutura de aço" }[lang],
     link: "/steelglass"
   },
   {
-    title: "PG NEU",
+    title: "PG NEU®",
     img: "/Neu_card.webp",
     logo: "/shared/logos/PG Neu.svg",
     description: { es: "Vidrio balístico premium con resistencia extraordinaria", en: "Premium ballistic glass with remarkable resistance", pt: "Vidro balístico premium com resistência notável" }[lang],
     link: "/neu"
   },
   {
-    title: "PG ULTRA",
+    title: "PG ULTRA®",
     img: "/Ultra_card.webp",
     logo: "/shared/logos/PG Ultra.svg",
     description: { es: "Vidrio balístico premium: más delgado, liviano y duradero", en: "Premium Ballistic Glass: Thinner, lightweight and more durable", pt: "Vidro balístico premium: mais fino, leve e durável" }[lang],

@@ -23,31 +23,31 @@ interface SegmentItem {
 
 const getProductItems = (lang: Lang): ProductItem[] => [
   {
-    name: "GlassGuard",
+    name: "GlassGuard®",
     path: "/glassguard",
     description: { es: "Calidad y Durabilidad", en: "Quality and Durability", pt: "Qualidade e Durabilidade" }[lang],
     img: "/home/btn_pg_glassguard.webp"
   },
   {
-    name: "SteelGlass",
+    name: "SteelGlass®",
     path: "/steelglass",
     description: { es: "Resistente hasta el Borde", en: "Resistant to the Edge", pt: "Resistente até a Borda" }[lang],
     img: "/home/btn_pg_steelglass.webp"
   },
   {
-    name: "SuperSlim",
+    name: "SuperSlim®",
     path: "/superslim",
     description: { es: "Liviano y Resistente", en: "Lightweight and Resistant", pt: "Leve e Resistente" }[lang],
     img: "/home/btn_pg_superslim.webp"
   },
   {
-    name: "Ultra",
+    name: "Ultra®",
     path: "/ultra",
     description: { es: "Desempeño Balístico Superior", en: "Superior Ballistic Performance", pt: "Desempenho Balístico Superior" }[lang],
     img: "/home/btn_pg_ultra.webp"
   },
   {
-    name: "Neu",
+    name: "NEU®",
     path: "/neu",
     description: { es: "Próxima Generación", en: "Next Generation", pt: "Próxima Geração" }[lang],
     img: "/home/btn_pg_neu.webp"
@@ -86,7 +86,12 @@ const Navbar = () => {
   const productItems = getProductItems(lang);
   const segmentItems = getSegmentItems(lang);
 
-  const whiteLogo = "/about/8edefffc-7a49-492b-acc8-65267634f930.webp";
+  const whiteLogoMap: Record<string, string> = {
+    es: "/shared/logos/trasparent578x100ES.png",
+    en: "/shared/logos/trasparent578x100EN.png",
+    pt: "/shared/logos/trasparent578x100PT.png",
+  };
+  const whiteLogo = whiteLogoMap[language] ?? whiteLogoMap.es;
   const blueLogo = "/shared/logos/LogoPGPRODUCTSPGBLUE.webp";
 
   // Páginas que necesitan navbar siempre visible (fondo blanco)

@@ -68,10 +68,10 @@ const bt = {
   appArch: { es: "Arquitectónico", en: "Architectural", pt: "Arquitetônico" },
   appArchDesc: { es: "Edificios gubernamentales, embajadas", en: "Government buildings, embassies", pt: "Edifícios governamentais, embaixadas" },
   videoTitle: { es: "Investigación & Desarrollo", en: "Research & Development", pt: "Pesquisa & Desenvolvimento" },
-  videoSubtitle: { es: "PG Products, la nueva generación en protección", en: "PG Products, the new generation in protection", pt: "PG Products, a nova geração em proteção" },
+  videoSubtitle: { es: "PG Products®, la nueva generación en protección", en: "PG Products®, the new generation in protection", pt: "PG Products®, a nova geração em proteção" },
   learnMore: { es: "Conocer más", en: "Learn more", pt: "Saiba mais" },
   downloadsTitle: { es: "Archivos para descargar", en: "Files to Download", pt: "Arquivos para Download" },
-  download1: { es: "Brochure de productos PG Products", en: "PG Products Product Brochure", pt: "Catálogo de produtos PG Products" },
+  download1: { es: "Brochure de productos PG Products®", en: "PG Products® Product Brochure", pt: "Catálogo de produtos PG Products®" },
   download2: { es: "Descargue nuestro último informe anual", en: "Download our latest annual report", pt: "Baixe nosso último relatório anual" },
 };
 
@@ -465,7 +465,7 @@ const PGBallisticsPage = () => {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
           <img
             src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp"
-            alt="PG Products Logo"
+            alt="PG Products® Logo"
             className="w-40 sm:w-64 md:w-80 lg:w-[479px] h-auto mb-6 sm:mb-8 drop-shadow-lg"
           />
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>

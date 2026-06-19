@@ -1,5 +1,6 @@
 
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage, Language } from '../contexts/LanguageContext';
@@ -90,15 +91,21 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">{T(ft.products)}</h3>
             <ul className="space-y-2">
-              {["NEU", "GlassGuard", "SteelGlass", "SuperSlim", "ULTRA"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
+              {[
+                { label: "NEU®",        path: "/neu"        },
+                { label: "GlassGuard®", path: "/glassguard" },
+                { label: "SteelGlass®", path: "/steelglass" },
+                { label: "SuperSlim®",  path: "/superslim"  },
+                { label: "ULTRA®",      path: "/ultra"      },
+              ].map(({ label, path }) => (
+                <li key={label}>
+                  <Link
+                    to={path}
                     className="text-white/70 hover:text-white transition-colors flex items-center"
                   >
                     <ChevronRight size={16} className="mr-1" />
-                    {item}
-                  </a>
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -127,7 +134,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-white/70 text-sm">
-            &copy; {new Date().getFullYear()} PG Products. {T(ft.rights)}
+            &copy; {new Date().getFullYear()} PG Products®. {T(ft.rights)}
           </p>
 
           {/* Language dropdown */}

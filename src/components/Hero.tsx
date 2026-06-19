@@ -96,21 +96,21 @@ const ht = {
   },
   ben1title: { es: 'Protección balística\ncomprobada', en: 'Proven Ballistic\nProtection', pt: 'Proteção balística\ncomprovada' },
   ben1desc: {
-    es: 'Cada producto PG Products está diseñado y probado bajo los más altos estándares internacionales (NIJ, EN, STANAG), garantizando resistencia comprobada ante múltiples amenazas. Nuestra ingeniería multicapa ofrece una defensa superior con el máximo nivel de seguridad, transparencia y durabilidad.',
-    en: 'Every PG Products item is designed and tested under the highest international standards (NIJ, EN, STANAG), ensuring proven resistance against multiple threats. Our multilayer engineering delivers superior defense with the highest level of safety, transparency and durability.',
-    pt: 'Cada produto PG Products é projetado e testado sob os mais altos padrões internacionais (NIJ, EN, STANAG), garantindo resistência comprovada contra múltiplas ameaças. Nossa engenharia multicamada oferece uma defesa superior com o máximo nível de segurança, transparência e durabilidade.',
+    es: 'Cada producto PG Products® está diseñado y probado bajo los más altos estándares internacionales (NIJ, EN, STANAG), garantizando resistencia comprobada ante múltiples amenazas. Nuestra ingeniería multicapa ofrece una defensa superior con el máximo nivel de seguridad, transparencia y durabilidad.',
+    en: 'Every PG Products® item is designed and tested under the highest international standards (NIJ, EN, STANAG), ensuring proven resistance against multiple threats. Our multilayer engineering delivers superior defense with the highest level of safety, transparency and durability.',
+    pt: 'Cada produto PG Products® é projetado e testado sob os mais altos padrões internacionais (NIJ, EN, STANAG), garantindo resistência comprovada contra múltiplas ameaças. Nossa engenharia multicamada oferece uma defesa superior com o máximo nível de segurança, transparência e durabilidade.',
   },
   ben2title: { es: 'Innovación en diseño\ny tecnología', en: 'Innovation in Design\nand Technology', pt: 'Inovação em design\ne tecnologia' },
   ben2desc: {
-    es: 'Fusionamos ingeniería de materiales avanzada, geometrías de precisión y procesos automatizados para optimizar el desempeño balístico sin comprometer la estética del vehículo o la estructura. PG Products integra protección, ligereza y elegancia en una sola solución.',
-    en: 'We combine advanced materials engineering, precision geometries, and automated processes to optimize ballistic performance without compromising the aesthetics of the vehicle or structure. PG Products integrates protection, lightweight performance, and elegance into a single solution.',
-    pt: 'Combinamos engenharia avançada de materiais, geometrias de precisão e processos automatizados para otimizar o desempenho balístico sem comprometer a estética do veículo ou da estrutura. A PG Products integra proteção, leveza e elegância em uma única solução.',
+    es: 'Fusionamos ingeniería de materiales avanzada, geometrías de precisión y procesos automatizados para optimizar el desempeño balístico sin comprometer la estética del vehículo o la estructura. PG Products® integra protección, ligereza y elegancia en una sola solución.',
+    en: 'We combine advanced materials engineering, precision geometries, and automated processes to optimize ballistic performance without compromising the aesthetics of the vehicle or structure. PG Products® integrates protection, lightweight performance, and elegance into a single solution.',
+    pt: 'Combinamos engenharia avançada de materiais, geometrias de precisão e processos automatizados para otimizar o desempenho balístico sem comprometer a estética do veículo ou da estrutura. A PG Products® integra proteção, leveza e elegância em uma única solução.',
   },
   ben3title: { es: 'Calidad certificada\ny experiencia global', en: 'Certified Quality\nand Global Experience', pt: 'Qualidade certificada\ne experiência global' },
   ben3desc: {
-    es: 'Con más de dos décadas de experiencia en la industria del vidrio blindado, PG Products combina conocimiento especializado, innovación continua y un Sistema de Gestión de Calidad certificado bajo ISO 9001. Este compromiso con la excelencia se refleja en productos con acabados superiores, claridad óptica excepcional y un desempeño confiable respaldado por estándares internacionales.',
-    en: 'With more than two decades of experience in the armored glass industry, PG Products combines specialized expertise, continuous innovation, and an ISO 9001-certified Quality Management System. This commitment to excellence is reflected in products that deliver superior finishes, exceptional optical clarity, and reliable performance supported by international standards.',
-    pt: 'Com mais de duas décadas de experiência na indústria de vidros blindados, a PG Products combina conhecimento especializado, inovação contínua e um Sistema de Gestão da Qualidade certificado pela ISO 9001. Esse compromisso com a excelência se reflete em produtos com acabamento superior, clareza óptica excepcional e desempenho confiável respaldado por padrões internacionais.',
+    es: 'Con más de dos décadas de experiencia en la industria del vidrio blindado, PG Products® combina conocimiento especializado, innovación continua y un Sistema de Gestión de Calidad certificado bajo ISO 9001. Este compromiso con la excelencia se refleja en productos con acabados superiores, claridad óptica excepcional y un desempeño confiable respaldado por estándares internacionales.',
+    en: 'With more than two decades of experience in the armored glass industry, PG Products® combines specialized expertise, continuous innovation, and an ISO 9001-certified Quality Management System. This commitment to excellence is reflected in products that deliver superior finishes, exceptional optical clarity, and reliable performance supported by international standards.',
+    pt: 'Com mais de duas décadas de experiência na indústria de vidros blindados, a PG Products® combina conhecimento especializado, inovação contínua e um Sistema de Gestão da Qualidade certificado pela ISO 9001. Esse compromisso com a excelência se reflete em produtos com acabamento superior, clareza óptica excepcional e desempenho confiável respaldado por padrões internacionais.',
   },
   // Contact section
   contactTitle: { es: 'Protegemos tu seguridad', en: 'We Protect Your Safety', pt: 'Protegemos a Sua Segurança' },
@@ -148,11 +148,11 @@ const Hero = () => {
   };
 
   const allProductCards = [
-    { title: "GlassGuard", img: `/home/pg_glassguard_${language}.webp`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
-    { title: "SuperSlim",  img: `/home/pg_superslim_${language}.webp`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
-    { title: "SteelGlass", img: `/home/pg_steelglass_${language}.webp`, logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
-    { title: "PG NEU",     img: `/home/pg_neu_${language}.webp`,        logo: "/shared/logos/PG Neu.svg",                      link: "/neu" },
-    { title: "PG ULTRA",   img: `/home/pg_ultra_${language}.webp`,      logo: "/shared/logos/PG Ultra.svg",                    link: "/ultra" },
+    { title: "GlassGuard®", img: `/home/pg_glassguard_${language}.webp`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
+    { title: "SuperSlim®",  img: `/home/pg_superslim_${language}.webp`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
+    { title: "SteelGlass®", img: `/home/pg_steelglass_${language}.webp`, logo: "/shared/logos/new-card-logo-PG-SteelGlass.svg", link: "/steelglass" },
+    { title: "PG NEU®",     img: `/home/pg_neu_${language}.webp`,        logo: "/shared/logos/PG Neu.svg",                      link: "/neu" },
+    { title: "PG ULTRA®",   img: `/home/pg_ultra_${language}.webp`,      logo: "/shared/logos/PG Ultra.svg",                    link: "/ultra" },
   ];
 
   useEffect(() => {
@@ -211,7 +211,7 @@ const Hero = () => {
           {currentHero === 1 && (
             <>
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-4 sm:mb-6 md:mb-12 leading-tight">
-                <span className="font-normal">PG</span> <span className="font-bold">SuperSlim</span>
+                <span className="font-normal">PG</span> <span className="font-bold">SuperSlim®</span>
               </h1>
               <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-center mb-5 sm:mb-8 md:mb-12 max-w-3xl leading-relaxed">
                 {T(ht.s2desc)}
@@ -364,7 +364,7 @@ const Hero = () => {
         style={{ backgroundImage: 'url(/home/BracketHome.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="text-center text-white z-10 px-4">
-          <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp" alt="PG Products Logo"
+          <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp" alt="PG Products® Logo"
             className="mx-auto mb-6 sm:mb-8 w-48 sm:w-64 md:w-80 lg:w-[420px] h-auto drop-shadow-xl" />
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90">{T(ht.rdSub)}</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">{T(ht.rdTitle)}</h2>

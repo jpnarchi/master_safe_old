@@ -8,7 +8,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   {
     year: 1998,
-    title: { es: "Se Funda PG Products Barueri (SP)", en: "PG Products Barueri (SP) Founded", pt: "Fundação da PG Products Barueri (SP)" }[lang],
+    title: { es: "Se Funda PG Products® Barueri (SP)", en: "PG Products® Barueri (SP) Founded", pt: "Fundação da PG Products® Barueri (SP)" }[lang],
     image: "/about/recorrido-1998.webp",
     description: { es: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño.", en: "Start of operations in São Paulo, Brazil. Establishment of the first production plant with cutting-edge technology for the Brazilian market.", pt: "Início das operações em São Paulo, Brasil. Estabelecimento da primeira planta de produção com tecnologia de ponta para o mercado brasileiro." }[lang]
   },
@@ -34,7 +34,7 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
     year: 2009,
     title: { es: "Planta México en Toluca", en: "Mexico Plant in Toluca", pt: "Planta México em Toluca" }[lang],
     image: "/about/recorrido-2009.webp",
-    description: { es: "Expansión internacional con la apertura de la planta no.3 PG Products México en Toluca, fortaleciendo presencia en Norteamérica.", en: "International expansion with the opening of plant no.3 PG Products Mexico in Toluca, strengthening presence in North America.", pt: "Expansão internacional com a abertura da planta nº 3 PG Products México em Toluca, fortalecendo a presença na América do Norte." }[lang]
+    description: { es: "Expansión internacional con la apertura de la planta no.3 PG Products® México en Toluca, fortaleciendo presencia en Norteamérica.", en: "International expansion with the opening of plant no.3 PG Products® Mexico in Toluca, strengthening presence in North America.", pt: "Expansão internacional com a abertura da planta nº 3 PG Products® México em Toluca, fortalecendo a presença na América do Norte." }[lang]
   },
   {
     year: 2012,
@@ -46,7 +46,7 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
     year: 2015,
     title: { es: "Exportación Internacional", en: "International Export", pt: "Exportação Internacional" }[lang],
     image: "/about/NuestroRecorrido-7.webp",
-    description: { es: "Inicio de exportaciones a Argentina, Francia e Israel, expandiendo la presencia global de PG Products.", en: "Start of exports to Argentina, France and Israel, expanding the global presence of PG Products.", pt: "Início de exportações para Argentina, França e Israel, expandindo a presença global da PG Products." }[lang]
+    description: { es: "Inicio de exportaciones a Argentina, Francia e Israel, expandiendo la presencia global de PG Products®.", en: "Start of exports to Argentina, France and Israel, expanding the global presence of PG Products®.", pt: "Início de exportações para Argentina, França e Israel, expandindo a presença global da PG Products®." }[lang]
   },
   {
     year: 2019,
@@ -153,21 +153,21 @@ const TimelineCarousel = () => {
 };
 
 const ht = {
-  companyTitle: { es: "PG Products como compañía", en: "PG Products as a Company", pt: "PG Products como empresa" },
+  companyTitle: { es: "PG Products® como compañía", en: "PG Products® as a Company", pt: "PG Products® como empresa" },
   companyP1: {
     es: "Fundada en Brasil en 1998, PG Products® es una de las compañías líderes en el desarrollo y fabricación de vidrios de protección balística para múltiples aplicaciones. Su trayectoria de innovación dio origen a la tecnología patentada SteelGlass®, una solución de cristal laminado blindado con inserción de acero inoxidable.",
     en: "Founded in Brazil in 1998, PG Products® is a global leader in the development and manufacturing of ballistic glass solutions for a wide range of applications. Its commitment to innovation led to the creation of the patented SteelGlass® technology, a laminated armored glass solution with a stainless-steel insert.",
     pt: "Fundada no Brasil em 1998, a PG Products® é uma das empresas líderes no desenvolvimento e na fabricação de vidros de proteção balística para diversas aplicações. Sua trajetória de inovação resultou na tecnologia patenteada SteelGlass®, uma solução de vidro laminado blindado com inserção de aço inoxidável."
   },
   companyP2: {
-    es: "Como proveedor global de la industria automotriz, PG Products forma parte de una selecta red de fabricantes que abastecen a marcas internacionales de primer nivel. Con operaciones en Brasil y México, la compañía atiende mercados estratégicos en América y el resto del mundo.",
-    en: "As a trusted supplier to the automotive industry, PG Products is part of a select group of manufacturers serving leading international vehicle brands. With operations in Brazil and Mexico, the company supports strategic markets across the Americas and beyond.",
-    pt: "Como fornecedora global da indústria automotiva, a PG Products integra um seleto grupo de fabricantes que atendem marcas internacionais de referência. Com operações no Brasil e no México, a empresa atende mercados estratégicos nas Américas e em outras regiões do mundo."
+    es: "Como proveedor global de la industria automotriz, PG Products® forma parte de una selecta red de fabricantes que abastecen a marcas internacionales de primer nivel. Con operaciones en Brasil y México, la compañía atiende mercados estratégicos en América y el resto del mundo.",
+    en: "As a trusted supplier to the automotive industry, PG Products® is part of a select group of manufacturers serving leading international vehicle brands. With operations in Brazil and Mexico, the company supports strategic markets across the Americas and beyond.",
+    pt: "Como fornecedora global da indústria automotiva, a PG Products® integra um seleto grupo de fabricantes que atendem marcas internacionais de referência. Com operações no Brasil e no México, a empresa atende mercados estratégicos nas Américas e em outras regiões do mundo."
   },
   companyP3: {
-    es: "Actualmente, PG Products ofrece un portafolio integral de soluciones en vidrio blindado, respaldado por investigación continua, desarrollo tecnológico y altos estándares de calidad. Sus productos y sistemas están presentes en los sectores automotriz, militar, aeronáutico, naval y arquitectónico.",
-    en: "Today, PG Products offers a comprehensive portfolio of ballistic glass solutions backed by continuous research, technological innovation, and rigorous quality standards. Its products and systems serve the automotive, military, aerospace, marine, and architectural sectors worldwide.",
-    pt: "Atualmente, a PG Products oferece um portfólio completo de soluções em vidros blindados, respaldado por pesquisa contínua, desenvolvimento tecnológico e elevados padrões de qualidade. Seus produtos e sistemas estão presentes nos setores automotivo, militar, aeronáutico, naval e arquitetônico."
+    es: "Actualmente, PG Products® ofrece un portafolio integral de soluciones en vidrio blindado, respaldado por investigación continua, desarrollo tecnológico y altos estándares de calidad. Sus productos y sistemas están presentes en los sectores automotriz, militar, aeronáutico, naval y arquitectónico.",
+    en: "Today, PG Products® offers a comprehensive portfolio of ballistic glass solutions backed by continuous research, technological innovation, and rigorous quality standards. Its products and systems serve the automotive, military, aerospace, marine, and architectural sectors worldwide.",
+    pt: "Atualmente, a PG Products® oferece um portfólio completo de soluções em vidros blindados, respaldado por pesquisa contínua, desenvolvimento tecnológico e elevados padrões de qualidade. Seus produtos e sistemas estão presentes nos setores automotivo, militar, aeronáutico, naval e arquitetônico."
   },
   companyP4: {
     es: "Para satisfacer las demandas y exigencias del mercado global, la empresa cuenta con una fábrica de vidrios blindados en São Paulo, en el municipio de Cotia, uno de los principales polos industriales de la capital. Diseñada con un layout que favorece una alta eficiencia en los flujos internos y en el consumo de energía, la planta de 6.200 m² está situada a 3 km de la Rodoanel, una importante vía de distribución de la producción industrial del estado de São Paulo. En el continente americano, ubicada en la ciudad de Toluca, PG Products® cuenta con otra fábrica, PG México, creada para satisfacer las demandas locales y de los fabricantes europeos.",
@@ -186,9 +186,9 @@ const ht = {
     pt: "Inovação que une continentes, precisão que define nossa excelência."
   },
   plantsDesc: {
-    es: "En PG Products desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015 y NIJ Level III-A/III.",
-    en: "At PG Products we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 and NIJ Level III-A/III standards.",
-    pt: "Na PG Products desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015 e NIJ Level III-A/III."
+    es: "En PG Products® desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015 y NIJ Level III-A/III.",
+    en: "At PG Products® we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 and NIJ Level III-A/III standards.",
+    pt: "Na PG Products® desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015 e NIJ Level III-A/III."
   },
   mexicoDesc: {
     es: "Centro de producción y ensayos balísticos para el mercado norte y centroamericano. Tecnología avanzada, manufactura certificada y soporte técnico especializado.",
@@ -202,14 +202,14 @@ const ht = {
   },
   peopleTitle: { es: "Nuestra gente", en: "Our People", pt: "Nossa Equipe" },
   peopleP1: {
-    es: "En PG Products, creemos que la verdadera fortaleza de nuestra compañía no está solo en la tecnología, sino en las personas que la hacen posible.",
-    en: "At PG Products, we believe that the true strength of our company lies not only in technology, but in the people who make it possible.",
-    pt: "Na PG Products, acreditamos que a verdadeira força da nossa empresa não está apenas na tecnologia, mas nas pessoas que a tornam possível."
+    es: "En PG Products®, creemos que la verdadera fortaleza de nuestra compañía no está solo en la tecnología, sino en las personas que la hacen posible.",
+    en: "At PG Products®, we believe that the true strength of our company lies not only in technology, but in the people who make it possible.",
+    pt: "Na PG Products®, acreditamos que a verdadeira força da nossa empresa não está apenas na tecnologia, mas nas pessoas que a tornam possível."
   },
   peopleP2: {
-    es: "Desde ingenieros y técnicos especializados hasta diseñadores y personal operativo, todos compartimos un mismo propósito: proteger vidas a través de la excelencia. Su conocimiento, precisión y sentido de responsabilidad son el reflejo del ADN PG Products: innovación, calidad y confianza.",
-    en: "From specialized engineers and technicians to designers and operational staff, we all share the same purpose: protecting lives through excellence. Their knowledge, precision and sense of responsibility reflect the PG Products DNA: innovation, quality and trust.",
-    pt: "De engenheiros e técnicos especializados a designers e equipe operacional, todos compartilhamos o mesmo propósito: proteger vidas por meio da excelência. Seu conhecimento, precisão e senso de responsabilidade são o reflexo do DNA PG Products: inovação, qualidade e confiança."
+    es: "Desde ingenieros y técnicos especializados hasta diseñadores y personal operativo, todos compartimos un mismo propósito: proteger vidas a través de la excelencia. Su conocimiento, precisión y sentido de responsabilidad son el reflejo del ADN PG Products®: innovación, calidad y confianza.",
+    en: "From specialized engineers and technicians to designers and operational staff, we all share the same purpose: protecting lives through excellence. Their knowledge, precision and sense of responsibility reflect the PG Products® DNA: innovation, quality and trust.",
+    pt: "De engenheiros e técnicos especializados a designers e equipe operacional, todos compartilhamos o mesmo propósito: proteger vidas por meio da excelência. Seu conhecimento, precisão e senso de responsabilidade são o reflexo do DNA PG Products®: inovação, qualidade e confiança."
   },
   journeyTitle: { es: "Nuestro Recorrido", en: "Our Journey", pt: "Nossa Trajetória" },
   journeySubtitle: {
@@ -275,12 +275,12 @@ const HistoriaPage = () => {
       <section className="relative w-full h-[75vh]">
         <img
           src="/about/finalheroaboutuspage.webp"
-          alt="PG Products as a Company"
+          alt="PG Products® as a Company"
           className="w-full h-full object-cover"
         />
       </section>
 
-      {/* PG Products como compañía Section */}
+      {/* PG Products® como compañía Section */}
       <section className="relative py-20 bg-gradient-to-b from-gray-100 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-100 rounded-lg p-6 sm:p-8 md:p-12 shadow-lg text-center">
