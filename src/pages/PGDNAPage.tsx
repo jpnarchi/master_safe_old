@@ -159,11 +159,11 @@ const PGDNAPage = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-pgnavy/80 via-pgnavy/70 to-pgnavy/60"></div>
         </div>
         <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto px-4 text-center text-white">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-8 leading-tight">
               {heroSlides[currentHeroSlide].title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
               {heroSlides[currentHeroSlide].description}
             </p>
           </div>
@@ -178,47 +178,47 @@ const PGDNAPage = () => {
       </section>
 
       {/* ADN PG Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="flex items-center justify-center">
               <img src="/about/Adn_pg@2x.webp" alt="ADN PG Visualization" className="w-auto h-auto max-w-full" />
             </div>
-            <div className="space-y-12">
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-16 h-16">
+            <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+              <div className="flex gap-4 sm:gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16">
                   <img src="/shared/icons/bullet_ico 1.svg" alt="Ballistic Engineering Icon" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-pgnavy mb-3">{T(dt.feat1Title)}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{T(dt.feat1Desc)}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2 sm:mb-3">{T(dt.feat1Title)}</h3>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">{T(dt.feat1Desc)}</p>
                 </div>
               </div>
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-16 h-16">
+              <div className="flex gap-4 sm:gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16">
                   <img src="/shared/icons/geometry_ico 1.svg" alt="Stable Geometry Icon" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-pgnavy mb-3">{T(dt.feat2Title)}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{T(dt.feat2Desc)}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2 sm:mb-3">{T(dt.feat2Title)}</h3>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">{T(dt.feat2Desc)}</p>
                 </div>
               </div>
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-16 h-16">
+              <div className="flex gap-4 sm:gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16">
                   <img src="/shared/icons/finish_ico 1.svg" alt="Unique Aesthetics Icon" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-pgnavy mb-3">{T(dt.feat3Title)}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{T(dt.feat3Desc)}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2 sm:mb-3">{T(dt.feat3Title)}</h3>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">{T(dt.feat3Desc)}</p>
                 </div>
               </div>
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-16 h-16">
+              <div className="flex gap-4 sm:gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16">
                   <img src="/shared/icons/optics_ico 1.svg" alt="Outstanding Optics Icon" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-pgnavy mb-3">{T(dt.feat4Title)}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{T(dt.feat4Desc)}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pgnavy mb-2 sm:mb-3">{T(dt.feat4Title)}</h3>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">{T(dt.feat4Desc)}</p>
                 </div>
               </div>
             </div>
@@ -227,23 +227,30 @@ const PGDNAPage = () => {
       </section>
 
       {/* Formulación PG Section */}
-      <section className="relative">
-        <img src={formulacionImg[language]} alt="Formulación PG" className="w-full h-auto" style={{ WebkitMaskImage: 'radial-gradient(ellipse 81% 81% at center, black 48%, transparent 88%)', maskImage: 'radial-gradient(ellipse 81% 81% at center, black 48%, transparent 88%)' }} />
-        <div className="absolute left-0 right-0 p-8 md:p-16" style={{ bottom: '-21%' }}>
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-pgnavy mb-6">{T(dt.formulacionTitle)}</h2>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">{T(dt.formulacionDesc)}</p>
+      <section className="py-10 sm:py-14 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <img
+                src={formulacionImg[language]}
+                alt="Formulación PG"
+                className="w-full max-w-[560px] h-auto"
+                style={{ WebkitMaskImage: 'radial-gradient(ellipse 81% 81% at center, black 48%, transparent 88%)', maskImage: 'radial-gradient(ellipse 81% 81% at center, black 48%, transparent 88%)' }}
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pgnavy mb-4 sm:mb-6">{T(dt.formulacionTitle)}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">{T(dt.formulacionDesc)}</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Producto, Ingeniería & Desarrollo Section */}
-      <section className="py-20 bg-white mt-56">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.rdTitle)}</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.rdTitle)}</h2>
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center mt-8 sm:mt-12 lg:mt-16">
             <div>
               <img
                 src={pidImages[currentProductSlide]}
@@ -252,10 +259,10 @@ const PGDNAPage = () => {
               />
             </div>
             <div>
-              <p className="text-lg text-gray-700 leading-relaxed">{T(dt.rdDesc)}</p>
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">{T(dt.rdDesc)}</p>
             </div>
           </div>
-          <div className="flex justify-center mt-12 space-x-3">
+          <div className="flex justify-center mt-8 sm:mt-12 space-x-3">
             {[0, 1, 2].map((index) => (
               <button key={index} onClick={() => setCurrentProductSlide(index)}
                 className={`w-3.5 h-3.5 rounded-full transition-all ${currentProductSlide === index ? 'bg-pgblue' : 'bg-gray-300'}`}
@@ -268,8 +275,8 @@ const PGDNAPage = () => {
       {/* Portafolio de Productos Section */}
       <section className="w-full bg-white py-12 md:py-16">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-pgnavy mb-6">{T(dt.portfolioTitle)}</h2>
-          <p className="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-12 leading-relaxed">{T(dt.portfolioDesc)}</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-pgnavy mb-4 sm:mb-6">{T(dt.portfolioTitle)}</h2>
+          <p className="text-center text-gray-600 text-base sm:text-lg max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed">{T(dt.portfolioDesc)}</p>
 
           {/* Single-image carousel */}
           <div className="max-w-[920px] mx-auto">
@@ -291,10 +298,10 @@ const PGDNAPage = () => {
           <div className="absolute inset-0 bg-pgnavy/70"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             <div className="text-white">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{T(dt.formTitle)}</h2>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed">{T(dt.formSubtitle)}</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">{T(dt.formTitle)}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">{T(dt.formSubtitle)}</p>
             </div>
             <div className="space-y-6">
               <div>

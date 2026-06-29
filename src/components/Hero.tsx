@@ -34,7 +34,7 @@ const ht = {
   feat1: { es: 'Balística probada', en: 'Proven ballistics', pt: 'Balística comprovada' },
   feat2: { es: 'Geometría perfecta', en: 'Perfect geometry', pt: 'Geometria perfeita' },
   feat3: { es: 'Acabado único', en: 'Unique finish', pt: 'Acabamento único' },
-  feat4: { es: 'Óptica excepcional', en: 'Exceptional optics', pt: 'Ótica excepcional' },
+  feat4: { es: 'Óptica Diferenciada', en: 'Differentiated Optics', pt: 'Óptica Diferenciada' },
   // Slide 4
   s4title1: { es: 'Producción de', en: 'World-Class', pt: 'Produção de' },
   s4title2: { es: 'Clase Mundial', en: 'Manufacturing', pt: 'Classe Mundial' },
@@ -146,6 +146,13 @@ const Hero = () => {
     en: '/home/Vidrio-FORMULACION PG-EN.webp',
     pt: '/home/Vidrio-FORMULACION-PG-PT.webp',
   };
+
+  const rdLogoMap: Record<string, string> = {
+    es: '/shared/logos/trasparent578x100ES.png',
+    en: '/shared/logos/trasparent578x100EN.png',
+    pt: '/shared/logos/trasparent578x100PT.png',
+  };
+  const rdLogo = rdLogoMap[language] ?? rdLogoMap.es;
 
   const allProductCards = [
     { title: "GlassGuard®", img: `/home/pg_glassguard_${language}.webp`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
@@ -364,7 +371,7 @@ const Hero = () => {
         style={{ backgroundImage: 'url(/home/BracketHome.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="text-center text-white z-10 px-4">
-          <img src="/about/8edefffc-7a49-492b-acc8-65267634f930.webp" alt="PG Products® Logo"
+          <img src={rdLogo} alt="PG Products® Logo"
             className="mx-auto mb-6 sm:mb-8 w-48 sm:w-64 md:w-80 lg:w-[420px] h-auto drop-shadow-xl" />
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90">{T(ht.rdSub)}</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">{T(ht.rdTitle)}</h2>
