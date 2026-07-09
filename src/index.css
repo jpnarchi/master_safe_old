@@ -168,3 +168,34 @@
 .stagger-delay-4 { transition-delay: 0.4s; }
 .stagger-delay-5 { transition-delay: 0.5s; }
 .stagger-delay-6 { transition-delay: 0.6s; }
+
+/* Makes a 16:9 YouTube iframe fill its container edge-to-edge, like object-fit: cover.
+   Always matches the container's full height first (never crops the top/bottom of the
+   video), and only crops the sides if the container is wider than 16:9. */
+.yt-cover-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.yt-cover-wrapper iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: auto;
+  aspect-ratio: 16 / 9; /* derives width from the wrapper's actual height, at any container size */
+  min-width: 100%;
+  pointer-events: none;
+}
+
+/* On mobile the hero video section is a normal 16:9 box (aspect-video) so nothing
+   gets cropped. When the user taps the fullscreen trigger and the browser enters real
+   Fullscreen API mode, drop the fixed aspect-ratio so it truly fills the device screen. */
+.hero-video-section:fullscreen,
+.hero-video-section:-webkit-full-screen {
+  aspect-ratio: auto !important;
+  width: 100vw;
+  height: 100vh;
+}

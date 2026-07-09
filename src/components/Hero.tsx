@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import VideoControls from './VideoControls';
+import HeroYouTubePlayer from './HeroYouTubePlayer';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -137,7 +137,12 @@ const Hero = () => {
   const [currentHero, setCurrentHero] = useState(0);
   const [currentProductSlide, setCurrentProductSlide] = useState(0);
   const [productApi, setProductApi] = useState<any>(null);
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
+
+  const heroYoutubeId: Record<string, string> = {
+    es: 'd0uOseXG29E',
+    en: '445_-olzkII',
+    pt: 'D_0ttmvfD6w',
+  };
 
   const cardDescriptions = ht.cards[language];
 
@@ -429,11 +434,8 @@ const Hero = () => {
       </section>
 
       {/* FULL SCREEN VIDEO SECTION */}
-      <section className="w-full h-screen relative overflow-hidden flex items-center justify-center">
-        <video ref={heroVideoRef} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/videos/PGREDUCEDVID.mp4" type="video/mp4" />
-        </video>
-        <VideoControls videoRef={heroVideoRef} />
+      <section className="hero-video-section w-full aspect-video md:aspect-auto md:h-screen relative overflow-hidden flex items-center justify-center bg-black">
+        <HeroYouTubePlayer key={language} videoId={heroYoutubeId[language]} />
       </section>
 
       {/* NUESTRO ADN SECTION */}
