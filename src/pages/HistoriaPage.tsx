@@ -8,51 +8,99 @@ import { useLanguage } from '../contexts/LanguageContext';
 const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   {
     year: 1998,
-    title: { es: "Se Funda PG Products® Barueri (SP)", en: "PG Products® Barueri (SP) Founded", pt: "Fundação da PG Products® Barueri (SP)" }[lang],
-    image: "/about/NuestroRecorrido-1.png",
-    description: { es: "Inicio de operaciones en São Paulo, Brasil. Establecimiento de la primera planta de producción con tecnología de vanguardia para el mercado brasileño.", en: "Start of operations in São Paulo, Brazil. Establishment of the first production plant with cutting-edge technology for the Brazilian market.", pt: "Início das operações em São Paulo, Brasil. Estabelecimento da primeira planta de produção com tecnologia de ponta para o mercado brasileiro." }[lang]
+    title: { es: "Fundación en Barueri (SP)", en: "Founded in Barueri (SP)", pt: "Fundação em Barueri (SP)" }[lang],
+    image: "/about/1998.webp",
+    description: { es: "PG Products fue fundada en Barueri, São Paulo, Brasil.", en: "PG Products was founded in Barueri, São Paulo, Brazil.", pt: "A PG Products foi fundada em Barueri, São Paulo, Brasil." }[lang]
   },
   {
-    year: 2000,
-    title: { es: "Expansión Regional", en: "Regional Expansion", pt: "Expansão Regional" }[lang],
-    image: "/about/NuestroRecorrido-2.png",
-    description: { es: "Crecimiento en el mercado latinoamericano con nuevos clientes y certificaciones.", en: "Growth in the Latin American market with new clients and certifications.", pt: "Crescimento no mercado latino-americano com novos clientes e certificações." }[lang]
+    year: 1999,
+    title: { es: "Patente SteelGlass®", en: "SteelGlass® Patent", pt: "Patente SteelGlass®" }[lang],
+    image: "/about/1999.webp",
+    description: { es: "Patente otorgada para el vidrio blindado SteelGlass® con inserción de acero integrada (MU7902225-1), concedida en 2012.", en: "Patent granted for SteelGlass® armored glass with integrated steel insert (MU7902225-1), awarded in 2012.", pt: "Patente concedida para o vidro blindado SteelGlass® com inserção de aço integrada (MU7902225-1), concedida em 2012." }[lang]
   },
   {
     year: 2004,
-    title: { es: "Miembro Fundador Brasil", en: "Founding Member Brazil", pt: "Membro Fundador Brasil" }[lang],
-    image: "/about/NuestroRecorrido-3.png",
-    description: { es: "Participación activa en la industria brasileña como miembro fundador de la asociación de blindadores del país.", en: "Active participation in the Brazilian industry as a founding member of the country's armoring association.", pt: "Participação ativa na indústria brasileira como membro fundador da associação de blindadores do país." }[lang]
+    title: { es: "Reconocimiento de BMW Group", en: "BMW Group Recognition", pt: "Reconhecimento da BMW Group" }[lang],
+    image: "/about/2004.webp",
+    description: { es: "BMW Group reconoce la calidad y el desempeño comprobado de PG SteelGlass®.", en: "BMW Group recognizes the quality and proven performance of PG SteelGlass®.", pt: "BMW Group reconhece a qualidade e o desempenho comprovado do PG SteelGlass®." }[lang]
+  },
+  {
+    year: 2005,
+    title: { es: "Nueva Planta en Cotia", en: "New Plant in Cotia", pt: "Nova Planta em Cotia" }[lang],
+    image: "/about/2005.webp",
+    description: { es: "Nueva planta en Cotia, São Paulo, Brasil (DOT #812).", en: "New manufacturing facility in Cotia, São Paulo, Brazil (DOT #812).", pt: "Nova unidade em Cotia, São Paulo, Brasil (DOT #812)." }[lang]
   },
   {
     year: 2006,
-    title: { es: "Certificación NATO STANAG I y II", en: "NATO STANAG I and II Certification", pt: "Certificação NATO STANAG I e II" }[lang],
-    image: "/about/NuestroRecorrido-4.png",
-    description: { es: "Obtención de certificación militar de alta seguridad bajo los estándares internacionales NATO STANAG niveles I y II.", en: "Obtaining high-security military certification under the international NATO STANAG standards levels I and II.", pt: "Obtenção de certificação militar de alta segurança sob os padrões internacionais NATO STANAG níveis I e II." }[lang]
+    title: { es: "Certificación NATO STANAG 4569", en: "NATO STANAG 4569 Certification", pt: "Certificação NATO STANAG 4569" }[lang],
+    image: "/about/2006.webp",
+    description: { es: "Certificación otorgada por Beschussamt Mellrichstadt bajo los niveles 1 y 2 de la norma NATO STANAG 4569.", en: "Certification granted by Beschussamt Mellrichstadt under NATO STANAG 4569 Levels 1 and 2.", pt: "Certificação concedida pelo Beschussamt Mellrichstadt nos níveis 1 e 2 da norma NATO STANAG 4569." }[lang]
+  },
+  {
+    year: 2007,
+    title: { es: "Primer Contrato OEM con BMW", en: "First OEM Contract with BMW", pt: "Primeiro Contrato OEM com a BMW" }[lang],
+    image: "/about/2007.webp",
+    description: { es: "PG Brasil obtiene su primer contrato OEM para el suministro de vidrios blindados originales (BRG) para el BMW X5 E70 (VR4), certifica su Sistema de Gestión de Calidad bajo la norma ISO 9001:2000 por TÜV SÜD, y obtiene un segundo contrato OEM para soluciones de protección balística nivel NIJ III-A.", en: "PG Brazil secures its first OEM contract to supply original ballistic-resistant glass (BRG) for the BMW X5 E70 (VR4), certifies its Quality Management System under ISO 9001:2000 by TÜV SÜD, and secures a second OEM contract for NIJ Level III-A ballistic protection solutions.", pt: "A PG Brasil conquista seu primeiro contrato OEM para o fornecimento de vidros blindados originais (BRG) para o BMW X5 E70 (VR4), certifica seu Sistema de Gestão da Qualidade conforme a norma ISO 9001:2000 pela TÜV SÜD, e conquista um segundo contrato OEM para soluções de proteção balística nível NIJ III-A." }[lang]
+  },
+  {
+    year: 2008,
+    title: { es: "Planta de Ensamblaje en Toluca", en: "Assembly Plant in Toluca", pt: "Planta de Montagem em Toluca" }[lang],
+    image: "/about/2008.webp",
+    description: { es: "Inicio de producción en serie (SOP) de conjuntos de vidrio blindado (BRG) para el BMW X5 E70 (VR4) destinados a la línea de ensamblaje en México, solicitud de patente para el acristalamiento blindado Monoblock® (PI 0804803-7), y puesta en marcha de la planta de ensamblaje en Toluca, México, en solo nueve meses desde los planos de ingeniería, en cumplimiento de los requisitos de contenido local de BMW.", en: "Start of Production (SOP) of ballistic-resistant glass (BRG) assemblies for the BMW X5 E70 (VR4) assembly line in Mexico, a patent filed for the Monoblock® ballistic glazing technology (PI 0804803-7), and the commissioning of the assembly plant in Toluca, Mexico, in just nine months from engineering drawings to operation, meeting BMW's local content requirements.", pt: "Início da produção em série (SOP) de conjuntos de vidros blindados (BRG) para o BMW X5 E70 (VR4) destinados à linha de montagem no México, pedido de patente para a tecnologia de envidraçamento blindado Monoblock® (PI 0804803-7), e a colocação em operação da planta de montagem em Toluca, México, em apenas nove meses a partir dos desenhos de engenharia, atendendo aos requisitos de conteúdo local da BMW." }[lang]
   },
   {
     year: 2009,
-    title: { es: "Planta México en Toluca", en: "Mexico Plant in Toluca", pt: "Planta México em Toluca" }[lang],
-    image: "/about/NuestroRecorrido-5.png",
-    description: { es: "Expansión internacional con la apertura de la planta no.3 PG Products® México en Toluca, fortaleciendo presencia en Norteamérica.", en: "International expansion with the opening of plant no.3 PG Products® Mexico in Toluca, strengthening presence in North America.", pt: "Expansão internacional com a abertura da planta nº 3 PG Products® México em Toluca, fortalecendo a presença na América do Norte." }[lang]
+    title: { es: "Producción en PG México", en: "Production at PG Mexico", pt: "Produção na PG México" }[lang],
+    image: "/about/2009.webp",
+    description: { es: "Inicio de producción en serie (SOP) de conjuntos de vidrio blindado original (BRG) para el BMW X5 E70 (VR6) desde la planta de PG México (DOT #920), y para el lanzacohetes ASTROS II de AVIBRAS, en servicio con las Fuerzas Armadas de Brasil, Indonesia, Malasia y Catar, así como para vehículos Unimog utilizados en misiones de paz de las Naciones Unidas.", en: "Start of Production (SOP) of original ballistic-resistant glass (BRG) assemblies for the BMW X5 E70 (VR6) at the PG Mexico facility (DOT #920), and for the AVIBRAS ASTROS II Rocket Launcher, deployed by the Armed Forces of Brazil, Indonesia, Malaysia, and Qatar, as well as for Unimog vehicles used in United Nations peacekeeping missions.", pt: "Início da produção em série (SOP) de conjuntos de vidros blindados originais (BRG) para o BMW X5 E70 (VR6) na planta da PG México (DOT #920), e para o lançador de foguetes ASTROS II da AVIBRAS, em operação nas Forças Armadas do Brasil, Indonésia, Malásia e Catar, bem como para veículos Unimog utilizados em missões de paz das Nações Unidas." }[lang]
   },
   {
-    year: 2012,
-    title: { es: "Certificado BRG Brasil", en: "BRG Brazil Certification", pt: "Certificado BRG Brasil" }[lang],
-    image: "/about/NuestroRecorrido-6.png",
-    description: { es: "Certificación nacional brasileña ABNT NBR 15000, consolidando el liderazgo en el mercado de blindaje nacional.", en: "Brazilian national certification ABNT NBR 15000, consolidating leadership in the national armoring market.", pt: "Certificação nacional brasileira ABNT NBR 15000, consolidando a liderança no mercado nacional de blindagem." }[lang]
+    year: 2010,
+    title: { es: "Certificación ISO 9001:2008", en: "ISO 9001:2008 Certification", pt: "Certificação ISO 9001:2008" }[lang],
+    image: "/about/2010.webp",
+    description: { es: "PG México obtiene la certificación ISO 9001:2008 de TÜV SÜD.", en: "PG Mexico obtains ISO 9001:2008 certification from TÜV SÜD.", pt: "A PG México obtém a certificação ISO 9001:2008 da TÜV SÜD." }[lang]
   },
   {
-    year: 2015,
-    title: { es: "Exportación Internacional", en: "International Export", pt: "Exportação Internacional" }[lang],
-    image: "/about/NuestroRecorrido-7.png",
-    description: { es: "Inicio de exportaciones a Argentina, Francia e Israel, expandiendo la presencia global de PG Products®.", en: "Start of exports to Argentina, France and Israel, expanding the global presence of PG Products®.", pt: "Início de exportações para Argentina, França e Israel, expandindo a presença global da PG Products®." }[lang]
+    year: 2011,
+    title: { es: "Norma ABNT NBR 15000", en: "ABNT NBR 15000 Standard", pt: "Norma ABNT NBR 15000" }[lang],
+    image: "/about/2011.webp",
+    description: { es: "Contribución activa a la revisión de la norma brasileña ABNT NBR 15000 para vidrios blindados.", en: "Key contributor to the revision of the Brazilian ballistic-resistant glass standard ABNT NBR 15000.", pt: "Contribuição ativa para a revisão da norma brasileira ABNT NBR 15000 para vidros blindados." }[lang]
   },
   {
-    year: 2019,
-    title: { es: "SGQ ISO 9001:2015", en: "QMS ISO 9001:2015", pt: "SGQ ISO 9001:2015" }[lang],
-    image: "/about/NuestroRecorrido-8.png",
-    description: { es: "Actualización de certificaciones ISO 9001:2015, manteniendo los más altos estándares.", en: "Update of ISO 9001:2015 certifications, maintaining the highest standards.", pt: "Atualização das certificações ISO 9001:2015, mantendo os mais altos padrões." }[lang]
+    year: 2013,
+    title: { es: "Tercer Contrato OEM con BMW", en: "Third OEM Contract with BMW", pt: "Terceiro Contrato OEM com a BMW" }[lang],
+    image: "/about/2013.webp",
+    description: { es: "PG obtiene su tercer contrato OEM para el BMW X5 F15 (VR4 y VR6).", en: "PG secures its third OEM contract for the BMW X5 F15 (VR4 and VR6).", pt: "A PG conquista seu terceiro contrato OEM para o BMW X5 F15 (VR4 e VR6)." }[lang]
+  },
+  {
+    year: 2014,
+    title: { es: "Expansión a Nuevos Mercados", en: "Expansion into New Markets", pt: "Expansão para Novos Mercados" }[lang],
+    image: "/about/2014.webp",
+    description: { es: "Inicio de exportaciones a Francia, Italia y Argentina, y participación como expositor en el 28.º Salón Internacional del Automóvil de São Paulo, Brasil.", en: "Launch of exports to France, Italy, and Argentina, and participation as an exhibitor at the 28th São Paulo International Auto Show, Brazil.", pt: "Início das exportações para França, Itália e Argentina, e participação como expositora no 28º Salão Internacional do Automóvel de São Paulo, Brasil." }[lang]
+  },
+  {
+    year: 2017,
+    title: { es: "Innovación y Certificación ISO 9001:2015", en: "Innovation and ISO 9001:2015 Certification", pt: "Inovação e Certificação ISO 9001:2015" }[lang],
+    image: "/about/2017.webp",
+    description: { es: "Desarrollo de una solución laminada antivandalismo de 11 mm de espesor conforme a los estándares de la Policía Alemana, presentada en la IAA Frankfurt en el stand de Indikar, y certificación del Sistema de Gestión de Calidad bajo la norma ISO 9001:2015 para las plantas de PG Brasil y PG México.", en: "Development of an 11 mm anti-vandal laminate in compliance with German Police standards, showcased at IAA Frankfurt in the Indikar booth, and ISO 9001:2015 certification achieved for the PG Brazil and PG Mexico plants.", pt: "Desenvolvimento de uma solução laminada antivandalismo com 11 mm de espessura, conforme os padrões da Polícia Alemã, apresentada na IAA Frankfurt no estande da Indikar, e certificação do Sistema de Gestão da Qualidade conforme a norma ISO 9001:2015 para as plantas da PG Brasil e PG México." }[lang]
+  },
+  {
+    year: 2020,
+    title: { es: "Certificación IATF 16949", en: "IATF 16949 Certification", pt: "Certificação IATF 16949" }[lang],
+    image: "/about/2020.webp",
+    description: { es: "PG México obtiene la certificación IATF 16949.", en: "PG Mexico achieves IATF 16949 certification.", pt: "A PG México obtém a certificação IATF 16949." }[lang]
+  },
+  {
+    year: 2022,
+    title: { es: "Soluciones Balísticas ZEUS-Mike", en: "ZEUS-Mike Ballistic Solutions", pt: "Soluções Balísticas ZEUS-Mike" }[lang],
+    image: "/about/2022.webp",
+    description: { es: "Suministro de soluciones balísticas para Fuerzas Especiales de Policía conforme a la norma NATO STANAG 4569 Nivel I (Turquía) – ZEUS-Mike.", en: "Supply of ballistic protection solutions for Police Special Forces in compliance with NATO STANAG 4569 Level I (Turkey) – ZEUS-Mike.", pt: "Fornecimento de soluções balísticas para Forças Especiais de Polícia sob a norma NATO STANAG 4569 Nível I (Turquia) – ZEUS-Mike." }[lang]
+  },
+  {
+    year: 2023,
+    title: { es: "Patente ERV", en: "ERV Patent", pt: "Patente ERV" }[lang],
+    image: "/about/2023.webp",
+    description: { es: "Patente concedida para sistemas de acristalamiento para vehículos resistentes a explosiones (ERV).", en: "Patent granted for glazing systems for Explosive Resistant Vehicles (ERV).", pt: "Patente concedida para sistemas de envidraçamento para veículos resistentes a explosões (ERV)." }[lang]
   }
 ];
 
@@ -179,16 +227,16 @@ const ht = {
     en: "The quality of PG Products® ballistic glass is subjected to rigorous testing to meet customer requirements, following national and international standards and certifications. All marketed products receive a tracking code, a unique identifier, that allows access to all information about their manufacture, previously developed according to the security specifications of each armoring level.",
     pt: "A qualidade dos vidros balísticos da PG Products® é submetida a rigorosos testes para atender aos requisitos dos clientes, seguindo normas e certificações nacionais e internacionais. Todos os produtos comercializados recebem um código de rastreamento, um identificador único, que permite acessar todas as informações sobre sua fabricação, desenvolvida previamente de acordo com as especificações de segurança de cada nível de blindagem."
   },
-  plantsTitle: { es: "Nuestras Plantas de Producción", en: "Our Production Plants", pt: "Nossas Plantas de Produção" },
+  plantsTitle: { es: "Nuestras Fábricas", en: "Our Factories", pt: "Nossas Fábricas" },
   plantsSubtitle: {
     es: "Innovación que une continentes, precisión que define nuestra excelencia.",
     en: "Innovation that unites continents, precision that defines our excellence.",
     pt: "Inovação que une continentes, precisão que define nossa excelência."
   },
   plantsDesc: {
-    es: "En PG Products® desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015 y NIJ Level III-A/III.",
-    en: "At PG Products® we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 and NIJ Level III-A/III standards.",
-    pt: "Na PG Products® desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015 e NIJ Level III-A/III."
+    es: "En PG Products® desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015.",
+    en: "At PG Products® we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 standards.",
+    pt: "Na PG Products® desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015."
   },
   mexicoDesc: {
     es: "Centro de producción y ensayos balísticos para el mercado norte y centroamericano. Tecnología avanzada, manufactura certificada y soporte técnico especializado.",
@@ -200,7 +248,7 @@ const ht = {
     en: "Headquarters and innovation laboratory. Research, multilayer engineering and state-of-the-art quality control.",
     pt: "Sede principal e laboratório de inovação. Pesquisa, engenharia multicamada e controle de qualidade de última geração."
   },
-  peopleTitle: { es: "Nuestra gente", en: "Our People", pt: "Nossa Equipe" },
+  peopleTitle: { es: "Equipo PG", en: "Team PG", pt: "Equipe PG" },
   peopleP1: {
     es: "En PG Products®, creemos que la verdadera fortaleza de nuestra compañía no está solo en la tecnología, sino en las personas que la hacen posible.",
     en: "At PG Products®, we believe that the true strength of our company lies not only in technology, but in the people who make it possible.",
@@ -444,69 +492,6 @@ const HistoriaPage = () => {
             </div>
 
             <div className="border-t border-gray-300 pt-2"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/contact/bg_form_contact@2x.webp"
-            alt="Contact Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-pgnavy/70"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {T(ht.formTitle)}
-              </h2>
-              <p className="text-lg md:text-xl text-white/90">
-                {T(ht.formSubtitle)}
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <label className="text-white text-sm mb-2 block">{T(ht.labelEmail)}</label>
-                <input
-                  type="email"
-                  placeholder={T(ht.labelEmail)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white rounded-lg"
-                />
-              </div>
-
-              <div>
-                <label className="text-white text-sm mb-2 block">{T(ht.labelName)}</label>
-                <input
-                  type="text"
-                  placeholder={T(ht.labelName)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white rounded-lg"
-                />
-              </div>
-
-              <div>
-                <label className="text-white text-sm mb-2 block">{T(ht.labelMessage)}</label>
-                <textarea
-                  placeholder={T(ht.labelMessage)}
-                  rows={4}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white rounded-lg resize-none"
-                />
-              </div>
-
-              <div className="flex gap-4">
-                <button className="flex-1 px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-pgnavy rounded-lg transition-colors">
-                  {T(ht.btnClose)}
-                </button>
-                <button className="flex-1 px-6 py-3 bg-pgblue hover:bg-pgblue/90 text-white rounded-lg transition-colors">
-                  {T(ht.btnSend)}
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

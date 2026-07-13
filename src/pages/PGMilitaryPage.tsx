@@ -197,6 +197,7 @@ const PGMilitaryPage = () => {
               src={src}
               alt={`PG Military Applications ${idx + 1}`}
               className="w-full h-full object-cover"
+              style={idx === 0 ? { transform: 'scale(1.25) translateY(-12%)' } : undefined}
             />
             <div className="absolute inset-0 bg-black/40"></div>
           </div>
@@ -471,101 +472,6 @@ const PGMilitaryPage = () => {
 
             {/* Divider line */}
             <div className="border-t border-gray-200"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section
-        className="w-full py-16 lg:py-24 relative overflow-hidden"
-        style={{
-          backgroundImage: 'url(/contact/bg_form_contact@2x.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          minHeight: '600px'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/35 mix-blend-multiply"></div>
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-            {/* Left Content */}
-            <div className="text-white">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                {T(mt.protectTitle)}
-              </h2>
-              <p className="text-lg lg:text-xl leading-relaxed opacity-90">
-                {T(mt.protectDesc)}
-              </p>
-            </div>
-
-            {/* Right Contact Form */}
-            <div className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    {T(mt.fullName)}
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={T(mt.namePlaceholder)}
-                    className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white text-base"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    {T(mt.email)}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={T(mt.emailPlaceholder)}
-                    className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white text-base"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white text-base lg:text-lg font-bold mb-3">
-                    {T(mt.message)}
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder={T(mt.messagePlaceholder)}
-                    rows={4}
-                    className="w-full px-4 py-3 bg-transparent border border-white rounded-md text-white placeholder-gray-300 focus:outline-none focus:border-white resize-none text-base"
-                    required
-                  ></textarea>
-                </div>
-
-                <div className="flex gap-5 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setFormData({ name: '', email: '', message: '' })}
-                    className="flex-1 py-4 px-8 bg-transparent border-2 border-white text-white rounded-lg font-bold text-base hover:bg-white hover:text-black transition-all duration-300"
-                  >
-                    {T(mt.cancel)}
-                  </button>
-                  <button
-                    type="submit"
-                    className="flex-1 py-4 px-8 bg-pgnavy text-white rounded-lg font-bold text-base hover:bg-pgblue transition-all duration-300"
-                  >
-                    {T(mt.send)}
-                  </button>
-                </div>
-              </form>
-            </div>
-
           </div>
         </div>
       </section>

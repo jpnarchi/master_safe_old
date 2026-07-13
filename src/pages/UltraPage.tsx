@@ -223,52 +223,6 @@ const UltraPage = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
-        <img src="/contact/bg_form_contact@2x.webp" alt="Contact Background" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div className="text-white space-y-4 sm:space-y-6">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-montserrat">{t(c.contact.headline, language)}</h2>
-              <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-light leading-snug font-montserrat">{t(c.contact.subheadline, language)}</p>
-            </div>
-            <div className="space-y-4 sm:space-y-6">
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-white text-sm sm:text-base lg:text-lg font-bold mb-1 font-montserrat">{t(c.contact.labelName, language)}</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}
-                    className="w-full px-3 py-2 sm:py-3 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat text-sm sm:text-base"
-                    placeholder={t(c.contact.placeholderName, language)} required />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-white text-sm sm:text-base lg:text-lg font-bold mb-1 font-montserrat">{t(c.contact.labelEmail, language)}</label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}
-                    className="w-full px-3 py-2 sm:py-3 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat text-sm sm:text-base"
-                    placeholder={t(c.contact.placeholderEmail, language)} required />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-white text-sm sm:text-base lg:text-lg font-bold mb-1 font-montserrat">{t(c.contact.labelMessage, language)}</label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4}
-                    className="w-full px-3 py-2 sm:py-3 bg-transparent border border-white rounded-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white font-montserrat resize-none text-sm sm:text-base"
-                    placeholder={t(c.contact.placeholderMessage, language)} required />
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 pt-2">
-                  <button type="button" onClick={handleCancel}
-                    className="w-full sm:flex-1 px-3 py-3 sm:py-4 bg-transparent border-2 border-white rounded-lg text-white text-sm sm:text-base lg:text-lg font-bold hover:bg-white/10 transition-colors font-montserrat">
-                    {t(c.contact.cancel, language)}
-                  </button>
-                  <button type="submit"
-                    className="w-full sm:flex-1 px-3 py-3 sm:py-4 bg-[#08254C] rounded-lg text-white text-sm sm:text-base lg:text-lg font-bold hover:bg-[#0a2d5c] transition-colors font-montserrat">
-                    {t(c.contact.send, language)}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <div className="bg-black"><Footer /></div>
     </div>
   );

@@ -263,7 +263,7 @@ const Navbar = () => {
                     : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
                 }`}
               >
-                {T({ es: "PG Automotive Solutions", en: "PG Automotive Solutions", pt: "PG Automotive Solutions" })}
+                {T({ es: "PG Soluciones", en: "PG Solutions", pt: "PG Soluções" })}
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-300 ${activeMenu === 'products' ? 'rotate-180' : ''}`}
@@ -425,7 +425,7 @@ const Navbar = () => {
                       />
                     </div>
                     <span className="inline-block text-pgnavy underline-offset-4 group-hover:underline font-medium cursor-pointer">
-
+                      {T({ es: "Saber más", en: "Learn More", pt: "Saiba mais" })}
                     </span>
                   </div>
                 );
@@ -526,7 +526,7 @@ const Navbar = () => {
                 className="flex justify-between items-center cursor-pointer hover:bg-pglight/30 rounded-lg px-4 py-3 transition-colors"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               >
-                <span>{T({ es: "PG Automotive Solutions", en: "PG Automotive Solutions", pt: "PG Automotive Solutions" })}</span>
+                <span>{T({ es: "PG Soluciones", en: "PG Solutions", pt: "PG Soluções" })}</span>
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-300 ${
@@ -558,6 +558,9 @@ const Navbar = () => {
                           </div>
                           <span className="text-xs sm:text-sm text-pgnavy font-medium text-center leading-tight">
                             {item.name}
+                          </span>
+                          <span className="text-[10px] sm:text-xs text-pgnavy/70 text-center leading-tight mt-0.5">
+                            {T({ es: "Saber más", en: "Learn More", pt: "Saiba mais" })}
                           </span>
                         </div>
                       </Link>

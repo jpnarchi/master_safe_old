@@ -152,13 +152,6 @@ const Hero = () => {
     pt: '/home/Vidrio-FORMULACION-PG-PT.webp',
   };
 
-  const rdLogoMap: Record<string, string> = {
-    es: '/shared/logos/trasparent578x100ES.png',
-    en: '/shared/logos/trasparent578x100EN.png',
-    pt: '/shared/logos/trasparent578x100PT.png',
-  };
-  const rdLogo = rdLogoMap[language] ?? rdLogoMap.es;
-
   const allProductCards = [
     { title: "GlassGuard®", img: `/home/pg_glassguard_${language}.webp`, logo: "/shared/logos/new-card-logoPG-GlassGuard.svg", link: "/glassguard" },
     { title: "SuperSlim®",  img: `/home/pg_superslim_${language}.webp`,  logo: "/shared/logos/new-card-logo-PG-Superslim.svg",  link: "/superslim" },
@@ -202,6 +195,8 @@ const Hero = () => {
             <img src={img} alt={`slide-${idx}`} className="w-full h-full object-cover" draggable={false} />
           </div>
         ))}
+
+        <div className="absolute inset-0 z-[15] bg-black/25"></div>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-4">
           {/* Slide 1 */}
@@ -376,9 +371,6 @@ const Hero = () => {
         style={{ backgroundImage: 'url(/home/BracketHome.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="text-center text-white z-10 px-4">
-          <img src={rdLogo} alt="PG Products® Logo"
-            className="mx-auto mb-6 sm:mb-8 w-48 sm:w-64 md:w-80 lg:w-[420px] h-auto drop-shadow-xl" />
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90">{T(ht.rdSub)}</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">{T(ht.rdTitle)}</h2>
           <p className="text-sm sm:text-base md:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 max-w-3xl mx-auto">{T(ht.rdDesc)}</p>
           <Link to="/pg-dna" className="inline-flex items-center rounded-xl px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 ease-in-out border-2 bg-transparent text-white border-white hover:bg-white hover:text-pgnavy">

@@ -291,40 +291,6 @@ const PGDNAPage = () => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="/contact/bg_form_contact@2x.webp" alt="Contact Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-pgnavy/70"></div>
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
-            <div className="text-white">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">{T(dt.formTitle)}</h2>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">{T(dt.formSubtitle)}</p>
-            </div>
-            <div className="space-y-6">
-              <div>
-                <label className="text-white text-sm mb-2 block">{T(dt.labelEmail)}</label>
-                <Input type="email" placeholder={T(dt.labelEmail)} className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white" />
-              </div>
-              <div>
-                <label className="text-white text-sm mb-2 block">{T(dt.labelName)}</label>
-                <Input type="text" placeholder={T(dt.labelName)} className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white" />
-              </div>
-              <div>
-                <label className="text-white text-sm mb-2 block">{T(dt.labelMessage)}</label>
-                <Textarea placeholder={T(dt.labelMessage)} rows={4} className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white resize-none" />
-              </div>
-              <div className="flex gap-4">
-                <Button variant="outline" className="flex-1 border-white text-white hover:bg-white hover:text-pgnavy">{T(dt.btnClose)}</Button>
-                <Button className="flex-1 bg-pgblue hover:bg-pgblue/90 text-white">{T(dt.btnSend)}</Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
