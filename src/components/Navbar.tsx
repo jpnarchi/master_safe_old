@@ -62,9 +62,9 @@ const getSegmentItems = (lang: Lang): SegmentItem[] => [
     img: "/Transport-Solution-Logo.webp"
   },
   {
-    name: "PG Military Applications",
+    name: { es: "Industria de Defensa", en: "Defense Industry", pt: "Indústria de Defesa" }[lang],
     path: "/pg-military",
-    description: { es: "Aplicaciones Militares", en: "Military Applications", pt: "Aplicações Militares" }[lang],
+    description: { es: "Soluciones para defensa", en: "Defense solutions", pt: "Soluções para defesa" }[lang],
     img: "/Military-Solutions-Logo.webp"
   },
 ];

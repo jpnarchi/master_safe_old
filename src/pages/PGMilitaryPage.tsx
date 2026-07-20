@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const mt = {
-  downloadsTitle: { es: "Descubre nuestras soluciones Military-Grade", en: "Explore our Military-Grade solutions", pt: "Descubra nossas soluções Military-Grade" },
+  downloadsTitle: { es: "Descubre nuestras soluciones para la Industria de Defensa", en: "Explore our Defense Industry solutions", pt: "Descubra nossas soluções para a Indústria de Defesa" },
   downloadMilitary: {
     es: "Descarga el folleto",
     en: "Download the brochure",
@@ -32,9 +32,9 @@ const mt = {
   send: { es: "Enviar", en: "Send", pt: "Enviar" },
   learnMore: { es: "Conocer más", en: "Learn more", pt: "Saiba mais" },
   milIntroDesc: {
-    es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate, nuestras soluciones de vidrio balístico brindan protección superior manteniendo la efectividad operacional.",
-    en: "Our military applications deliver the highest levels of ballistic protection for defense personnel and equipment. Designed to withstand extreme combat conditions, our ballistic glass solutions provide superior protection while maintaining operational effectiveness.",
-    pt: "Nossas aplicações militares oferecem os mais altos níveis de proteção balística para pessoal e equipamentos de defesa. Projetadas para resistir a condições extremas de combate, nossas soluções de vidro balístico oferecem proteção superior mantendo a efetividade operacional.",
+    es: "Con base en su vasta expertise en el desarrollo de blindajes transparentes de alta especificación, PG Products® certificó una línea de vidrios balísticos (BRG) que atiende con precisión las rigurosas exigencias de la Industria de Defensa.",
+    en: "Based on its extensive expertise in the development of high-specification transparent armor, PG Products® has certified a line of ballistic glass (BRG) that precisely meets the rigorous demands of the Defense Industry.",
+    pt: "Com base em sua vasta expertise no desenvolvimento de blindagens transparentes de alta especificação, a PG Products® certificou uma linha de vidros balísticos (BRG) que atende com precisão às rigorosas exigências da Indústria de Defesa.",
   },
   toastSuccess: {
     es: "Mensaje enviado correctamente. Nos pondremos en contacto pronto.",
@@ -42,42 +42,42 @@ const mt = {
     pt: "Mensagem enviada com sucesso. Entraremos em contato em breve."
   },
   milGradeTitle: {
-    es: "Soluciones de Protección Militar",
-    en: "Military Protection Solutions",
-    pt: "Soluções de Proteção Militar"
+    es: "PG soluciones para la Industria de Defensa",
+    en: "PG Solutions for the Defense Industry",
+    pt: "PG soluções para a Indústria de Defesa"
   },
   milGradeDesc1: {
-    es: "Nuestras aplicaciones militares ofrecen los más altos niveles de protección balística para el personal y equipos de defensa. Diseñadas para resistir condiciones extremas de combate.",
-    en: "Our military applications offer the highest levels of ballistic protection for defense personnel and equipment. Designed to withstand extreme combat conditions.",
-    pt: "Nossas aplicações militares oferecem os mais altos níveis de proteção balística para pessoal e equipamentos de defesa."
+    es: "Vidrios blindados de alta tecnología.",
+    en: "High-technology ballistic glass.",
+    pt: "Vidros blindados de alta Tecnologia."
   },
   milGradeDesc2: {
-    es: "De vehículos blindados a instalaciones militares, nuestros productos cumplen rigurosos estándares y especificaciones militares. Cada solución se diseña a medida para abordar niveles de amenaza específicos.",
-    en: "From armored vehicles to military facilities, our products meet rigorous military standards and specifications. Each solution is custom-designed for specific threat levels.",
-    pt: "De veículos blindados a instalações militares, nossos produtos atendem a rigorosos padrões militares."
+    es: "Ofrecemos un portafolio de productos para el sector de Defensa, incluyendo aplicaciones para vehículos de transporte de tropas y armas, vehículos tácticos y de combate, plataformas navales e instalaciones militares.",
+    en: "We offer a portfolio of products for the Defense sector, including applications for troop and weapons transport vehicles, tactical and combat vehicles, naval platforms, and military installations.",
+    pt: "Oferecemos um portfólio de produtos para o setor de Defesa incluindo aplicações para veículos de transporte de tropas e de armas, táticos e de combate, plataformas navais e instalações militares."
   },
   nijCertified: { es: "Protección Certificada NIJ", en: "NIJ Certified Protection", pt: "Proteção Certificada NIJ" },
   multiHit: { es: "Resistencia Multi-Impacto", en: "Multi-Impact Resistance", pt: "Resistência Multi-Impacto" },
   extremeEnv: { es: "Durabilidad en Ambiente Extremo", en: "Durability in Extreme Environments", pt: "Durabilidade em Ambiente Extremo" },
   successCase1Title: {
-    es: "Proyecto: Astros II (Rocket Launcher)",
-    en: "Project: Astros II (Rocket Launcher)",
-    pt: "Projeto: Astros II (Rocket Launcher)"
+    es: "Astros II (Rocket Launcher)",
+    en: "Astros II (Rocket Launcher)",
+    pt: "Astros II (Rocket Launcher)"
   },
   successCase1Details: {
-    es: "Nivel: NATO STANAG 4569 Nivel I\nPaís: Brasil\nCliente: AVIBRAS Aeroespacial\nPlanta: PG Brasil\nProducto: PG 011-00\nEspesor: 40 mm",
-    en: "Level: NATO STANAG 4569 Level I\nCountry: Brazil\nClient: AVIBRAS Aeroespacial\nPlant: PG Brasil\nProduct: PG 011-00\nThickness: 40 mm",
-    pt: "Nível: NATO STANAG 4569 Nível I\nPaís: Brasil\nCliente: AVIBRAS Aeroespacial\nPlanta: PG Brasil\nProduto: PG 011-00\nEspessura: 40 mm"
+    es: "País: Brasil\nCliente: AVIBRAS Aeroespacial\nPlanta: PG Brasil\nProducto: PG 011-00\nEspesor: 40 mm",
+    en: "Country: Brazil\nClient: AVIBRAS Aeroespacial\nPlant: PG Brasil\nProduct: PG 011-00\nThickness: 40 mm",
+    pt: "País: Brasil\nCliente: AVIBRAS Aeroespacial\nPlanta: PG Brasil\nProduto: PG 011-00\nEspessura: 40 mm"
   },
   successCase2Title: {
-    es: "Proyecto: Bloques de visión en torreta blindada",
-    en: "Project: Vision Blocks in Armored Turret",
-    pt: "Projeto: Blocos de visão em torre blindada"
+    es: "Bloques de visión en torreta blindada",
+    en: "Vision blocks in armored turret",
+    pt: "Blocos de visão em torre blindada"
   },
   successCase2Details: {
-    es: "Vehículo: IVECO Guarani VBTP 6x6\nNivel: CEN 1063 Nivel B7\nPaís: Brasil\nCliente: ARES Aeroespacial\nPlanta: PG Brasil\nProducto: PG 013-00\nEspesor: 75 mm",
-    en: "Vehicle: IVECO Guarani VBTP 6x6\nLevel: CEN 1063 Level B7\nCountry: Brazil\nClient: ARES Aeroespacial\nPlant: PG Brasil\nProduct: PG 013-00\nThickness: 75 mm",
-    pt: "Veículo: IVECO Guarani VBTP 6x6\nNível: CEN 1063 Nível B7\nPaís: Brasil\nCliente: ARES Aeroespacial\nPlanta: PG Brasil\nProduto: PG 013-00\nEspessura: 75 mm"
+    es: "Vehículo: IVECO Guarani VBTP 6x6\nPaís: Brasil\nCliente: ARES Aeroespacial\nPlanta: PG Brasil\nProducto: PG 013-00\nEspesor: 75 mm",
+    en: "Vehicle: IVECO Guarani VBTP 6x6\nCountry: Brazil\nClient: ARES Aeroespacial\nPlant: PG Brasil\nProduct: PG 013-00\nThickness: 75 mm",
+    pt: "Veículo: IVECO Guarani VBTP 6x6\nPaís: Brasil\nCliente: ARES Aeroespacial\nPlanta: PG Brasil\nProduto: PG 013-00\nEspessura: 75 mm"
   },
   specializedTitle: { es: "Soluciones especializadas", en: "Specialized solutions", pt: "Soluções especializadas" },
   aeroTitle: { es: "Aeronáutico", en: "Aeronautical", pt: "Aeronáutico" },
@@ -195,7 +195,7 @@ const PGMilitaryPage = () => {
           >
             <img
               src={src}
-              alt={`PG Military Applications ${idx + 1}`}
+              alt={`Defense Industry ${idx + 1}`}
               className="w-full h-full object-cover"
               style={idx === 0 ? { transform: 'scale(1.25) translateY(-12%)' } : undefined}
             />
@@ -223,7 +223,7 @@ const PGMilitaryPage = () => {
           <div className="flex justify-center mb-6">
             <img
               src="/Military-Solutions-Logo.webp"
-              alt="PG Military Solutions"
+              alt="PG Defense Industry"
               className="h-16 sm:h-20 md:h-24 object-contain"
             />
           </div>
@@ -245,7 +245,7 @@ const PGMilitaryPage = () => {
           <div className="w-full mb-8 sm:mb-12">
             <img
               src="/military/Tab-Military-01.webp"
-              alt="Military Segments"
+              alt="Defense Industry Segments"
               className="w-full object-cover rounded-xl"
             />
           </div>

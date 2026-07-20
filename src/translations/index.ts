@@ -68,9 +68,9 @@ export const glassguardTranslations = {
   },
   heroTitle: { es: 'PG GlassGuard®', en: 'PG GlassGuard®', pt: 'PG GlassGuard®' },
   heroDescription: {
-    es: 'GlassGuard® compone un portafolio de soluciones de blindaje transparente según normas locales e internacionales para diferentes aplicaciones de alta especificación, además está formulado con materiales avanzados y procesos detallados. El producto PG cuenta con experiencia y gestión de calidad certificada ISO 9001.',
-    en: 'GlassGuard® comprises a portfolio of transparent armoring solutions compliant with local and international standards for a variety of high-specification applications. It is formulated with advanced materials and precise manufacturing processes. PG products are backed by proven experience and ISO 9001 certified quality management.',
-    pt: 'O GlassGuard® reúne um portfólio de soluções de blindagem transparente em conformidade com normas locais e internacionais, destinadas a diversas aplicações de alta especificação. É formulado com materiais avançados e processos produtivos detalhados. Os produtos PG são respaldados por comprovada experiência e gestão da qualidade certificada pela norma ISO 9001.',
+    es: 'GlassGuard® compone un portafolio de soluciones de blindaje transparente según normas nacionales e internacionales para diferentes aplicaciones de alta especificación. Está formulado con materiales avanzados y procesos detallados. Los productos PG cuentan con el respaldo de la experiencia y de la gestión de calidad certificada bajo la ISO 9001.',
+    en: 'GlassGuard® comprises a portfolio of transparent armoring solutions aligned with national and international standards for different high-specification applications. It is formulated with advanced materials and detailed processes. PG products are backed by experience and ISO 9001-certified quality management.',
+    pt: 'O GlassGuard® reúne um portfólio de soluções de blindagem transparente em conformidade com normas nacionais e internacionais para diferentes aplicações de alta especificação. É formulado com materiais avançados e processos detalhados. Os produtos PG contam com o respaldo da experiência e da gestão de qualidade certificada sob a ISO 9001.',
   },
   tabName: { es: 'PG GlassGuard®', en: 'PG GlassGuard®', pt: 'PG GlassGuard®' },
   tab1: {
@@ -79,9 +79,9 @@ export const glassguardTranslations = {
     pt: 'A PG desenvolve soluções de vidro blindado para diferentes aplicações, baseadas nas normas balísticas vigentes e com formulações avançadas em termos de espessura e peso, utilizando materiais de última geração. O resultado é um produto durável com acabamentos premium. O portfólio inclui opções que vão desde proteção contra armas curtas com espessuras a partir de 14mm até proteção contra armas longas e perfurantes com mais de 70mm.',
   },
   tab2: {
-    es: 'La composición de GlassGuard® se desarrolla con materiales certificados y procesos detallados para asegurar el ADN de PG; balística innovadora, geometría estable, óptica destacable y estética única. En línea a lo anterior variedad de colores y transmisiones de luz que complementan accesorios como redes desempañantes, antenas, orificios para limpiadores etc.',
-    en: "GlassGuard®'s composition is developed with certified materials and detailed processes to uphold PG's core identity: innovative ballistics, stable geometry, outstanding optics, and a distinctive aesthetic. This includes a variety of colors and light transmission levels, complemented by accessories such as defogging grids, antennas, and wiper openings, among others.",
-    pt: 'A composição do GlassGuard® é desenvolvida com materiais certificados e processos detalhados para preservar a identidade da PG: balística inovadora, geometria estável, ótica destacada e estética única. A isso se somam diversas opções de cores e transmissão de luz, complementadas por acessórios como redes desembaçadoras, antenas, orifícios para limpadores, entre outros.',
+    es: 'La composición de GlassGuard® se desarrolla con materiales certificados y procesos detallados para asegurar el ADN de PG: balística innovadora, geometría estable, óptica destacable y estética única. A esto se suman variedad de colores y transmisiones de luz que complementan accesorios como redes desempañantes, antenas, orificios para limpiadores, Vigia y logotipo del cliente.',
+    en: "GlassGuard®'s composition is developed with certified materials and detailed processes to uphold PG's core identity: innovative ballistics, stable geometry, outstanding optics, and a distinctive aesthetic. It also includes a variety of colors and light transmission options complemented by accessories such as defogging grids, antennas, wiper openings, rear windows, and customer logos.",
+    pt: 'A composição do GlassGuard® é desenvolvida com materiais certificados e processos detalhados para preservar a identidade da PG: balística inovadora, geometria estável, ótica destacada e estética única. A isso se somam diversas opções de cores e transmissão de luz, complementadas por acessórios como redes desembaçadoras, antenas, orifícios para limpadores, vigia e logotipo do cliente.',
   },
   tab3: {
     es: 'Todas las composiciones de GlassGuard® de acuerdo a la tabla balística pueden ser complementados con los accesorios originales para cada modelo de vehículo y con características adicionales tales como: redes desempañantes, adaptaciones para cámaras y sensores, gunports, etc',
@@ -89,32 +89,32 @@ export const glassguardTranslations = {
     pt: 'Todas as composições do GlassGuard®, de acordo com a tabela balística, podem ser complementadas com os acessórios originais de cada modelo de veículo e com características adicionais, tais como: redes desembaçadoras, adaptações para câmeras e sensores, gunports, entre outros.',
   },
   tab4: {
-    es: `GlassGuard® Atiende, entre otras, las siguientes normas de resistencia balística: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2006, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2007, NOM 142 SCFI 2000.
+    es: `GlassGuard® atiende, entre otras, las siguientes normas de resistencia balística: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2021, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2021, NOM 142 SCFI 2000.
 
 El portafolio de PG Products® se desarrolla bajo diversas normas y especificaciones además se evalúan regularmente en nuestro laboratorio y en laboratorios internacionales siguiendo rigurosos métodos, estándares y regulaciones:
 
-- ALEMANIA - Beschussamt - Mellrichstadt y ULM
+- ALEMANIA - Beschussamt - Mellrichstadt, Munich y ULM
 - ARGENTINA - RENAR
 - BRASIL - Campo de Provas Marambaia
-- EUA - OBL Oregon Ballistic Lab USA, Chesapeake laboratories
+- EUA - OBL Oregon Ballistic Lab, Chesapeake laboratories
 - HOLANDA - TNO Automotive`,
-    en: `GlassGuard® complies with, among others, the following ballistic resistance standards: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2006, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2007, NOM 142 SCFI 2000.
+    en: `GlassGuard® complies with, among others, the following ballistic resistance standards: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2021, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2021, NOM 142 SCFI 2000.
 
 The PG Products® portfolio is developed under various standards and specifications, and is regularly evaluated in our own laboratory and in international laboratories following rigorous methods, standards, and regulations:
 
-- GERMANY - Beschussamt - Mellrichstadt and ULM
+- GERMANY - Beschussamt - Mellrichstadt, Munich and ULM
 - ARGENTINA - RENAR
 - BRAZIL - Campo de Provas Marambaia
-- USA - OBL Oregon Ballistic Lab USA, Chesapeake Laboratories
+- USA - OBL Oregon Ballistic Lab, Chesapeake Laboratories
 - NETHERLANDS - TNO Automotive`,
-    pt: `O GlassGuard® atende, entre outras, às seguintes normas de resistência balística: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2006, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2007, NOM 142 SCFI 2000.
+    pt: `O GlassGuard® atende, entre outras, às seguintes normas de resistência balística: ABNT NBR 15000, CEN 1063, NATO STANAG 4569, NIJ 0108.01, RENAR MA.02, VPAM APR 2021, VPAM BRV 2009, VPAM ERV 2010, VPAM PM 2021, NOM 142 SCFI 2000.
 
 O portfólio de PG Products® é desenvolvido sob diversas normas e especificações, além de ser regularmente avaliado em nosso laboratório e em laboratórios internacionais, seguindo rigorosos métodos, padrões e regulamentações:
 
-- ALEMANHA - Beschussamt - Mellrichstadt e ULM
+- ALEMANHA - Beschussamt - Mellrichstadt, Munich e ULM
 - ARGENTINA - RENAR
 - BRASIL - Campo de Provas Marambaia
-- EUA - OBL Oregon Ballistic Lab USA, Chesapeake Laboratories
+- EUA - OBL Oregon Ballistic Lab, Chesapeake Laboratories
 - HOLANDA - TNO Automotive`,
   },
   benefits: {
@@ -166,21 +166,21 @@ O portfólio de PG Products® é desenvolvido sob diversas normas e especificaç
 // ─────────────────────────────────────────────
 export const neuTranslations = {
   heroSubtitle: {
-    es: 'Vidrio Blindado premium con resistencia balística Destacada',
-    en: 'Premium Armored Glass with Outstanding Ballistic Resistance',
-    pt: 'Vidro Blindado Premium com Resistência Balística Destacada',
+    es: 'PG High Technology',
+    en: 'PG High Technology',
+    pt: 'PG High Technology',
   },
   heroTitle: { es: 'PG NEU®', en: 'PG NEU®', pt: 'PG NEU®' },
   heroDescription: {
-    es: 'NEU® representa la evolución en protección balística con tecnología de vanguardia y diseño innovador que establece nuevos estándares en el mercado de seguridad. Un cristal blindado automotriz diseñado y desarrollado con ingeniería Alemana, producido con las mejores materias primas disponibles bajo estándares de diseño Europeo.',
-    en: 'NEU® represents the evolution of ballistic protection, featuring cutting-edge technology and innovative design that sets new benchmarks in the security market. An automotive armored glass designed and developed with German engineering, manufactured with the finest raw materials available under European design standards.',
-    pt: 'O NEU® representa a evolução da proteção balística, com tecnologia de vanguarda e design inovador que estabelece novos padrões no mercado de segurança. Um vidro blindado automotivo projetado e desenvolvido com engenharia alemã, produzido com as melhores matérias-primas disponíveis e sob padrões de design europeu.',
+    es: 'Vidrio blindado automotriz proyectado y desarrollado bajo rígidas especificaciones de ingeniería, producido con las mejores materias primas de acuerdo con los estándares internacionales.',
+    en: 'Automotive armored glass designed and developed under strict engineering specifications, produced with the best raw materials in accordance with international standards.',
+    pt: 'Vidro blindado automotivo projetado e desenvolvido sob rígidas especificações de engenharia, produzido com as melhores matérias-primas de acordo com os padrões internacionais.',
   },
   tabName: { es: 'PG NEU®', en: 'PG NEU®', pt: 'PG NEU®' },
   tab1: {
-    es: 'PG Products® trae toda la tecnología de un cristal blindado para mercado Europeo ahora disponible en México y otros mercados, Con el espesor de un vidrio de nivel IIIA conseguimos la resistencia balística para munición de arma larga: Menor espesor, Único desempeño Balístico.',
-    en: 'PG Products® brings the full technology of a European-grade armored glass, now available in Mexico and other markets. At the thickness of a NIJ IIIA-level glass, we achieve ballistic resistance against long-barrel ammunition: Thinner profile. Unmatched ballistic performance.',
-    pt: 'A PG Products® traz toda a tecnologia de um vidro blindado para o mercado europeu, agora disponível no México e em outros mercados. Com a espessura de um vidro de nível IIIA, alcançamos a resistência balística para munição de arma longa: Menor espessura. Desempenho balístico único.',
+    es: 'Esta combinación proporciona al producto mayor resistencia balística, geometría de precisión, excelencia en acabado y óptica con alta definición.',
+    en: 'This combination provides the product with greater ballistic resistance, precision geometry, excellence in finish, and high-definition optics.',
+    pt: 'Essa combinação proporciona ao produto maior resistência balística, geometria de precisão, excelência em acabamento e ótica com alta definição.',
   },
   tab2: {
     es: `La composición única ofrece una mezcla de vidrio flotado de única especificación, polímeros especiales y policarbonato ultraliviano, que combinados desarrollan una fórmula de espesor de 22mm pero con resistencia para municiones más fuertes.
@@ -213,44 +213,44 @@ Munição: 7,62x39mm FMJ (Triângulo duplo 200mm)
   tab4: {
     es: `Resistencia Balística NIJ III-A.
 
-Adicionalmente resistencia balística comprobada ante:
+Adicionalmente resistencia balística ante:
 - 4 impactos Munición: 7,62x39mm FMJ (Doble triángulo)
   ó
 - 2 impactos Munición: 7,62x39 MSC`,
     en: `NIJ III-A Ballistic Resistance.
 
-Additionally, proven ballistic resistance against:
+Additionally, ballistic resistance against:
 - 4 impacts — Ammunition: 7.62x39mm FMJ (Double triangle)
   or
-- 2 impacts — Ammunition: 7.62x39 MSC`,
+  - 2 impacts — Ammunition: 7.62x39 MSC`,
     pt: `Resistência Balística NIJ III-A.
 
-Adicionalmente, resistência balística comprovada contra:
+Adicionalmente, resistência balística contra:
 - 4 impactos — Munição: 7,62x39mm FMJ (Triângulo duplo)
   ou
 - 2 impactos — Munição: 7,62x39 MSC`,
   },
   benefits: {
     es: [
-      { label: 'Óptica Destacable:', detail: 'Incorpora nanocompuestos de última generación para máxima protección con visibilidad sin distorsión.' },
-      { label: 'Diseño Innovador:', detail: 'Mayor resistencia, balística comprobada' },
-      { label: 'Máxima originalidad:', detail: 'Calidad superior en geometría' },
-      { label: 'Futuro del Blindaje:', detail: 'Representa la próxima generación en soluciones de protección balística.' },
-      { label: 'Durabilidad Superior:', detail: 'Acabados Únicos' },
+      { label: 'Mayor resistencia balística:', detail: 'Desarrollado bajo rígidas especificaciones de ingeniería y estándares internacionales.' },
+      { label: 'Geometría de precisión:', detail: 'Fabricación con materias primas de alto desempeño y control dimensional superior.' },
+      { label: 'Excelencia en acabado:', detail: 'Solución automotriz con terminación premium y alta consistencia visual.' },
+      { label: 'Óptica con alta definición:', detail: 'Mayor claridad y visibilidad para aplicaciones automotrices de alta exigencia.' },
+      { label: 'PG High Technology:', detail: 'Tecnología PG aplicada a un vidrio balístico premium de nueva generación.' },
     ],
     en: [
-      { label: 'Outstanding Optics:', detail: 'Incorporates state-of-the-art nanocomposites for maximum protection with distortion-free visibility.' },
-      { label: 'Innovative Design:', detail: 'Superior resistance with proven ballistic performance.' },
-      { label: 'Maximum Originality:', detail: 'Superior geometric precision.' },
-      { label: 'The Future of Armoring:', detail: 'Represents the next generation in ballistic protection solutions.' },
-      { label: 'Superior Durability:', detail: 'Unique finishes.' },
+      { label: 'Greater ballistic resistance:', detail: 'Developed under strict engineering specifications and international standards.' },
+      { label: 'Precision geometry:', detail: 'Built with high-performance raw materials and superior dimensional control.' },
+      { label: 'Excellence in finish:', detail: 'Automotive solution with premium finishing and strong visual consistency.' },
+      { label: 'High-definition optics:', detail: 'Greater clarity and visibility for demanding automotive applications.' },
+      { label: 'PG High Technology:', detail: 'PG technology applied to a new-generation premium ballistic glass.' },
     ],
     pt: [
-      { label: 'Ótica Destacada:', detail: 'Incorpora nanocompostos de última geração para máxima proteção com visibilidade sem distorção.' },
-      { label: 'Design Inovador:', detail: 'Maior resistência, com desempenho balístico comprovado.' },
-      { label: 'Máxima Originalidade:', detail: 'Qualidade superior em geometria.' },
-      { label: 'O Futuro da Blindagem:', detail: 'Representa a próxima geração em soluções de proteção balística.' },
-      { label: 'Durabilidade Superior:', detail: 'Acabamentos exclusivos.' },
+      { label: 'Maior resistência balística:', detail: 'Desenvolvido sob rígidas especificações de engenharia e padrões internacionais.' },
+      { label: 'Geometria de precisão:', detail: 'Produzido com matérias-primas de alto desempenho e controle dimensional superior.' },
+      { label: 'Excelência em acabamento:', detail: 'Solução automotiva com acabamento premium e alta consistência visual.' },
+      { label: 'Ótica com alta definição:', detail: 'Maior clareza e visibilidade para aplicações automotivas de alta exigência.' },
+      { label: 'PG High Technology:', detail: 'Tecnologia PG aplicada a um vidro balístico premium de nova geração.' },
     ],
   },
   useCases: {
@@ -286,59 +286,35 @@ export const steelglassTranslations = {
   heroTitle: { es: 'PG SteelGlass®', en: 'PG SteelGlass®', pt: 'PG SteelGlass®' },
   heroDescription: {
     es: 'SteelGlass® integra un inserto de acero en la formulación, adicionando protección hasta el borde y eliminando la necesidad de overlaps tradicionales.',
-    en: 'SteelGlass® integrates a steel insert into its formulation, extending protection all the way to the edge and eliminating the need for traditional overlaps.',
-    pt: 'O SteelGlass® integra um inserto de aço em sua formulação, adicionando proteção até a borda e eliminando a necessidade dos overlaps tradicionais.',
+    en: 'SteelGlass® integrates a steel insert into its formulation, adding protection up to the edge and eliminating the need for traditional overlaps.',
+    pt: 'O SteelGlass® integra um inserto de aço em sua formulação, adicionando proteção até a borda e eliminando a necessidade de overlaps tradicionais.',
   },
   tabName: { es: 'PG SteelGlass®', en: 'PG SteelGlass®', pt: 'PG SteelGlass®' },
   tab1: {
-    es: `Un cristal blindado que integra en la formulación un inserto de Acero en el contorno adicionando protección hasta el borde, Evita la instalación de Overlaps, Mantiene la originalidad del Vehículo, Acabado Premium, Acero inoxidable integrado.
-
-- Disponible en distintos niveles.
-- Acero Inoxidable de PG certificado además de protección brinda un acabado Premium
-- Su gran factor diferencial es proteger a los ocupantes del vehículo del punto vulnerable formado entre el bloque balístico del vidrio y la parte opaca.
-- El inserto de acero es desarrollado y patentado por PG Products®`,
-    en: `An armored glass that integrates a steel insert along the perimeter into its formulation, extending protection to the very edge. Eliminates the need for overlaps, preserves the vehicle's original appearance, delivers a premium finish, and features integrated stainless steel.
-
-- Available in various protection levels.
-- PG's certified stainless steel provides both protection and a premium aesthetic.
-- Its key differentiating factor is protecting vehicle occupants from the vulnerable gap between the ballistic glass block and the opaque panel.
-- The steel insert is developed and patented by PG Products®.`,
-    pt: `Um vidro blindado que integra na formulação um inserto de aço no contorno, adicionando proteção até a borda. Elimina a instalação de overlaps, mantém a originalidade do veículo, possui acabamento premium e aço inoxidável integrado.
-
-- Disponível em diferentes níveis de proteção.
-- O aço inoxidável certificado da PG, além de proteção, oferece um acabamento premium.
-- Seu grande diferencial é proteger os ocupantes do veículo do ponto vulnerável formado entre o bloco balístico do vidro e a parte opaca.
-- O inserto de aço é desenvolvido e patenteado pela PG Products®.`,
+    es: 'Es el vidrio blindado con inserto de acero en el bloque, elevando la rigidez estructural y la resistencia balística en los bordes. Al eliminar el uso de overlap convencional se mantiene la originalidad del vehículo, facilitando el servicio de las blindadoras y generando economía y eficiencia.',
+    en: 'It is armored glass with a steel insert in the block, increasing structural rigidity and ballistic resistance at the edges. By eliminating the use of conventional overlap, the vehicle originality is preserved, armoring work is simplified, and efficiency is improved.',
+    pt: 'É o vidro blindado com inserto de aço no bloco, elevando a rigidez estrutural e a resistência balística nas bordas. Ao eliminar o uso de overlap convencional é mantida a originalidade do veículo, facilitando o serviço das blindadoras, gerando economia e eficiência.',
   },
   tab2: {
-    es: 'Se trata de un vidrio blindado con acero insertado en el bloque balístico, dando estructura y resistencia en los bordes eliminando la necesidad del overlap tradicional; manteniendo la originalidad del vehículo y facilitando el trabajo de las empresas de blindaje. Su gran factor diferencial es proteger a los ocupantes del vehículo del punto vulnerable formado entre el bloque balístico del vidrio y la parte opaca.',
-    en: "This is an armored glass with steel inserted into the ballistic block, providing structural integrity and edge resistance while eliminating the need for traditional overlaps. It preserves the vehicle's original look and simplifies the work of armoring companies. Its key differentiating factor is protecting vehicle occupants from the vulnerable gap between the ballistic glass block and the opaque panel.",
-    pt: 'Trata-se de um vidro blindado com aço inserido no bloco balístico, conferindo estrutura e resistência nas bordas e eliminando a necessidade do overlap tradicional. Mantém a originalidade do veículo e facilita o trabalho das empresas de blindagem. Seu grande diferencial é proteger os ocupantes do veículo do ponto vulnerável formado entre o bloco balístico do vidro e a parte opaca.',
+    es: 'Principal diferencial: Protección adicional en el punto vulnerable entre el bloque balístico y la parte opaca. El vidrio con acero inoxidable proporciona protección y acabado premium. Inserto de acero patentado por PG Products® desde 1999.',
+    en: 'Main differentiator: additional protection at the vulnerable point between the ballistic block and the opaque area. The glass with stainless steel provides protection and premium finishing. Steel insert patented by PG Products® since 1999.',
+    pt: 'Principal diferencial: Proteção adicional no ponto vulnerável entre o bloco balístico e a parte opaca. O vidro com aço inoxidável proporciona proteção e acabamento premium. Inserto de aço patenteado pela PG Products® desde 1999.',
   },
   tab3: {
-    es: 'Constituye un refuerzo estructural y minimiza rupturas en el cierre continuo de las puertas, Bajo agresión, SteelGlass® apoya el bloque balístico y evita que se desprenda de la lámina externa y caiga en el interior del vehículo alcanzando a sus ocupantes.',
-    en: "It provides structural reinforcement and minimizes fractures along the continuous door seal. Under ballistic aggression, SteelGlass® supports the ballistic block and prevents it from detaching from the outer layer and falling into the vehicle's interior, where it could reach the occupants.",
-    pt: 'Constitui um reforço estrutural e minimiza rupturas no fechamento contínuo das portas. Sob agressão, o SteelGlass® apoia o bloco balístico e evita que ele se desprenda da lâmina externa e caia no interior do veículo, atingindo seus ocupantes.',
+    es: 'Refuerzo estructural que minimiza el riesgo de quiebre en el cierre de las puertas. Refuerza el bloque balístico evitando que el vidrio caiga dentro del vehículo.',
+    en: 'Structural reinforcement that minimizes the risk of breakage during door closing. It reinforces the ballistic block and prevents the glass from falling inside the vehicle.',
+    pt: 'Reforço estrutural que minimiza o risco de quebra quando do fechamento das portas. Reforça o bloco balístico evitando que o vidro caia dentro do veículo.',
   },
   tab4: {
-    es: `SteelGlass® incorpora un inserto de protección balística adicional en los niveles de armas cortas (hasta NIJ IIIA y B4) y un refuerzo estructural y de apoyo al contorno del cristal en niveles superiores y de armas largas (NIJ III, DN6, DN7 Y OTROS)
+    es: `SteelGlass® incorpora una inserción de protección balística adicional en niveles de armas cortas hasta NBR III-A y refuerzo estructural para niveles superiores NBR III y IV.
 
-- Evita la instalación de Overlaps.
-- Mantiene la originalidad del Vehículo.
-- Acabado Premium.
-- Acero inoxidable integrado.`,
-    en: `SteelGlass® incorporates an additional ballistic protection insert at handgun threat levels (up to NIJ IIIA and B4) and provides structural reinforcement and perimeter support for the glass at higher and long-barrel threat levels (NIJ III, DN6, DN7, and others).
+Disponibilidad: Parabrisa, vidrios laterales, Vigia y techo solar.`,
+    en: `SteelGlass® incorporates an additional ballistic protection insert at handgun levels up to NBR III-A and structural reinforcement for higher levels NBR III and IV.
 
-- Eliminates the need for overlaps.
-- Preserves the vehicle's original design.
-- Premium finish.
-- Integrated stainless steel.`,
-    pt: `O SteelGlass® incorpora um inserto de proteção balística adicional nos níveis de armas curtas (até NIJ IIIA e B4) e um reforço estrutural e de apoio ao contorno do vidro nos níveis superiores e de armas longas (NIJ III, DN6, DN7 e outros).
+Availability: Windshield, side windows, rear window, and sunroof.`,
+    pt: `O SteelGlass® incorpora uma inserção de proteção balística adicional em níveis de armas curtas até NBR III-A e reforço estrutural para níveis superiores NBR III e IV.
 
-- Elimina a instalação de overlaps.
-- Mantém a originalidade do veículo.
-- Acabamento premium.
-- Aço inoxidável integrado.`,
+Disponibilidade: Parabrisa, vidros laterais, vigia e teto solar.`,
   },
   benefits: {
     es: [
@@ -395,100 +371,91 @@ export const superslimTranslations = {
   },
   heroTitle: { es: 'PG SuperSlim®', en: 'PG SuperSlim®', pt: 'PG SuperSlim®' },
   heroDescription: {
-    es: 'SuperSlim® es un cristal blindado certificado que mantiene la resistencia balística pero con una formulación más delgada que asegura un 15% menos de peso y mayor vida útil.',
-    en: 'SuperSlim® is a certified armored glass that maintains full ballistic resistance, yet features a thinner formulation that ensures 15% less weight and an extended service life.',
-    pt: 'O SuperSlim® é um vidro blindado certificado que mantém a resistência balística, porém com uma formulação mais fina que garante 15% menos de peso e maior vida útil.',
+    es: 'Vidrio blindado certificado que mantiene la resistencia balística con una formulación más delgada que garantiza 15% menos peso y mayor vida útil.',
+    en: 'Certified armored glass that maintains ballistic resistance with a thinner formulation that ensures 15% less weight and longer service life.',
+    pt: 'Vidro blindado certificado que mantém a resistência balística com uma formulação mais fina que garante 15% menos peso e maior vida útil.',
   },
   tabName: { es: 'PG SuperSlim®', en: 'PG SuperSlim®', pt: 'PG SuperSlim®' },
   tab1: {
-    es: `Un cristal blindado que integra en la formulación un inserto de Acero en el contorno adicionando protección hasta el borde, Evita la instalación de Overlaps, Mantiene la originalidad del Vehículo, Acabado Premium, Acero inoxidable integrado.
-
-- Disponible en distintos niveles.
-- Acero Inoxidable de PG certificado además de protección brinda un acabado Premium
-- Su gran factor diferencial es proteger a los ocupantes del vehículo del punto vulnerable formado entre el bloque balístico del vidrio y la parte opaca.
-- El inserto de acero es desarrollado y patentado por PG Products®`,
-    en: `An armored glass that integrates a steel insert along the perimeter into its formulation, extending protection to the very edge. Eliminates the need for overlaps, preserves the vehicle's original appearance, delivers a premium finish, and features integrated stainless steel.
-
-- Available in various protection levels.
-- PG's certified stainless steel provides both protection and a premium aesthetic.
-- Its key differentiating factor is protecting vehicle occupants from the vulnerable gap between the ballistic glass block and the opaque panel.
-- The steel insert is developed and patented by PG Products®.`,
-    pt: `Um vidro blindado que integra na formulação um inserto de aço no contorno, adicionando proteção até a borda. Elimina a instalação de overlaps, mantém a originalidade do veículo, possui acabamento premium e aço inoxidável integrado.
-
-- Disponível em diferentes níveis de proteção.
-- O aço inoxidável certificado da PG, além de proteção, oferece um acabamento premium.
-- Seu grande diferencial é proteger os ocupantes do veículo do ponto vulnerável formado entre o bloco balístico do vidro e a parte opaca.
-- O inserto de aço é desenvolvido e patenteado pela PG Products®.`,
+    es: 'Uniendo ligereza y seguridad, PG proyecta vidrios blindados con hasta 15% de reducción de peso y espesor, en conformidad con la NBR 15000. Alta tecnología alcanzada a través de materiales avanzados y un ciclo de laminación especial.',
+    en: 'Combining lightness and safety, PG designs armored glass with up to 15% reduction in weight and thickness, in compliance with NBR 15000. High technology achieved through advanced materials and a special lamination cycle.',
+    pt: 'Unindo leveza e segurança, a PG projeta vidros blindados com até 15% de redução de peso e espessura, em conformidade com a NBR 15000. Alta tecnologia alcançada através de materiais avançados e um ciclo de laminação especial.',
   },
   tab2: {
-    es: `Conociendo la importancia del peso en un vehículo blindado y el papel del vidrio en la protección balística, PG crea un cristal con aproximadamente un 15% de reducción de peso y espesor como resultado de una formulación con materiales especiales y polímeros avanzados que se laminan en ciclos especiales, SuperSlim® mantiene la resistencia balística de acuerdo a la norma pero con un espesor y peso menor que el vidrio balístico.
-
-Por ejemplo: En un vehículo SUV promedio el área de vidrio blindado es de aproximadamente 4,5m²:
-Reducción de peso por set: 30 kg aprox`,
-    en: `Recognizing the critical importance of weight in an armored vehicle and the role of glass in ballistic protection, PG has developed a glass with approximately 15% reduction in weight and thickness — achieved through a formulation of special materials and advanced polymers laminated in specialized cycles. SuperSlim® maintains ballistic resistance in compliance with applicable standards, but at a thinner profile and lower weight than conventional ballistic glass.
-
-For example: In an average SUV, the armored glass area is approximately 4.5m²:
-Weight reduction per set: approx. 30 kg`,
-    pt: `Reconhecendo a importância do peso em um veículo blindado e o papel do vidro na proteção balística, a PG cria um vidro com aproximadamente 15% de redução de peso e espessura, resultado de uma formulação com materiais especiais e polímeros avançados laminados em ciclos especiais. O SuperSlim® mantém a resistência balística conforme a norma, mas com espessura e peso menores que o vidro balístico convencional.
-
-Por exemplo: Em um veículo SUV médio, a área de vidro blindado é de aproximadamente 4,5m²:
-Redução de peso por conjunto: aprox. 30 kg`,
+    es: 'Vidrio blindado certificado que mantiene la resistencia balística con una formulación más fina que garantiza 15% menos peso y mayor vida útil.',
+    en: 'Certified armored glass that maintains ballistic resistance with a thinner formulation that guarantees 15% less weight and longer service life.',
+    pt: 'Vidro blindado certificado que mantém a resistência balística com uma formulação mais fina que garante 15% menos peso e maior vida útil.',
   },
   tab3: {
-    es: `PG SUPERSLIM® URBAN
-Enfocado para niveles bajos, mejorando consumo de gasolina y menos modificaciones en el proceso de blindaje.
+    es: `PG SuperSlim® tiene dos opciones de productos de acuerdo con el nivel balístico:
+
+PG SUPERSLIM® URBAN
+Enfocado a niveles bajos, mejorando el consumo de combustible y reduciendo modificaciones en el proceso de blindaje.
 
 PG SUPERSLIM® SUPERIOR
-En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos
+En niveles superiores aumenta la capacidad de carga para equipos y tropa, disminuye el gasto de combustible y abre acceso a nuevos proyectos.
 
-*Consulte disponibilidad de producto en su región.`,
-    en: `PG SUPERSLIM® URBAN
-Designed for lower protection levels, improving fuel efficiency and requiring fewer modifications during the armoring process.
+* Consulte disponibilidad para mercados específicos.`,
+    en: `PG SuperSlim® has two product options according to ballistic level:
 
-PG SUPERSLIM® SUPERIOR
-At higher protection levels, it increases payload capacity for equipment and personnel, reduces fuel consumption, and opens access to new project opportunities.
-
-*Please consult product availability in your region.`,
-    pt: `PG SUPERSLIM® URBAN
-Voltado para níveis de proteção mais baixos, melhora o consumo de combustível e requer menos modificações no processo de blindagem.
+PG SUPERSLIM® URBAN
+Focused on lower levels, improving fuel efficiency and reducing modifications during the armoring process.
 
 PG SUPERSLIM® SUPERIOR
-Em níveis superiores, aumenta a capacidade de carga para equipamentos e tropa, reduz o consumo de combustível e cria acesso a novos projetos.
+At higher levels it increases payload capacity for equipment and personnel, reduces fuel consumption, and opens access to new projects.
 
-*Consulte a disponibilidade do produto em sua região.`,
+* Consult availability for specific markets.`,
+    pt: `O PG SuperSlim® tem duas opções de produtos de acordo com o nível balístico:
+
+PG SUPERSLIM® URBAN
+Enfocado para níveis baixos, melhorando o consumo de combustível e com menos modificações no processo de blindagem.
+
+PG SUPERSLIM® SUPERIOR
+Em níveis superiores aumenta a capacidade de carga, equipamentos e tropa, além de diminuir o gasto de combustível e criar acesso a novos projetos.
+
+* consulte disponibilidade para mercados específicos.`,
   },
   tab4: {
-    es: `SuperSlim® se Enfoca para niveles bajos, mejorando consumo de gasolina y menos modificaciones en el proceso de blindaje, y En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos.
+    es: `Beneficios de un BRG Bullet Resistant Glazing más ligero:
 
-SuperSlim® Tiene soluciones para aplicaciones automotriz en usos civil y militar, vehículos de carga, vidrios para botes y fragatas, y cristales para uso arquitectónico.`,
-    en: `SuperSlim® is designed for lower protection levels, improving fuel efficiency and minimizing modifications during armoring. At higher protection levels, it increases payload capacity for equipment and troops, reduces fuel costs, and opens access to new projects.
+- Leveza: Reduce el peso adicionado.
+- Integración: Menos modificaciones en las puertas.
+- Economía: Mejora la eficiencia de combustible.
+- Durabilidad: Disminuye el desgaste de los componentes del vehículo.`,
+    en: `Benefits of a lighter BRG Bullet Resistant Glazing:
 
-SuperSlim® offers solutions for automotive applications in both civilian and military use, cargo vehicles, glass for boats and frigates, and architectural glazing.`,
-    pt: `O SuperSlim® é voltado para níveis de proteção mais baixos, melhorando o consumo de combustível e reduzindo as modificações no processo de blindagem. Em níveis superiores, aumenta a capacidade de carga para equipamentos e tropa, reduz o gasto de combustível e cria acesso a novos projetos.
+- Lightness: Reduces added weight.
+- Integration: Fewer door modifications.
+- Efficiency: Improves fuel economy.
+- Durability: Reduces wear on vehicle components.`,
+    pt: `Benefícios de um BRG Bullet Resistant Glazing mais leve:
 
-O SuperSlim® oferece soluções para aplicações automotivas em uso civil e militar, veículos de carga, vidros para embarcações e fragatas e vidros para uso arquitetônico.`,
+- Leveza: Reduz o peso adicionado.
+- Integração: Menos modificações nas portas.
+- Economia: Melhora a eficiência de combustível.
+- Durabilidade: Diminui o desgaste dos componentes do veículo.`,
   },
   benefits: {
     es: [
-      { label: 'Peso Reducido:', detail: 'Hasta 15% más liviano que vidrios blindados tradicionales.' },
-      { label: 'Máxima Transparencia:', detail: 'Claridad óptica superior sin distorsión.' },
-      { label: 'Resistencia:', detail: 'Protección balística certificada en formato ultradelgado.' },
-      { label: 'Versatilidad:', detail: 'Adaptable a múltiples aplicaciones y diseños.' },
-      { label: 'Eficiencia:', detail: 'Reduce carga estructural manteniendo la seguridad.' },
+      { label: 'Leveza:', detail: 'Reduce el peso adicionado.' },
+      { label: 'Integración:', detail: 'Menos modificaciones en las puertas.' },
+      { label: 'Economía:', detail: 'Mejora la eficiencia de combustible.' },
+      { label: 'Durabilidad:', detail: 'Disminuye el desgaste de los componentes del vehículo.' },
+      { label: 'Reducción:', detail: 'Hasta 15% menos peso y espesor con mayor vida útil.' },
     ],
     en: [
-      { label: 'Reduced Weight:', detail: 'Up to 15% lighter than traditional armored glass.' },
-      { label: 'Maximum Transparency:', detail: 'Superior optical clarity without distortion.' },
-      { label: 'Resistance:', detail: 'Certified ballistic protection in an ultra-thin format.' },
-      { label: 'Versatility:', detail: 'Adaptable to multiple applications and designs.' },
-      { label: 'Efficiency:', detail: 'Reduces structural load while maintaining full security standards.' },
+      { label: 'Lightness:', detail: 'Reduces added weight.' },
+      { label: 'Integration:', detail: 'Fewer modifications to the doors.' },
+      { label: 'Efficiency:', detail: 'Improves fuel economy.' },
+      { label: 'Durability:', detail: 'Reduces wear on vehicle components.' },
+      { label: 'Reduction:', detail: 'Up to 15% less weight and thickness with longer service life.' },
     ],
     pt: [
-      { label: 'Peso Reduzido:', detail: 'Até 15% mais leve que os vidros blindados tradicionais.' },
-      { label: 'Máxima Transparência:', detail: 'Clareza ótica superior sem distorção.' },
-      { label: 'Resistência:', detail: 'Proteção balística certificada em formato ultrafino.' },
-      { label: 'Versatilidade:', detail: 'Adaptável a múltiplas aplicações e designs.' },
-      { label: 'Eficiência:', detail: 'Reduz a carga estrutural mantendo a segurança.' },
+      { label: 'Leveza:', detail: 'Reduz o peso adicionado.' },
+      { label: 'Integração:', detail: 'Menos modificações nas portas.' },
+      { label: 'Economia:', detail: 'Melhora a eficiência de combustível.' },
+      { label: 'Durabilidade:', detail: 'Diminui o desgaste dos componentes do veículo.' },
+      { label: 'Redução:', detail: 'Até 15% menos peso e espessura com maior vida útil.' },
     ],
   },
   useCases: {
@@ -523,9 +490,9 @@ export const ultraTranslations = {
   },
   heroTitle: { es: 'PG Ultra®', en: 'PG Ultra®', pt: 'PG Ultra®' },
   heroDescription: {
-    es: 'PG ULTRA® es un cristal blindado con todas las características de un nivel bajo, que suma una destacable resistencia balística a munición de nivel superior.',
-    en: 'PG ULTRA® is an armored glass that combines all the characteristics of a lower protection level with a remarkable ballistic resistance to higher-caliber ammunition.',
-    pt: 'O PG ULTRA® é um vidro blindado com todas as características de um nível inferior, ao qual se soma uma notável resistência balística a munições de nível superior.',
+    es: 'Vidrio blindado con resistencia balística superior y espesor próximo (22 - 25 mm) al de la NBR 15000 nivel III-A estándar.',
+    en: 'Armored glass with superior ballistic resistance and thickness close to the standard NBR 15000 level III-A range (22 - 25 mm).',
+    pt: 'Vidro blindado com resistência balística superior e espessura próxima (22 - 25 mm) à da NBR 15000 nível III-A padrão.',
   },
   tabName: { es: 'PG Ultra®', en: 'PG Ultra®', pt: 'PG Ultra®' },
   tab1: {
@@ -534,44 +501,35 @@ export const ultraTranslations = {
     pt: 'Um vidro blindado que integra resistência balística a armas curtas e, na mesma espessura, resistência para munições de alto calibre.',
   },
   tab2: {
-    es: `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A
+    es: `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A.
 
-Balística: Adicionalmente:
-- Cuatro Impactos Munición: 7,62x39mm FMJ a 30 cms
-- 1 Impacto Munición: 5,56x45 M193 en el centro`,
-    en: `Armored glass with ballistic resistance in accordance with NIJ 0108.01 standard at the NIJ III-A level.
+Resistencia balística adicional contra armas largas.
+* consulte disponibilidad para mercados específicos.`,
+    en: `Armored glass with ballistic resistance according to NIJ 0108.01 at level NIJ III-A.
 
-Ballistics — Additionally:
-- Four impacts — Ammunition: 7.62x39mm FMJ at 30 cm
-- 1 impact — Ammunition: 5.56x45 M193 at center`,
+Additional ballistic resistance against long firearms.
+* consult availability for specific markets.`,
     pt: `Vidro blindado com resistência balística conforme a norma NIJ 0108.01 para o nível NIJ III-A.
 
-Balística — Adicionalmente:
-- Quatro impactos — Munição: 7,62x39mm FMJ a 30 cm
-- 1 impacto — Munição: 5,56x45 M193 no centro`,
+Resistência balística adicional contra armas longas.
+* consulte disponibilidade para mercados específicos.`,
   },
   tab3: {
-    es: `* Certificados balísticos disponibles
-* Pruebas realizadas en laboratorios reconocidos.
+    es: `Composición exclusiva PG
 
-PG SUPERSLIM® SUPERIOR
-En niveles superiores aumenta la capacidad de carga, equipos y tropa, además disminuye gasto de combustible, crea acceso a nuevos proyectos
+- Adiciona un mínimo de peso y espesor.
+- Compatible con diversos modelos de vehículos.
+- Certificado y probado en laboratorios internacionales.`,
+    en: `Exclusive PG composition
 
-*Consulte disponibilidad de producto en su región.`,
-    en: `* Ballistic certificates available
-* Tests conducted in recognized laboratories.
+- Adds minimal weight and thickness.
+- Compatible with several vehicle models.
+- Certified and tested in international laboratories.`,
+    pt: `Composição exclusiva PG
 
-PG ULTRA® SUPERIOR
-At higher protection levels, it increases payload capacity for equipment and personnel, reduces fuel costs, and opens access to new projects.
-
-*Please consult product availability in your region.`,
-    pt: `* Certificados balísticos disponíveis
-* Testes realizados em laboratórios reconhecidos.
-
-PG ULTRA® SUPERIOR
-Em níveis superiores, aumenta a capacidade de carga para equipamentos e tropa, reduz o gasto de combustível e cria acesso a novos projetos.
-
-*Consulte a disponibilidade do produto em sua região.`,
+- Adiciona um mínimo de peso e espessura.
+- Compatível com diversos modelos de veículos.
+- Certificado e testado em laboratórios internacionais.`,
   },
   tab4: {
     es: `Vidrio blindado con resistencia balística según la norma NIJ 0108.01 para el nivel NIJ III-A
