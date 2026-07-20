@@ -16,7 +16,7 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
     year: 1999,
     title: { es: "Patente SteelGlass®", en: "SteelGlass® Patent", pt: "Patente SteelGlass®" }[lang],
     image: "/about/1999.webp",
-    description: { es: "Patente otorgada para el vidrio blindado SteelGlass® con inserción de acero integrada (MU7902225-1), concedida en 2012.", en: "Patent granted for SteelGlass® armored glass with integrated steel insert (MU7902225-1), awarded in 2012.", pt: "Patente concedida para o vidro blindado SteelGlass® com inserção de aço integrada (MU7902225-1), concedida em 2012." }[lang]
+    description: { es: "Patente otorgada para el vidrio blindado SteelGlass® con inserción de acero (MU7902225-1).", en: "Patent granted for SteelGlass® armored glass with steel insert (MU7902225-1).", pt: "Patente concedida para o vidro blindado SteelGlass® com inserção de aço (MU7902225-1)." }[lang]
   },
   {
     year: 2004,
@@ -28,7 +28,7 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
     year: 2005,
     title: { es: "Nueva Planta en Cotia", en: "New Plant in Cotia", pt: "Nova Planta em Cotia" }[lang],
     image: "/about/2005.webp",
-    description: { es: "Nueva planta en Cotia, São Paulo, Brasil (DOT #812).", en: "New manufacturing facility in Cotia, São Paulo, Brazil (DOT #812).", pt: "Nova unidade em Cotia, São Paulo, Brasil (DOT #812)." }[lang]
+    description: { es: "Cotia, São Paulo, Brasil (DOT #812).", en: "Cotia, São Paulo, Brazil (DOT #812).", pt: "Cotia, São Paulo, Brasil (DOT #812)." }[lang]
   },
   {
     year: 2006,
@@ -38,69 +38,87 @@ const getTimelineData = (lang: 'es' | 'en' | 'pt') => [
   },
   {
     year: 2007,
-    title: { es: "Primer Contrato OEM con BMW", en: "First OEM Contract with BMW", pt: "Primeiro Contrato OEM com a BMW" }[lang],
+    title: { es: "Primer contrato de suministro para BMW", en: "First supply contract for BMW", pt: "Primeiro contrato de fornecimento para a BMW" }[lang],
     image: "/about/2007.webp",
-    description: { es: "PG Brasil obtiene su primer contrato OEM para el suministro de vidrios blindados originales (BRG) para el BMW X5 E70 (VR4), certifica su Sistema de Gestión de Calidad bajo la norma ISO 9001:2000 por TÜV SÜD, y obtiene un segundo contrato OEM para soluciones de protección balística nivel NIJ III-A.", en: "PG Brazil secures its first OEM contract to supply original ballistic-resistant glass (BRG) for the BMW X5 E70 (VR4), certifies its Quality Management System under ISO 9001:2000 by TÜV SÜD, and secures a second OEM contract for NIJ Level III-A ballistic protection solutions.", pt: "A PG Brasil conquista seu primeiro contrato OEM para o fornecimento de vidros blindados originais (BRG) para o BMW X5 E70 (VR4), certifica seu Sistema de Gestão da Qualidade conforme a norma ISO 9001:2000 pela TÜV SÜD, e conquista um segundo contrato OEM para soluções de proteção balística nível NIJ III-A." }[lang]
+    description: { es: "Conquista del primer contrato OEM para el suministro de vidrios blindados originales (BRG) para el BMW X5 E70 (VR4). Certificación del Sistema de Gestión de la Calidad bajo ISO 9001:2000 por TÜV SÜD. Conquista del segundo contrato OEM de suministro para el BMW X5 Security Plus (AK47).", en: "Award of the first OEM contract to supply original ballistic glass (BRG) for the BMW X5 E70 (VR4). Quality Management System certified under ISO 9001:2000 by TÜV SÜD. Award of the second OEM supply contract for the BMW X5 Security Plus (AK47).", pt: "Conquista do primeiro contrato OEM para o fornecimento de vidros blindados originais (BRG) para o BMW X5 E70 (VR4). Certificação do Sistema de Gestão da Qualidade sob a ISO 9001:2000 pelo TÜV SÜD. Conquista do segundo contrato de fornecimento OEM para a BMW X5 Security Plus (AK47)." }[lang]
   },
   {
     year: 2008,
-    title: { es: "Planta de Ensamblaje en Toluca", en: "Assembly Plant in Toluca", pt: "Planta de Montagem em Toluca" }[lang],
+    title: { es: "Suministro en serie para BMW", en: "Series supply for BMW", pt: "Fornecimento em Série para BMW" }[lang],
     image: "/about/2008.webp",
-    description: { es: "Inicio de producción en serie (SOP) de conjuntos de vidrio blindado (BRG) para el BMW X5 E70 (VR4) destinados a la línea de ensamblaje en México, solicitud de patente para el acristalamiento blindado Monoblock® (PI 0804803-7), y puesta en marcha de la planta de ensamblaje en Toluca, México, en solo nueve meses desde los planos de ingeniería, en cumplimiento de los requisitos de contenido local de BMW.", en: "Start of Production (SOP) of ballistic-resistant glass (BRG) assemblies for the BMW X5 E70 (VR4) assembly line in Mexico, a patent filed for the Monoblock® ballistic glazing technology (PI 0804803-7), and the commissioning of the assembly plant in Toluca, Mexico, in just nine months from engineering drawings to operation, meeting BMW's local content requirements.", pt: "Início da produção em série (SOP) de conjuntos de vidros blindados (BRG) para o BMW X5 E70 (VR4) destinados à linha de montagem no México, pedido de patente para a tecnologia de envidraçamento blindado Monoblock® (PI 0804803-7), e a colocação em operação da planta de montagem em Toluca, México, em apenas nove meses a partir dos desenhos de engenharia, atendendo aos requisitos de conteúdo local da BMW." }[lang]
+    description: { es: "Inicio del suministro en serie (SOP) de vidrios blindados (BRG) para la línea de montaje del BMW X5 Security en México. Solicitud de patente del acristalamiento balístico Monoblock® (PI 0804803-7).", en: "Start of series supply (SOP) of ballistic glass (BRG) for the BMW X5 Security assembly line in Mexico. Patent filing for Monoblock® ballistic glazing (PI 0804803-7).", pt: "Início do fornecimento em série (SOP) de vidros blindados (BRG) para a linha de montagem da BMW X5 Security no México. Pedido de patente do envidraçamento balístico Monoblock® (PI 0804803-7)." }[lang]
   },
   {
     year: 2009,
-    title: { es: "Producción en PG México", en: "Production at PG Mexico", pt: "Produção na PG México" }[lang],
+    title: { es: "Inauguración de la fábrica PG México (DOT #920)", en: "Opening of PG Mexico plant (DOT #920)", pt: "Inauguração da Fábrica PG México (DOT #920)" }[lang],
     image: "/about/2009.webp",
-    description: { es: "Inicio de producción en serie (SOP) de conjuntos de vidrio blindado original (BRG) para el BMW X5 E70 (VR6) desde la planta de PG México (DOT #920), y para el lanzacohetes ASTROS II de AVIBRAS, en servicio con las Fuerzas Armadas de Brasil, Indonesia, Malasia y Catar, así como para vehículos Unimog utilizados en misiones de paz de las Naciones Unidas.", en: "Start of Production (SOP) of original ballistic-resistant glass (BRG) assemblies for the BMW X5 E70 (VR6) at the PG Mexico facility (DOT #920), and for the AVIBRAS ASTROS II Rocket Launcher, deployed by the Armed Forces of Brazil, Indonesia, Malaysia, and Qatar, as well as for Unimog vehicles used in United Nations peacekeeping missions.", pt: "Início da produção em série (SOP) de conjuntos de vidros blindados originais (BRG) para o BMW X5 E70 (VR6) na planta da PG México (DOT #920), e para o lançador de foguetes ASTROS II da AVIBRAS, em operação nas Forças Armadas do Brasil, Indonésia, Malásia e Catar, bem como para veículos Unimog utilizados em missões de paz das Nações Unidas." }[lang]
+    description: { es: "Inicio del suministro en serie (SOP) de vidrios blindados originales (OEM) para el BMW X5 Security Plus (AK47). Conquista del primer contrato de suministro para la Industria de Defensa: lanzador de cohetes ASTROS II de AVIBRAS. Equipa a las Fuerzas Armadas de Brasil, Catar, Indonesia y Malasia.", en: "Start of series supply (SOP) of original armored glass (OEM) for the BMW X5 Security Plus (AK47). Award of the first supply contract for the Defense Industry: AVIBRAS ASTROS II rocket launcher. Equipped the Armed Forces of Brazil, Qatar, Indonesia, and Malaysia.", pt: "Início do fornecimento em série (SOP) de vidros blindados originais (OEM) para o BMW X5 Security Plus (AK47). Conquista do primeiro contrato de fornecimento para a Indústria de Defesa: lançador de foguetes ASTROS II da AVIBRAS. Equipa as Forças Armadas do Brasil, Catar, Indonésia e Malásia." }[lang]
   },
   {
     year: 2010,
     title: { es: "Certificación ISO 9001:2008", en: "ISO 9001:2008 Certification", pt: "Certificação ISO 9001:2008" }[lang],
     image: "/about/2010.webp",
-    description: { es: "PG México obtiene la certificación ISO 9001:2008 de TÜV SÜD.", en: "PG Mexico obtains ISO 9001:2008 certification from TÜV SÜD.", pt: "A PG México obtém a certificação ISO 9001:2008 da TÜV SÜD." }[lang]
+    description: { es: "PG México obtiene la certificación ISO 9001:2008 por TÜV SÜD.", en: "PG Mexico obtains ISO 9001:2008 certification by TÜV SÜD.", pt: "A PG México obtém a certificação ISO 9001:2008 pela TÜV SÜD." }[lang]
   },
   {
     year: 2011,
     title: { es: "Norma ABNT NBR 15000", en: "ABNT NBR 15000 Standard", pt: "Norma ABNT NBR 15000" }[lang],
     image: "/about/2011.webp",
-    description: { es: "Contribución activa a la revisión de la norma brasileña ABNT NBR 15000 para vidrios blindados.", en: "Key contributor to the revision of the Brazilian ballistic-resistant glass standard ABNT NBR 15000.", pt: "Contribuição ativa para a revisão da norma brasileira ABNT NBR 15000 para vidros blindados." }[lang]
+    description: { es: "Contribución fundamental a la revisión de la norma brasileña ABNT NBR 15000 para vidrios blindados.", en: "Fundamental contribution to the revision of the Brazilian ballistic-resistant glass standard ABNT NBR 15000.", pt: "Contribuição fundamental para a revisão da norma brasileira ABNT NBR 15000 para vidros blindados." }[lang]
   },
   {
     year: 2013,
-    title: { es: "Tercer Contrato OEM con BMW", en: "Third OEM Contract with BMW", pt: "Terceiro Contrato OEM com a BMW" }[lang],
+    title: { es: "Tercer contrato OEM con automotriz alemana", en: "Third OEM contract with German automaker", pt: "Terceiro contrato (OEM) com montadora alemã" }[lang],
     image: "/about/2013.webp",
-    description: { es: "PG obtiene su tercer contrato OEM para el BMW X5 F15 (VR4 y VR6).", en: "PG secures its third OEM contract for the BMW X5 F15 (VR4 and VR6).", pt: "A PG conquista seu terceiro contrato OEM para o BMW X5 F15 (VR4 e VR6)." }[lang]
+    description: { es: "Suministro de vidrios blindados (OEM) para BMW X5 F15 (VR4 y VR6).", en: "Supply of armored glass (OEM) for BMW X5 F15 (VR4 and VR6).", pt: "Fornecimento de vidros blindados (OEM) para BMW X5 F15 (VR4 e VR6)." }[lang]
   },
   {
     year: 2014,
     title: { es: "Expansión a Nuevos Mercados", en: "Expansion into New Markets", pt: "Expansão para Novos Mercados" }[lang],
     image: "/about/2014.webp",
-    description: { es: "Inicio de exportaciones a Francia, Italia y Argentina, y participación como expositor en el 28.º Salón Internacional del Automóvil de São Paulo, Brasil.", en: "Launch of exports to France, Italy, and Argentina, and participation as an exhibitor at the 28th São Paulo International Auto Show, Brazil.", pt: "Início das exportações para França, Itália e Argentina, e participação como expositora no 28º Salão Internacional do Automóvel de São Paulo, Brasil." }[lang]
+    description: { es: "Inicio de las exportaciones a Argentina, Francia e Italia. Por tercera vez, expositor en el Salón Internacional del Automóvil de São Paulo, Brasil.", en: "Beginning of exports to Argentina, France, and Italy. For the third time, exhibitor at the São Paulo International Auto Show, Brazil.", pt: "Início das exportações para Argentina, França e Itália. Pela 3a. vez, expositor no Salão Internacional do Automóvel de São Paulo, Brasil." }[lang]
   },
   {
     year: 2017,
     title: { es: "Innovación y Certificación ISO 9001:2015", en: "Innovation and ISO 9001:2015 Certification", pt: "Inovação e Certificação ISO 9001:2015" }[lang],
     image: "/about/2017.webp",
-    description: { es: "Desarrollo de una solución laminada antivandalismo de 11 mm de espesor conforme a los estándares de la Policía Alemana, presentada en la IAA Frankfurt en el stand de Indikar, y certificación del Sistema de Gestión de Calidad bajo la norma ISO 9001:2015 para las plantas de PG Brasil y PG México.", en: "Development of an 11 mm anti-vandal laminate in compliance with German Police standards, showcased at IAA Frankfurt in the Indikar booth, and ISO 9001:2015 certification achieved for the PG Brazil and PG Mexico plants.", pt: "Desenvolvimento de uma solução laminada antivandalismo com 11 mm de espessura, conforme os padrões da Polícia Alemã, apresentada na IAA Frankfurt no estande da Indikar, e certificação do Sistema de Gestão da Qualidade conforme a norma ISO 9001:2015 para as plantas da PG Brasil e PG México." }[lang]
+    description: { es: "Según la norma de la Policía Alemana, presentación en el Salón del Automóvil de Frankfurt (IAA) del vidrio antivandalismo con espesor de 11 mm. Certificación ISO 9001:2015 para los Sistemas de Gestión de la Calidad PG Products en Brasil y México.", en: "According to the German Police standard, presentation at the Frankfurt Motor Show (IAA) of the 11 mm anti-vandal glass. ISO 9001:2015 certification for PG Products Quality Management Systems in Brazil and Mexico.", pt: "Conforme norma da Polícia Alemã, apresentação no Salão do Automóvel de Frankfurt (IAA) do vidro antivandalismo com espessura de 11mm. Certificação ISO 9001:2015 para os Sistemas de Gestão da Qualidade PG Products no Brasil e no México." }[lang]
   },
   {
     year: 2020,
     title: { es: "Certificación IATF 16949", en: "IATF 16949 Certification", pt: "Certificação IATF 16949" }[lang],
     image: "/about/2020.webp",
-    description: { es: "PG México obtiene la certificación IATF 16949.", en: "PG Mexico achieves IATF 16949 certification.", pt: "A PG México obtém a certificação IATF 16949." }[lang]
+    description: { es: "PG México obtiene certificación bajo IATF 16949, exclusiva para proveedores OEM.", en: "PG Mexico obtains certification under IATF 16949, exclusive to OEM suppliers.", pt: "A PG México obtém certificação sob a IATF 16949, exclusiva para fornecedores (OEM)." }[lang]
   },
   {
     year: 2022,
-    title: { es: "Soluciones Balísticas ZEUS-Mike", en: "ZEUS-Mike Ballistic Solutions", pt: "Soluções Balísticas ZEUS-Mike" }[lang],
+    title: { es: "Suministro para fuerzas policiales", en: "Supply for police forces", pt: "Fornecimento para forças policiais" }[lang],
     image: "/about/2022.webp",
-    description: { es: "Suministro de soluciones balísticas para Fuerzas Especiales de Policía conforme a la norma NATO STANAG 4569 Nivel I (Turquía) – ZEUS-Mike.", en: "Supply of ballistic protection solutions for Police Special Forces in compliance with NATO STANAG 4569 Level I (Turkey) – ZEUS-Mike.", pt: "Fornecimento de soluções balísticas para Forças Especiais de Polícia sob a norma NATO STANAG 4569 Nível I (Turquia) – ZEUS-Mike." }[lang]
+    description: { es: "Suministro de vidrios blindados para fuerzas policiales (OSOP). Suministro de vidrios blindados para Fuerzas Especiales de Policía bajo la norma NBR 15000 Nivel III.", en: "Supply of armored glass for police forces (OSOP). Supply of armored glass for Police Special Forces under NBR 15000 Level III.", pt: "Fornecimento de vidros blindados para forças policiais (OSOP). Fornecimento de vidros blindados para Forças Especiais de Polícia sob a norma NBR 15000 Nível III." }[lang]
   },
   {
     year: 2023,
     title: { es: "Patente ERV", en: "ERV Patent", pt: "Patente ERV" }[lang],
     image: "/about/2023.webp",
-    description: { es: "Patente concedida para sistemas de acristalamiento para vehículos resistentes a explosiones (ERV).", en: "Patent granted for glazing systems for Explosive Resistant Vehicles (ERV).", pt: "Patente concedida para sistemas de envidraçamento para veículos resistentes a explosões (ERV)." }[lang]
+    description: { es: "Patente concedida para sistemas de acristalamiento para vehículos resistentes a explosiones (ERV: Explosive Resistant Vehicle).", en: "Patent granted for glazing systems for vehicles resistant to explosions (ERV: Explosive Resistant Vehicle).", pt: "Patente concedida para sistemas de envidraçamento para veículos resistentes a explosões (ERV: Explosive Resistant Vehicle)." }[lang]
+  },
+  {
+    year: 2024,
+    title: { es: "Audi Security", en: "Audi Security", pt: "Audi Security" }[lang],
+    image: "/about/2023.webp",
+    description: { es: "Evolución del portafolio de soluciones blindadas de alta especificación para plataformas premium.", en: "Evolution of the portfolio of high-specification armored solutions for premium platforms.", pt: "Evolução do portfólio de soluções blindadas de alta especificação para plataformas premium." }[lang]
+  },
+  {
+    year: 2025,
+    title: { es: "Patente concedida en México", en: "Patent granted in Mexico", pt: "Patente concedida no México" }[lang],
+    image: "/about/RnD_image@2x.webp",
+    description: { es: "Patente concedida en México referente al inserto PBI con pernos.", en: "Patent granted in Mexico related to the PBI insert with studs.", pt: "Patente concedida no México, referente ao inserto do PBI com prisioneiros." }[lang]
+  },
+  {
+    year: 2026,
+    title: { es: "Patente concedida en Brasil", en: "Patent granted in Brazil", pt: "Patente concedida no Brasil" }[lang],
+    image: "/about/RnD_image@2x.webp",
+    description: { es: "Patente concedida en Brasil referente al inserto PBI con pernos.", en: "Patent granted in Brazil related to the PBI insert with studs.", pt: "Patente concedida no Brasil, referente ao inserto do PBI com prisioneiros." }[lang]
   }
 ];
 
@@ -208,9 +226,9 @@ const ht = {
     pt: "Fundada no Brasil em 1998, a PG Products® é uma das empresas líderes no desenvolvimento e na fabricação de vidros de proteção balística para diversas aplicações. Sua trajetória de inovação resultou na tecnologia patenteada SteelGlass®, uma solução de vidro laminado blindado com inserção de aço inoxidável."
   },
   companyP2: {
-    es: "Como proveedor global de la industria automotriz, PG Products® forma parte de una selecta red de fabricantes que abastecen a marcas internacionales de primer nivel. Con operaciones en Brasil y México, la compañía atiende mercados estratégicos en América y el resto del mundo.",
-    en: "As a trusted supplier to the automotive industry, PG Products® is part of a select group of manufacturers serving leading international vehicle brands. With operations in Brazil and Mexico, the company supports strategic markets across the Americas and beyond.",
-    pt: "Como fornecedora global da indústria automotiva, a PG Products® integra um seleto grupo de fabricantes que atendem marcas internacionais de referência. Com operações no Brasil e no México, a empresa atende mercados estratégicos nas Américas e em outras regiões do mundo."
+    es: "Como proveedor global de la industria automotriz, PG Products® forma parte de una selecta red de fabricantes que abastecen a marcas internacionales de primer nivel. Con operaciones en Brasil y México, la compañía atiende mercados estratégicos en las Américas y Europa.",
+    en: "As a trusted supplier to the automotive industry, PG Products® is part of a select group of manufacturers serving leading international vehicle brands. With operations in Brazil and Mexico, the company supports strategic markets across the Americas and Europe.",
+    pt: "Como fornecedora global da indústria automotiva, a PG Products® integra um seleto grupo de fabricantes que atendem marcas internacionais de referência. Com operações no Brasil e no México, a empresa atende mercados estratégicos nas Américas e na Europa."
   },
   companyP3: {
     es: "Actualmente, PG Products® ofrece un portafolio integral de soluciones en vidrio blindado, respaldado por investigación continua, desarrollo tecnológico y altos estándares de calidad. Sus productos y sistemas están presentes en los sectores automotriz, militar, aeronáutico, naval y arquitectónico.",
@@ -227,39 +245,39 @@ const ht = {
     en: "The quality of PG Products® ballistic glass is subjected to rigorous testing to meet customer requirements, following national and international standards and certifications. All marketed products receive a tracking code, a unique identifier, that allows access to all information about their manufacture, previously developed according to the security specifications of each armoring level.",
     pt: "A qualidade dos vidros balísticos da PG Products® é submetida a rigorosos testes para atender aos requisitos dos clientes, seguindo normas e certificações nacionais e internacionais. Todos os produtos comercializados recebem um código de rastreamento, um identificador único, que permite acessar todas as informações sobre sua fabricação, desenvolvida previamente de acordo com as especificações de segurança de cada nível de blindagem."
   },
-  plantsTitle: { es: "Nuestras Fábricas", en: "Our Factories", pt: "Nossas Fábricas" },
+  plantsTitle: { es: "Fábricas", en: "Factories", pt: "Fábricas" },
   plantsSubtitle: {
     es: "Innovación que une continentes, precisión que define nuestra excelencia.",
     en: "Innovation that unites continents, precision that defines our excellence.",
     pt: "Inovação que une continentes, precisão que define nossa excelência."
   },
   plantsDesc: {
-    es: "En PG Products® desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: Brasil y México. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015.",
-    en: "At PG Products® we develop our ballistic solutions from two strategic production centers: Brazil and Mexico. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 standards.",
-    pt: "Na PG Products® desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: Brasil e México. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015."
+    es: "En PG Products® desarrollamos soluciones balísticas a partir de dos centros estratégicos, Brasil y México. Ambas plantas integran laboratorios de investigación y desarrollo, líneas automatizadas y Sistemas de Gestión de la Calidad (SGQ) certificados bajo la norma ISO 9001.",
+    en: "At PG Products® we develop ballistic solutions from two strategic centers, Brazil and Mexico. Both plants integrate research and development laboratories, automated lines, and Quality Management Systems (QMS) certified under ISO 9001.",
+    pt: "Na PG Products® desenvolvemos soluções balísticas a partir de dois centros estratégicos, Brasil e México. Ambas as plantas integram laboratórios de pesquisa e desenvolvimento, linhas automatizadas e os Sistemas de Gestão da Qualidade (SGQ) certificados sob a norma ISO 9001."
   },
   mexicoDesc: {
-    es: "Centro de producción y ensayos balísticos para el mercado norte y centroamericano. Tecnología avanzada, manufactura certificada y soporte técnico especializado.",
-    en: "Production and ballistic testing center for the North and Central American market. Advanced technology, certified manufacturing and specialized technical support.",
-    pt: "Centro de produção e ensaios balísticos para o mercado norte e centro-americano. Tecnologia avançada, manufatura certificada e suporte técnico especializado."
+    es: "Actuamos en desarrollo, ensayos balísticos y fabricación. Nuestra estructura robusta une tecnología de punta y soporte técnico especializado para atender las demandas más exigentes del mercado.",
+    en: "We operate in development, ballistic testing, and manufacturing. Our robust structure combines cutting-edge technology and specialized technical support to meet the market's most demanding requirements.",
+    pt: "Atuamos no desenvolvimento, ensaios balísticos e fabricação. Nossa estrutura robusta une tecnologia de ponta e suporte técnico especializado para atender às demandas mais exigentes do mercado."
   },
   brasilDesc: {
-    es: "Sede principal y laboratorio de innovación. Investigación, ingeniería multicapa y control de calidad de última generación.",
-    en: "Headquarters and innovation laboratory. Research, multilayer engineering and state-of-the-art quality control.",
-    pt: "Sede principal e laboratório de inovação. Pesquisa, engenharia multicamada e controle de qualidade de última geração."
+    es: "Combinamos tecnología de punta, procesos certificados internacionales y soporte técnico especializado para garantizar la máxima seguridad y confiabilidad en cada proyecto.",
+    en: "We combine cutting-edge technology, internationally certified processes, and specialized technical support to ensure maximum safety and reliability in every project.",
+    pt: "Combinamos tecnologia de ponta, processos certificados internacionais e suporte técnico especializado para garantir a máxima segurança e confiabilidade em cada projeto."
   },
   peopleTitle: { es: "Equipo PG", en: "Team PG", pt: "Equipe PG" },
   peopleP1: {
-    es: "En PG Products®, creemos que la verdadera fortaleza de nuestra compañía no está solo en la tecnología, sino en las personas que la hacen posible.",
-    en: "At PG Products®, we believe that the true strength of our company lies not only in technology, but in the people who make it possible.",
-    pt: "Na PG Products®, acreditamos que a verdadeira força da nossa empresa não está apenas na tecnologia, mas nas pessoas que a tornam possível."
+    es: "Más que tecnología, la verdadera fuerza de PG Products® está en las personas.",
+    en: "More than technology, the true strength of PG Products® lies in its people.",
+    pt: "Mais do que tecnologia, a verdadeira força da PG Products® está nas pessoas."
   },
   peopleP2: {
-    es: "Desde ingenieros y técnicos especializados hasta diseñadores y personal operativo, todos compartimos un mismo propósito: proteger vidas a través de la excelencia. Su conocimiento, precisión y sentido de responsabilidad son el reflejo del ADN PG Products®: innovación, calidad y confianza.",
-    en: "From specialized engineers and technicians to designers and operational staff, we all share the same purpose: protecting lives through excellence. Their knowledge, precision and sense of responsibility reflect the PG Products® DNA: innovation, quality and trust.",
-    pt: "De engenheiros e técnicos especializados a designers e equipe operacional, todos compartilhamos o mesmo propósito: proteger vidas por meio da excelência. Seu conhecimento, precisão e senso de responsabilidade são o reflexo do DNA PG Products®: inovação, qualidade e confiança."
+    es: "El equipo formado por ingenieros, técnicos especializados y profesionales operativos trabaja unido por un único propósito: proteger vidas con excelencia. El conocimiento técnico, la precisión y el sentido de responsabilidad de cada uno moldean el ADN de PG Products®: innovación, calidad y confianza.",
+    en: "The team of engineers, specialized technicians, and operational professionals works together with a single purpose: protecting lives with excellence. The technical knowledge, precision, and sense of responsibility of each person shape PG Products®' DNA: innovation, quality, and trust.",
+    pt: "A equipe formada por engenheiros, técnicos especializados e profissionais operacionais trabalha unida por um único propósito: Proteger vidas com excelência. É o conhecimento técnico, a precisão e o senso de responsabilidade de cada um que moldam o DNA da PG Products®: inovação, qualidade e confiança."
   },
-  journeyTitle: { es: "Nuestro Recorrido", en: "Our Journey", pt: "Nossa Trajetória" },
+  journeyTitle: { es: "Trayectoria", en: "Journey", pt: "Trajetória" },
   journeySubtitle: {
     es: "Un viaje de dedicación, innovación continua y compromiso con la excelencia",
     en: "A journey of dedication, continuous innovation and commitment to excellence",
@@ -305,7 +323,7 @@ const HistoriaPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const plantBrImages = ['/about/ourplantbr-1.webp', '/about/ourplantbr-2.webp', '/about/ourplantbr-3.webp'];
+  const plantBrImages = ['/about/IMG_4473.webp', '/about/ourplantbr-1.webp', '/about/ourplantbr-2.webp'];
   const [currentBrSlide, setCurrentBrSlide] = useState(0);
 
   useEffect(() => {
