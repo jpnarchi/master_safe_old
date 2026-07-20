@@ -234,9 +234,9 @@ const ht = {
     pt: "Inovação que une continentes, precisão que define nossa excelência."
   },
   plantsDesc: {
-    es: "En PG Products® desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: México y Brasil. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015.",
-    en: "At PG Products® we develop our ballistic solutions from two strategic production centers: Mexico and Brazil. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 standards.",
-    pt: "Na PG Products® desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: México e Brasil. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015."
+    es: "En PG Products® desarrollamos nuestras soluciones balísticas desde dos centros estratégicos de producción: Brasil y México. Ambas plantas integran laboratorios de I+D, líneas automatizadas de laminación y un Sistema de Gestión de Calidad (SGQ) certificado bajo normas ISO 9001:2015.",
+    en: "At PG Products® we develop our ballistic solutions from two strategic production centers: Brazil and Mexico. Both plants integrate R&D laboratories, automated lamination lines and a Quality Management System (QMS) certified under ISO 9001:2015 standards.",
+    pt: "Na PG Products® desenvolvemos nossas soluções balísticas a partir de dois centros estratégicos de produção: Brasil e México. Ambas as plantas integram laboratórios de P&D, linhas automatizadas de laminação e um Sistema de Gestão da Qualidade (SGQ) certificado pelas normas ISO 9001:2015."
   },
   mexicoDesc: {
     es: "Centro de producción y ensayos balísticos para el mercado norte y centroamericano. Tecnología avanzada, manufactura certificada y soporte técnico especializado.",

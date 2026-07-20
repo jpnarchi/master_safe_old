@@ -244,7 +244,7 @@ const PGMilitaryPage = () => {
           {/* Tab Segments Image */}
           <div className="w-full mb-8 sm:mb-12">
             <img
-              src="/military/Tab-SegmentsMilitary.webp"
+              src="/military/Tab-Military-01.webp"
               alt="Military Segments"
               className="w-full object-cover rounded-xl"
             />

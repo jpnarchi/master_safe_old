@@ -22,6 +22,7 @@ import PGMilitaryPage from "./pages/PGMilitaryPage";
 
 import PGBallisticsPage from "./pages/PGBallisticsPage";
 import PGDNAPage from "./pages/PGDNAPage";
+import SuccessCasesPage from "./pages/SuccessCasesPage";
 
 // Component to handle page transitions and loading
 const PageContainer = () => {
@@ -49,6 +50,7 @@ const PageContainer = () => {
         
         <Route path="/pg-ballistics" element={<PGBallisticsPage />} />
         <Route path="/pg-dna" element={<PGDNAPage />} />
+        <Route path="/success-cases" element={<SuccessCasesPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

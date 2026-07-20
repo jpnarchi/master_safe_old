@@ -310,6 +310,17 @@ const Navbar = () => {
             >
               {T({ es: "PG ADN", en: "PG DNA", pt: "PG ADN" })}
             </Link>
+
+            <Link
+              to="/success-cases"
+              className={`text-sm xl:text-base font-medium transition-colors duration-300 ease-out whitespace-nowrap ${
+                shouldAlwaysShowNav
+                  ? 'text-pgnavy hover:text-pgnavy/80'
+                  : (isHovered || isScrolled || activeMenu ? 'text-pgnavy hover:text-pgnavy/80' : 'text-white hover:text-white/80')
+              }`}
+            >
+              {T({ es: "Casos de Éxito", en: "Success Cases", pt: "Casos de Sucesso" })}
+            </Link>
           </nav>
 
           <div className="hidden xl:flex items-center gap-3 pr-0 flex-shrink-0">
@@ -632,6 +643,13 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               {T({ es: "PG ADN", en: "PG DNA", pt: "PG ADN" })}
+            </Link>
+            <Link
+              to="/success-cases"
+              className="block px-4 py-3 rounded-lg text-base font-medium text-pgnavy hover:bg-pglight/50 transition-colors"
+              onClick={closeMobileMenu}
+            >
+              {T({ es: "Casos de Éxito", en: "Success Cases", pt: "Casos de Sucesso" })}
             </Link>
             <Link
               to="/contacto"

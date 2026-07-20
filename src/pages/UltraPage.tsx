@@ -18,7 +18,6 @@ const UltraPage = () => {
     '/products/ultra/HeroPGUltra-2.webp',
     '/products/ultra/HeroPGUltra-3.webp',
     '/products/ultra/HeroPGUltra-4.webp',
-    '/products/ultra/HeroPGUltra-5.webp',
     '/products/ultra/HeroPGUltra-6.webp',
   ];
 
