@@ -284,7 +284,7 @@ const ht = {
     pt: "Uma jornada de dedicação, inovação contínua e compromisso com a excelência"
   },
   downloadsTitle: { es: "Archivos para descargar", en: "Files to Download", pt: "Arquivos para Download" },
-  download1: { es: "Catálogo de Productos", en: "Products Catalogue", pt: "Catálogo de Produtos" },
+  download1: { es: "Carta patente SteelGlass®", en: "SteelGlass® Patent Letter", pt: "Carta patente SteelGlass®" },
   formTitle: { es: "Protegemos tu seguridad", en: "We Protect Your Security", pt: "Protegemos sua segurança" },
   formSubtitle: {
     es: "Confía en la experiencia y calidad de un líder en seguridad automotriz.",
@@ -500,13 +500,18 @@ const HistoriaPage = () => {
                   {T(ht.download1)}
                 </h3>
               </div>
-              <button className="flex items-center justify-center w-16 h-16 bg-pgblue hover:bg-pgblue/90 rounded-lg transition-colors">
+              <a
+                href="/downloads/Carta-Patente-PG-Products.pdf"
+                download
+                className="flex items-center justify-center w-16 h-16 bg-pgblue hover:bg-pgblue/90 rounded-lg transition-colors"
+                aria-label={T(ht.download1)}
+              >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <polyline points="7 10 12 15 17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </button>
+              </a>
             </div>
 
             <div className="border-t border-gray-300 pt-2"></div>
