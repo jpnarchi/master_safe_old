@@ -30,7 +30,7 @@ const Nosotros = () => {
             alt="Master Safe Armoring"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-brand-green-dark/30" />
         </div>
 
         {/* Craftsmanship Section */}
@@ -67,7 +67,7 @@ const Nosotros = () => {
         </div>
 
         {/* Classic Car Section */}
-        <div className="py-24 bg-gray-50">
+        <div className="py-24 bg-brand-light">
           <div className="container mx-auto px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl brand-heading mb-6">EXPERIENCIA Y TRADICIÓN</h2>

@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
       href="https://api.whatsapp.com/send?phone=525512040947"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-50 bg-[#25D366] hover:bg-[#20BD5C] rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110"
+      className="fixed bottom-8 right-8 z-50 bg-brand-green hover:bg-brand-green-mid rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110"
       aria-label="Chat on WhatsApp"
     >
       <img

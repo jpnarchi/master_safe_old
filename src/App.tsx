@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import ImageSlideshow from './components/ImageSlideshow';
@@ -19,6 +19,11 @@ const slideshowImages = [
   '/IMG_4525.JPG',
 ];
 
+// 'instant' evita la animación de `scroll-behavior: smooth` definida en index.css
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+};
+
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
@@ -28,13 +33,29 @@ function App() {
       setCurrentPage(hash || 'home');
     };
 
+    // Enlaces internos (#pagina): subir también cuando el hash no cambia
+    // (p. ej. clic en "Contacto" estando ya en Contacto), caso en el que
+    // el navegador no dispara 'hashchange'.
+    const handleLinkClick = (event: MouseEvent) => {
+      const link = (event.target as Element).closest('a[href^="#"]');
+      if (link) scrollToTop();
+    };
+
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
+    document.addEventListener('click', handleLinkClick);
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
+      document.removeEventListener('click', handleLinkClick);
     };
   }, []);
+
+  // Al cambiar de página, mostrarla siempre desde arriba. Se ejecuta antes
+  // del pintado para que no se vea la posición anterior.
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, [currentPage]);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -84,7 +105,7 @@ function App() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Enhanced gradient overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/75 to-brand-green-dark/40" />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                 <h2 className="text-4xl md:text-5xl text-white font-bold mb-8 [text-shadow:_0_4px_12px_rgb(0_0_0_/_90%)]">
                   PROTEGE LO QUE MÁS IMPORTA
@@ -94,7 +115,7 @@ function App() {
                 </p>
                 <a
                   href="#contacto"
-                  className="px-12 py-4 bg-white text-brand-navy hover:bg-brand-navy hover:text-white transition-all duration-300 text-lg tracking-wider uppercase font-light"
+                  className="px-12 py-4 bg-white text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 text-lg tracking-wider uppercase font-light"
                 >
                   Contáctanos Ahora
                 </a>

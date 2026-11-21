@@ -65,7 +65,7 @@ const Galeria = () => {
                     className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-900/50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-brand-green-dark/0 group-hover:bg-brand-green-dark/50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <h3 className="text-white text-2xl font-light tracking-wider">
                     {image.title}
                   </h3>
@@ -78,7 +78,7 @@ const Galeria = () => {
 
       {/* Lightbox */}
       {selectedImage !== null && (
-        <div className="fixed inset-0 bg-gray-900/95 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-brand-green-dark/95 z-50 flex items-center justify-center">
           <button
             onClick={() => setSelectedImage(null)}
             className="absolute top-8 right-8 text-white hover:opacity-75 transition-opacity"

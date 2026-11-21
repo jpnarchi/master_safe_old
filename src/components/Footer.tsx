@@ -11,7 +11,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-50 py-12 md:py-24">
+    <footer className="bg-brand-light py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-xl md:text-2xl brand-heading">MASTER SAFE</h2>
@@ -24,7 +24,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={`#${link.hash}`}
-                    className="text-sm brand-text hover:text-brand-navy transition-colors"
+                    className="text-sm brand-text hover:text-brand-green transition-colors"
                   >
                     {link.name}
                   </a>
@@ -45,7 +45,7 @@ const Footer = () => {
               href="https://mx.linkedin.com/company/master-safe"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-brand-navy transition-colors"
+              className="inline-flex items-center gap-2 text-brand-grey hover:text-brand-green transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
@@ -54,14 +54,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-200 pt-8 gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-brand-line pt-8 gap-4 md:gap-0">
           <p className="text-sm brand-text">© Master Safe 2025</p>
           <div className="flex items-center gap-4 md:gap-8">
-            <button className="text-sm brand-text hover:text-brand-navy transition-colors p-2">
+            <button className="text-sm brand-text hover:text-brand-green transition-colors p-2">
               EN / ES
             </button>
             <button
-              className="text-gray-600 hover:text-brand-navy transition-colors p-2"
+              className="text-brand-grey hover:text-brand-green transition-colors p-2"
               aria-label="Toggle theme"
             >
               <Sun size={20} md:size={24} />
@@ -75,7 +75,7 @@ const Footer = () => {
             href="https://astrawebdevelopers.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hover:text-brand-navy transition-colors"
+            className="hover:text-brand-green transition-colors"
           >
             Creado por Astra Web Developers
           </a>

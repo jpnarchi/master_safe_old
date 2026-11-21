@@ -23,6 +23,8 @@ const Navigation = () => {
 
   const handleNavigation = (hash: string) => {
     window.location.hash = hash;
+    // Subir aunque se elija la página en la que ya se está
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     setIsMenuOpen(false);
   };
 
@@ -33,7 +35,7 @@ const Navigation = () => {
       }`}>
         <button 
           onClick={() => setIsMenuOpen(true)}
-          className="text-brand-navy hover:text-brand-navy/80 transition-colors p-2"
+          className="text-brand-green hover:text-brand-green-mid transition-colors p-2"
           aria-label="Menu"
         >
           <Menu size={24} />
@@ -64,7 +66,7 @@ const Navigation = () => {
             />
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="text-brand-navy hover:text-brand-navy/80 transition-colors p-2"
+              className="text-brand-green hover:text-brand-green-mid transition-colors p-2"
               aria-label="Close menu"
             >
               <X size={24} />
@@ -75,7 +77,7 @@ const Navigation = () => {
             {menuItems.map((item) => (
               <li key={item.name}>
                 <button
-                  className="text-xl brand-heading hover:text-brand-navy/80 transition-colors block py-2 w-full text-left"
+                  className="text-xl brand-heading hover:text-brand-green-mid transition-colors block py-2 w-full text-left"
                   onClick={() => handleNavigation(item.hash)}
                 >
                   {item.name}
@@ -85,7 +87,7 @@ const Navigation = () => {
           </ul>
 
           <div className="mt-auto">
-            <div className="border-t border-gray-100 pt-8">
+            <div className="border-t border-brand-line pt-8">
               <p className="text-sm brand-text mb-4">Contáctanos</p>
               <p className="text-sm brand-text">+52 55 1204 0947</p>
               <p className="text-sm brand-text">info@mastersafe.com</p>
@@ -96,7 +98,7 @@ const Navigation = () => {
 
       {/* Overlay background */}
       <div 
-        className={`fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-brand-green-dark/20 backdrop-blur-sm z-40 transition-opacity duration-300 ${
           isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMenuOpen(false)}

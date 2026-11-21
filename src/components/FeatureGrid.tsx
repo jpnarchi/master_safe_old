@@ -42,7 +42,7 @@ const features: Feature[] = [
 
 const FeatureGrid = () => {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-brand-light">
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="text-3xl brand-heading text-center mb-16">
           CARACTERÍSTICAS DE SEGURIDAD
@@ -55,7 +55,7 @@ const FeatureGrid = () => {
             >
               <feature.icon
                 size={32}
-                className="text-brand-navy mb-6"
+                className="text-brand-green mb-6"
               />
               <h3 className="text-xl brand-heading mb-4">
                 {feature.title}
