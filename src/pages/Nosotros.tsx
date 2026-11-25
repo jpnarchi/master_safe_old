@@ -19,7 +19,7 @@ const sections = [
 
 const Nosotros = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-brand-green min-h-screen">
       <Navigation />
       
       <section className="pt-20">
@@ -34,7 +34,7 @@ const Nosotros = () => {
         </div>
 
         {/* Craftsmanship Section */}
-        <div className="py-24 bg-white">
+        <div className="py-24 bg-brand-green">
           <div className="container mx-auto px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
               <div>
@@ -67,7 +67,7 @@ const Nosotros = () => {
         </div>
 
         {/* Classic Car Section */}
-        <div className="py-24 bg-brand-light">
+        <div className="py-24 bg-brand-green-dark">
           <div className="container mx-auto px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl brand-heading mb-6">EXPERIENCIA Y TRADICIÓN</h2>
@@ -93,7 +93,7 @@ const Nosotros = () => {
         </div>
 
         {/* Installation Process */}
-        <div className="py-24 bg-white">
+        <div className="py-24 bg-brand-green">
           <div className="container mx-auto px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>

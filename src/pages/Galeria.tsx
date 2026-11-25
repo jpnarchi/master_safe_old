@@ -46,11 +46,11 @@ const Galeria = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-brand-green min-h-screen">
       <Navigation />
       
       <section className="pt-20">
-        <div className="container mx-auto px-8 py-24 bg-white">
+        <div className="container mx-auto px-8 py-24 bg-brand-green">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {images.map((image, index) => (
               <div

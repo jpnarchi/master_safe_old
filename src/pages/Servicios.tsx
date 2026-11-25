@@ -5,7 +5,7 @@ import { Shield, Car, Wrench, Lock, ArrowRight } from 'lucide-react';
 
 const Servicios = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-brand-green min-h-screen">
       <Navigation />
       
       {/* Hero Section */}
@@ -26,7 +26,7 @@ const Servicios = () => {
         </div>
 
         {/* Main Services Section */}
-        <div className="py-24 bg-white">
+        <div className="py-24 bg-brand-green">
           <div className="container mx-auto px-4 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
               {/* Blindaje Transparente */}
@@ -74,32 +74,32 @@ const Servicios = () => {
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-brand-light p-8 rounded-xl">
-                <Shield className="text-brand-green w-12 h-12 mb-6" />
+              <div className="bg-brand-green-mid p-8 rounded-xl">
+                <Shield className="text-white w-12 h-12 mb-6" />
                 <h4 className="text-xl brand-heading mb-4">PROTECCIÓN INTEGRAL</h4>
                 <p className="brand-text">
                   Sistema completo de blindaje que cubre todos los puntos críticos del vehículo.
                 </p>
               </div>
               
-              <div className="bg-brand-light p-8 rounded-xl">
-                <Car className="text-brand-green w-12 h-12 mb-6" />
+              <div className="bg-brand-green-mid p-8 rounded-xl">
+                <Car className="text-white w-12 h-12 mb-6" />
                 <h4 className="text-xl brand-heading mb-4">DISEÑO ORIGINAL</h4>
                 <p className="brand-text">
                   Mantenemos la estética y funcionalidad original de tu vehículo.
                 </p>
               </div>
               
-              <div className="bg-brand-light p-8 rounded-xl">
-                <Wrench className="text-brand-green w-12 h-12 mb-6" />
+              <div className="bg-brand-green-mid p-8 rounded-xl">
+                <Wrench className="text-white w-12 h-12 mb-6" />
                 <h4 className="text-xl brand-heading mb-4">MANTENIMIENTO</h4>
                 <p className="brand-text">
                   Servicio técnico especializado para mantener el blindaje en óptimas condiciones.
                 </p>
               </div>
               
-              <div className="bg-brand-light p-8 rounded-xl">
-                <Lock className="text-brand-green w-12 h-12 mb-6" />
+              <div className="bg-brand-green-mid p-8 rounded-xl">
+                <Lock className="text-white w-12 h-12 mb-6" />
                 <h4 className="text-xl brand-heading mb-4">CERTIFICACIÓN</h4>
                 <p className="brand-text">
                   Materiales y procesos certificados bajo estándares internacionales.
@@ -110,15 +110,15 @@ const Servicios = () => {
         </div>
 
         {/* Technical Showcase */}
-        <div className="bg-brand-light py-24">
+        <div className="bg-brand-green-dark py-24">
           <div className="container mx-auto px-4 md:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl brand-heading mb-8">TECNOLOGÍA AVANZADA</h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-light">01</span>
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                      <span className="text-brand-green font-light">01</span>
                     </div>
                     <div>
                       <h3 className="text-xl brand-heading mb-2">CORTE CNC</h3>
@@ -129,8 +129,8 @@ const Servicios = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-light">02</span>
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                      <span className="text-brand-green font-light">02</span>
                     </div>
                     <div>
                       <h3 className="text-xl brand-heading mb-2">MATERIALES PREMIUM</h3>
@@ -141,8 +141,8 @@ const Servicios = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-light">03</span>
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                      <span className="text-brand-green font-light">03</span>
                     </div>
                     <div>
                       <h3 className="text-xl brand-heading mb-2">INSTALACIÓN EXPERTA</h3>
@@ -161,7 +161,7 @@ const Servicios = () => {
                   className="w-full rounded-2xl shadow-xl"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
-                  <p className="text-sm brand-heading">CERTIFICACIÓN</p>
+                  <p className="text-sm brand-heading !text-brand-green">CERTIFICACIÓN</p>
                   <p className="text-3xl font-light text-brand-green">NIJ III-A</p>
                 </div>
               </div>

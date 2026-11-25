@@ -34,7 +34,7 @@ const ImageSlideshow: React.FC<SlideshowProps> = ({
   }, []);
 
   return (
-    <section className="relative -mt-16 bg-white py-12 md:py-24 overflow-hidden w-full">
+    <section className="relative -mt-16 bg-brand-green py-12 md:py-24 overflow-hidden w-full">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-3xl md:text-4xl brand-heading mb-4 md:mb-6 opacity-0 animate-fade-in">

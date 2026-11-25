@@ -129,7 +129,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-brand-green min-h-screen">
       {renderPage()}
       <WhatsAppButton />
     </div>
