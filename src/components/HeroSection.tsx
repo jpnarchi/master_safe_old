@@ -15,8 +15,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[95vh] w-full bg-white overflow-hidden">
-      <div className="absolute inset-0 w-full h-full bg-white">
+    <section className="relative h-[95vh] w-full bg-brand-green-dark overflow-hidden">
+      <div className="absolute inset-0 w-full h-full bg-brand-green-dark">
         <video
           autoPlay
           loop
@@ -28,6 +28,9 @@ const HeroSection = () => {
           <source src="/video_main.mp4" type="video/mp4" />
         </video>
       </div>
+
+      {/* Degradado verde sobre el video, igual que el hero del sitio de referencia */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-brand-green/85 via-brand-green/25 via-45% to-black/25" />
 
       <div className="absolute bottom-16 md:bottom-20 left-4 md:left-12 text-white">
         <p className="text-xs md:text-sm tracking-widest mb-4 opacity-0 animate-fade-in">

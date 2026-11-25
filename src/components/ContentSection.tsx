@@ -14,7 +14,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   imageLeft = true
 }) => {
   return (
-    <section className="min-h-screen bg-white py-12 md:py-24">
+    <section className={`min-h-screen py-12 md:py-24 ${imageLeft ? 'bg-brand-green-dark' : 'bg-brand-green'}`}>
       <div className="container mx-auto px-4 md:px-8">
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
           imageLeft ? '' : 'md:flex-row-reverse'
